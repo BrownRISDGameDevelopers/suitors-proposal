@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvqmb4uwt8pci"]
+
+[ext_resource type="Texture2D" uid="uid://ew88eisutl66" path="res://icon.svg" id="1_myinc"]
+[ext_resource type="Script" uid="uid://degi62xoujb41" path="res://button.gd" id="2_njov2"]
+
+[node name="Test" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_right = 136.0
+offset_bottom = 136.0
+icon = ExtResource("1_myinc")
+script = ExtResource("2_njov2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
