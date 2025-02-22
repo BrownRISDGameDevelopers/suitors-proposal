@@ -1,8 +1,11 @@
 extends Button  # This script extends the Button node
 
+var i = 0
+
 # Called when the button is pressed
 func _on_button_pressed():
-	print("Button clicked!")
+	i += 1
+	print("Button clicked! %d" % i)
 
 # Connects the button's pressed signal when the script is ready
 func _ready():
