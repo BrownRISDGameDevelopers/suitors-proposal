@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://byy6ufy2a5hsj"]
+
+[ext_resource type="Texture2D" uid="uid://ew88eisutl66" path="res://icon.svg" id="1_glv2v"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uu6xs"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_uu6xs")
+texture = ExtResource("1_glv2v")
