@@ -2,7 +2,7 @@
 A Brown/RISD Game Developers production for Spring 2025.
 
 ## Technical Stack
-* **Engine:** Godot 4.4 beta 4
+* **Engine:** [Godot 4.4 beta 4](https://godotengine.org/article/dev-snapshot-godot-4-4-beta-4/#downloads)
 
 ## Project Setup
 1. Install Godot 4.4 beta 4 from the [Godot website](https://godotengine.org).
