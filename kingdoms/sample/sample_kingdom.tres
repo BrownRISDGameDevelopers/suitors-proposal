@@ -1,3 +1,7 @@
 [gd_resource type="PackedDataContainer" format=3 uid="uid://b7844l7mxkfoq"]
 
 [resource]
+metadata/population = 0
+metadata/military = 0
+metadata/morale = 0.0
+metadata/mana = 0.0
