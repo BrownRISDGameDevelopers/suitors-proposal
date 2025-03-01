@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bklqu500qoshd"]
 
-[ext_resource type="Texture2D" uid="uid://ew88eisutl66" path="res://icon.svg" id="1_i26rj"]
+[ext_resource type="Texture2D" uid="uid://ew88eisutl66" path="res://assets/icon.svg" id="1_yqorp"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -19,4 +19,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_i26rj")
+texture = ExtResource("1_yqorp")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 67.0
+offset_right = 262.0
+offset_bottom = 161.0
+bbcode_enabled = true
+text = "Main Menu"
+fit_content = true
