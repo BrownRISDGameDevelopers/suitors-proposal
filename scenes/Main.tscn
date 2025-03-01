@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://byy6ufy2a5hsj"]
+[gd_scene load_steps=3 format=3 uid="uid://byy6ufy2a5hsj"]
 
 [ext_resource type="Texture2D" uid="uid://ew88eisutl66" path="res://assets/icon.svg" id="1_elqb8"]
+[ext_resource type="Script" uid="uid://b2acxx3ucocca" path="res://scripts/main.gd" id="1_rvslj"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_rvslj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
