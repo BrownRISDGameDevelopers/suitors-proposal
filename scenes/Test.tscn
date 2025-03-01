@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvqmb4uwt8pci"]
 
-[ext_resource type="Texture2D" uid="uid://ew88eisutl66" path="res://icon.svg" id="1_myinc"]
-[ext_resource type="Script" uid="uid://degi62xoujb41" path="res://button.gd" id="2_njov2"]
+[ext_resource type="Texture2D" uid="uid://ew88eisutl66" path="res://assets/icon.svg" id="1_w8un3"]
+[ext_resource type="Script" uid="uid://degi62xoujb41" path="res://scripts/button.gd" id="2_0d6la"]
 
 [node name="Test" type="Node2D"]
 
@@ -34,7 +34,7 @@ offset_right = 68.0
 offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
-icon = ExtResource("1_myinc")
-script = ExtResource("2_njov2")
+icon = ExtResource("1_w8un3")
+script = ExtResource("2_0d6la")
 
 [node name="Camera2D" type="Camera2D" parent="."]
