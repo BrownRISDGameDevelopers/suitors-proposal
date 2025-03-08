@@ -19,3 +19,4 @@ boot_splash/name="suitors-proposal"
 [display]
 
 window/size/mode=4
+window/stretch/mode="viewport"
