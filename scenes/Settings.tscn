@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq4sqm6i3byjr"]
+
+[ext_resource type="Texture2D" uid="uid://cgl6d6q41wfwa" path="res://assets/resume.svg" id="1_i47rn"]
+[ext_resource type="Texture2D" uid="uid://cvko3srm223qj" path="res://assets/logout.svg" id="2_46duy"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SettingsLabel" type="Label" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Music" type="MarginContainer" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 12
+
+[node name="OptionsContainer" type="VBoxContainer" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer/Music"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer/Music/OptionsContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer/Music/OptionsContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="Resume" type="Button" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+icon = ExtResource("1_i47rn")
+expand_icon = true
+
+[node name="Quit Game" type="Button" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit Game"
+icon = ExtResource("2_46duy")
+expand_icon = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 2.4
+editor_only = false
