@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq4sqm6i3byjr"]
+[gd_scene load_steps=3 format=3 uid="uid://ecvsg2gcbcjt"]
 
 [ext_resource type="Texture2D" uid="uid://cgl6d6q41wfwa" path="res://assets/resume.svg" id="1_i47rn"]
 [ext_resource type="Texture2D" uid="uid://cvko3srm223qj" path="res://assets/logout.svg" id="2_46duy"]
@@ -71,13 +71,3 @@ layout_mode = 2
 text = "Quit Game"
 icon = ExtResource("2_46duy")
 expand_icon = true
-
-[node name="ReferenceRect" type="ReferenceRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-border_width = 2.4
-editor_only = false

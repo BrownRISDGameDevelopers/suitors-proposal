@@ -1,0 +1,8 @@
+[gd_resource type="PackedDataContainer" format=3 uid="uid://b4m17srlna473"]
+
+[resource]
+metadata/population = 1
+metadata/military = 2
+metadata/Morale = 3
+metadata/Resources = 4
+metadata/Mana = 6
