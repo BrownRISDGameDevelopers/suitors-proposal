@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cm41o7fivxvpf"]
+[gd_scene load_steps=2 format=3 uid="uid://ctniw1q75hrf1"]
+
+[ext_resource type="Script" uid="uid://3gxbee6qatoc" path="res://scripts/credits.gd" id="1_hi4w3"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_hi4w3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -49,7 +52,7 @@ offset_bottom = 415.0
 theme_override_font_sizes/font_size = 48
 text = "Artists"
 
-[node name="Button" type="Button" parent="ColorRect"]
+[node name="BackButton" type="Button" parent="ColorRect"]
 layout_mode = 0
 offset_left = 59.0
 offset_top = 959.0
@@ -57,3 +60,5 @@ offset_right = 278.0
 offset_bottom = 1032.0
 theme_override_font_sizes/font_size = 48
 text = "Back"
+
+[connection signal="pressed" from="ColorRect/BackButton" to="." method="_on_back_button_pressed"]
