@@ -1,5 +1,6 @@
 extends Node2D
 
+const SETTINGS = preload("res://scenes/Settings.tscn")
 const MAIN_MENU = preload("res://scenes/MainMenu.tscn")
 
 # Called when the node enters the scene tree for the first time.
@@ -8,11 +9,20 @@ func _ready() -> void:
 	# add_child(main_menu)
 	pass # Replace with function body.
 
+func testEsc():
+	if Input.is_action_just_pressed("Escape") and get_tree().paused == false:
+		pauseGame()
+	elif Input.is_action_just_pressed("Escape") and get_tree().paused == true:
+		pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	testEsc()
 
+func pauseGame() -> void:
+	var settingsScreen = SETTINGS.instantiate()
+	add_child(settingsScreen)
 
-func _on_button_pressed() -> void:
-	pass # Replace with function body.
+func _on_settings_button_pressed() -> void:
+	print("pres'd")
+	pauseGame()
