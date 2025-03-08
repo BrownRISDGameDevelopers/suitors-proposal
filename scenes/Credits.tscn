@@ -27,6 +27,7 @@ offset_top = 98.0
 offset_right = 735.0
 offset_bottom = 165.0
 grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
 text = "Credits"
 horizontal_alignment = 1
 
@@ -36,6 +37,7 @@ offset_left = 375.0
 offset_top = 340.0
 offset_right = 747.0
 offset_bottom = 407.0
+theme_override_font_sizes/font_size = 48
 text = "Programmers"
 
 [node name="ArtistsLabel" type="Label" parent="ColorRect"]
@@ -44,4 +46,14 @@ offset_left = 1039.0
 offset_top = 348.0
 offset_right = 1411.0
 offset_bottom = 415.0
+theme_override_font_sizes/font_size = 48
 text = "Artists"
+
+[node name="Button" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 959.0
+offset_right = 278.0
+offset_bottom = 1032.0
+theme_override_font_sizes/font_size = 48
+text = "Back"
