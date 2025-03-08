@@ -12,7 +12,5 @@ func _on_start_button_pressed():
 	# add_child(main)
 	pass
 
-
-
 func _on_quit_button_pressed() -> void:
 	get_tree().quit() # Replace with function body.
