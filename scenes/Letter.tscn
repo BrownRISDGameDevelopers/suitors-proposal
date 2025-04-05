@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsu6n43cfq06f"]
+
+[ext_resource type="Texture2D" uid="uid://c5bcxqb5mmg8g" path="res://assets/letters/bg.png" id="1_2t2cd"]
+[ext_resource type="Theme" uid="uid://bss4mnhq0fcwf" path="res://resources/themes/Letter.tres" id="2_65x1g"]
+
+[node name="Letter" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -520.5
+offset_right = 366.0
+offset_bottom = 520.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_65x1g")
+texture = ExtResource("1_2t2cd")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Greeting" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "asdasd"
+
+[node name="Content" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "I am the leader of _____
+I have long desired to establish trade between our two kingdoms. It is deeply unfortunate that I failed to achieve this with your late father, and dearly hope this is not out of line in lieu of your grieving period, but might I dare to feel a semblance of hope for the era a new throne might bring? With your bright mind and clear gaze, I am certain that you will be able to see my proposition with fresh eyes and have the clairvoyance to see its true potential.
+
+Furthermore, as a leader in the assembly it is of utmost importance that I am able to put my personal desires and prejudices aside to determine what is best for the people of my land — though you are young, I can see that same glint of wisdom and discernment within you. We are more alike than you might think, and together we would only grow stronger. I would be deeply honored if you would bestow upon me the privilege of guiding you through this period rife with uncertainty. 
+
+Imagine the strength and benevolence that could extend beyond the land. The Savanna Avians have just as much to offer as our urban, oasis counterparts; all we desire is that you give us a chance to prove that a trade alliance benefits may come to benefit us both. After all, despite our scattered population and meager resources, the textiles and food we have been able to sell are highly sought-after delicacies in your land. We both understand their value, and I am sure you too, wonder why the tariffs should remain high and your borders ever robust when those are now the practices of past generations?
+
+You may presume me to be an isolated barbarian, more bird than man, but even I have enough knowledge of foreign relations to know that you are not so harsh with your other neighbors. We are a good people. A happy people. If you accept my proposal, I know we could be great friends, and even better allies, mending the rift between our two great kingdoms. 
+"
+fit_content = true
+
+[node name="Signoff" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "With utmost respect and most ardent fervor, 
+His Majesty the Eternal King,
+Count Aldéric Sangvin "

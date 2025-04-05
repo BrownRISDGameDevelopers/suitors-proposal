@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Letter" load_steps=2 format=3 uid="uid://cn4lbybqnqs16"]
+
+[ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/resources/letter_resource.gd" id="1_als7s"]
+
+[resource]
+script = ExtResource("1_als7s")
+isProposal = false
+greeting = ""
+content = ""
+signoff = ""
+populationInfluence = 0
+manaInfluence = 0
+militaryInfluence = 0
+resourceInfluence = 0
+moraleInfluence = 0
+metadata/_custom_type_script = "uid://d2ngpxf76ukp7"

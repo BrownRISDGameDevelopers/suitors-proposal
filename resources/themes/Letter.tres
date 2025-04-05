@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bss4mnhq0fcwf"]
+
+[sub_resource type="SystemFont" id="SystemFont_et0r0"]
+font_names = PackedStringArray("Arial Black")
+
+[sub_resource type="SystemFont" id="SystemFont_i0rfn"]
+font_names = PackedStringArray("Times New Roman")
+
+[resource]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 18
+Label/fonts/font = SubResource("SystemFont_et0r0")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/font_sizes/normal_font_size = 22
+RichTextLabel/fonts/normal_font = SubResource("SystemFont_i0rfn")

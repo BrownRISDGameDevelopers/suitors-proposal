@@ -1,8 +1,0 @@
-[gd_resource type="PackedDataContainer" load_steps=0 format=3 uid="uid://b4i6g88uj075i"]
-
-[resource]
-metadata/population = 2
-metadata/military = 4
-metadata/Morale = 5
-metadata/Resources = 3
-metadata/Mana = 3
