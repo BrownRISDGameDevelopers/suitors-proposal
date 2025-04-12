@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsu6n43cfq06f"]
+[gd_scene load_steps=4 format=3 uid="uid://dsu6n43cfq06f"]
 
 [ext_resource type="Texture2D" uid="uid://c5bcxqb5mmg8g" path="res://assets/letters/bg.png" id="1_2t2cd"]
 [ext_resource type="Theme" uid="uid://bss4mnhq0fcwf" path="res://resources/themes/Letter.tres" id="2_65x1g"]
+[ext_resource type="Script" uid="uid://dgrewkgo17hkt" path="res://scenes/letter.gd" id="3_65x1g"]
 
 [node name="Letter" type="TextureRect"]
 anchors_preset = 8
@@ -18,6 +19,7 @@ grow_vertical = 2
 theme = ExtResource("2_65x1g")
 texture = ExtResource("1_2t2cd")
 expand_mode = 1
+script = ExtResource("3_65x1g")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
