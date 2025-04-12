@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b8iollf58huxn"]
+[gd_scene load_steps=9 format=3 uid="uid://b8iollf58huxn"]
 
 [ext_resource type="Texture2D" uid="uid://dbpb38yu8wl7r" path="res://assets/map.png" id="1_5hauk"]
 [ext_resource type="Texture2D" uid="uid://ew88eisutl66" path="res://assets/icon.svg" id="2_lajc7"]
@@ -6,8 +6,6 @@
 [ext_resource type="Resource" uid="uid://c2yol8dyhwt2t" path="res://resources/kingdoms/ForestKingdom.tres" id="4_tm3qm"]
 [ext_resource type="PackedScene" uid="uid://bkrvpxjak31id" path="res://scenes/Popup.tscn" id="5_yyirk"]
 [ext_resource type="Resource" uid="uid://cqga80ifaxij1" path="res://resources/kingdoms/CloudKingdom.tres" id="6_46d0c"]
-[ext_resource type="Resource" uid="uid://bahrmb7eqtk0t" path="res://resources/kingdoms/UndeadKingdom.tres" id="8_46d0c"]
-[ext_resource type="Resource" uid="uid://bc5qvfo24wa4t" path="res://resources/kingdoms/MountainKingdom.tres" id="8_d46yu"]
 [ext_resource type="Resource" uid="uid://b6h0r0aa3q2d3" path="res://resources/kingdoms/UnderwaterKingdom.tres" id="9_hit12"]
 [ext_resource type="Resource" uid="uid://1p3op32gjikr" path="res://resources/kingdoms/OurKingdom.tres" id="10_sdw7q"]
 
@@ -25,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_5hauk")
 
-[node name="Country1" type="TextureRect" parent="." node_paths=PackedStringArray("popup")]
+[node name="Country1" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 69.0
 offset_top = 105.0
@@ -34,9 +32,31 @@ offset_bottom = 261.0
 scale = Vector2(1.01003, 1)
 texture = ExtResource("2_lajc7")
 script = ExtResource("3_xkm8s")
-popup = NodePath("../CanvasLayer")
+kingdom = ExtResource("4_tm3qm")
 
-[node name="CanvasLayer" parent="." instance=ExtResource("5_yyirk")]
+[node name="Country2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1226.0
+offset_top = 320.0
+offset_right = 1354.0
+offset_bottom = 479.0
+scale = Vector2(1.01003, 1)
+texture = ExtResource("2_lajc7")
+script = ExtResource("3_xkm8s")
+kingdom = ExtResource("10_sdw7q")
+
+[node name="Country3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1517.0
+offset_top = 54.0
+offset_right = 1800.0
+offset_bottom = 472.0
+scale = Vector2(1.01003, 1)
+texture = ExtResource("2_lajc7")
+script = ExtResource("3_xkm8s")
+kingdom = ExtResource("9_hit12")
+
+[node name="Popup" parent="." instance=ExtResource("5_yyirk")]
 layout_mode = 1
 anchors_preset = 0
 anchor_left = 0.0
@@ -51,80 +71,11 @@ grow_horizontal = 1
 grow_vertical = 1
 kingdom = ExtResource("6_46d0c")
 
-[node name="CanvasLayer2" parent="." instance=ExtResource("5_yyirk")]
-layout_mode = 1
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 292.0
-offset_bottom = 158.0
-grow_horizontal = 1
-grow_vertical = 1
-kingdom = ExtResource("4_tm3qm")
-
-[node name="CanvasLayer3" parent="." instance=ExtResource("5_yyirk")]
-layout_mode = 1
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 292.0
-offset_bottom = 158.0
-grow_horizontal = 1
-grow_vertical = 1
-kingdom = ExtResource("8_d46yu")
-
-[node name="CanvasLayer4" parent="." instance=ExtResource("5_yyirk")]
-layout_mode = 1
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 292.0
-offset_bottom = 158.0
-grow_horizontal = 1
-grow_vertical = 1
-kingdom = ExtResource("8_46d0c")
-
-[node name="CanvasLayer5" parent="." instance=ExtResource("5_yyirk")]
-layout_mode = 1
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 292.0
-offset_bottom = 158.0
-grow_horizontal = 1
-grow_vertical = 1
-kingdom = ExtResource("9_hit12")
-
-[node name="CanvasLayer6" parent="." instance=ExtResource("5_yyirk")]
-layout_mode = 1
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 292.0
-offset_bottom = 158.0
-grow_horizontal = 1
-grow_vertical = 1
-kingdom = ExtResource("10_sdw7q")
-
 [connection signal="mouse_entered" from="Country1" to="Country1" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Country1" to="Country1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Country2" to="Country2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Country2" to="Country2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Country3" to="Country3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Country3" to="Country3" method="_on_mouse_exited"]
+[connection signal="hidden" from="Popup" to="Popup" method="_on_hidden"]
+[connection signal="visibility_changed" from="Popup" to="Popup" method="_on_visibility_changed"]

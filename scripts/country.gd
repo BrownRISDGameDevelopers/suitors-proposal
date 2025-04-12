@@ -1,6 +1,7 @@
 extends TextureRect
 
-@export var popup: CountryPopup = null
+@export var kingdom: Kingdom = null
+@onready var popup: CountryPopup = $"../Popup"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,6 +14,7 @@ func _process(delta: float) -> void:
 
 func _on_mouse_entered() -> void:
 	popup.show()
+	popup.kingdom = kingdom
 
 
 func _on_mouse_exited() -> void:

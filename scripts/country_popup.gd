@@ -2,12 +2,25 @@ extends VBoxContainer
 
 class_name CountryPopup
 
-@export var kingdom: Kingdom
+@export var kingdom: Kingdom:
+	set(value):
+		updateStats(value)
 
-var bars: Dictionary = {}
+var offset_x: bool = false
+var offset_y: bool = false
 
 # Called when the node enters the scene tree for the first time.
-func updateStats():
+func updateStats(new_kingdom: Kingdom):
+	%Header.text = new_kingdom.name
+	
+	var bars = {
+		"mana": {"node": %ManaBar, "value": new_kingdom.mana, "known": new_kingdom.manaKnown},
+		"morale": {"node": %MoraleBar, "value": new_kingdom.morale, "known": new_kingdom.moraleKnown},
+		"military": {"node": %MilitaryBar, "value": new_kingdom.military, "known": new_kingdom.militaryKnown},
+		"resource": {"node": %ResourceBar, "value": new_kingdom.resource, "known": new_kingdom.resourceKnown},
+		"population": {"node": %PopulationBar, "value": new_kingdom.population, "known": new_kingdom.populationKnown}
+	}
+	
 	for key in bars.keys():
 		var data = bars[key]
 		data["node"].visible = not data["known"]
@@ -15,30 +28,30 @@ func updateStats():
 			data["node"].value = data["value"]
 
 func _ready() -> void:
-	hide()
+	pass
 	
-	bars = {
-		"mana": {"node": %ManaBar, "value": kingdom.mana, "known": kingdom.manaKnown},
-		"morale": {"node": %MoraleBar, "value": kingdom.morale, "known": kingdom.moraleKnown},
-		"military": {"node": %MilitaryBar, "value": kingdom.military, "known": kingdom.militaryKnown},
-		"resource": {"node": %ResourceBar, "value": kingdom.resource, "known": kingdom.resourceKnown},
-		"population": {"node": %PopulationBar, "value": kingdom.population, "known": kingdom.populationKnown}
-	}
-	
-	%Header.text = kingdom.name
-	updateStats()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var mouse_pos = get_viewport().get_mouse_position()
 	# offset
-	mouse_pos -= Vector2(0, size.y)
+	var new_pos = mouse_pos - Vector2(0, size.y)
 	
-	print(mouse_pos)
-	
-	print(mouse_pos.y, size.y)
-	
-	if mouse_pos.y > size.y:
-		mouse_pos += Vector2(0, 2 * size.y)
-	
-	position = mouse_pos
+	if (size.y >= mouse_pos.y) or (offset_x):
+		offset_x = true
+		new_pos += Vector2(0, size.y)
+		
+	if ((size.x + mouse_pos.x) >= get_viewport_rect().size.x) or (offset_y):
+		offset_y = true
+		new_pos -= Vector2(size.x, 0)
+		
+	position = new_pos
+
+
+func _on_visibility_changed() -> void:
+	if visible:
+		set_process(true)
+	else	:
+		set_process(false)
+		offset_x = false
+		offset_y = false
