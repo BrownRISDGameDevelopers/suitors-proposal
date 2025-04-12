@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_1p57c")
-name = "Forst Kingdom"
+name = "Forest Kingdom"
 population = 0
 military = 0
 morale = 0

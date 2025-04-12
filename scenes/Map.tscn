@@ -1,13 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8iollf58huxn"]
+[gd_scene load_steps=6 format=3 uid="uid://b8iollf58huxn"]
 
 [ext_resource type="Texture2D" uid="uid://dbpb38yu8wl7r" path="res://assets/map.png" id="1_5hauk"]
-[ext_resource type="Texture2D" uid="uid://ew88eisutl66" path="res://assets/icon.svg" id="2_lajc7"]
+[ext_resource type="Texture2D" uid="uid://c638kdkfrsghx" path="res://assets/placeholder_settingsIcon.png" id="2_yyirk"]
 [ext_resource type="Script" uid="uid://pes8w55p45wn" path="res://scripts/country.gd" id="3_xkm8s"]
-[ext_resource type="Resource" uid="uid://c2yol8dyhwt2t" path="res://resources/kingdoms/ForestKingdom.tres" id="4_tm3qm"]
 [ext_resource type="PackedScene" uid="uid://bkrvpxjak31id" path="res://scenes/Popup.tscn" id="5_yyirk"]
 [ext_resource type="Resource" uid="uid://cqga80ifaxij1" path="res://resources/kingdoms/CloudKingdom.tres" id="6_46d0c"]
-[ext_resource type="Resource" uid="uid://b6h0r0aa3q2d3" path="res://resources/kingdoms/UnderwaterKingdom.tres" id="9_hit12"]
-[ext_resource type="Resource" uid="uid://1p3op32gjikr" path="res://resources/kingdoms/OurKingdom.tres" id="10_sdw7q"]
 
 [node name="Map" type="TextureRect"]
 anchors_preset = 8
@@ -23,40 +20,21 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_5hauk")
 
-[node name="Country1" type="TextureRect" parent="."]
+[node name="TextureButton" type="TextureButton" parent="."]
+z_index = 1
 layout_mode = 0
-offset_left = 69.0
-offset_top = 105.0
-offset_right = 513.0
-offset_bottom = 261.0
-scale = Vector2(1.01003, 1)
-texture = ExtResource("2_lajc7")
+offset_left = 75.0
+offset_top = 70.0
+offset_right = 595.0
+offset_bottom = 270.0
+texture_normal = ExtResource("2_yyirk")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("3_xkm8s")
-kingdom = ExtResource("4_tm3qm")
-
-[node name="Country2" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 1226.0
-offset_top = 320.0
-offset_right = 1354.0
-offset_bottom = 479.0
-scale = Vector2(1.01003, 1)
-texture = ExtResource("2_lajc7")
-script = ExtResource("3_xkm8s")
-kingdom = ExtResource("10_sdw7q")
-
-[node name="Country3" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 1517.0
-offset_top = 54.0
-offset_right = 1800.0
-offset_bottom = 472.0
-scale = Vector2(1.01003, 1)
-texture = ExtResource("2_lajc7")
-script = ExtResource("3_xkm8s")
-kingdom = ExtResource("9_hit12")
+kingdom = ExtResource("6_46d0c")
 
 [node name="Popup" parent="." instance=ExtResource("5_yyirk")]
+z_index = 2
 layout_mode = 1
 anchors_preset = 0
 anchor_left = 0.0
@@ -71,11 +49,7 @@ grow_horizontal = 1
 grow_vertical = 1
 kingdom = ExtResource("6_46d0c")
 
-[connection signal="mouse_entered" from="Country1" to="Country1" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Country1" to="Country1" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="Country2" to="Country2" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Country2" to="Country2" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="Country3" to="Country3" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Country3" to="Country3" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="TextureButton" to="TextureButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="TextureButton" method="_on_mouse_exited"]
 [connection signal="hidden" from="Popup" to="Popup" method="_on_hidden"]
 [connection signal="visibility_changed" from="Popup" to="Popup" method="_on_visibility_changed"]
