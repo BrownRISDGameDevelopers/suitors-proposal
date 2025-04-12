@@ -1,15 +1,10 @@
-[gd_resource type="Resource" script_class="Letter" load_steps=2 format=3 uid="uid://cfx6oec2ovj11"]
+[gd_resource type="Resource" script_class="LetterResource" load_steps=2 format=3 uid="uid://cfx6oec2ovj11"]
 
 [ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/resources/letter_resource.gd" id="1_16uwy"]
 
 [resource]
 script = ExtResource("1_16uwy")
-isProposal = false
+is_proposal = false
 greeting = ""
 content = ""
 signoff = ""
-populationInfluence = 6
-manaInfluence = 0
-militaryInfluence = 0
-resourceInfluence = 0
-moraleInfluence = 0

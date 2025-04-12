@@ -17,3 +17,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Letter" parent="." instance=ExtResource("2_yqjtg")]
+offset_left = -558.0
+offset_top = -369.0
+offset_right = 608.0
+offset_bottom = 1289.0
