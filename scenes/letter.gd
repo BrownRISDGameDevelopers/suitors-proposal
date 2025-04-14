@@ -1,38 +1,53 @@
 extends TextureRect
 
-@onready var panel = $Panel
+@onready var letter: TextureRect = $"."
+
 @onready var greeting: Label = $MarginContainer/VBoxContainer/Greeting
 @onready var content: RichTextLabel = $MarginContainer/VBoxContainer/Content
 @onready var signoff: Label = $MarginContainer/VBoxContainer/Signoff
+
+@onready var suitor_portrait: TextureRect = $SuitorPortrait
+
+
+
 const LETTER_1 = preload("res://resources/letters/Letter1.tres")
 func _ready():
-	generate_content("spring", LETTER_1)
+	_generate_content("summer", LETTER_1)
 
-func generate_content(season: String, letter_resource: LetterResource) -> void:
+## Generates content of letter based on entered season and letter resource file.
+
+## Parameters: season - String representing string, should only be "spring", "summer",
+##                      "winter", or "fall"
+##             letter_resource - LetterResource object representing letter that should
+##                               be generated
+
+func _generate_content(season: String, letter_resource: LetterResource) -> void:
+
+	greeting.text = letter_resource.greeting
+	signoff.text = letter_resource.signoff
 	
+	# If it is a proposal, generate the portrait and shift positions of objects!
 	if letter_resource.is_proposal:
+		
+		var letter_position = letter.position
+		var portrait_position = suitor_portrait.position
+		
+		suitor_portrait.texture = letter_resource.portrait
+		letter.set_position(letter_position + Vector2(-225, 0)) # Need to find out what Vector2 shift will center this!
+		suitor_portrait.set_position(portrait_position + Vector2(600, -150))
+		
 		if season == "summer":
-			greeting.text = letter_resource.greeting
 			content.text = letter_resource.summerVersion
-			signoff.text = letter_resource.signoff
 			
 		elif season == "fall":
-			greeting.text = letter_resource.greeting
 			content.text = letter_resource.fallVersion
-			signoff.text = letter_resource.signoff
 			
 		elif season == "winter":
-			greeting.text = letter_resource.greeting
 			content.text = letter_resource.winterVersion
-			signoff.text = letter_resource.signoff
 			
 		elif season == "spring":
-			greeting.text = letter_resource.greeting
 			content.text = letter_resource.springVersion
-			signoff.text = letter_resource.signoff
 			
 	else:
-		greeting.text = letter_resource.greeting
 		content.text = letter_resource.regularContent
-		signoff.text = letter_resource.signoff
 		
