@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dwpg2lf8mqr2c"]
 
 [ext_resource type="Texture2D" uid="uid://bdna0r2esnehs" path="res://assets/placeholder_background.png" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://dsu6n43cfq06f" path="res://scenes/Letter.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://dsu6n43cfq06f" path="res://scenes/SuitorLetter.tscn" id="2_yqjtg"]
 
 [node name="Game" type="Node2D"]
 

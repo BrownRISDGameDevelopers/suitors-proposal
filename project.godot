@@ -23,6 +23,15 @@ window/size/viewport_height=1080
 window/size/mode=4
 window/stretch/mode="viewport"
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://resources/": "blue",
+"res://scenes/": "teal",
+"res://scripts/": "orange"
+}
+
 [input]
 
 Escape={

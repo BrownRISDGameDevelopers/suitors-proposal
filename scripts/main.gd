@@ -6,54 +6,65 @@ const MAIN_MENU = preload("res://scenes/MainMenu.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
+#                       ====== GENERATE LETTERS ======
+
+var summer = "summer"
+var fall = "fall"
+var winter = "winter"
+var spring = "spring"
+
+var letter_list = {summer: [], fall: [], winter: [], spring: []}
+var seasons = [summer, fall, winter, spring] # empty this out until empty, then check if empty: do something?
+
+## Generates a list of 10 letters based on the current season.
+
+## Parameters: season - one of the seasons (must be sum, fall, wint, or spring ONLY)
+## Returns: Array of randomized letters.
+
+func _generate_letter_list(season) -> Array:
+	# pseudo code:
+	# check season:
+	# if "season" 
+	return []
 
 #                       ====== BUTTON FUNCTIONS / SCENE SWITCHING ======
 
+# Checks if the map button has been pressed, and loads the map screen if true.
 func _on_map_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/Map.tscn")
+	var map_scene = preload("res://scenes/Map.tscn").instantiete()
+	var ui: CanvasLayer = $UI
+	ui.add_child(map_scene)
 
+# Checks if the letter button has been pressed, and loads the letter screen if true.
 func _on_letters_button_pressed() -> void:
-	var letter_scene = preload("res://scenes/Letter.tscn").instantiate()
+	var letter_scene = preload("res://scenes/SuitorLetter.tscn").instantiate()
 	var ui: CanvasLayer = $UI
 	ui.add_child(letter_scene)
 
 #                       ====== ANIMATIONS ======
 
-var tween
-# Hover function for all items on desk.
-func _hover_on(sprite) -> void:
-	tween = create_tween()
-	var button_location = sprite.position()
-	# tween.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(sprite, "position", button_location + Vector2(0, 50),  1)
+@onready var map_button: TextureButton = %MapButton
+@onready var letters_button: TextureButton = %LettersButton
 
-func _hover_off() -> void:
-	if tween and tween.is_running():
-		tween.kill()
+# Hover function for all items on desk, simply moves it up a few pixels!
+func _hover_on(sprite, pos) -> void:
+	sprite.set_position(pos + Vector2(0, -20))
 
-func _on_map_button_mouse_entered() -> void:
-	var map_button = %MapButton
-	_hover_on(map_button) # Replace with function body.
+# Hover off function for all items on desk, simply moves it down a few pixels!
+func _hover_off(sprite, pos) -> void:
+	sprite.set_position(pos - Vector2(0, -20))
+
+# Map Hover
+func _on_map_button_mouse_entered() -> String:
+	_hover_on(map_button, map_button.position)
+	return "hovered"# Replace with function body.
 
 func _on_map_button_mouse_exited() -> void:
-	_hover_off()
+	_hover_off(map_button, map_button.position)
 
+# Letter Hover
+func _on_letters_button_mouse_entered() -> void:
+	_hover_on(letters_button, letters_button.position)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-	#testEsc()
-#
-#func pauseGame() -> void:
-	#var settingsScreen = SETTINGS.instantiate()
-	#add_child(settingsScreen)
-
-#func testEsc():
-	#if Input.is_action_just_pressed("Escape") and get_tree().paused == false:
-		#pauseGame()
-	#elif Input.is_action_just_pressed("Escape") and get_tree().paused == true:
-		#pass
-
-#func _on_settings_button_pressed() -> void:
-	#print("pres'd")
-	#pauseGame()
+func _on_letters_button_mouse_exited() -> void:
+	_hover_off(letters_button, letters_button.position)

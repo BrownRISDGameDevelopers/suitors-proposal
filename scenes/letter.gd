@@ -1,17 +1,38 @@
 extends TextureRect
 
 @onready var panel = $Panel
-@onready var tween = $Tween
-
+@onready var greeting: Label = $MarginContainer/VBoxContainer/Greeting
+@onready var content: RichTextLabel = $MarginContainer/VBoxContainer/Content
+@onready var signoff: Label = $MarginContainer/VBoxContainer/Signoff
+const LETTER_1 = preload("res://resources/letters/Letter1.tres")
 func _ready():
-	# Start with the panel below the screen
-	var start_pos = Vector2((get_viewport().size.x - panel.size.x) / 2, get_viewport().size.y + 50)
-	var target_pos = Vector2((get_viewport().size.x - panel.size.x) / 2, (get_viewport().size.y - panel.size.y) / 2)
+	generate_content("spring", LETTER_1)
 
-	panel.position = start_pos
-
-	# Animate to center
-	tween.tween_property(panel, "position", target_pos, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-
-func _on_Button_pressed():
-	queue_free()
+func generate_content(season: String, letter_resource: LetterResource) -> void:
+	
+	if letter_resource.is_proposal:
+		if season == "summer":
+			greeting.text = letter_resource.greeting
+			content.text = letter_resource.summerVersion
+			signoff.text = letter_resource.signoff
+			
+		elif season == "fall":
+			greeting.text = letter_resource.greeting
+			content.text = letter_resource.fallVersion
+			signoff.text = letter_resource.signoff
+			
+		elif season == "winter":
+			greeting.text = letter_resource.greeting
+			content.text = letter_resource.winterVersion
+			signoff.text = letter_resource.signoff
+			
+		elif season == "spring":
+			greeting.text = letter_resource.greeting
+			content.text = letter_resource.springVersion
+			signoff.text = letter_resource.signoff
+			
+	else:
+		greeting.text = letter_resource.greeting
+		content.text = letter_resource.regularContent
+		signoff.text = letter_resource.signoff
+		

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://byy6ufy2a5hsj"]
+[gd_scene load_steps=6 format=3 uid="uid://byy6ufy2a5hsj"]
 
 [ext_resource type="Script" uid="uid://b2acxx3ucocca" path="res://scripts/main.gd" id="1_rvslj"]
 [ext_resource type="Texture2D" uid="uid://bdna0r2esnehs" path="res://assets/placeholder_background.png" id="2_rvslj"]
+[ext_resource type="Theme" uid="uid://wa35wbgfv50n" path="res://resources/themes/Buttons.tres" id="4_c01mt"]
 [ext_resource type="Texture2D" uid="uid://c638kdkfrsghx" path="res://assets/placeholder_settingsIcon.png" id="4_rarhs"]
 [ext_resource type="Texture2D" uid="uid://ew88eisutl66" path="res://assets/icon.svg" id="4_vcsgt"]
 
@@ -38,14 +39,17 @@ offset_left = -694.0
 offset_top = 147.0
 offset_right = -566.0
 offset_bottom = 275.0
+theme = ExtResource("4_c01mt")
 texture_normal = ExtResource("4_vcsgt")
 
 [node name="LettersButton" type="TextureButton" parent="."]
+unique_name_in_owner = true
 offset_left = -133.0
 offset_top = 74.0
 offset_right = -5.0
 offset_bottom = 202.0
 scale = Vector2(2, 2)
+theme = ExtResource("4_c01mt")
 texture_normal = ExtResource("4_vcsgt")
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -54,4 +58,6 @@ texture_normal = ExtResource("4_vcsgt")
 [connection signal="mouse_entered" from="MapButton" to="." method="_on_map_button_mouse_entered"]
 [connection signal="mouse_exited" from="MapButton" to="." method="_on_map_button_mouse_exited"]
 [connection signal="pressed" from="MapButton" to="." method="_on_map_button_pressed"]
+[connection signal="mouse_entered" from="LettersButton" to="." method="_on_letters_button_mouse_entered"]
+[connection signal="mouse_exited" from="LettersButton" to="." method="_on_letters_button_mouse_exited"]
 [connection signal="pressed" from="LettersButton" to="." method="_on_letters_button_pressed"]
