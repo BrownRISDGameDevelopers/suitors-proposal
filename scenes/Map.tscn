@@ -1,12 +1,185 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8iollf58huxn"]
+[gd_scene load_steps=20 format=3 uid="uid://b8iollf58huxn"]
 
-[ext_resource type="Texture2D" uid="uid://dbpb38yu8wl7r" path="res://assets/map.png" id="1_5hauk"]
-[ext_resource type="Texture2D" uid="uid://c638kdkfrsghx" path="res://assets/placeholder_settingsIcon.png" id="2_yyirk"]
+[ext_resource type="Texture2D" uid="uid://l3uxn3gvdvnn" path="res://assets/kingdoms/map.png" id="1_yyirk"]
+[ext_resource type="Texture2D" uid="uid://ckfavv68i1ugj" path="res://assets/kingdoms/Mountain.png" id="2_41ykk"]
+[ext_resource type="Material" uid="uid://ef7dgc3nfapr" path="res://assets/shaders/outline.tres" id="2_u4fdk"]
 [ext_resource type="Script" uid="uid://pes8w55p45wn" path="res://scripts/country.gd" id="3_xkm8s"]
+[ext_resource type="Resource" uid="uid://bc5qvfo24wa4t" path="res://resources/kingdoms/MountainKingdom.tres" id="4_pgwcf"]
+[ext_resource type="Texture2D" uid="uid://brpoc0bhwiqas" path="res://assets/kingdoms/Cloud.png" id="5_46d0c"]
+[ext_resource type="Texture2D" uid="uid://cwo1xp5n5h2ow" path="res://assets/kingdoms/trimmed/trimmed_Cloud.png" id="5_sxh8t"]
 [ext_resource type="PackedScene" uid="uid://bkrvpxjak31id" path="res://scenes/Popup.tscn" id="5_yyirk"]
 [ext_resource type="Resource" uid="uid://cqga80ifaxij1" path="res://resources/kingdoms/CloudKingdom.tres" id="6_46d0c"]
+[ext_resource type="Texture2D" uid="uid://wcojt0quoyg5" path="res://assets/kingdoms/Trees.png" id="6_d46yu"]
+[ext_resource type="Texture2D" uid="uid://dgimv1u2ltfki" path="res://assets/kingdoms/undead.png" id="7_hit12"]
+[ext_resource type="Resource" uid="uid://c2yol8dyhwt2t" path="res://resources/kingdoms/ForestKingdom.tres" id="8_djx7b"]
+[ext_resource type="Texture2D" uid="uid://bh144dh05cf6y" path="res://assets/kingdoms/Ocean.png" id="8_sdw7q"]
+[ext_resource type="Texture2D" uid="uid://birqqrnm1dfor" path="res://assets/kingdoms/Home.png" id="9_pgwcf"]
+[ext_resource type="Resource" uid="uid://bahrmb7eqtk0t" path="res://resources/kingdoms/UndeadKingdom.tres" id="10_sxh8t"]
+[ext_resource type="Resource" uid="uid://b6h0r0aa3q2d3" path="res://resources/kingdoms/UnderwaterKingdom.tres" id="12_djx7b"]
+[ext_resource type="Resource" uid="uid://1p3op32gjikr" path="res://resources/kingdoms/OurKingdom.tres" id="13_u4fdk"]
+
+[sub_resource type="Shader" id="Shader_u4fdk"]
+code = "shader_type canvas_item;
+
+uniform bool enabled = false;
+// The texture to scroll with.
+uniform sampler2D scrollingTexture: hint_default_white;
+// The scroll texture scale.
+uniform vec2 textureScale = vec2(1.0);
+// Angle to scroll towards. In degrees. Starts at the right.
+uniform float angle: hint_range(0.0, 360.0) = 45.0;
+// Speed to scroll at.
+uniform float textureSpeed: hint_range(-10.0, 10.0) = 0.1;
+// Strength of the texture over the color.
+uniform float textureStrength: hint_range(0.0, 1.0) = 0.5;
+// Max distance from texture.
+uniform float maxLineWidth: hint_range(0.0, 100.0) = 10.0;
+// Min distance from texture.
+uniform float minLineWidth: hint_range(0.0, 100.0) = 5.0;
+// How often to recompute the outline.
+uniform float speed: hint_range(0.0, 10.0) = 1.0;
+// How big the outline blotches are.
+uniform float blockSize: hint_range(0.001, 100.0) = 20.0;
+// The outline color. GradientTexture1D is recommended.
+uniform sampler2D color: source_color;
+// The resolution for the gradient. Higher numbers will result in smoother but more expensive passes.
+uniform int gradientResolution: hint_range(1, 30) = 10;
+// Used to compensate for alpha values.
+uniform float tolerance: hint_range(0.0, 0.999) = 0.0;
+
+
+// Compensate UV for outline.
+void vertex() {
+	VERTEX = vec2(VERTEX.x * (1.0 + TEXTURE_PIXEL_SIZE.x * max(maxLineWidth, minLineWidth) * 2.0), VERTEX.y * (1.0 + TEXTURE_PIXEL_SIZE.y * max(maxLineWidth, minLineWidth) * 2.0));
+}
+
+// Checks a fragment for the edge of an uv.
+bool border(vec2 uv) {
+	vec2 uvBorder = abs(uv - vec2(0.5));
+	return max(step(0.5, uvBorder.x), step(0.5, uvBorder.y)) > 0.0;
+}
+
+// Gets alpha of given fragment if not near the edge.
+float get_alpha(sampler2D tex, vec2 uv){
+	float res = 0.0;
+	if (!border(uv)) {
+		res = texture(tex, uv).a;
+	}
+	return res;
+}
+
+// Pseudorandom number
+float hash(vec2 p, float s) {
+	return fract(35.1 * sin(dot(vec3(112.3, 459.2, 753.2), vec3(p, s))));
+}
+
+// Noise function.
+float noise(vec2 p, float s) {
+	vec2 d = vec2(0, 1);
+	vec2 b = floor(p);
+	vec2 f = fract(p);
+	return mix(
+		mix(hash(b + d.xx, s), hash(b + d.yx, s), f.x),
+		mix(hash(b + d.xy, s), hash(b + d.yy, s), f.x), f.y);
+}
+
+// Randomize line width at fragment.
+float get_line_width(vec2 p, float s) {
+	p /= blockSize;
+	float w = 0.0;
+	float intensity = 1.0;
+	for (int i = 0; i < 3; i++) {
+		w = mix(w, noise(p, s), intensity);
+		p /= 2.0;
+		intensity /= 2.0;
+	}
+
+	return mix(maxLineWidth, minLineWidth, w);
+}
+
+// Checks for neighboring pixels.
+float compute_outline(vec2 size, sampler2D tex, vec2 uv) {
+	float res = 0.0;
+	for (float i = -1.0; i < 2.0; i += 2.0) {
+		res += get_alpha(tex, uv + vec2(i * size.x, 0.0));
+		res += get_alpha(tex, uv + vec2(0.0, i * size.y));
+		for (float j = -1.0; j < 2.0; j += 2.0) {
+			res += get_alpha(tex, uv + vec2(i * size.x, j * size.y));
+			res += get_alpha(tex, uv + vec2(i * size.x, j * size.y * 0.5));
+		}
+	}
+	return res;
+}
+
+// Checks for neighboring pixels.
+bool in_range(vec2 size, sampler2D tex, vec2 uv) {
+	for (float i = -1.0; i < 2.0; i += 2.0) {
+		if (get_alpha(tex, uv + vec2(i * size.x, 0.0)) > 0.0) {return true;};
+		if (get_alpha(tex, uv + vec2(0.0, i * size.y)) > 0.0) {return true;};
+		for (float j = -1.0; j < 2.0; j += 2.0) {
+			if (get_alpha(tex, uv + vec2(i * size.x, j * size.y)) > 0.0) {return true;};
+			if (get_alpha(tex, uv + vec2(i * size.x, j * size.y * 0.5)) > 0.0) {return true;};
+		}
+	}
+	return false;
+}
+
+// Get's closes pixel.
+float get_distance(vec2 maxDistance, sampler2D tex, vec2 uv) {
+	for (int i = 1; i < gradientResolution; i++) {
+		vec2 actualDistance = float(i) / float (gradientResolution) * maxDistance;
+		if (in_range(actualDistance, tex, uv)) {
+			return float(i) / float (gradientResolution);
+		}
+	}
+}
+
+void fragment() {
+	if (max(maxLineWidth, minLineWidth) > 0.0 && enabled) {
+		// Correct image size to for outline in frame.
+		vec2 uv = UV;
+		uv -= vec2(0.5);
+		vec2 edge = TEXTURE_PIXEL_SIZE * max(maxLineWidth, minLineWidth) * 2.0;
+		uv = uv + uv * edge;
+		uv += vec2(0.5);
+
+		// Apply outline.
+		vec4 newColor = texture(TEXTURE, uv);
+		if (newColor.a <= tolerance || border(uv)) {
+			// Correct angle to start at right and convert to radians.
+			float radiansAngle = radians(angle + 180.0);
+			// Make a vector out of the angle.
+			vec2 vector = vec2(cos(radiansAngle), sin(radiansAngle));
+			float timeStep = floor(TIME * speed);
+			vec2 size = TEXTURE_PIXEL_SIZE;
+			size *= get_line_width(uv / TEXTURE_PIXEL_SIZE, timeStep);
+			vec4 textureColor = texture(scrollingTexture, fract(UV / textureScale + vector * textureSpeed * TIME));
+			vec4 actualColor = texture(color, vec2(get_distance(edge / 2.0 + 0.01, TEXTURE, uv)));
+			vec4 finalColor = step(1.0 - tolerance, in_range(size, TEXTURE, uv) ? 1.0: 0.0) * mix(actualColor, textureColor, textureStrength);
+			newColor = finalColor;
+		}
+		COLOR = newColor;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_08blb"]
+shader = SubResource("Shader_u4fdk")
+shader_parameter/enabled = false
+shader_parameter/textureScale = Vector2(1, 1)
+shader_parameter/angle = 45.0
+shader_parameter/textureSpeed = 0.1
+shader_parameter/textureStrength = 0.5
+shader_parameter/maxLineWidth = 3.0
+shader_parameter/minLineWidth = 0.0
+shader_parameter/speed = 10.0
+shader_parameter/blockSize = 20.0
+shader_parameter/color = ExtResource("5_sxh8t")
+shader_parameter/gradientResolution = 10
+shader_parameter/tolerance = 0.999
 
 [node name="Map" type="TextureRect"]
+self_modulate = Color(1, 1, 1, 0.415686)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -18,23 +191,98 @@ offset_right = 960.0
 offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_5hauk")
+texture = ExtResource("1_yyirk")
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="Mountain" type="TextureButton" parent="."]
 z_index = 1
-layout_mode = 0
-offset_left = 75.0
-offset_top = 70.0
-offset_right = 595.0
-offset_bottom = 270.0
-texture_normal = ExtResource("2_yyirk")
+material = ExtResource("2_u4fdk")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(390, 217)
+texture_normal = ExtResource("2_41ykk")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_xkm8s")
+kingdom = ExtResource("4_pgwcf")
+
+[node name="Cloud" type="TextureButton" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_08blb")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(368, 313)
+texture_normal = ExtResource("5_46d0c")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_xkm8s")
 kingdom = ExtResource("6_46d0c")
 
+[node name="Forest" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6_d46yu")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_xkm8s")
+kingdom = ExtResource("8_djx7b")
+
+[node name="Undead" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("7_hit12")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_xkm8s")
+kingdom = ExtResource("10_sxh8t")
+
+[node name="Underwater" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("8_sdw7q")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_xkm8s")
+kingdom = ExtResource("12_djx7b")
+
+[node name="Home" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("9_pgwcf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_xkm8s")
+kingdom = ExtResource("13_u4fdk")
+
 [node name="Popup" parent="." instance=ExtResource("5_yyirk")]
-z_index = 2
+z_index = 3
 layout_mode = 1
 anchors_preset = 0
 anchor_left = 0.0
@@ -49,7 +297,17 @@ grow_horizontal = 1
 grow_vertical = 1
 kingdom = ExtResource("6_46d0c")
 
-[connection signal="mouse_entered" from="TextureButton" to="TextureButton" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="TextureButton" to="TextureButton" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Mountain" to="Mountain" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Mountain" to="Mountain" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Cloud" to="Cloud" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Cloud" to="Cloud" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Forest" to="Forest" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Forest" to="Forest" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Undead" to="Undead" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Undead" to="Undead" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Underwater" to="Underwater" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Underwater" to="Underwater" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Home" to="Home" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Home" to="Home" method="_on_mouse_exited"]
 [connection signal="hidden" from="Popup" to="Popup" method="_on_hidden"]
 [connection signal="visibility_changed" from="Popup" to="Popup" method="_on_visibility_changed"]
