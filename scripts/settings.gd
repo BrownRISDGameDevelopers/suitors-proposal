@@ -14,11 +14,10 @@ func resume():
 	#blur_animation.animation_finished.connect(func():
 		#queue_free())
 
-
 func _on_resume_pressed() -> void:
 	resume()
 
 func _on_quit_game_pressed() -> void:
-	# are you sure you want to quit?
-	# return to main menu
+	print("are you sure you want to quit?")
+	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
 	pass
