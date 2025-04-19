@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bkrvpxjak31id"]
 
-[ext_resource type="Script" uid="uid://cg4amap6lr7uy" path="res://scripts/country_popup.gd" id="1_4c2u4"]
+[ext_resource type="Script" uid="uid://cg4amap6lr7uy" path="res://scripts/stats_popup.gd" id="1_4c2u4"]
 
 [node name="VBoxContainer" type="VBoxContainer"]
 anchors_preset = 8
