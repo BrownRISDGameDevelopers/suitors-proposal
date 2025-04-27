@@ -1,6 +1,6 @@
 extends TextureButton
 
-class_name DeskInteractable
+class_name BitmaskedTextureButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

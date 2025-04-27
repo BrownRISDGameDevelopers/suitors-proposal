@@ -1,6 +1,6 @@
 extends Node2D
 
-const SETTINGS = preload("res://scenes/Settings.tscn")
+#const SETTINGS = preload("res://scenes/Settings.tscn")
 const MAIN_MENU = preload("res://scenes/MainMenu.tscn")
 const LETTER_SCENE = preload("res://scenes/Letter.tscn")
 const MAP = preload("res://scenes/Map.tscn")
@@ -98,7 +98,7 @@ func _close_current_letter() -> void:
 ##                     [blank]_LETTERS_[STATIC/HOVER] - sprite that shows MANY, MIDDLE, FEW
 ##                                                      amount of letters
 
-@onready var letters_stack: DeskInteractable = $LettersStack
+@onready var letters_stack: BitmaskedTextureButton = $LettersStack
 const MANY_LETTERS_HOVER = preload("res://assets/desk/Many letters hover.PNG")
 const MANY_LETTERS_STATIC = preload("res://assets/desk/Many letters static.PNG")
 const MIDDLE_LETTERS_HOVER = preload("res://assets/desk/Middle letters hover.PNG")

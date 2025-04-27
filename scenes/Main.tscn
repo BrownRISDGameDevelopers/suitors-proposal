@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b147324itffqj" path="res://assets/desk/Many letters static.PNG" id="3_jlsqs"]
 [ext_resource type="Texture2D" uid="uid://cb0i68purafic" path="res://assets/desk/Many letters hover.PNG" id="4_q8u5g"]
 [ext_resource type="Texture2D" uid="uid://0qtknnigfy6s" path="res://assets/desk/Newspaper hover.PNG" id="4_qmy6f"]
-[ext_resource type="Script" uid="uid://ci0ql7v1ltnwn" path="res://scripts/resources/desk_interactable.gd" id="5_lhr70"]
+[ext_resource type="Script" uid="uid://ci0ql7v1ltnwn" path="res://scripts/resources/bitmasked_texture_button.gd" id="5_lhr70"]
 [ext_resource type="Texture2D" uid="uid://cymg1eq0fl82u" path="res://assets/desk/Desk base png.PNG" id="5_vcsgt"]
 [ext_resource type="Texture2D" uid="uid://bac0msyo3xrl0" path="res://assets/desk/Map static.png" id="6_lhr70"]
 [ext_resource type="Texture2D" uid="uid://cxbwhc3oinhcu" path="res://assets/desk/Map hover.PNG" id="7_wp0k4"]
