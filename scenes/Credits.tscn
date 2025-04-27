@@ -1,64 +1,98 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctniw1q75hrf1"]
+[gd_scene load_steps=5 format=3 uid="uid://chybqn6kunvsm"]
 
-[ext_resource type="Script" uid="uid://3gxbee6qatoc" path="res://scripts/credits.gd" id="1_hi4w3"]
+[ext_resource type="Texture2D" uid="uid://cpave1x8ihm1u" path="res://assets/main_menu/credits/scrollbg.png" id="1_y8nor"]
+[ext_resource type="Texture2D" uid="uid://bgpb5w8rwqnpf" path="res://assets/main_menu/credits/CreditsLettering.png" id="2_al82v"]
+[ext_resource type="Texture2D" uid="uid://dr6cbix7dwigr" path="res://assets/main_menu/credits/CreditsCornerDetailing.png" id="3_tlwrt"]
+[ext_resource type="FontFile" uid="uid://dxtdgrovxy3yh" path="res://assets/fonts/blackchancery/BLKCHCRY.TTF" id="4_g618n"]
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_hi4w3")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.557272, 0.291298, 0.541183, 1)
-
-[node name="ProducersLabel" type="Label" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 5
+[node name="CreditsScroll" type="TextureRect"]
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -735.0
-offset_top = 98.0
-offset_right = 735.0
-offset_bottom = 165.0
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 48
-text = "Credits"
-horizontal_alignment = 1
+grow_vertical = 2
+texture = ExtResource("1_y8nor")
 
-[node name="ProgrammersLabel" type="Label" parent="ColorRect"]
+[node name="Lettering" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 375.0
-offset_top = 340.0
-offset_right = 747.0
-offset_bottom = 407.0
-theme_override_font_sizes/font_size = 48
-text = "Programmers"
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_al82v")
 
-[node name="ArtistsLabel" type="Label" parent="ColorRect"]
+[node name="CornerDetails" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 1039.0
-offset_top = 348.0
-offset_right = 1411.0
-offset_bottom = 415.0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_tlwrt")
+
+[node name="CornerDetails2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_tlwrt")
+flip_v = true
+
+[node name="CornerDetails3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_tlwrt")
+flip_h = true
+
+[node name="ProducerLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 472.0
+offset_right = 698.0
+offset_bottom = 533.0
+theme_override_colors/font_color = Color(0.698039, 0.470588, 0.109804, 1)
+theme_override_colors/font_outline_color = Color(0.537255, 0.156863, 0.054902, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("4_g618n")
+theme_override_font_sizes/font_size = 48
+text = "Producers"
+
+[node name="ProgrammersLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 799.0
+offset_top = 203.0
+offset_right = 1246.0
+offset_bottom = 264.0
+theme_override_colors/font_color = Color(0.698039, 0.470588, 0.109804, 1)
+theme_override_colors/font_outline_color = Color(0.537255, 0.156863, 0.054902, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("4_g618n")
+theme_override_font_sizes/font_size = 48
+text = "Producers"
+
+[node name="WritersLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 799.0
+offset_top = 470.0
+offset_right = 1246.0
+offset_bottom = 531.0
+theme_override_colors/font_color = Color(0.698039, 0.470588, 0.109804, 1)
+theme_override_colors/font_outline_color = Color(0.537255, 0.156863, 0.054902, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("4_g618n")
+theme_override_font_sizes/font_size = 48
+text = "Writers"
+
+[node name="ArtistsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1237.0
+offset_top = 203.0
+offset_right = 1684.0
+offset_bottom = 264.0
+theme_override_colors/font_color = Color(0.698039, 0.470588, 0.109804, 1)
+theme_override_colors/font_outline_color = Color(0.537255, 0.156863, 0.054902, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("4_g618n")
 theme_override_font_sizes/font_size = 48
 text = "Artists"
-
-[node name="BackButton" type="Button" parent="ColorRect"]
-layout_mode = 0
-offset_left = 59.0
-offset_top = 959.0
-offset_right = 278.0
-offset_bottom = 1032.0
-theme_override_font_sizes/font_size = 48
-text = "Back"
-
-[connection signal="pressed" from="ColorRect/BackButton" to="." method="_on_back_button_pressed"]
