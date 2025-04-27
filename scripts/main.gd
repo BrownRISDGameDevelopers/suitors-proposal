@@ -8,7 +8,7 @@ const SEASON = preload("res://scenes/Season.tscn")
 
 var our_kingdom = preload("res://resources/kingdoms/OurKingdom.tres")
 
-@onready var ui: CanvasLayer = $UI
+@onready var ui: Control = $UI
 
 # Called wwhen the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -45,7 +45,7 @@ var seasons = [summer, fall, winter, spring]
 # --- ARCHIVED LETTERS
 var archived_letters = []
 
-## _GENERATE_LETTER_LISTS() --> Generates a list of 10 letters for each season.
+## _generate_letter_lists() --> Generates a list of 10 letters for each season.
 ## Global Variable(s): suitors - Array that holds all the suitors letter resources.
 ##                   advertisements - Array that holds all the filler letter resources.
 

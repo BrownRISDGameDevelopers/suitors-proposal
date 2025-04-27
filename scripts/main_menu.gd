@@ -1,10 +1,10 @@
 extends Control
 
-const MAIN := preload("res://scenes/Main.tscn")
-@onready var credits_scroll: Credits = $CreditsScroll
+const MAIN = preload("res://scenes/Main.tscn")
+const CREDITS = preload("res://scenes/Credits.tscn")
 
 func _ready():
-	credits_scroll.close()
+	pass
 
 func _on_start_button_pressed():
 	
@@ -17,5 +17,11 @@ func _on_quit_button_pressed() -> void:
 
 func _on_credits_pressed() -> void:
 	print("showing")
-	credits_scroll.open()
+	var credits = CREDITS.instantiate()
+	self.add_child(credits)
+	credits.open()
+	
+func _on_play_pressed() -> void:
+	print("launching game")
+	get_tree().change_scene_to_packed(MAIN)
 	

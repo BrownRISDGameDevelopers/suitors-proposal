@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bklqu500qoshd"]
+[gd_scene load_steps=10 format=3 uid="uid://bklqu500qoshd"]
 
 [ext_resource type="Script" uid="uid://daf751n63cwx3" path="res://scripts/main_menu.gd" id="1_0ykhv"]
 [ext_resource type="Texture2D" uid="uid://dhpq6h41xleuh" path="res://assets/main_menu/background.png" id="2_0ykhv"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://buh3y78oehlgp" path="res://assets/main_menu/tutoral hover.PNG" id="6_2nypq"]
 [ext_resource type="Texture2D" uid="uid://bddlbvw05d358" path="res://assets/main_menu/credit normal.PNG" id="7_bky6r"]
 [ext_resource type="Texture2D" uid="uid://dv7o0olhjq02m" path="res://assets/main_menu/credit hover.PNG" id="8_l4mxc"]
-[ext_resource type="PackedScene" uid="uid://chybqn6kunvsm" path="res://scenes/Credits.tscn" id="10_7la6k"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -82,7 +81,5 @@ texture_hover = ExtResource("8_l4mxc")
 script = ExtResource("5_8a8k8")
 metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
 
-[node name="CreditsScroll" parent="." instance=ExtResource("10_7la6k")]
-layout_mode = 1
-
+[connection signal="pressed" from="Background/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Background/Credits" to="." method="_on_credits_pressed"]

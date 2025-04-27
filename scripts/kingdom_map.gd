@@ -3,7 +3,7 @@ extends TextureButton
 @export var kingdom: Kingdom = null
 @onready var popup: CountryPopup = $"../Popup"
 
-const OUTLINE = preload("res://assets/shaders/outline.tres")
+const OUTLINE = preload("res://assets/shaders/kingdom_outline.tres")
 const BORDER_OFFSET = Vector2(2, 2)
 
 var base_position: Vector2

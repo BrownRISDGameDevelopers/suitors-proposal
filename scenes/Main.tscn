@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://byy6ufy2a5hsj"]
+[gd_scene load_steps=14 format=3 uid="uid://byy6ufy2a5hsj"]
 
 [ext_resource type="Script" uid="uid://b2acxx3ucocca" path="res://scripts/main.gd" id="1_rvslj"]
 [ext_resource type="Texture2D" uid="uid://w1a6fhrhcot" path="res://assets/desk/Newspaper static.png" id="3_bjd11"]
@@ -12,13 +12,18 @@
 [ext_resource type="Texture2D" uid="uid://c33w8sxl4ceu1" path="res://assets/desk/Archive static.png" id="8_3p2gp"]
 [ext_resource type="Texture2D" uid="uid://dlcktckmg1ddv" path="res://assets/desk/Letter archive hover.PNG" id="9_cvmbd"]
 [ext_resource type="Texture2D" uid="uid://ir5oprt8suna" path="res://assets/desk/Border.PNG" id="12_bjd11"]
+[ext_resource type="PackedScene" uid="uid://b8iollf58huxn" path="res://scenes/Map.tscn" id="12_qmy6f"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_rvslj")
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Base" type="TextureRect" parent="."]
 layout_mode = 1
@@ -109,7 +114,23 @@ texture_hover = ExtResource("4_q8u5g")
 script = ExtResource("5_lhr70")
 metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Map" parent="UI" instance=ExtResource("12_qmy6f")]
+layout_mode = 1
+offset_left = -810.0
+offset_top = -455.5
+offset_right = 810.0
+offset_bottom = 455.5
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
 
 [node name="Border" type="TextureRect" parent="."]
 layout_mode = 1
@@ -126,3 +147,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("12_bjd11")
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Map" to="." method="_on_map_pressed"]

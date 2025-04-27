@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsu6n43cfq06f"]
+[gd_scene load_steps=7 format=3 uid="uid://dsu6n43cfq06f"]
 
 [ext_resource type="Texture2D" uid="uid://c5bcxqb5mmg8g" path="res://assets/letters/bg.png" id="1_2t2cd"]
 [ext_resource type="Theme" uid="uid://bss4mnhq0fcwf" path="res://resources/themes/Letter.tres" id="2_65x1g"]
 [ext_resource type="Script" uid="uid://dgrewkgo17hkt" path="res://scenes/letter.gd" id="3_65x1g"]
 [ext_resource type="Texture2D" uid="uid://ygu14oau0hy3" path="res://assets/desk/Inbox tab.png" id="4_411j1"]
 [ext_resource type="Texture2D" uid="uid://cc3h1jg02fq0l" path="res://assets/ui/X Button.png" id="5_t02en"]
+[ext_resource type="Script" uid="uid://ci0ql7v1ltnwn" path="res://scripts/resources/bitmasked_texture_button.gd" id="6_ofug1"]
 
 [node name="Letter" type="TextureRect"]
 anchors_preset = 8
@@ -97,5 +98,7 @@ offset_top = -19.0
 offset_right = 1522.0
 offset_bottom = 310.0
 texture_normal = ExtResource("5_t02en")
+script = ExtResource("6_ofug1")
+metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
 
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

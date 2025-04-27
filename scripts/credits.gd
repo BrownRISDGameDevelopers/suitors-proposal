@@ -2,6 +2,8 @@ extends NinePatchRect
 
 class_name Credits
 
+@onready var close_button: BitmaskedTextureButton = $ClippingContainer/CloseButton
+
 var CLOSED_POS = Vector2(28, 1100.0)
 var OPENED_POS
 
@@ -32,6 +34,9 @@ func close() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "size", CLOSED_SIZE, 0.5)
 	tween.tween_property(self, "position", CLOSED_POS, 0.5)
+	await tween.finished
+	
+	queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -39,3 +44,11 @@ func _process(delta: float) -> void:
 
 func _on_close_button_pressed() -> void:
 	close()
+
+
+func _on_close_button_mouse_entered() -> void:
+	close_button.material.set_shader_parameter("enabled", true)
+
+
+func _on_close_button_mouse_exited() -> void:
+	close_button.material.set_shader_parameter("enabled", false)
