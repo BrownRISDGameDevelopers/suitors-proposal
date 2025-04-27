@@ -13,6 +13,7 @@ var current_tween
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	popup.hide()
+	popup.update_stats(kingdom)
 	base_position = position
 	
 	var image = texture_normal.get_image()

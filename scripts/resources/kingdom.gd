@@ -12,8 +12,8 @@ class_name Kingdom
 @export_range(1, 6, 1) var mana: int;
 
 @export_group("Known")
-@export var populationKnown: bool = false;
-@export var manaKnown: bool = false;
-@export var militaryKnown: bool = false;
-@export var resourceKnown: bool = false;
-@export var moraleKnown: bool = false;
+@export var populationKnown: bool
+@export var manaKnown: bool
+@export var militaryKnown: bool
+@export var resourceKnown: bool
+@export var moraleKnown: bool

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsu6n43cfq06f"]
+[gd_scene load_steps=6 format=3 uid="uid://dsu6n43cfq06f"]
 
 [ext_resource type="Texture2D" uid="uid://c5bcxqb5mmg8g" path="res://assets/letters/bg.png" id="1_2t2cd"]
 [ext_resource type="Theme" uid="uid://bss4mnhq0fcwf" path="res://resources/themes/Letter.tres" id="2_65x1g"]
 [ext_resource type="Script" uid="uid://dgrewkgo17hkt" path="res://scenes/letter.gd" id="3_65x1g"]
+[ext_resource type="Texture2D" uid="uid://ygu14oau0hy3" path="res://assets/desk/Inbox tab.png" id="4_411j1"]
+[ext_resource type="Texture2D" uid="uid://cc3h1jg02fq0l" path="res://assets/ui/X Button.png" id="5_t02en"]
 
 [node name="Letter" type="TextureRect"]
 anchors_preset = 8
@@ -73,3 +75,27 @@ offset_bottom = 196.5
 grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
+
+[node name="InboxBanner" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.812
+anchor_top = -0.019
+anchor_right = -0.812
+anchor_bottom = -0.019
+offset_left = 0.384033
+offset_top = 1.279
+offset_right = 1512.38
+offset_bottom = 852.279
+texture = ExtResource("4_411j1")
+expand_mode = 1
+
+[node name="ExitButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1052.0
+offset_top = -19.0
+offset_right = 1522.0
+offset_bottom = 310.0
+texture_normal = ExtResource("5_t02en")
+
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="LetterResource" load_steps=2 format=3 uid="uid://63jtf4pfs0ey"]
+
+[ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/resources/letter_resource.gd" id="1_1xag8"]
+
+[resource]
+script = ExtResource("1_1xag8")
+is_proposal = true
+greeting = "To the future crown of the Land of Wheat,
+"
+regularContent = ""
+signoff = "Councilwoman Dronma Grithelm of the Durvashian Guard"
+summerVersion = "I write to you now without flourish, for I have no patience for insipid flattery or hollow words. The weight of the crown that will soon rest upon your head is heavy. I know this. I have worn armor, shed blood, and borne scars all for the sake of my people. And yet, I see in you a burning resolve to carry forward your father’s legacy when the time comes—and to shape your own, no doubt. 
+
+In the cold, unforgiving peaks I hail from, survival demands more than strength—it demands vision. Change must be had, for to rely on the fickle whims of mana, magic, and machine is to invite ruin. Resources are limited, but what we lack in abundance we have learned to make up for with righteousness, discipline, and strength of arms — measures that do not waver in the same way that magic does. When our backs bend under the weight of uncertainty, true dwarves know that the only thing we can trust is the loyalty of steel, pure and true. 
+
+I ask that you recognize my conviction and extend to me your own, so that our nations may together build up our morale and spirit, bit by bit, month by month. Unmitigated growth is the virtue of fools; negative side effects catch up at an even greater and more uncontrollable pace. Steady, “slow” growth is the only stable path. I trust you have the wisdom and composure to accept this, and request that you take my hand in beginning a new age of progress and prosperity between our lands.
+
+May your blades remain sharp."
+fallVersion = ""
+winterVersion = ""
+springVersion = ""
+metadata/_custom_type_script = "uid://d2ngpxf76ukp7"
