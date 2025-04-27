@@ -11,6 +11,7 @@ var offset_y: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func update_stats(new_kingdom: Kingdom):
+	print(new_kingdom)
 	%Header.text = new_kingdom.name
 	
 	var bars = {

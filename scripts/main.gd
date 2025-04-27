@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 #const SETTINGS = preload("res://scenes/Settings.tscn")
 const MAIN_MENU = preload("res://scenes/MainMenu.tscn")
