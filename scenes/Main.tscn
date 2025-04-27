@@ -12,12 +12,15 @@
 [ext_resource type="Texture2D" uid="uid://c33w8sxl4ceu1" path="res://assets/desk/Archive static.png" id="8_3p2gp"]
 [ext_resource type="Texture2D" uid="uid://dlcktckmg1ddv" path="res://assets/desk/Letter archive hover.PNG" id="9_cvmbd"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_rvslj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Base" type="TextureRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -30,6 +33,7 @@ grow_vertical = 2
 texture = ExtResource("5_vcsgt")
 
 [node name="News" type="TextureButton" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -48,6 +52,7 @@ script = ExtResource("5_lhr70")
 metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
 
 [node name="Map" type="TextureButton" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -66,6 +71,7 @@ script = ExtResource("5_lhr70")
 metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
 
 [node name="Archive" type="TextureButton" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -84,6 +90,7 @@ script = ExtResource("5_lhr70")
 metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
 
 [node name="LettersStack" type="TextureButton" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -103,5 +110,18 @@ metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[connection signal="pressed" from="Map" to="." method="_on_map_pressed"]
-[connection signal="pressed" from="LettersStack" to="." method="_on_letters_stack_pressed"]
+[node name="Map" parent="UI" instance=ExtResource("9_q8u5g")]
+offset_left = -1831.0
+offset_top = -994.0
+offset_right = 89.0
+offset_bottom = 86.0
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[connection signal="mouse_entered" from="MapButton" to="." method="_on_map_button_mouse_entered"]
+[connection signal="mouse_exited" from="MapButton" to="." method="_on_map_button_mouse_exited"]
+[connection signal="pressed" from="MapButton" to="." method="_on_map_button_pressed"]
+[connection signal="mouse_entered" from="LettersButton" to="." method="_on_letters_button_mouse_entered"]
+[connection signal="mouse_exited" from="LettersButton" to="." method="_on_letters_button_mouse_exited"]
+[connection signal="pressed" from="LettersButton" to="." method="_on_letters_button_pressed"]
