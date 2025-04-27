@@ -1,6 +1,6 @@
 extends TextureButton
 
-@export var kingdom: Kingdom = preload("res://resources/kingdoms/OurKingdom.tres")
+@export var kingdom: Kingdom = null
 @onready var popup: CountryPopup = $"../Popup"
 
 const OUTLINE = preload("res://assets/shaders/outline.tres")

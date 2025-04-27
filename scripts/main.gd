@@ -132,9 +132,9 @@ func _start_new_season() -> void:
 	
 	current_season = seasons.pop_front()
 	
-	#var season_instance = SEASON.instantiate()
-	#ui.add_child(season_instance)
-	#season_instance.play_transition_season(current_season)
+	var season_instance = SEASON.instantiate()
+	ui.add_child(season_instance)
+	season_instance.play_transition_season(current_season)
 	
 	current_letter_stack.clear()
 	
