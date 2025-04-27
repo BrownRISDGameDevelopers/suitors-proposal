@@ -3,13 +3,14 @@ extends Node2D
 const SETTINGS = preload("res://scenes/Settings.tscn")
 const MAIN_MENU = preload("res://scenes/MainMenu.tscn")
 const LETTER_SCENE = preload("res://scenes/Letter.tscn")
+const SEASON = preload("res://scenes/Season.tscn")
 
 @onready var ui: CanvasLayer = $UI
 
-# Called when the node enters the scene tree for the first time.
+# Called wwhen the node enters the scene tree for the first time.
 func _ready() -> void:
 	_generate_letter_lists()
-	_start_season()
+	_start_new_season()
 
 #                                  ====== GENERATE LETTERS / LETTER FUNCTIONS ======
 
@@ -40,7 +41,7 @@ func _generate_letter_lists() -> void:
 	
 	var suitors_to_visit = suitors.duplicate(true)
 	# Generates all summer suitor letters.
-	for i in range(6):
+	for i in range(2):
 		suitors_to_visit.shuffle()
 		var suitor_to_generate = suitors_to_visit.pop_front()
 		letter_list[summer].append(suitor_to_generate)	
@@ -65,7 +66,6 @@ func _instantiate_letter(letter: LetterResource) -> void:
 	var letter_instance = LETTER_SCENE.instantiate()
 	letter_instance.letter_closed.connect(_close_current_letter)
 	ui.add_child(letter_instance)
-	print(letter)
 	letter_instance.generate_content(current_season, letter)
 	
 	current_letter_file = letter_instance
@@ -110,9 +110,14 @@ func _update_letter_portrait() -> void:
 var current_letter_stack = []
 var current_season = ""
 
-func _start_season() -> void:
+func _start_new_season() -> void:
 	
 	current_season = seasons.pop_front()
+	
+	var season_instance = SEASON.instantiate()
+	ui.add_child(season_instance)
+	season_instance.play_transition_season(current_season)
+	
 	current_letter_stack.clear()
 	
 	current_letter_stack = letter_list[current_season]	
@@ -121,8 +126,8 @@ func _start_season() -> void:
 ## _END_SEASON() --> Ends a season cycle. In this context, will be called when 
 ##                   current_letter_stack is empty.
 func _end_season() -> void:
+	
 	pass
-
 
 
 #                                     ====== BUTTON FUNCTIONS / SCENE SWITCHING ======
@@ -144,6 +149,7 @@ func _on_letters_stack_pressed() -> void:
 	
 	if not current_letter_stack:
 		_end_season()
+		_start_new_season()
 	
 	else:	
 		var letter_shown = current_letter_stack.pop_back()
