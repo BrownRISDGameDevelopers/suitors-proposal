@@ -103,4 +103,5 @@ metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
 
 [node name="UI" type="CanvasLayer" parent="."]
 
+[connection signal="pressed" from="Map" to="." method="_on_map_pressed"]
 [connection signal="pressed" from="LettersStack" to="." method="_on_letters_stack_pressed"]

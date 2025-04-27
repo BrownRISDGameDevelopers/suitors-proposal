@@ -3,16 +3,34 @@ extends Node2D
 const SETTINGS = preload("res://scenes/Settings.tscn")
 const MAIN_MENU = preload("res://scenes/MainMenu.tscn")
 const LETTER_SCENE = preload("res://scenes/Letter.tscn")
+const MAP = preload("res://scenes/Map.tscn")
 const SEASON = preload("res://scenes/Season.tscn")
+
+var our_kingdom = preload("res://resources/kingdoms/OurKingdom.tres")
 
 @onready var ui: CanvasLayer = $UI
 
 # Called wwhen the node enters the scene tree for the first time.
 func _ready() -> void:
+	_generate_player_stats()
 	_generate_letter_lists()
 	_start_new_season()
+#                                  ====================================
+#                                  ====== PLAYER STAT GENERATION ======
+#                                  ====================================	
 
+func _generate_player_stats() -> void:
+	
+	var stat_max
+	our_kingdom.mana = int(round(randf_range(1, 6)))
+	our_kingdom.military = int(round(randf_range(1, 6)))
+	our_kingdom.population = int(round(randf_range(1, 6)))
+	our_kingdom.morale = int(round(randf_range(1, 4)))
+	our_kingdom.resource = int(round(randf_range(1, 6)))
+	
+#                                  =================================================
 #                                  ====== GENERATE LETTERS / LETTER FUNCTIONS ======
+#                                  =================================================
 
 # --- SEASONS
 const summer = "summer"
@@ -114,9 +132,9 @@ func _start_new_season() -> void:
 	
 	current_season = seasons.pop_front()
 	
-	var season_instance = SEASON.instantiate()
-	ui.add_child(season_instance)
-	season_instance.play_transition_season(current_season)
+	#var season_instance = SEASON.instantiate()
+	#ui.add_child(season_instance)
+	#season_instance.play_transition_season(current_season)
 	
 	current_letter_stack.clear()
 	
@@ -129,15 +147,13 @@ func _end_season() -> void:
 	
 	pass
 
-
+#                                     ================================================
 #                                     ====== BUTTON FUNCTIONS / SCENE SWITCHING ======
+#                                     ================================================
 
-## Checks if the map button has been pressed, and loads the map screen if true.
-func _on_map_button_pressed() -> void:
-	var map_scene = preload("res://scenes/Map.tscn").instantiate()
-	var ui: CanvasLayer = $UI
-	ui.add_child(map_scene)
-
+func _on_map_pressed() -> void:
+	var map_instance = MAP.instantiate()
+	ui.add_child(map_instance)
 
 ## Checks if the letter button has been pressed, and loads the letter screen if true.
 func _on_letters_stack_pressed() -> void:
@@ -157,8 +173,9 @@ func _on_letters_stack_pressed() -> void:
 		_instantiate_letter(load(letter_shown))
 		
 
-
+#                                  				   ========================
 #                                                  ====== ANIMATIONS ======
+#												   ========================
 
 #@onready var map_button: TextureButton = %MapButton
 #@onready var letters_button: TextureButton = %LettersButton

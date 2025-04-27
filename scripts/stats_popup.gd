@@ -4,13 +4,13 @@ class_name CountryPopup
 
 @export var kingdom: Kingdom:
 	set(value):
-		updateStats(value)
+		update_stats(value)
 
 var offset_x: bool = false
 var offset_y: bool = false
 
 # Called when the node enters the scene tree for the first time.
-func updateStats(new_kingdom: Kingdom):
+func update_stats(new_kingdom: Kingdom):
 	%Header.text = new_kingdom.name
 	
 	var bars = {
