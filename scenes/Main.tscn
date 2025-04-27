@@ -1,19 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://byy6ufy2a5hsj"]
+[gd_scene load_steps=12 format=3 uid="uid://byy6ufy2a5hsj"]
 
 [ext_resource type="Script" uid="uid://b2acxx3ucocca" path="res://scripts/main.gd" id="1_rvslj"]
 [ext_resource type="Texture2D" uid="uid://w1a6fhrhcot" path="res://assets/desk/Newspaper static.png" id="3_bjd11"]
 [ext_resource type="Texture2D" uid="uid://b147324itffqj" path="res://assets/desk/Many letters static.PNG" id="3_jlsqs"]
-[ext_resource type="Theme" uid="uid://wa35wbgfv50n" path="res://resources/themes/Buttons.tres" id="4_c01mt"]
 [ext_resource type="Texture2D" uid="uid://cb0i68purafic" path="res://assets/desk/Many letters hover.PNG" id="4_q8u5g"]
 [ext_resource type="Texture2D" uid="uid://0qtknnigfy6s" path="res://assets/desk/Newspaper hover.PNG" id="4_qmy6f"]
-[ext_resource type="Texture2D" uid="uid://ew88eisutl66" path="res://assets/icon.svg" id="4_vcsgt"]
 [ext_resource type="Script" uid="uid://ci0ql7v1ltnwn" path="res://scripts/resources/desk_interactable.gd" id="5_lhr70"]
 [ext_resource type="Texture2D" uid="uid://cymg1eq0fl82u" path="res://assets/desk/Desk base png.PNG" id="5_vcsgt"]
 [ext_resource type="Texture2D" uid="uid://bac0msyo3xrl0" path="res://assets/desk/Map static.png" id="6_lhr70"]
 [ext_resource type="Texture2D" uid="uid://cxbwhc3oinhcu" path="res://assets/desk/Map hover.PNG" id="7_wp0k4"]
 [ext_resource type="Texture2D" uid="uid://c33w8sxl4ceu1" path="res://assets/desk/Archive static.png" id="8_3p2gp"]
 [ext_resource type="Texture2D" uid="uid://dlcktckmg1ddv" path="res://assets/desk/Letter archive hover.PNG" id="9_cvmbd"]
-[ext_resource type="PackedScene" uid="uid://b8iollf58huxn" path="res://scenes/Map.tscn" id="9_q8u5g"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_rvslj")
@@ -104,35 +101,6 @@ texture_hover = ExtResource("4_q8u5g")
 script = ExtResource("5_lhr70")
 metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
 
-[node name="MapButton" type="TextureButton" parent="."]
-unique_name_in_owner = true
-visible = false
-offset_left = -694.0
-offset_top = 147.0
-offset_right = -566.0
-offset_bottom = 275.0
-theme = ExtResource("4_c01mt")
-texture_normal = ExtResource("4_vcsgt")
-
-[node name="LettersButton" type="TextureButton" parent="."]
-unique_name_in_owner = true
-visible = false
-offset_left = -133.0
-offset_top = 74.0
-offset_right = -5.0
-offset_bottom = 202.0
-scale = Vector2(2, 2)
-theme = ExtResource("4_c01mt")
-texture_normal = ExtResource("4_vcsgt")
-
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Map" parent="UI" instance=ExtResource("9_q8u5g")]
-visible = false
-
-[connection signal="mouse_entered" from="MapButton" to="." method="_on_map_button_mouse_entered"]
-[connection signal="mouse_exited" from="MapButton" to="." method="_on_map_button_mouse_exited"]
-[connection signal="pressed" from="MapButton" to="." method="_on_map_button_pressed"]
-[connection signal="mouse_entered" from="LettersButton" to="." method="_on_letters_button_mouse_entered"]
-[connection signal="mouse_exited" from="LettersButton" to="." method="_on_letters_button_mouse_exited"]
-[connection signal="pressed" from="LettersButton" to="." method="_on_letters_button_pressed"]
+[connection signal="pressed" from="LettersStack" to="." method="_on_letters_stack_pressed"]

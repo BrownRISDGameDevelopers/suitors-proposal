@@ -1,5 +1,9 @@
 extends TextureRect
 
+func _ready():
+	# Checks if the letter is to be closed out of.
+	exit_button.pressed.connect(_on_exit_button_pressed)
+
 @onready var letter: TextureRect = $"."
 
 @onready var greeting: Label = $MarginContainer/VBoxContainer/Greeting
@@ -8,11 +12,8 @@ extends TextureRect
 
 @onready var suitor_portrait: TextureRect = $SuitorPortrait
 
-
-
-const LETTER_1 = preload("res://resources/letters/Letter1.tres")
-func _ready():
-	_generate_content("summer", LETTER_1)
+@onready var exit_button: TextureButton = $ExitButton
+signal letter_closed
 
 ## Generates content of letter based on entered season and letter resource file.
 
@@ -21,7 +22,7 @@ func _ready():
 ##             letter_resource - LetterResource object representing letter that should
 ##                               be generated
 
-func _generate_content(season: String, letter_resource: LetterResource) -> void:
+func generate_content(season: String, letter_resource: LetterResource) -> void:
 
 	greeting.text = letter_resource.greeting
 	signoff.text = letter_resource.signoff
@@ -51,3 +52,6 @@ func _generate_content(season: String, letter_resource: LetterResource) -> void:
 	else:
 		content.text = letter_resource.regularContent
 		
+func _on_exit_button_pressed() -> void:
+	letter_closed.emit()
+	queue_free()
