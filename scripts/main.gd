@@ -32,14 +32,15 @@ var archived_letters = []
 
 # --- SUITOR LETTERS & FILLER LETTERS
 var suitors = ["res://resources/letters/Dwarf_Techbro_Warlord_Letter.tres", "res://resources/letters/Vampire_King_Letter.tres",
-"res://resources/letters/Skeleton_General_Letter.tres", "res://resources/letters/Dwarf_Councilwoman_Letter.tres"]
+"res://resources/letters/Skeleton_General_Letter.tres", "res://resources/letters/Dwarf_Councilwoman_Letter.tres", "res://resources/letters/Letter1.tres",
+"res://resources/letters/Letter2.tres"]
 var advertisements = []
 
 func _generate_letter_lists() -> void:
 	
 	var suitors_to_visit = suitors.duplicate(true)
 	# Generates all summer suitor letters.
-	for i in range(4):
+	for i in range(6):
 		suitors_to_visit.shuffle()
 		var suitor_to_generate = suitors_to_visit.pop_front()
 		letter_list[summer].append(suitor_to_generate)	

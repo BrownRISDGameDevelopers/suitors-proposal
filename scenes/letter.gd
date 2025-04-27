@@ -38,19 +38,66 @@ func generate_content(season: String, letter_resource: LetterResource) -> void:
 		suitor_portrait.set_position(portrait_position + Vector2(600, -150))
 		
 		if season == "summer":
-			content.text = letter_resource.summerVersion
+			var sumVer = letter_resource.summerVersion
+			for text in letter_resource.summerClickableContent:
+			
+				var base_text = text.text
+				var stats = text.revealedStat
+				stats = "|".join(stats)
+				
+				var url_code = "[url=" + stats + "]" + base_text + "[/url]"
+				sumVer = sumVer.replace(base_text, url_code)
+			
+			content.text = sumVer
+			print(sumVer)
 			
 		elif season == "fall":
-			content.text = letter_resource.fallVersion
+			
+			var fallVer = letter_resource.fallVersion
+			for text in letter_resource.fallClickableContent:
+			
+				var base_text = text.text
+				var stats = text.revealedStat
+				stats = "|".join(stats)
+				
+				var url_code = "[url=" + stats + "]" + base_text + "[/url]"
+				fallVer.replace(base_text, url_code)
+			
+			content.text = fallVer
 			
 		elif season == "winter":
-			content.text = letter_resource.winterVersion
+			var wintVer = letter_resource.winterVersion
+			for text in letter_resource.winterClickableContent:
+			
+				var base_text = text.text
+				var stats = text.revealedStat
+				stats = "|".join(stats)
+				
+				var url_code = "[url=" + stats + "]" + base_text + "[/url]"
+				wintVer.replace(base_text, url_code)
+			
+			content.text = wintVer
 			
 		elif season == "spring":
-			content.text = letter_resource.springVersion
+			var sprVer = letter_resource.springVersionrVersion
+			for text in letter_resource.springClickableContent:
+			
+				var base_text = text.text
+				var stats = text.revealedStat
+				stats = "|".join(stats)
+				
+				var url_code = "[url=" + stats + "]" + base_text + "[/url]"
+				sprVer.replace(base_text, url_code)
+			
+			content.text = sprVer
 			
 	else:
 		content.text = letter_resource.regularContent
+	
+	content.bbcode_enabled = true
+			
+			
+			
 		
 func _on_exit_button_pressed() -> void:
 	letter_closed.emit()

@@ -15,6 +15,10 @@ class_name LetterResource
 
 @export_group("Seasonal Content")
 @export_multiline var summerVersion: String
+@export var summerClickableContent: Array[InteractableText]
 @export_multiline var fallVersion: String
+@export var fallClickableContent: Array[InteractableText]
 @export_multiline var winterVersion: String
+@export var winterClickableContent: Array[InteractableText]
 @export_multiline var springVersion: String
+@export var springClickableContent: Array[InteractableText]

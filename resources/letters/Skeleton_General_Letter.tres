@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="LetterResource" load_steps=2 format=3 uid="uid://cuaorcanv8kd5"]
+[gd_resource type="Resource" script_class="LetterResource" load_steps=3 format=3 uid="uid://cuaorcanv8kd5"]
 
+[ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/resources/interactable_text.gd" id="1_58hxi"]
 [ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/resources/letter_resource.gd" id="1_jv4he"]
 
 [resource]
@@ -16,7 +17,11 @@ As for you, I have heard the murmurings of a plague infecting your lands. This p
 
 As one final note, I know you may soon be in contact with His Majesty the Eternal King, if you are not already. I love the monarchy, but I must tell you that His Majesty’s softness has obstructed his ability to act conclusively. That is all I will say as I await your response. Until then, good luck.
 "
+summerClickableContent = Array[ExtResource("1_58hxi")]([])
 fallVersion = ""
+fallClickableContent = Array[ExtResource("1_58hxi")]([])
 winterVersion = ""
+winterClickableContent = Array[ExtResource("1_58hxi")]([])
 springVersion = ""
+springClickableContent = Array[ExtResource("1_58hxi")]([])
 metadata/_custom_type_script = "uid://d2ngpxf76ukp7"
