@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d3gnnf5606krf" path="res://assets/main_menu/start normal.PNG" id="3_mipys"]
 [ext_resource type="Texture2D" uid="uid://cvioj6yvglrbr" path="res://assets/main_menu/start hover.PNG" id="4_8a8k8"]
 [ext_resource type="Texture2D" uid="uid://c57vlhit2ognp" path="res://assets/main_menu/tutorial normal.PNG" id="5_7la6k"]
-[ext_resource type="Script" uid="uid://ci0ql7v1ltnwn" path="res://scripts/resources/bitmasked_texture_button.gd" id="5_8a8k8"]
+[ext_resource type="Script" uid="uid://ci0ql7v1ltnwn" path="res://scripts/classes/bitmasked_texture_button.gd" id="5_8a8k8"]
 [ext_resource type="Texture2D" uid="uid://buh3y78oehlgp" path="res://assets/main_menu/tutoral hover.PNG" id="6_2nypq"]
 [ext_resource type="Texture2D" uid="uid://bddlbvw05d358" path="res://assets/main_menu/credit normal.PNG" id="7_bky6r"]
 [ext_resource type="Texture2D" uid="uid://dv7o0olhjq02m" path="res://assets/main_menu/credit hover.PNG" id="8_l4mxc"]

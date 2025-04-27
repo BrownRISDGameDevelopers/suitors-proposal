@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://dxtdgrovxy3yh" path="res://assets/fonts/blackchancery/BLKCHCRY.TTF" id="4_g618n"]
 [ext_resource type="Material" uid="uid://dfxfj7q58h2f4" path="res://assets/shaders/close_outline.tres" id="4_tlwrt"]
 [ext_resource type="Texture2D" uid="uid://cc3h1jg02fq0l" path="res://assets/ui/X Button.png" id="5_tlwrt"]
-[ext_resource type="Script" uid="uid://ci0ql7v1ltnwn" path="res://scripts/resources/bitmasked_texture_button.gd" id="6_g618n"]
+[ext_resource type="Script" uid="uid://ci0ql7v1ltnwn" path="res://scripts/classes/bitmasked_texture_button.gd" id="6_g618n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_al82v"]
 atlas = ExtResource("5_tlwrt")

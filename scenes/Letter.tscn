@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dgrewkgo17hkt" path="res://scenes/letter.gd" id="3_65x1g"]
 [ext_resource type="Texture2D" uid="uid://ygu14oau0hy3" path="res://assets/desk/Inbox tab.png" id="4_411j1"]
 [ext_resource type="Texture2D" uid="uid://cc3h1jg02fq0l" path="res://assets/ui/X Button.png" id="5_t02en"]
-[ext_resource type="Script" uid="uid://ci0ql7v1ltnwn" path="res://scripts/resources/bitmasked_texture_button.gd" id="6_ofug1"]
+[ext_resource type="Script" uid="uid://ci0ql7v1ltnwn" path="res://scripts/classes/bitmasked_texture_button.gd" id="6_ofug1"]
 
 [node name="Letter" type="TextureRect"]
 anchors_preset = 8
@@ -55,6 +55,7 @@ Imagine the strength and benevolence that could extend beyond the land. The Sava
 You may presume me to be an isolated barbarian, more bird than man, but even I have enough knowledge of foreign relations to know that you are not so harsh with your other neighbors. We are a good people. A happy people. If you accept my proposal, I know we could be great friends, and even better allies, mending the rift between our two great kingdoms. 
 "
 fit_content = true
+scroll_active = false
 
 [node name="Signoff" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

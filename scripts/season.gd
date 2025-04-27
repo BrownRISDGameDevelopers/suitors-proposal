@@ -20,11 +20,9 @@ func _ready() -> void:
 
 ## _TRANSITION_SEASON() --> Plays transition between seasons.
 func play_transition_season(current_season: String) -> void:
-	
 	var interval
 	
 	if current_season == "summer":
-		
 		previous_season.texture = SUMMER
 		next_season.texture = SUMMER
 		scroll.texture = SUMMER_SCROLL
@@ -32,7 +30,6 @@ func play_transition_season(current_season: String) -> void:
 		interval = 0
 		
 	elif current_season == "fall":
-		
 		previous_season.texture = SUMMER
 		next_season.texture = AUTUMN
 		scroll.texture = AUTUMN_SCROLL
@@ -40,7 +37,6 @@ func play_transition_season(current_season: String) -> void:
 		interval = 1.25
 		
 	elif current_season == "winter":
-		
 		previous_season.texture = AUTUMN
 		next_season.texture = WINTER
 		scroll.texture = WINTER_SCROLL
@@ -54,7 +50,7 @@ func play_transition_season(current_season: String) -> void:
 		
 		interval = 1.25
 	
-	await get_tree().create_timer(1).timeout
+	# await get_tree().create_timer(1).timeout
 	
 	var tween = get_tree().create_tween()
 	

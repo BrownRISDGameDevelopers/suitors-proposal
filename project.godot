@@ -13,7 +13,7 @@ config_version=5
 config/name="Suitor's Proposal"
 run/main_scene="uid://bklqu500qoshd"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://assets/icon.svg"
+config/icon="uid://c6ifrxp5spsfx"
 boot_splash/name="suitors-proposal"
 
 [display]

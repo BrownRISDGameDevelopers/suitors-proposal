@@ -1,6 +1,13 @@
-[gd_resource type="Resource" script_class="LetterResource" load_steps=2 format=3 uid="uid://63jtf4pfs0ey"]
+[gd_resource type="Resource" script_class="LetterResource" load_steps=4 format=3 uid="uid://06tfuayqd5h2"]
 
-[ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/resources/letter_resource.gd" id="1_1xag8"]
+[ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="1_1xag8"]
+[ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_i2d1l"]
+
+[sub_resource type="Resource" id="Resource_ad23y"]
+script = ExtResource("1_i2d1l")
+text = ""
+revealedStat = Array[String]([])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
 
 [resource]
 script = ExtResource("1_1xag8")
@@ -16,7 +23,11 @@ In the cold, unforgiving peaks I hail from, survival demands more than strength�
 I ask that you recognize my conviction and extend to me your own, so that our nations may together build up our morale and spirit, bit by bit, month by month. Unmitigated growth is the virtue of fools; negative side effects catch up at an even greater and more uncontrollable pace. Steady, “slow” growth is the only stable path. I trust you have the wisdom and composure to accept this, and request that you take my hand in beginning a new age of progress and prosperity between our lands.
 
 May your blades remain sharp."
+summerClickableContent = Array[ExtResource("1_i2d1l")]([SubResource("Resource_ad23y")])
 fallVersion = ""
+fallClickableContent = Array[ExtResource("1_i2d1l")]([])
 winterVersion = ""
+winterClickableContent = Array[ExtResource("1_i2d1l")]([])
 springVersion = ""
+springClickableContent = Array[ExtResource("1_i2d1l")]([])
 metadata/_custom_type_script = "uid://d2ngpxf76ukp7"
