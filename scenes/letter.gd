@@ -38,6 +38,8 @@ func generate_content(season: String, letter_resource: LetterResource) -> void:
 		suitor_portrait.set_position(portrait_position + Vector2(600, -150))
 		
 		if season == "summer":
+			# Currently, the URL is just the stats that are edited, separated by "|."
+			# Not sure how to make it so it does something when clicked!
 			var sumVer = letter_resource.summerVersion
 			for text in letter_resource.summerClickableContent:
 			
@@ -49,7 +51,6 @@ func generate_content(season: String, letter_resource: LetterResource) -> void:
 				sumVer = sumVer.replace(base_text, url_code)
 			
 			content.text = sumVer
-			print(sumVer)
 			
 		elif season == "fall":
 			
@@ -61,7 +62,7 @@ func generate_content(season: String, letter_resource: LetterResource) -> void:
 				stats = "|".join(stats)
 				
 				var url_code = "[url=" + stats + "]" + base_text + "[/url]"
-				fallVer.replace(base_text, url_code)
+				fallVer = fallVer.replace(base_text, url_code)
 			
 			content.text = fallVer
 			
@@ -74,7 +75,7 @@ func generate_content(season: String, letter_resource: LetterResource) -> void:
 				stats = "|".join(stats)
 				
 				var url_code = "[url=" + stats + "]" + base_text + "[/url]"
-				wintVer.replace(base_text, url_code)
+				wintVer = wintVer.replace(base_text, url_code)
 			
 			content.text = wintVer
 			
@@ -87,7 +88,7 @@ func generate_content(season: String, letter_resource: LetterResource) -> void:
 				stats = "|".join(stats)
 				
 				var url_code = "[url=" + stats + "]" + base_text + "[/url]"
-				sprVer.replace(base_text, url_code)
+				sprVer = sprVer.replace(base_text, url_code)
 			
 			content.text = sprVer
 			
