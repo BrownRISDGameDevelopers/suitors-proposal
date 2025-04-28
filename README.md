@@ -2,10 +2,10 @@
 A Brown/RISD Game Developers production for Spring 2025.
 
 ## Technical Stack
-* **Engine:** [Godot 4.4 beta 4](https://godotengine.org/article/dev-snapshot-godot-4-4-beta-4/#downloads)
+* **Engine:** [Godot 4.4.1](https://godotengine.org/download/archive/)
 
 ## Project Setup
-1. Install Godot 4.4 beta 4 from the [Godot website](https://godotengine.org).
+1. Install Godot 4.4.1 from the [Godot website](https://godotengine.org/download/archive/).
 2. Clone this repository to your local machine.
 3. Open Godot on your machine. Click `Import` at the top and navigate to the project folder, wherever you saved it.
 4. The project should show up. Double click it to open it.
