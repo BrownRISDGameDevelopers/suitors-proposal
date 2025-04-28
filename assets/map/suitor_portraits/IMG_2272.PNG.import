@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba4wr3hale4f6"
-path="res://.godot/imported/trimmed_Mountain.png-d7311e6bcfdbdc8bcddd7a7c849d0bb2.ctex"
+uid="uid://fswhe6llabq7"
+path="res://.godot/imported/IMG_2272.PNG-9a3defc765d004e8ec69e235170e0c5e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/kingdoms/trimmed/trimmed_Mountain.png"
-dest_files=["res://.godot/imported/trimmed_Mountain.png-d7311e6bcfdbdc8bcddd7a7c849d0bb2.ctex"]
+source_file="res://assets/map/suitor_portraits/IMG_2272.PNG"
+dest_files=["res://.godot/imported/IMG_2272.PNG-9a3defc765d004e8ec69e235170e0c5e.ctex"]
 
 [params]
 

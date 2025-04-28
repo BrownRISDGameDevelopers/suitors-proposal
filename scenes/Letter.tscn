@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsu6n43cfq06f"]
+[gd_scene load_steps=10 format=3 uid="uid://dsu6n43cfq06f"]
 
 [ext_resource type="Texture2D" uid="uid://c5bcxqb5mmg8g" path="res://assets/letters/bg.png" id="1_2t2cd"]
 [ext_resource type="Theme" uid="uid://bss4mnhq0fcwf" path="res://resources/themes/Letter.tres" id="2_65x1g"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://c4t2e0ksphwm5" path="res://assets/letters/letter_portraits/King FINAL!.png" id="5_bwjek"]
 [ext_resource type="Texture2D" uid="uid://cc3h1jg02fq0l" path="res://assets/ui/X Button.png" id="5_t02en"]
 [ext_resource type="Material" uid="uid://dfxfj7q58h2f4" path="res://assets/shaders/close_outline.tres" id="6_nllnb"]
-[ext_resource type="Script" uid="uid://ci0ql7v1ltnwn" path="res://scripts/classes/bitmasked_texture_button.gd" id="6_ofug1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_flwo1"]
 atlas = ExtResource("5_t02en")
@@ -25,17 +24,14 @@ script = ExtResource("3_65x1g")
 
 [node name="Letter" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -366.0
-offset_top = -520.5
-offset_right = 366.0
-offset_bottom = 520.5
+offset_left = -486.5
+offset_top = 533.0
+offset_right = 486.5
+offset_bottom = 1917.0
 grow_horizontal = 2
-grow_vertical = 2
 theme = ExtResource("2_65x1g")
 texture = ExtResource("1_2t2cd")
 expand_mode = 1
@@ -51,6 +47,7 @@ theme_override_constants/margin_left = 48
 theme_override_constants/margin_top = 48
 theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 48
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Letter/MarginContainer"]
 layout_mode = 2
@@ -83,6 +80,21 @@ Count Aldéric Sangvin "
 script = ExtResource("4_bwjek")
 metadata/_custom_type_script = "uid://bq0lrcqnbba1l"
 
+[node name="CloseButton" type="TextureButton" parent="Letter"]
+material = ExtResource("6_nllnb")
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -85.5
+offset_top = 38.0
+offset_right = -39.5
+offset_bottom = 88.0
+grow_horizontal = 0
+texture_normal = SubResource("AtlasTexture_flwo1")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="InboxBanner" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -92,36 +104,26 @@ offset_top = 132.0
 offset_bottom = 132.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("4_411j1")
 expand_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="SuitorPortrait" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1356.0
-offset_top = 37.0
-offset_right = -334.0
-offset_bottom = -755.0
+offset_left = 192.0
+offset_top = 792.0
+offset_right = -1498.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_bwjek")
 expand_mode = 1
 
-[node name="CloseButton" type="TextureButton" parent="."]
-material = ExtResource("6_nllnb")
-layout_mode = 0
-offset_left = 1243.0
-offset_top = 49.0
-offset_right = 1289.0
-offset_bottom = 99.0
-texture_normal = SubResource("AtlasTexture_flwo1")
-ignore_texture_size = true
-stretch_mode = 4
-script = ExtResource("6_ofug1")
-metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
-
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="meta_clicked" from="Letter/MarginContainer/VBoxContainer/Content" to="." method="_on_content_meta_clicked"]
-[connection signal="pressed" from="CloseButton" to="Letter" method="_on_close_button_pressed"]
+[connection signal="mouse_entered" from="Letter/CloseButton" to="." method="_on_close_button_mouse_entered"]
+[connection signal="mouse_exited" from="Letter/CloseButton" to="." method="_on_close_button_mouse_exited"]
+[connection signal="pressed" from="Letter/CloseButton" to="." method="_on_close_button_pressed"]

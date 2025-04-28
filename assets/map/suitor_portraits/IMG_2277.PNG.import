@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brpoc0bhwiqas"
-path="res://.godot/imported/Cloud.png-299078f135192cd122f883ba7a6b13d6.ctex"
+uid="uid://scowlgyuybnh"
+path="res://.godot/imported/IMG_2277.PNG-8b9c1460279d39089113562d5691686f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/kingdoms/Cloud.png"
-dest_files=["res://.godot/imported/Cloud.png-299078f135192cd122f883ba7a6b13d6.ctex"]
+source_file="res://assets/map/suitor_portraits/IMG_2277.PNG"
+dest_files=["res://.godot/imported/IMG_2277.PNG-8b9c1460279d39089113562d5691686f.ctex"]
 
 [params]
 

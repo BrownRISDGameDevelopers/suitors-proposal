@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckfavv68i1ugj"
-path="res://.godot/imported/Mountain.png-31739a58875a0502fa5a29e8adb31dcf.ctex"
+uid="uid://l3uxn3gvdvnn"
+path="res://.godot/imported/map.png-d39d8267f776b794775b95a239790ed9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/kingdoms/Mountain.png"
-dest_files=["res://.godot/imported/Mountain.png-31739a58875a0502fa5a29e8adb31dcf.ctex"]
+source_file="res://assets/map/map.png"
+dest_files=["res://.godot/imported/map.png-d39d8267f776b794775b95a239790ed9.ctex"]
 
 [params]
 

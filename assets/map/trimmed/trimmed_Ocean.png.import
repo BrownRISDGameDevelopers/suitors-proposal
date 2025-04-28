@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcd2ctoeo6f5p"
-path="res://.godot/imported/trimmed_undead.png-1e65c540ae963ff42c137770f9584166.ctex"
+uid="uid://cxwu7lqf1mw0w"
+path="res://.godot/imported/trimmed_Ocean.png-eb0d6c7d202002c7689c2e6e9aff323e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/kingdoms/trimmed/trimmed_undead.png"
-dest_files=["res://.godot/imported/trimmed_undead.png-1e65c540ae963ff42c137770f9584166.ctex"]
+source_file="res://assets/map/trimmed/trimmed_Ocean.png"
+dest_files=["res://.godot/imported/trimmed_Ocean.png-eb0d6c7d202002c7689c2e6e9aff323e.ctex"]
 
 [params]
 

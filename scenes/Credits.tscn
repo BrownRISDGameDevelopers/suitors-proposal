@@ -5,11 +5,13 @@
 [ext_resource type="FontFile" uid="uid://dxtdgrovxy3yh" path="res://assets/fonts/blackchancery/BLKCHCRY.TTF" id="4_g618n"]
 [ext_resource type="Material" uid="uid://dfxfj7q58h2f4" path="res://assets/shaders/close_outline.tres" id="4_tlwrt"]
 [ext_resource type="Texture2D" uid="uid://cc3h1jg02fq0l" path="res://assets/ui/X Button.png" id="5_tlwrt"]
-[ext_resource type="Script" uid="uid://ci0ql7v1ltnwn" path="res://scripts/classes/bitmasked_texture_button.gd" id="6_g618n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_al82v"]
 atlas = ExtResource("5_tlwrt")
 region = Rect2(86, 70, 96, 104)
+
+[sub_resource type="SystemFont" id="SystemFont_tlwrt"]
+font_names = PackedStringArray("Times New Roman")
 
 [node name="CreditsScroll" type="NinePatchRect"]
 clip_children = 2
@@ -45,9 +47,9 @@ grow_vertical = 2
 
 [node name="ProducerLabel" type="Label" parent="ClippingContainer"]
 layout_mode = 2
-offset_left = 251.0
+offset_left = 184.0
 offset_top = 472.0
-offset_right = 698.0
+offset_right = 631.0
 offset_bottom = 533.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -57,12 +59,13 @@ theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("4_g618n")
 theme_override_font_sizes/font_size = 48
 text = "Producers"
+horizontal_alignment = 1
 
 [node name="ProgrammersLabel" type="Label" parent="ClippingContainer"]
 layout_mode = 2
-offset_left = 799.0
+offset_left = 706.0
 offset_top = 203.0
-offset_right = 1246.0
+offset_right = 1153.0
 offset_bottom = 264.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -71,13 +74,14 @@ theme_override_colors/font_outline_color = Color(0.537255, 0.156863, 0.054902, 1
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("4_g618n")
 theme_override_font_sizes/font_size = 48
-text = "Producers"
+text = "Programmers"
+horizontal_alignment = 1
 
 [node name="WritersLabel" type="Label" parent="ClippingContainer"]
 layout_mode = 2
-offset_left = 799.0
+offset_left = 706.0
 offset_top = 470.0
-offset_right = 1246.0
+offset_right = 1153.0
 offset_bottom = 531.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -87,12 +91,13 @@ theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("4_g618n")
 theme_override_font_sizes/font_size = 48
 text = "Writers"
+horizontal_alignment = 1
 
 [node name="ArtistsLabel" type="Label" parent="ClippingContainer"]
 layout_mode = 2
-offset_left = 1237.0
+offset_left = 1234.0
 offset_top = 203.0
-offset_right = 1684.0
+offset_right = 1681.0
 offset_bottom = 264.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -102,6 +107,7 @@ theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("4_g618n")
 theme_override_font_sizes/font_size = 48
 text = "Artists"
+horizontal_alignment = 1
 
 [node name="CloseButton" type="TextureButton" parent="ClippingContainer"]
 material = ExtResource("4_tlwrt")
@@ -113,8 +119,68 @@ offset_bottom = 876.5
 texture_normal = SubResource("AtlasTexture_al82v")
 ignore_texture_size = true
 stretch_mode = 4
-script = ExtResource("6_g618n")
-metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
+
+[node name="ProducersList" type="VBoxContainer" parent="ClippingContainer"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 544.0
+offset_right = 631.0
+offset_bottom = 806.0
+theme_override_constants/separation = 8
+
+[node name="Name" type="Label" parent="ClippingContainer/ProducersList"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.537255, 0.156863, 0.054902, 1)
+theme_override_fonts/font = SubResource("SystemFont_tlwrt")
+theme_override_font_sizes/font_size = 40
+text = "Allie Abraham"
+horizontal_alignment = 1
+
+[node name="Name2" type="Label" parent="ClippingContainer/ProducersList"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.537255, 0.156863, 0.054902, 1)
+theme_override_fonts/font = SubResource("SystemFont_tlwrt")
+theme_override_font_sizes/font_size = 40
+text = "Kahlan"
+horizontal_alignment = 1
+
+[node name="ProgrammersList" type="VBoxContainer" parent="ClippingContainer"]
+layout_mode = 0
+offset_left = 706.0
+offset_top = 275.0
+offset_right = 1153.0
+offset_bottom = 537.0
+theme_override_constants/separation = 8
+
+[node name="Name" type="Label" parent="ClippingContainer/ProgrammersList"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.537255, 0.156863, 0.054902, 1)
+theme_override_fonts/font = SubResource("SystemFont_tlwrt")
+theme_override_font_sizes/font_size = 40
+text = "Adanna Obuba"
+horizontal_alignment = 1
+
+[node name="Name2" type="Label" parent="ClippingContainer/ProgrammersList"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.537255, 0.156863, 0.054902, 1)
+theme_override_fonts/font = SubResource("SystemFont_tlwrt")
+theme_override_font_sizes/font_size = 40
+text = "Eric Wu"
+horizontal_alignment = 1
+
+[node name="Name3" type="Label" parent="ClippingContainer/ProgrammersList"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.537255, 0.156863, 0.054902, 1)
+theme_override_fonts/font = SubResource("SystemFont_tlwrt")
+theme_override_font_sizes/font_size = 40
+text = "Henry Earnest"
+horizontal_alignment = 1
 
 [connection signal="mouse_entered" from="ClippingContainer/CloseButton" to="." method="_on_close_button_mouse_entered"]
 [connection signal="mouse_exited" from="ClippingContainer/CloseButton" to="." method="_on_close_button_mouse_exited"]

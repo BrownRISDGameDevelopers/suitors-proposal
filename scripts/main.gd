@@ -17,7 +17,7 @@ var Seasons = {
 	"SPRING": "spring"
 }
 # --- SEASONAL LETTER TRACKERS & SEASONS
-var seasons = [Seasons.SUMMER, Seasons.FALL, Seasons.WINTER, Seasons.SPRING] # List of all seasons, used to cycle through them.
+var seasons_order = [Seasons.SUMMER, Seasons.FALL, Seasons.WINTER, Seasons.SPRING] # List of all seasons_order, used to cycle through them.
 var letters_per_season = {
 	Seasons.SUMMER: 3,
 	Seasons.FALL: 3,
@@ -33,7 +33,7 @@ var archived_letters = []
 var suitors = []
 var advertisements = []
 
-@onready var ui: Control = $UI
+@onready var ui: Control = self
 
 # Called wwhen the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -58,6 +58,7 @@ func _ready() -> void:
 	_generate_player_stats()
 	_generate_letter_lists()
 	_start_new_season()
+	_update_letter_portrait()
 #                                  ====================================
 #                                  ====== PLAYER STAT GENERATION ======
 #                                  ====================================	
@@ -82,10 +83,12 @@ func _generate_letter_lists() -> void:
 	var available_suitors = suitors.duplicate(true)
 	available_suitors.shuffle()
 	# Generates all suitors letters.
-	for season in seasons:
+	for season in seasons_order:
 		for i in range(letters_per_season[season]):
 			var suitor = available_suitors.pop_front()
 			letter_list[season].append(suitor)
+			
+	print(letter_list)
 
 
 ## _INSTANTIATE_LETTER() --> Initializes letter resource to put onto screen.
@@ -129,6 +132,8 @@ const FEW_LETTERS_HOVER = preload("res://assets/desk/Few letters hover.PNG")
 const FEW_LETTERS_STATIC = preload("res://assets/desk/Few letters static.PNG")
 
 func _update_letter_portrait() -> void:
+	print(len(current_letter_stack))
+
 	if len(current_letter_stack) <= 3:
 		letters_stack.texture_normal = FEW_LETTERS_STATIC
 		letters_stack.texture_hover = FEW_LETTERS_HOVER
@@ -142,7 +147,7 @@ func _update_letter_portrait() -> void:
 		letters_stack.texture_hover = MANY_LETTERS_HOVER
 
 	
-## _START_SEASON() --> Begins a season cycle based on seasons list.
+## _START_SEASON() --> Begins a season cycle based on seasons_order list.
 ## Global Variables: current_letter_stack - Array holding all the letters relevant to the current_season
 ##                   current_season - String representing current season.
 
@@ -150,7 +155,7 @@ var current_letter_stack = []
 var current_season
 
 func _start_new_season() -> void:
-	current_season = seasons.pop_front()
+	current_season = seasons_order.pop_front()
 	
 	var season_instance = SEASON.instantiate()
 	ui.add_child(season_instance)
@@ -164,6 +169,10 @@ func _start_new_season() -> void:
 ## _END_SEASON() --> Ends a season cycle. In this context, will be called when 
 ##                   current_letter_stack is empty.
 func _end_season() -> void:
+	if not seasons_order:
+		# end of game
+		pass
+
 	pass
 
 #                                     ================================================
@@ -187,7 +196,7 @@ func _on_letters_stack_pressed() -> void:
 	else:
 		var letter_shown = current_letter_stack.pop_back()
 		_update_letter_portrait()
-		_instantiate_letter(load(letter_shown))
+		_instantiate_letter(letter_shown)
 		
 
 #                                  				   ========================

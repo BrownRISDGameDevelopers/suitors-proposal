@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ef7dgc3nfapr"]
 
 [ext_resource type="Shader" uid="uid://cxmlb8bijd71s" path="res://assets/shaders/outline.gdshader" id="1_pbxs4"]
-[ext_resource type="Texture2D" uid="uid://cwo1xp5n5h2ow" path="res://assets/kingdoms/trimmed/trimmed_Cloud.png" id="2_0857j"]
+[ext_resource type="Texture2D" uid="uid://cwo1xp5n5h2ow" path="res://assets/map/trimmed/trimmed_Cloud.png" id="2_0857j"]
 
 [resource]
 shader = ExtResource("1_pbxs4")

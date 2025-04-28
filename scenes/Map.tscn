@@ -1,19 +1,20 @@
-[gd_scene load_steps=20 format=3 uid="uid://b8iollf58huxn"]
+[gd_scene load_steps=21 format=3 uid="uid://b8iollf58huxn"]
 
-[ext_resource type="Texture2D" uid="uid://l3uxn3gvdvnn" path="res://assets/kingdoms/map.png" id="1_yyirk"]
-[ext_resource type="Texture2D" uid="uid://ckfavv68i1ugj" path="res://assets/kingdoms/Mountain.png" id="2_41ykk"]
+[ext_resource type="Texture2D" uid="uid://l3uxn3gvdvnn" path="res://assets/map/map.png" id="1_yyirk"]
+[ext_resource type="Texture2D" uid="uid://ckfavv68i1ugj" path="res://assets/map/Mountain.png" id="2_41ykk"]
 [ext_resource type="Material" uid="uid://ef7dgc3nfapr" path="res://assets/shaders/kingdom_outline.tres" id="2_u4fdk"]
 [ext_resource type="Script" uid="uid://pes8w55p45wn" path="res://scripts/kingdom_map.gd" id="3_xkm8s"]
 [ext_resource type="Resource" uid="uid://bc5qvfo24wa4t" path="res://resources/kingdoms/MountainKingdom.tres" id="4_pgwcf"]
-[ext_resource type="Texture2D" uid="uid://brpoc0bhwiqas" path="res://assets/kingdoms/Cloud.png" id="5_46d0c"]
-[ext_resource type="Texture2D" uid="uid://cwo1xp5n5h2ow" path="res://assets/kingdoms/trimmed/trimmed_Cloud.png" id="5_sxh8t"]
+[ext_resource type="Texture2D" uid="uid://brpoc0bhwiqas" path="res://assets/map/Cloud.png" id="5_46d0c"]
+[ext_resource type="Texture2D" uid="uid://cwo1xp5n5h2ow" path="res://assets/map/trimmed/trimmed_Cloud.png" id="5_sxh8t"]
 [ext_resource type="PackedScene" uid="uid://bkrvpxjak31id" path="res://scenes/Popup.tscn" id="5_yyirk"]
+[ext_resource type="Texture2D" uid="uid://cqqfitsc2yujb" path="res://assets/map/suitor_portraits/IMG_2269.PNG" id="6_08blb"]
 [ext_resource type="Resource" uid="uid://cqga80ifaxij1" path="res://resources/kingdoms/CloudKingdom.tres" id="6_46d0c"]
-[ext_resource type="Texture2D" uid="uid://wcojt0quoyg5" path="res://assets/kingdoms/Trees.png" id="6_d46yu"]
-[ext_resource type="Texture2D" uid="uid://dgimv1u2ltfki" path="res://assets/kingdoms/undead.png" id="7_hit12"]
+[ext_resource type="Texture2D" uid="uid://wcojt0quoyg5" path="res://assets/map/Trees.png" id="6_d46yu"]
+[ext_resource type="Texture2D" uid="uid://dgimv1u2ltfki" path="res://assets/map/undead.png" id="7_hit12"]
 [ext_resource type="Resource" uid="uid://c2yol8dyhwt2t" path="res://resources/kingdoms/ForestKingdom.tres" id="8_djx7b"]
-[ext_resource type="Texture2D" uid="uid://bh144dh05cf6y" path="res://assets/kingdoms/Ocean.png" id="8_sdw7q"]
-[ext_resource type="Texture2D" uid="uid://birqqrnm1dfor" path="res://assets/kingdoms/Home.png" id="9_pgwcf"]
+[ext_resource type="Texture2D" uid="uid://bh144dh05cf6y" path="res://assets/map/Ocean.png" id="8_sdw7q"]
+[ext_resource type="Texture2D" uid="uid://birqqrnm1dfor" path="res://assets/map/Home.png" id="9_pgwcf"]
 [ext_resource type="Resource" uid="uid://bahrmb7eqtk0t" path="res://resources/kingdoms/UndeadKingdom.tres" id="10_sxh8t"]
 [ext_resource type="Resource" uid="uid://b6h0r0aa3q2d3" path="res://resources/kingdoms/UnderwaterKingdom.tres" id="12_djx7b"]
 [ext_resource type="Resource" uid="uid://1p3op32gjikr" path="res://resources/kingdoms/OurKingdom.tres" id="16_u4fdk"]
@@ -208,6 +209,25 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_xkm8s")
 kingdom = ExtResource("4_pgwcf")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Mountain"]
+layout_mode = 0
+offset_left = 377.0
+offset_top = 110.0
+offset_right = 544.0
+offset_bottom = 277.0
+texture = ExtResource("6_08blb")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Mountain"]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 110.0
+offset_right = 366.0
+offset_bottom = 277.0
+texture = ExtResource("6_08blb")
+expand_mode = 1
 
 [node name="Cloud" type="TextureButton" parent="."]
 z_index = 1
@@ -224,6 +244,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_xkm8s")
 kingdom = ExtResource("6_46d0c")
+metadata/_edit_lock_ = true
 
 [node name="Forest" type="TextureButton" parent="."]
 z_index = 1
@@ -238,6 +259,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_xkm8s")
 kingdom = ExtResource("8_djx7b")
+metadata/_edit_lock_ = true
 
 [node name="Undead" type="TextureButton" parent="."]
 z_index = 1
@@ -252,6 +274,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_xkm8s")
 kingdom = ExtResource("10_sxh8t")
+metadata/_edit_lock_ = true
 
 [node name="Underwater" type="TextureButton" parent="."]
 z_index = 1
@@ -266,6 +289,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_xkm8s")
 kingdom = ExtResource("12_djx7b")
+metadata/_edit_lock_ = true
 
 [node name="Home" type="TextureButton" parent="."]
 z_index = 1
@@ -280,6 +304,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_xkm8s")
 kingdom = ExtResource("16_u4fdk")
+metadata/_edit_lock_ = true
 
 [node name="Popup" parent="." instance=ExtResource("5_yyirk")]
 z_index = 3

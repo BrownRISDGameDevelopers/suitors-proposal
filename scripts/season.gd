@@ -16,7 +16,7 @@ const SPRING_SCROLL = preload("res://assets/seasons/scrolls/spring.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	play_transition_season("fall")
 
 ## _TRANSITION_SEASON() --> Plays transition between seasons.
 func play_transition_season(current_season: String) -> void:
@@ -50,7 +50,7 @@ func play_transition_season(current_season: String) -> void:
 		
 		interval = 1.25
 	
-	# await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1.5).timeout
 	
 	var tween = get_tree().create_tween()
 	
@@ -61,16 +61,14 @@ func play_transition_season(current_season: String) -> void:
 	tween.tween_interval(interval)
 	
 	# Scroll Transition
-	tween.tween_property(scroll, "position", Vector2(-960, -540), 0.25)
+	tween.tween_property(scroll, "position", Vector2(-960, -540), 1)
 	
-	tween.tween_interval(1.25)
+	tween.tween_interval(2)
 	
 	# Season transition off-screen
-	tween.tween_property(next_season, "position", next_season.position - Vector2(10000, 0), 2)
-	tween.set_parallel()
-	tween.tween_property(scroll, "position", scroll.position - Vector2(10000, 0), 2)
+	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 3)
 	
-	await get_tree().create_timer(5).timeout
+	await tween.finished
 	queue_free()
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.

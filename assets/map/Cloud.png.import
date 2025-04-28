@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcxux53er20hq"
-path="res://.godot/imported/trimmed_Trees.png-b159b3f85a0470af2149c874c5e3f2f6.ctex"
+uid="uid://brpoc0bhwiqas"
+path="res://.godot/imported/Cloud.png-7dfa6f3d05fc9fcde9fc57cdc95b9682.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/kingdoms/trimmed/trimmed_Trees.png"
-dest_files=["res://.godot/imported/trimmed_Trees.png-b159b3f85a0470af2149c874c5e3f2f6.ctex"]
+source_file="res://assets/map/Cloud.png"
+dest_files=["res://.godot/imported/Cloud.png-7dfa6f3d05fc9fcde9fc57cdc95b9682.ctex"]
 
 [params]
 

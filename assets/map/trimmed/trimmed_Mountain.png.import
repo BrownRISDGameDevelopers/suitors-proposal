@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgimv1u2ltfki"
-path="res://.godot/imported/undead.png-06f5fd69259ea9a042beac928209a38f.ctex"
+uid="uid://ba4wr3hale4f6"
+path="res://.godot/imported/trimmed_Mountain.png-d839af3c3f78a6b7c87673aeb158e353.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/kingdoms/undead.png"
-dest_files=["res://.godot/imported/undead.png-06f5fd69259ea9a042beac928209a38f.ctex"]
+source_file="res://assets/map/trimmed/trimmed_Mountain.png"
+dest_files=["res://.godot/imported/trimmed_Mountain.png-d839af3c3f78a6b7c87673aeb158e353.ctex"]
 
 [params]
 

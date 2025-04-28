@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh144dh05cf6y"
-path="res://.godot/imported/Ocean.png-1adb5f9b7c0647a4c22894bcabb2a9fa.ctex"
+uid="uid://wcojt0quoyg5"
+path="res://.godot/imported/Trees.png-9b6e713d399030b2d826bbfd07a15b1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/kingdoms/Ocean.png"
-dest_files=["res://.godot/imported/Ocean.png-1adb5f9b7c0647a4c22894bcabb2a9fa.ctex"]
+source_file="res://assets/map/Trees.png"
+dest_files=["res://.godot/imported/Trees.png-9b6e713d399030b2d826bbfd07a15b1f.ctex"]
 
 [params]
 

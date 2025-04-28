@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwo1xp5n5h2ow"
-path="res://.godot/imported/trimmed_Cloud.png-5874123bf59e045eef07055611d0387a.ctex"
+uid="uid://ckfavv68i1ugj"
+path="res://.godot/imported/Mountain.png-75f308cfa3f84ea1be7bdd23cecd99ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/kingdoms/trimmed/trimmed_Cloud.png"
-dest_files=["res://.godot/imported/trimmed_Cloud.png-5874123bf59e045eef07055611d0387a.ctex"]
+source_file="res://assets/map/Mountain.png"
+dest_files=["res://.godot/imported/Mountain.png-75f308cfa3f84ea1be7bdd23cecd99ec.ctex"]
 
 [params]
 

@@ -7,7 +7,9 @@ signal letter_closed
 @onready var content: RichTextLabel = $Letter/MarginContainer/VBoxContainer/Content
 @onready var signoff: Label = $Letter/MarginContainer/VBoxContainer/Signoff
 @onready var suitor_portrait: TextureRect = $SuitorPortrait
-@onready var close_button: TextureButton = $CloseButton
+@onready var close_button: TextureButton = $Letter/CloseButton
+
+const CLOSE_OUTLINE = preload("res://assets/shaders/close_outline.tres")
 
 var resource: LetterResource
 
@@ -29,9 +31,9 @@ func _setup_proposal_layout() -> void:
 	var letter_position = letter.position
 	var portrait_position = suitor_portrait.position
 
-	suitor_portrait.texture = resource.portrait
-	letter.position = letter_position + Vector2(-225, 0)
-	suitor_portrait.position = portrait_position + Vector2(600, -150)
+	# suitor_portrait.texture = resource.portrait
+	# letter.position = letter_position + Vector2(-225, 0)
+	# suitor_portrait.position = portrait_position + Vector2(600, -150)
 
 func _setup_seasonal_content(season: String) -> void:
 	var version_text
@@ -61,8 +63,11 @@ func _setup_seasonal_content(season: String) -> void:
 	content.text = version_text
 
 func _ready() -> void:
-	var sample_letter: LetterResource = load("res://resources/letters/Letter1.tres")
-	generate_content("summer", sample_letter)
+	if Engine.is_editor_hint():
+		var sample_letter: LetterResource = load("res://resources/letters/Letter1.tres")
+		generate_content("summer", sample_letter)
+
+	close_button.material = CLOSE_OUTLINE.duplicate()
 
 func _on_close_button_pressed() -> void:
 	letter_closed.emit()
@@ -74,3 +79,13 @@ func _on_content_meta_clicked(meta: Variant) -> void:
 	for stat in parsed:
 		resource.kingdom[stat + "Known"] = true
 		print(stat + " is known")
+
+	print(resource.kingdom.manaKnown, resource.kingdom.militaryKnown, resource.kingdom.populationKnown, resource.kingdom.resourceKnown, resource.kingdom.moraleKnown)
+
+
+func _on_close_button_mouse_entered() -> void:
+	close_button.material.set_shader_parameter("enabled", true)
+
+
+func _on_close_button_mouse_exited() -> void:
+	close_button.material.set_shader_parameter("enabled", false)
