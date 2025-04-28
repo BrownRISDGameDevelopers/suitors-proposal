@@ -1,20 +1,20 @@
 [gd_resource type="Resource" script_class="LetterResource" load_steps=3 format=3 uid="uid://cn4lbybqnqs16"]
 
-[ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="1_als7s"]
-[ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_f3qrr"]
+[ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_31543"]
+[ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="2_vpsbq"]
 
 [resource]
-script = ExtResource("1_als7s")
+script = ExtResource("2_vpsbq")
 is_proposal = false
 greeting = ""
 regularContent = ""
 signoff = ""
 summerVersion = ""
-summerClickableContent = Array[ExtResource("1_f3qrr")]([])
+summerClickableContent = Array[ExtResource("1_31543")]([])
 fallVersion = ""
-fallClickableContent = Array[ExtResource("1_f3qrr")]([])
+fallClickableContent = Array[ExtResource("1_31543")]([])
 winterVersion = ""
-winterClickableContent = Array[ExtResource("1_f3qrr")]([])
+winterClickableContent = Array[ExtResource("1_31543")]([])
 springVersion = ""
-springClickableContent = Array[ExtResource("1_f3qrr")]([])
+springClickableContent = Array[ExtResource("1_31543")]([])
 metadata/_custom_type_script = "uid://d2ngpxf76ukp7"

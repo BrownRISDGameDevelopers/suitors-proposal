@@ -6,7 +6,8 @@ const LETTER_SCENE = preload("res://scenes/Letter.tscn")
 const MAP = preload("res://scenes/Map.tscn")
 const SEASON = preload("res://scenes/Season.tscn")
 
-var our_kingdom = preload("res://resources/kingdoms/OurKingdom.tres")
+var OUR_KINGDOM = preload("res://resources/kingdoms/OurKingdom.tres")
+const OUTLINE = preload("res://assets/shaders/kingdom_outline.tres")
 
 # --- SEASONS
 var Seasons = {
@@ -16,22 +17,44 @@ var Seasons = {
 	"SPRING": "spring"
 }
 # --- SEASONAL LETTER TRACKERS & SEASONS
-var letter_list = {Seasons.SUMMER: [], Seasons.FALL: [], Seasons.WINTER: [], Seasons.SPRING: []} # Values for all of these will be generated in _generate_letter_lists!
 var seasons = [Seasons.SUMMER, Seasons.FALL, Seasons.WINTER, Seasons.SPRING] # List of all seasons, used to cycle through them.
+var letters_per_season = {
+	Seasons.SUMMER: 3,
+	Seasons.FALL: 3,
+	Seasons.WINTER: 2,
+	Seasons.SPRING: 2
+}
+var letter_list = {Seasons.SUMMER: [], Seasons.FALL: [], Seasons.WINTER: [], Seasons.SPRING: []} # Values for all of these will be generated in _generate_letter_lists!
 
 # --- ARCHIVED LETTERS
 var archived_letters = []
 
 # --- SUITOR LETTERS & FILLER LETTERS
-var suitors = ["res://resources/letters/Dwarf_Techbro_Warlord_Letter.tres", "res://resources/letters/Vampire_King_Letter.tres",
-"res://resources/letters/Skeleton_General_Letter.tres", "res://resources/letters/Dwarf_Councilwoman_Letter.tres", "res://resources/letters/Letter1.tres",
-"res://resources/letters/Letter2.tres"]
+var suitors = []
 var advertisements = []
 
 @onready var ui: Control = $UI
 
 # Called wwhen the node enters the scene tree for the first time.
 func _ready() -> void:
+	# generate shader for pause button
+	pause_button.material = OUTLINE.duplicate()
+
+	# create dir of suitors
+	var dir = DirAccess.open("res://resources/letters")
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if file_name.ends_with(".tres"):
+				var letter = load("res://resources/letters/" + file_name)
+				if letter.is_proposal:
+					suitors.append(letter)
+				else:
+					advertisements.append(letter)
+			file_name = dir.get_next()
+		dir.list_dir_end()
+
 	_generate_player_stats()
 	_generate_letter_lists()
 	_start_new_season()
@@ -40,11 +63,11 @@ func _ready() -> void:
 #                                  ====================================	
 
 func _generate_player_stats() -> void:
-	our_kingdom.mana = int(round(randf_range(1, 6)))
-	our_kingdom.military = int(round(randf_range(1, 6)))
-	our_kingdom.population = int(round(randf_range(1, 6)))
-	our_kingdom.morale = int(round(randf_range(1, 4)))
-	our_kingdom.resource = int(round(randf_range(1, 6)))
+	OUR_KINGDOM.mana = int(round(randf_range(1, 6)))
+	OUR_KINGDOM.military = int(round(randf_range(1, 6)))
+	OUR_KINGDOM.population = int(round(randf_range(1, 6)))
+	OUR_KINGDOM.morale = int(round(randf_range(1, 4)))
+	OUR_KINGDOM.resource = int(round(randf_range(1, 6)))
 	
 #                                  =================================================
 #                                  ====== GENERATE LETTERS / LETTER FUNCTIONS ======
@@ -56,12 +79,13 @@ func _generate_player_stats() -> void:
 ##                   advertisements - Array that holds all the filler letter resources.
 
 func _generate_letter_lists() -> void:
-	var suitors_to_visit = suitors.duplicate(true)
-	# Generates all summer suitor letters.
-	for i in range(2):
-		suitors_to_visit.shuffle()
-		var suitor_to_generate = suitors_to_visit.pop_front()
-		letter_list[Seasons.SUMMER].append(suitor_to_generate)
+	var available_suitors = suitors.duplicate(true)
+	available_suitors.shuffle()
+	# Generates all suitors letters.
+	for season in seasons:
+		for i in range(letters_per_season[season]):
+			var suitor = available_suitors.pop_front()
+			letter_list[season].append(suitor)
 
 
 ## _INSTANTIATE_LETTER() --> Initializes letter resource to put onto screen.
@@ -123,7 +147,7 @@ func _update_letter_portrait() -> void:
 ##                   current_season - String representing current season.
 
 var current_letter_stack = []
-var current_season = ""
+var current_season
 
 func _start_new_season() -> void:
 	current_season = seasons.pop_front()
@@ -153,10 +177,9 @@ func _on_map_pressed() -> void:
 ## Checks if the letter button has been pressed, and loads the letter screen if true.
 func _on_letters_stack_pressed() -> void:
 	# Button Clicked Animation
-	var tween = create_tween()
-	tween.tween_property(letters_stack, "scale", Vector2(1, 1.01), 0.1)
-	tween.tween_property(letters_stack, "scale", Vector2(1, 1), 0.1)
-	
+	# var tween = create_tween()
+	# tween.tween_property(letters_stack, "scale", Vector2(1, 1.01), 0.1)
+	# tween.tween_property(letters_stack, "scale", Vector2(1, 1), 0.1)
 	if not current_letter_stack:
 		_end_season()
 		_start_new_season()
@@ -195,3 +218,13 @@ func _on_letters_stack_pressed() -> void:
 #
 #func _on_letters_button_mouse_exited() -> void:
 	#_hover_off(letters_button, letters_button.position)
+
+@onready var pause_button: BitmaskedTextureButton = $PauseButton
+
+func _on_pause_button_mouse_entered() -> void:
+	print("active")
+	pause_button.material.set_shader_parameter("enabled", true)
+
+func _on_pause_button_mouse_exited() -> void:
+	print("inactive")
+	pause_button.material.set_shader_parameter("enabled", false)

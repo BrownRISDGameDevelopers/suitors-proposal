@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="LetterResource" load_steps=3 format=3 uid="uid://crj7p4p0n2r3s"]
+[gd_resource type="Resource" script_class="LetterResource" load_steps=4 format=3 uid="uid://cbevug2gr34f6"]
 
 [ext_resource type="Resource" uid="uid://bc5qvfo24wa4t" path="res://resources/kingdoms/MountainKingdom.tres" id="1_4iloy"]
-[ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/resources/letter_resource.gd" id="1_sv53s"]
+[ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="1_sv53s"]
+[ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_xtsgp"]
 
 [resource]
 script = ExtResource("1_sv53s")
@@ -17,7 +18,11 @@ I write to you today to request an alliance, as you know better than most that i
 Durvash can extend to yours the protection of technological prowess manned by a military might unparalleled on the rest of the continent. Nobody can orienteer the intricacies of this better than myself, and as a result, I know that the mana in your land can best amplify our already crushing supply. Such a development would bring about a new era of prosperity—something we must both admit is desperately needed, as you face a looming plague and the Old Dwarven Guard threatens to drag my people back into the past. As you consider my proposal, please remember: “tradition” is merely the word we give to problems we’re too lazy to fix.
 
 P.S. apologies if this letter smells of ozone and lavender—I write this from my lab, and the mana coil is…humming. Rest assured that any kinks will be sorted out in time! "
+summerClickableContent = Array[ExtResource("1_xtsgp")]([null])
 fallVersion = ""
+fallClickableContent = Array[ExtResource("1_xtsgp")]([])
 winterVersion = ""
+winterClickableContent = Array[ExtResource("1_xtsgp")]([])
 springVersion = ""
+springClickableContent = Array[ExtResource("1_xtsgp")]([])
 metadata/_custom_type_script = "uid://d2ngpxf76ukp7"
