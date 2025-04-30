@@ -15,15 +15,11 @@ var resource: LetterResource
 
 func generate_content(season: String, letter_resource: LetterResource) -> void:
 	resource = letter_resource
-
 	greeting.text = resource.greeting
 	signoff.text = resource.signoff
 
-	if resource.is_proposal:
-		_setup_proposal_layout()
-		_setup_seasonal_content(season)
-	else:
-		content.text = resource.regularContent
+	_setup_proposal_layout()
+	_setup_seasonal_content(season)
 
 	content.bbcode_enabled = true
 
@@ -34,6 +30,8 @@ func _setup_proposal_layout() -> void:
 	# suitor_portrait.texture = resource.portrait
 	# letter.position = letter_position + Vector2(-225, 0)
 	# suitor_portrait.position = portrait_position + Vector2(600, -150)
+
+## _SETUP_SEASONAL_CONTENT() --> Based on season, generates content of letter.
 
 func _setup_seasonal_content(season: String) -> void:
 	var version_text
@@ -69,6 +67,8 @@ func _ready() -> void:
 
 	close_button.material = CLOSE_OUTLINE.duplicate()
 
+# BUTTONS
+
 func _on_close_button_pressed() -> void:
 	letter_closed.emit()
 	queue_free()
@@ -82,10 +82,16 @@ func _on_content_meta_clicked(meta: Variant) -> void:
 
 	print(resource.kingdom.manaKnown, resource.kingdom.militaryKnown, resource.kingdom.populationKnown, resource.kingdom.resourceKnown, resource.kingdom.moraleKnown)
 
+# BUTTON ANIMATIONS
+
+func _on_content_meta_hover_started(meta: Variant) -> void:
+	pass # Replace with function body.
+
+func _on_content_meta_hover_ended(meta: Variant) -> void:
+	pass # Replace with function body.
 
 func _on_close_button_mouse_entered() -> void:
 	close_button.material.set_shader_parameter("enabled", true)
-
 
 func _on_close_button_mouse_exited() -> void:
 	close_button.material.set_shader_parameter("enabled", false)

@@ -6,10 +6,8 @@
 
 [resource]
 script = ExtResource("1_sv53s")
-is_proposal = true
 kingdom = ExtResource("1_4iloy")
 greeting = "To Your Highness of the Land of Wheat,"
-regularContent = ""
 signoff = "Ingree Thaldrin, Head Steamwright of the Copper Forge"
 summerVersion = "Bright tidings! I am Ingree Thaldrin. You may recognize my name as the youngest Head Steamwright to earn the title and the first dwarf to utilize mana-powered forges. It may shock you to hear this, but before my success, my peers dismissed me as a “magic-sick radical”! Even now, as my forges run hotter than dragonfire and produce weaponry three times the strength of natural ore, my progress is constantly under siege from the metal purists of the Durvashian Council. 
 

@@ -11,10 +11,8 @@ metadata/_custom_type_script = "uid://b466tuukr26ps"
 
 [resource]
 script = ExtResource("1_1xag8")
-is_proposal = true
 greeting = "To the future crown of the Land of Wheat,
 "
-regularContent = ""
 signoff = "Councilwoman Dronma Grithelm of the Durvashian Guard"
 summerVersion = "I write to you now without flourish, for I have no patience for insipid flattery or hollow words. The weight of the crown that will soon rest upon your head is heavy. I know this. I have worn armor, shed blood, and borne scars all for the sake of my people. And yet, I see in you a burning resolve to carry forward your father’s legacy when the time comes—and to shape your own, no doubt. 
 

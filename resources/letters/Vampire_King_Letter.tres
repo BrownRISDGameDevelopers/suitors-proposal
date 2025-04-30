@@ -19,11 +19,9 @@ metadata/_custom_type_script = "uid://b466tuukr26ps"
 
 [resource]
 script = ExtResource("4_aui8t")
-is_proposal = true
 kingdom = ExtResource("2_3mtvp")
 portrait = ExtResource("3_xyxd3")
 greeting = "To the Most Serene Highness of Fallowbrook, "
-regularContent = ""
 signoff = "With utmost respect and most ardent fervor,
  
 His Majesty the Eternal King,

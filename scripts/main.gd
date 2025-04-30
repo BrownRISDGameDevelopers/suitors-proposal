@@ -48,10 +48,8 @@ func _ready() -> void:
 		while file_name != "":
 			if file_name.ends_with(".tres"):
 				var letter = load("res://resources/letters/" + file_name)
-				if letter.is_proposal:
-					suitors.append(letter)
-				else:
-					advertisements.append(letter)
+				suitors.append(letter)
+				# advertisements.append(letter) <-- filler msgs are now pngs
 			file_name = dir.get_next()
 		dir.list_dir_end()
 
@@ -132,6 +130,7 @@ const FEW_LETTERS_HOVER = preload("res://assets/desk/Few letters hover.PNG")
 const FEW_LETTERS_STATIC = preload("res://assets/desk/Few letters static.PNG")
 
 func _update_letter_portrait() -> void:
+	print(current_season)
 	print(len(current_letter_stack))
 
 	if len(current_letter_stack) <= 3:

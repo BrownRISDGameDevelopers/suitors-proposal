@@ -19,11 +19,9 @@ metadata/_custom_type_script = "uid://b466tuukr26ps"
 
 [resource]
 script = ExtResource("1_16uwy")
-is_proposal = true
 kingdom = ExtResource("2_c42ij")
 portrait = ExtResource("1_0tn8y")
 greeting = "Whats up!"
-regularContent = "Regular Content hehe"
 signoff = "Signed a Random Loser Who Wants to Marry You"
 summerVersion = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel enim ac est facilisis accumsan. Maecenas risus purus, pellentesque a porttitor sed, pretium et urna. Mauris euismod imperdiet enim, at vestibulum metus volutpat tempor. In fringilla ullamcorper dolor, id porttitor lacus scelerisque eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam blandit urna in est molestie volutpat. Proin pulvinar nulla metus, vitae auctor sapien pharetra a. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc tempus dignissim arcu. Cras euismod quam tortor, id facilisis erat ultrices vestibulum."
 summerClickableContent = Array[ExtResource("1_tyl61")]([SubResource("Resource_tyl61")])

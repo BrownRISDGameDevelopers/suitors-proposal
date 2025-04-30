@@ -2,15 +2,12 @@ extends Resource
 
 class_name LetterResource
 
-@export var is_proposal: bool;
-
 @export_category("Suitor")
 @export var kingdom: Kingdom
 @export var portrait: Texture
 
 @export_group("Letter")
 @export_multiline var greeting: String
-@export_multiline var regularContent: String
 @export_multiline var signoff: String
 
 @export_group("Seasonal Content")

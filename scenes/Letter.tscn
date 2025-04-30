@@ -124,6 +124,8 @@ expand_mode = 1
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="meta_clicked" from="Letter/MarginContainer/VBoxContainer/Content" to="." method="_on_content_meta_clicked"]
+[connection signal="meta_hover_ended" from="Letter/MarginContainer/VBoxContainer/Content" to="." method="_on_content_meta_hover_ended"]
+[connection signal="meta_hover_started" from="Letter/MarginContainer/VBoxContainer/Content" to="." method="_on_content_meta_hover_started"]
 [connection signal="mouse_entered" from="Letter/CloseButton" to="." method="_on_close_button_mouse_entered"]
 [connection signal="mouse_exited" from="Letter/CloseButton" to="." method="_on_close_button_mouse_exited"]
 [connection signal="pressed" from="Letter/CloseButton" to="." method="_on_close_button_pressed"]
