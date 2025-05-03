@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://bss4mnhq0fcwf" path="res://resources/themes/Letter.tres" id="2_65x1g"]
 [ext_resource type="Script" uid="uid://dgrewkgo17hkt" path="res://scripts/letter.gd" id="3_65x1g"]
 [ext_resource type="Script" uid="uid://bq0lrcqnbba1l" path="res://scripts/letter_headers.gd" id="4_bwjek"]
-[ext_resource type="Texture2D" uid="uid://7rabsfrufvs5" path="res://assets/letters/borders/Dwarf border_transparent.PNG" id="4_nllnb"]
+[ext_resource type="Texture2D" uid="uid://coxlwkqb471be" path="res://assets/letters/borders/Border_Forest_Kingdom.png" id="4_nllnb"]
 [ext_resource type="Texture2D" uid="uid://cc3h1jg02fq0l" path="res://assets/ui/X Button.png" id="5_t02en"]
 [ext_resource type="Material" uid="uid://dfxfj7q58h2f4" path="res://assets/shaders/close_outline.tres" id="6_nllnb"]
 [ext_resource type="Texture2D" uid="uid://ct55nkiplcpva" path="res://assets/letters/letter_portraits/Portrait_.png" id="7_i382k"]
@@ -42,6 +42,7 @@ expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Border" type="TextureRect" parent="Letter"]
+self_modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

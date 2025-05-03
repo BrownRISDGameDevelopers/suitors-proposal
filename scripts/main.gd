@@ -5,6 +5,7 @@ const MAIN_MENU = preload("res://scenes/MainMenu.tscn")
 const LETTER_SCENE = preload("res://scenes/Letter.tscn")
 const MAP = preload("res://scenes/Map.tscn")
 const SEASON = preload("res://scenes/Season.tscn")
+const MISC_LIT = preload("res://scenes/MiscLit.tscn")
 
 var OUR_KINGDOM = preload("res://resources/kingdoms/OurKingdom.tres")
 const OUTLINE = preload("res://assets/shaders/kingdom_outline.tres")
@@ -24,36 +25,93 @@ var letters_per_season = {
 	Seasons.WINTER: 3,
 	Seasons.SPRING: 0
 }
-var letter_list = {Seasons.SUMMER: [], Seasons.FALL: [], Seasons.WINTER: [], Seasons.SPRING: []} # Values for all of these will be generated in _generate_letter_lists!
 
 # --- ARCHIVED LETTERS
 var archived_letters = []
 
 # --- SUITOR LETTERS & FILLER LETTERS
 var suitors = []
-var advertisements = []
+var letter_list = {Seasons.SUMMER: [], Seasons.FALL: [], Seasons.WINTER: [], Seasons.SPRING: []} # Values for all of these will be generated in _generate_letter_lists!
+var misc_lits = {Seasons.SUMMER: [], Seasons.FALL: [], Seasons.WINTER: [], Seasons.SPRING: []}
 
 @onready var ui: Control = $UI
 
-#                                  ====================================
-#                                  ====== PLAYER STAT GENERATION ======
-#                                  ====================================	
+#								  ====================================
+#								  ====== PLAYER STAT GENERATION ======
+#								  ====================================	
 
 func _generate_player_stats() -> void:
-	OUR_KINGDOM.mana = int(round(randf_range(1, 6)))
-	OUR_KINGDOM.military = int(round(randf_range(1, 6)))
-	OUR_KINGDOM.population = int(round(randf_range(1, 6)))
-	OUR_KINGDOM.morale = int(round(randf_range(1, 4)))
-	OUR_KINGDOM.resource = int(round(randf_range(1, 6)))
-	
-#                                  =================================================
-#                                  ====== GENERATE LETTERS / LETTER FUNCTIONS ======
-#                                  =================================================
+	var starting_points = randi_range(16, 18)
 
+	for i in range(starting_points):
+		var stat = randi_range(0, 4) # Changed to 0-4 since there are 5 stats
+		
+		# Try each stat until we find one that's not maxed
+		for j in range(5): # Try all 5 stats at most once each
+			match stat:
+				0:
+					if OUR_KINGDOM.mana < 6:
+						OUR_KINGDOM.mana += 1
+						break
+				1:
+					if OUR_KINGDOM.military < 6:
+						OUR_KINGDOM.military += 1
+						break
+				2:
+					if OUR_KINGDOM.population < 6:
+						OUR_KINGDOM.population += 1
+						break
+				3:
+					if OUR_KINGDOM.morale < 6:
+						OUR_KINGDOM.morale += 1
+						break
+				4:
+					if OUR_KINGDOM.resource < 6:
+						OUR_KINGDOM.resource += 1
+						break
+			stat = (stat + 1) % 5
+	
+#								  =================================================
+#								  ====== GENERATE LETTERS / LETTER FUNCTIONS ======
+#								  =================================================
+
+
+func load_resources() -> void:
+	var letters_dir = DirAccess.open("res://resources/letters")
+	var misc_lit_dir = DirAccess.open("res://resources/misc_lit")
+
+	if not letters_dir:
+		print("Error: Could not open letters directory.")
+		return
+
+	if not misc_lit_dir:
+		print("Error: Could not open misc_lit directory.")
+		return
+
+	letters_dir.list_dir_begin()
+	var letter_file = letters_dir.get_next()
+	while letter_file != "":
+		if letter_file.ends_with(".tres"):
+			var letter = load("res://resources/letters/" + letter_file)
+			suitors.append(letter)
+		letter_file = letters_dir.get_next()
+	letters_dir.list_dir_end()
+
+	misc_lit_dir.list_dir_begin()
+	var misc_lit_file = misc_lit_dir.get_next()
+	while misc_lit_file != "":
+		if misc_lit_file.ends_with(".tres"):
+			var misc_lit = load("res://resources/misc_lit/" + misc_lit_file) as MiscLitResource
+
+			for lit in misc_lit.literatures:
+				misc_lits[misc_lit.season].append(lit)
+		misc_lit_file = misc_lit_dir.get_next()
+	misc_lit_dir.list_dir_end()
+	
 
 ## _generate_letter_lists() --> Generates a list of 10 letters for each season.
 ## Global Variable(s): suitors - Array that holds all the suitors letter resources.
-##                   advertisements - Array that holds all the filler letter resources.
+##				   misc_lits - Array that holds all the filler letter resources.
 
 func _generate_letter_lists() -> void:
 	var available_suitors = suitors.duplicate(true)
@@ -69,11 +127,11 @@ func _generate_letter_lists() -> void:
 
 ## _INSTANTIATE_LETTER() --> Initializes letter resource to put onto screen.
 ## Parameters: letter - LetterResource object that will be initialized into
-##                      a letter scene
+##					  a letter scene
 ## Global Variable(s): current_letter_file - Will be initialized as a letter scene, representing the 
-##                                           latest letter initialized.
-##                     current_letter_resource - Saved for _close_current_letter, so it can be saved
-##                                               in the archive.
+##										   latest letter initialized.
+##					 current_letter_resource - Saved for _close_current_letter, so it can be saved
+##											   in the archive.
 
 var current_letter_file: Letter
 var current_letter_resource
@@ -94,10 +152,10 @@ func _close_current_letter() -> void:
 	archived_letters.push_front(current_letter_resource)
 
 ## _UPDATE_LETTER_PORTRAIT() --> Updates current letter sprite based on the 
-##                               amount of letters in current_letter_stack.
+##							   amount of letters in current_letter_stack.
 ## Global Variable(s): letters_stack - references the LettersStack button in the Main Scene
-##                     [blank]_LETTERS_[STATIC/HOVER] - sprite that shows MANY, MIDDLE, FEW
-##                                                      amount of letters
+##					 [blank]_LETTERS_[STATIC/HOVER] - sprite that shows MANY, MIDDLE, FEW
+##													  amount of letters
 
 @onready var letters_stack: BitmaskedTextureButton = $LettersStack
 const MANY_LETTERS_HOVER = preload("res://assets/desk/Many letters hover.PNG")
@@ -126,7 +184,7 @@ func _update_letter_portrait() -> void:
 	
 ## _START_SEASON() --> Begins a season cycle based on seasons_order list.
 ## Global Variables: current_letter_stack - Array holding all the letters relevant to the current_season
-##                   current_season - String representing current season.
+##				   current_season - String representing current season.
 @onready var curr_season_banner: TextureRect = $CurrentSeason
 
 var current_letter_stack = []
@@ -159,7 +217,7 @@ func _start_new_season() -> void:
 
 
 ## _END_SEASON() --> Ends a season cycle. In this context, will be called when 
-##                   current_letter_stack is empty.
+##				   current_letter_stack is empty.
 func _end_season() -> void:
 	if not seasons_order:
 		# end of game
@@ -167,9 +225,9 @@ func _end_season() -> void:
 
 	pass
 
-#                                     ================================================
-#                                     ====== BUTTON FUNCTIONS / SCENE SWITCHING ======
-#                                     ================================================
+#									 ================================================
+#									 ====== BUTTON FUNCTIONS / SCENE SWITCHING ======
+#									 ================================================
 @onready var map_button: BitmaskedTextureButton = $Map
 @onready var archive_button: BitmaskedTextureButton = $Archive
 @onready var news_button: BitmaskedTextureButton = $News
@@ -268,8 +326,39 @@ func _on_letters_stack_pressed() -> void:
 		current_letter_file.letter_closed.connect(hide_letter)
 		
 
-#                                  				   ========================
-#                                                  ====== ANIMATIONS ======
+func hide_archive() -> void:
+	enable_table()
+	pass
+
+func _on_archive_pressed() -> void:
+	pass
+
+func hide_news() -> void:
+	pass
+
+func _on_news_pressed() -> void:
+	disable_table()
+	print("PRESSED")
+
+	var next_lit = misc_lits[current_season].pop_front()
+	print("next lit:", next_lit)
+	if not next_lit:
+		enable_table()
+		return
+
+	var misc_lit_inst = MISC_LIT.instantiate()
+	ui.add_child(misc_lit_inst)
+	misc_lit_inst.setup(next_lit)
+	misc_lit_inst.position = Vector2(0, 1080)
+
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(misc_lit_inst, "position", Vector2(0, 0), 0.5)
+	
+	show_banner(inbox_tab)
+
+#								  				   ========================
+#												  ====== ANIMATIONS ======
 #												   ========================
 
 #@onready var map_button: TextureButton = %MapButton
@@ -317,26 +406,12 @@ func _ready() -> void:
 	map_close_button.connect("pressed", hide_map)
 
 	# create dir of suitors
-	var dir = DirAccess.open("res://resources/letters")
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if file_name.ends_with(".tres"):
-				var letter = load("res://resources/letters/" + file_name)
-				suitors.append(letter)
-				# advertisements.append(letter) <-- filler msgs are now pngs
-			file_name = dir.get_next()
-		dir.list_dir_end()
+	
 
 	tab.hide()
 
+	load_resources()
 	_generate_player_stats()
 	_generate_letter_lists()
 	_start_new_season()
 	_update_letter_portrait()
-
-func _input(event: InputEvent) -> void:
-	if Input.is_action_pressed("MP"):
-		print("main: " + str(get_viewport().get_mouse_position()))
-		return

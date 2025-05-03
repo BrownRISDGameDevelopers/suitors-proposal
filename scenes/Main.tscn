@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://byy6ufy2a5hsj"]
+[gd_scene load_steps=19 format=3 uid="uid://byy6ufy2a5hsj"]
 
 [ext_resource type="Script" uid="uid://b2acxx3ucocca" path="res://scripts/main.gd" id="1_rvslj"]
 [ext_resource type="Texture2D" uid="uid://w1a6fhrhcot" path="res://assets/desk/Newspaper static.png" id="3_bjd11"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://ir5oprt8suna" path="res://assets/desk/Border.PNG" id="12_bjd11"]
 [ext_resource type="PackedScene" uid="uid://b8iollf58huxn" path="res://scenes/Map.tscn" id="12_ft6cd"]
 [ext_resource type="Texture2D" uid="uid://0plcya5e8jk1" path="res://assets/ui/seasons_indicators/summer.png" id="13_3p2gp"]
+[ext_resource type="PackedScene" uid="uid://dosmcrt0dxc4c" path="res://scenes/MiscLit.tscn" id="13_bb450"]
 [ext_resource type="Material" uid="uid://ef7dgc3nfapr" path="res://assets/shaders/kingdom_outline.tres" id="13_mwfav"]
 [ext_resource type="Texture2D" uid="uid://c3qo2kc0i1s5i" path="res://assets/ui/Pause Button.png" id="13_qmy6f"]
 [ext_resource type="Texture2D" uid="uid://dh4lgexl05uk6" path="res://assets/desk/Map tab.png" id="14_bb450"]
@@ -129,6 +130,10 @@ offset_top = -418.5
 offset_right = 744.0
 offset_bottom = 418.5
 
+[node name="MiscLit" parent="UI" instance=ExtResource("13_bb450")]
+visible = false
+layout_mode = 1
+
 [node name="Border" type="TextureRect" parent="."]
 z_index = 3
 layout_mode = 1
@@ -195,7 +200,9 @@ script = ExtResource("5_lhr70")
 metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
 metadata/_edit_lock_ = true
 
+[connection signal="pressed" from="News" to="." method="_on_news_pressed"]
 [connection signal="pressed" from="Map" to="." method="_on_map_pressed"]
+[connection signal="pressed" from="Archive" to="." method="_on_archive_pressed"]
 [connection signal="pressed" from="LettersStack" to="." method="_on_letters_stack_pressed"]
 [connection signal="mouse_entered" from="PauseButton" to="." method="_on_pause_button_mouse_entered"]
 [connection signal="mouse_exited" from="PauseButton" to="." method="_on_pause_button_mouse_exited"]
