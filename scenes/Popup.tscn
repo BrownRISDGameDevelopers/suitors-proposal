@@ -1,139 +1,108 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkrvpxjak31id"]
+[gd_scene load_steps=6 format=3 uid="uid://bkrvpxjak31id"]
 
 [ext_resource type="Script" uid="uid://cg4amap6lr7uy" path="res://scripts/stats_popup.gd" id="1_4c2u4"]
+[ext_resource type="Texture2D" uid="uid://m1yrrn8hpte0" path="res://assets/map/stats_popup/Stat Bar UI.png" id="1_hyq1i"]
+[ext_resource type="FontFile" uid="uid://dxtdgrovxy3yh" path="res://assets/fonts/blackchancery/BLKCHCRY.TTF" id="3_jy7q2"]
+[ext_resource type="Texture2D" uid="uid://6wdypl738jel" path="res://assets/map/stats_popup/1bar.png" id="4_47gvx"]
 
-[node name="VBoxContainer" type="VBoxContainer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -146.0
-offset_top = -79.0
-offset_right = 146.0
-offset_bottom = 79.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyq1i"]
+atlas = ExtResource("1_hyq1i")
+region = Rect2(82, 16, 487, 255)
+
+[node name="VBoxContainer" type="TextureRect"]
+anchors_preset = -1
+anchor_left = 0.373437
+anchor_top = 0.382407
+anchor_right = 0.628174
+anchor_bottom = 0.618519
+offset_right = -2.09412
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.0043, 1)
 mouse_filter = 2
+texture = SubResource("AtlasTexture_hyq1i")
+stretch_mode = 2
 script = ExtResource("1_4c2u4")
+metadata/_edit_use_anchors_ = true
 
 [node name="Header" type="Label" parent="."]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -146.0
+offset_top = 23.0
+offset_right = 146.0
+offset_bottom = 46.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jy7q2")
+theme_override_font_sizes/font_size = 23
 text = "Underwater Kingdom"
+horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 2
-mouse_filter = 2
+[node name="PopulationBar" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3026
+anchor_top = 0.192157
+anchor_right = 0.93299
+anchor_bottom = 0.360784
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_47gvx")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="StatName" type="Label" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.6
-text = "MORALE"
+[node name="MilitaryBar" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3026
+anchor_top = 0.321569
+anchor_right = 0.93299
+anchor_bottom = 0.490196
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_47gvx")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="MoraleBar" type="ProgressBar" parent="HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-mouse_filter = 2
-min_value = 1.0
-max_value = 6.0
-step = 1.0
-page = 1.0
-value = 4.0
-show_percentage = false
+[node name="MoraleBar" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3026
+anchor_top = 0.447059
+anchor_right = 0.93299
+anchor_bottom = 0.615686
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_47gvx")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
-layout_mode = 2
-mouse_filter = 2
+[node name="ResourceBar" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3026
+anchor_top = 0.572549
+anchor_right = 0.93299
+anchor_bottom = 0.741176
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_47gvx")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="StatName" type="Label" parent="HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.6
-text = "MILITARY"
-
-[node name="MilitaryBar" type="ProgressBar" parent="HBoxContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-mouse_filter = 2
-min_value = 1.0
-max_value = 6.0
-step = 1.0
-page = 1.0
-value = 4.0
-show_percentage = false
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="."]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="StatName" type="Label" parent="HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.6
-text = "RESOURCES"
-
-[node name="ResourceBar" type="ProgressBar" parent="HBoxContainer3"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-mouse_filter = 2
-min_value = 1.0
-max_value = 6.0
-step = 1.0
-page = 1.0
-value = 4.0
-show_percentage = false
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="."]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="StatName" type="Label" parent="HBoxContainer4"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.6
-text = "MANA"
-
-[node name="ManaBar" type="ProgressBar" parent="HBoxContainer4"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-mouse_filter = 2
-min_value = 1.0
-max_value = 6.0
-step = 1.0
-page = 1.0
-value = 4.0
-show_percentage = false
-
-[node name="HBoxContainer5" type="HBoxContainer" parent="."]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="StatName" type="Label" parent="HBoxContainer5"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.6
-text = "POPULATION"
-
-[node name="PopulationBar" type="ProgressBar" parent="HBoxContainer5"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-mouse_filter = 2
-min_value = 1.0
-max_value = 6.0
-step = 1.0
-page = 1.0
-value = 4.0
-show_percentage = false
+[node name="ManaBar" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3026
+anchor_top = 0.698039
+anchor_right = 0.93299
+anchor_bottom = 0.866667
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_47gvx")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true

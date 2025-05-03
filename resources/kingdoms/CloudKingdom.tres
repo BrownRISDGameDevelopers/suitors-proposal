@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="Kingdom" load_steps=3 format=3 uid="uid://cqga80ifaxij1"]
 
+[ext_resource type="Texture2D" uid="uid://d13xxfjnk5g0w" path="res://assets/letters/borders/border_cloud.png" id="1_0hdpf"]
 [ext_resource type="Script" uid="uid://b46xhsels5oxh" path="res://scripts/classes/kingdom.gd" id="1_fxjr0"]
-[ext_resource type="Texture2D" uid="uid://4tl5stssv4t1" path="res://assets/letters/borders/Border_Sky_Kingdom.png" id="1_scqhb"]
 
 [resource]
 script = ExtResource("1_fxjr0")
 name = "Cloud Kingdom"
-letter_border = ExtResource("1_scqhb")
+letter_border = ExtResource("1_0hdpf")
 population = 2
 military = 4
 morale = 5

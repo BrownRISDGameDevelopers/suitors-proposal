@@ -42,7 +42,13 @@ var misc_lits = {Seasons.SUMMER: [], Seasons.FALL: [], Seasons.WINTER: [], Seaso
 #								  ====================================	
 
 func _generate_player_stats() -> void:
-	var starting_points = randi_range(16, 18)
+	var starting_points = randi_range(11, 13)
+
+	OUR_KINGDOM.mana = 1
+	OUR_KINGDOM.military = 1
+	OUR_KINGDOM.population = 1
+	OUR_KINGDOM.morale = 1
+	OUR_KINGDOM.resource = 1
 
 	for i in range(starting_points):
 		var stat = randi_range(0, 4) # Changed to 0-4 since there are 5 stats
@@ -71,6 +77,8 @@ func _generate_player_stats() -> void:
 						OUR_KINGDOM.resource += 1
 						break
 			stat = (stat + 1) % 5
+	
+	print("final stats: ", OUR_KINGDOM.mana, OUR_KINGDOM.military, OUR_KINGDOM.population, OUR_KINGDOM.morale, OUR_KINGDOM.resource)
 	
 #								  =================================================
 #								  ====== GENERATE LETTERS / LETTER FUNCTIONS ======
@@ -334,8 +342,14 @@ func hide_archive() -> void:
 func _on_archive_pressed() -> void:
 	pass
 
+var misc_lit_inst
+
 func hide_news() -> void:
-	pass
+	var tween = create_tween()
+	tween.tween_property(misc_lit_inst, "position", Vector2(0, 1080), 0.5)
+	tween.tween_callback(misc_lit_inst.queue_free)
+	await hide_banner().finished
+	enable_table()
 
 func _on_news_pressed() -> void:
 	disable_table()
@@ -347,10 +361,11 @@ func _on_news_pressed() -> void:
 		enable_table()
 		return
 
-	var misc_lit_inst = MISC_LIT.instantiate()
+	misc_lit_inst = MISC_LIT.instantiate()
 	ui.add_child(misc_lit_inst)
 	misc_lit_inst.setup(next_lit)
 	misc_lit_inst.position = Vector2(0, 1080)
+	misc_lit_inst.misc_lit_closed.connect(hide_news)
 
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_EXPO)
@@ -440,7 +455,7 @@ func _on_season_change_button_pressed() -> void:
 func _process(delta: float) -> void:
 	#season_change_button.show()
 	#season_change_button.disabled = false
-	if not current_letter_stack:
+	if not current_letter_stack and not misc_lits[current_season]:
 		season_change_button.show()
 		season_change_button.disabled = false
 	else:

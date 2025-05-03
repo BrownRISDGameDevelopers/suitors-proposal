@@ -28,5 +28,5 @@ PopupPanel/colors/title_color = Color(1, 1, 1, 1)
 PopupPanel/fonts/title_font = SubResource("SystemFont_et0r0")
 PopupPanel/styles/panel = SubResource("StyleBoxFlat_et0r0")
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
-RichTextLabel/font_sizes/normal_font_size = 21
+RichTextLabel/font_sizes/normal_font_size = 23
 RichTextLabel/fonts/normal_font = SubResource("SystemFont_i0rfn")

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LetterResource" load_steps=7 format=3 uid="uid://06tfuayqd5h2"]
+[gd_resource type="Resource" script_class="LetterResource" load_steps=7 format=3 uid="uid://cs35l4i2555ce"]
 
 [ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="1_1xag8"]
 [ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_i2d1l"]

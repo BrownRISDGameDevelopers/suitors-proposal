@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="Kingdom" load_steps=3 format=3 uid="uid://bc5qvfo24wa4t"]
 
+[ext_resource type="Texture2D" uid="uid://d02jjdy3ja5cl" path="res://assets/letters/borders/border_mountain.png" id="1_08wjn"]
 [ext_resource type="Script" uid="uid://b46xhsels5oxh" path="res://scripts/classes/kingdom.gd" id="1_45ksu"]
-[ext_resource type="Texture2D" uid="uid://7rabsfrufvs5" path="res://assets/letters/borders/Dwarf border_transparent.PNG" id="1_g5q5t"]
 
 [resource]
 script = ExtResource("1_45ksu")
 name = "Mountain Kingdom"
-letter_border = ExtResource("1_g5q5t")
+letter_border = ExtResource("1_08wjn")
 population = 2
 military = 6
 morale = 3
