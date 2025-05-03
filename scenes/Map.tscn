@@ -1,7 +1,8 @@
-[gd_scene load_steps=35 format=3 uid="uid://b8iollf58huxn"]
+[gd_scene load_steps=36 format=3 uid="uid://b8iollf58huxn"]
 
 [ext_resource type="Texture2D" uid="uid://l3uxn3gvdvnn" path="res://assets/map/map.png" id="1_yyirk"]
 [ext_resource type="Texture2D" uid="uid://ckfavv68i1ugj" path="res://assets/map/Mountain.png" id="2_41ykk"]
+[ext_resource type="Script" uid="uid://bgs472hg55fif" path="res://scripts/map.gd" id="2_fkh5j"]
 [ext_resource type="Material" uid="uid://ef7dgc3nfapr" path="res://assets/shaders/kingdom_outline.tres" id="2_u4fdk"]
 [ext_resource type="Script" uid="uid://pes8w55p45wn" path="res://scripts/kingdom_map.gd" id="3_xkm8s"]
 [ext_resource type="Resource" uid="uid://bc5qvfo24wa4t" path="res://resources/kingdoms/MountainKingdom.tres" id="4_pgwcf"]
@@ -213,6 +214,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_yyirk")
 expand_mode = 1
+script = ExtResource("2_fkh5j")
 
 [node name="Base" type="TextureRect" parent="."]
 z_index = 1
@@ -242,7 +244,7 @@ script = ExtResource("3_xkm8s")
 kingdom = ExtResource("4_pgwcf")
 metadata/_edit_lock_ = true
 
-[node name="TextureButton" type="TextureButton" parent="Mountain"]
+[node name="KnightDwarf" type="TextureButton" parent="Mountain"]
 z_index = 1
 layout_mode = 0
 offset_left = 203.0
@@ -252,7 +254,7 @@ offset_bottom = 829.0
 scale = Vector2(0.24969, 0.24969)
 texture_normal = ExtResource("6_08blb")
 
-[node name="TextureButton2" type="TextureButton" parent="Mountain"]
+[node name="CouncilwomanDwarf" type="TextureButton" parent="Mountain"]
 offset_left = 421.0
 offset_top = 118.0
 offset_right = 1130.0
@@ -277,7 +279,7 @@ script = ExtResource("3_xkm8s")
 kingdom = ExtResource("6_46d0c")
 metadata/_edit_lock_ = true
 
-[node name="TextureButton" type="TextureButton" parent="Cloud"]
+[node name="BirdGuy" type="TextureButton" parent="Cloud"]
 z_index = 1
 offset_left = 1437.0
 offset_top = 130.0
@@ -286,7 +288,7 @@ offset_bottom = 843.0
 scale = Vector2(0.24969, 0.24969)
 texture_normal = ExtResource("11_fkh5j")
 
-[node name="TextureButton2" type="TextureButton" parent="Cloud"]
+[node name="Peacock" type="TextureButton" parent="Cloud"]
 offset_left = 1655.0
 offset_top = 132.0
 offset_right = 2364.0
@@ -309,7 +311,7 @@ script = ExtResource("3_xkm8s")
 kingdom = ExtResource("8_djx7b")
 metadata/_edit_lock_ = true
 
-[node name="TextureButton" type="TextureButton" parent="Forest"]
+[node name="Mushroom" type="TextureButton" parent="Forest"]
 z_index = 1
 offset_left = 751.0
 offset_top = 243.0
@@ -318,7 +320,7 @@ offset_bottom = 956.0
 scale = Vector2(0.24969, 0.24969)
 texture_normal = ExtResource("15_wvgon")
 
-[node name="TextureButton2" type="TextureButton" parent="Forest"]
+[node name="ForestLady" type="TextureButton" parent="Forest"]
 offset_left = 969.0
 offset_top = 245.0
 offset_right = 1678.0
@@ -341,7 +343,7 @@ script = ExtResource("3_xkm8s")
 kingdom = ExtResource("10_sxh8t")
 metadata/_edit_lock_ = true
 
-[node name="TextureButton" type="TextureButton" parent="Undead"]
+[node name="Vampire" type="TextureButton" parent="Undead"]
 z_index = 1
 offset_left = 1198.0
 offset_top = 725.0
@@ -350,7 +352,7 @@ offset_bottom = 1438.0
 scale = Vector2(0.24969, 0.24969)
 texture_normal = ExtResource("19_gw1t8")
 
-[node name="TextureButton2" type="TextureButton" parent="Undead"]
+[node name="Skeleton" type="TextureButton" parent="Undead"]
 offset_left = 1416.0
 offset_top = 727.0
 offset_right = 2125.0
@@ -373,7 +375,7 @@ script = ExtResource("3_xkm8s")
 kingdom = ExtResource("12_djx7b")
 metadata/_edit_lock_ = true
 
-[node name="TextureButton" type="TextureButton" parent="Underwater"]
+[node name="WaterGuy" type="TextureButton" parent="Underwater"]
 z_index = 1
 offset_left = 159.0
 offset_top = 700.0
@@ -382,7 +384,7 @@ offset_bottom = 1413.0
 scale = Vector2(0.24969, 0.24969)
 texture_normal = ExtResource("23_5568u")
 
-[node name="TextureButton2" type="TextureButton" parent="Underwater"]
+[node name="WaterGirl" type="TextureButton" parent="Underwater"]
 offset_left = 377.0
 offset_top = 702.0
 offset_right = 1086.0
@@ -453,14 +455,24 @@ metadata/_edit_use_anchors_ = true
 
 [connection signal="mouse_entered" from="Mountain" to="Mountain" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Mountain" to="Mountain" method="_on_mouse_exited"]
+[connection signal="pressed" from="Mountain/KnightDwarf" to="." method="_on_knight_dwarf_pressed"]
+[connection signal="pressed" from="Mountain/CouncilwomanDwarf" to="." method="_on_councilwoman_dwarf_pressed"]
 [connection signal="mouse_entered" from="Cloud" to="Cloud" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Cloud" to="Cloud" method="_on_mouse_exited"]
+[connection signal="pressed" from="Cloud/BirdGuy" to="." method="_on_bird_guy_pressed"]
+[connection signal="pressed" from="Cloud/Peacock" to="." method="_on_peacock_pressed"]
 [connection signal="mouse_entered" from="Forest" to="Forest" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Forest" to="Forest" method="_on_mouse_exited"]
+[connection signal="pressed" from="Forest/Mushroom" to="." method="_on_mushroom_pressed"]
+[connection signal="pressed" from="Forest/ForestLady" to="." method="_on_forest_lady_pressed"]
 [connection signal="mouse_entered" from="Undead" to="Undead" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Undead" to="Undead" method="_on_mouse_exited"]
+[connection signal="pressed" from="Undead/Vampire" to="." method="_on_vampire_pressed"]
+[connection signal="pressed" from="Undead/Skeleton" to="." method="_on_skeleton_pressed"]
 [connection signal="mouse_entered" from="Underwater" to="Underwater" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Underwater" to="Underwater" method="_on_mouse_exited"]
+[connection signal="pressed" from="Underwater/WaterGuy" to="." method="_on_water_guy_pressed"]
+[connection signal="pressed" from="Underwater/WaterGirl" to="." method="_on_water_girl_pressed"]
 [connection signal="mouse_entered" from="Home" to="Home" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Home" to="Home" method="_on_mouse_exited"]
 [connection signal="hidden" from="Popup" to="Popup" method="_on_hidden"]

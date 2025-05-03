@@ -9,6 +9,7 @@ const SEASON = preload("res://scenes/Season.tscn")
 var OUR_KINGDOM = preload("res://resources/kingdoms/OurKingdom.tres")
 const OUTLINE = preload("res://assets/shaders/kingdom_outline.tres")
 
+var game_should_end = false
 # --- SEASONS
 var Seasons = {
 	"SUMMER": "summer",
@@ -211,16 +212,17 @@ func hide_banner() -> Tween:
 @onready var map_close_button: BitmaskedTextureButton = $UI/Map/CloseButton
 
 func hide_map() -> void:
-	var tween = create_tween()
-	tween.set_trans(Tween.TRANS_EXPO)
-	tween.tween_property(map_instance, "position", Vector2(216.0, 1091.5), 0.5)
-	tween.tween_callback(map_instance.hide)
-	
-	# await tween.finished
+	if not game_should_end:
+		var tween = create_tween()
+		tween.set_trans(Tween.TRANS_EXPO)
+		tween.tween_property(map_instance, "position", Vector2(216.0, 1091.5), 0.5)
+		tween.tween_callback(map_instance.hide)
+		
+		# await tween.finished
 
-	await hide_banner().finished
-	
-	enable_table()
+		await hide_banner().finished
+		
+		enable_table()
 
 func _on_map_pressed() -> void:
 	disable_table()
@@ -342,13 +344,36 @@ func _input(event: InputEvent) -> void:
 		return
 
 func _on_season_change_button_pressed() -> void:
-	_end_season()
-	_start_new_season()
+	if (current_season == "spring") and not current_letter_stack:
+		game_should_end = true
+		disable_table()
+
+		map_instance.position = Vector2(216.0, 1091.0)
+
+		show_banner(map_tab)
+
+		map_instance.show()
+
+		var tween = create_tween()
+		tween.set_trans(Tween.TRANS_EXPO)
+		tween.tween_property(map_instance, "position", Vector2(216.0, 121.5), 0.5)
+	else:
+		_end_season()
+		_start_new_season()
 
 func _process(delta: float) -> void:
-	if not current_letter_stack:
-		season_change_button.show()
-		season_change_button.disabled = false
+	season_change_button.show()
+	season_change_button.disabled = false
+	#if not current_letter_stack:
+		#season_change_button.show()
+		#season_change_button.disabled = false
+	#else:
+		#season_change_button.hide()
+		#season_change_button.disabled = true
+
+
+func _on_map_suitor_chosen(suitor: Variant) -> void:
+	if game_should_end:
+		pass
 	else:
-		season_change_button.hide()
-		season_change_button.disabled = true
+		pass
