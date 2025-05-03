@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://ir5oprt8suna" path="res://assets/desk/Border.PNG" id="12_bjd11"]
 [ext_resource type="PackedScene" uid="uid://b8iollf58huxn" path="res://scenes/Map.tscn" id="12_ft6cd"]
 [ext_resource type="Texture2D" uid="uid://0plcya5e8jk1" path="res://assets/ui/seasons_indicators/summer.png" id="13_3p2gp"]
-[ext_resource type="PackedScene" path="res://scenes/MiscLit.tscn" id="13_bb450"]
+[ext_resource type="PackedScene" uid="uid://dosmcrt0dxc4c" path="res://scenes/MiscLit.tscn" id="13_bb450"]
 [ext_resource type="Material" uid="uid://ef7dgc3nfapr" path="res://assets/shaders/kingdom_outline.tres" id="13_mwfav"]
 [ext_resource type="Texture2D" uid="uid://c3qo2kc0i1s5i" path="res://assets/ui/Pause Button.png" id="13_qmy6f"]
 [ext_resource type="Texture2D" uid="uid://dh4lgexl05uk6" path="res://assets/desk/Map tab.png" id="14_bb450"]
