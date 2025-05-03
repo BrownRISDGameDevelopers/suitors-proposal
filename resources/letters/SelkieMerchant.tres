@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="LetterResource" load_steps=6 format=3 uid="uid://bdad5brjxtfe7"]
+
+[ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_bd81q"]
+[ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="2_0hjkm"]
+[ext_resource type="Resource" uid="uid://b6h0r0aa3q2d3" path="res://resources/kingdoms/UnderwaterKingdom.tres" id="2_xv775"]
+
+[sub_resource type="Resource" id="Resource_bd81q"]
+script = ExtResource("1_bd81q")
+text = "As you know, the Selkies are facing harsh discrimination and unjust treatment by our unhappy co-inhabitants of Pelagis."
+revealedStat = Array[String](["morale"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[sub_resource type="Resource" id="Resource_0hjkm"]
+script = ExtResource("1_bd81q")
+text = "The Corals are a vast place. With all of our resources and manpower, you’d think we could all just get along."
+revealedStat = Array[String](["resource", "population"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[resource]
+script = ExtResource("2_0hjkm")
+kingdom = ExtResource("2_xv775")
+greeting = "To Your Most Esteemed Highness,"
+signoff = "Lady Nivi Vinterlahn, 
+Daughter of Lord Theobald Vinterlahn"
+summerVersion = "How do you do? My name is Lady Nivi, Daughter of Lord Vinterlahn, and I am most honored to make your acquaintance. Father tells me that you are the heir to a great nation of humans! Oh, this makes my heart swim, as this means you are in a most favorable position to bring much-needed comfort to my wearied brethren! 
+
+As you know, the Selkies are facing harsh discrimination and unjust treatment by our unhappy co-inhabitants of Pelagis. Truly, I don’t think the Merfolk will be content at all until the whole continent is polluted with their muddy accusations! Speaking of which—I hope you don’t believe all of the nasty things being said about my brethren; we are simply trying to cast our nets as wide as possible, just as any Merfolk merchant does. The Corals are a vast place. With all of our resources and manpower, you’d think we could all just get along. 
+
+However, if we are to be wed, you should know that I generally do not care for politics or economics or the tides of expansion—my father is the empire-builder, and I, like all his wares, am merely…a well-placed asset. Although, I must say that this “diplomacy” business sure is fun! The idea that words alone may hold the power to prevent any more unnecessary bloodshed—it’s comforting, don’t you think? I do hope our families can come to an arrangement! A strong, stable partnership at this time will surely benefit everyone, even those…less inclined towards civility.
+
+May our partnership be as steady as the tide,"
+summerClickableContent = Array[ExtResource("1_bd81q")]([SubResource("Resource_bd81q"), SubResource("Resource_0hjkm")])
+fallVersion = "How do you do? My name is Lady Nivi, Daughter of Lord Vinterlahn, and I am most honored to make your acquaintance. Father tells me that you are the heir to a great nation of humans! Oh, this makes my heart swim, as this means you are in a most favorable position to bring much-needed comfort to my wearied brethren! 
+
+As you know, the Selkies are facing harsh discrimination and unjust treatment by our unhappy co-inhabitants of Pelagis. Truly, I don’t think the Merfolk will be content at all until the whole continent is polluted with their muddy accusations! Speaking of which—I hope you don’t believe all of the nasty things being said about my brethren; we are simply trying to cast our nets as wide as possible, just as any Merfolk merchant does. The Corals are a vast place. With all of our resources and manpower, you’d think we could all just get along. 
+
+However, if we are to be wed, you should know that I generally do not care for politics or economics or the tides of expansion—my father is the empire-builder, and I, like all his wares, am merely…a well-placed asset. Although, I must say that this “diplomacy” business sure is fun! The idea that words alone may hold the power to prevent any more unnecessary bloodshed—it’s comforting, don’t you think? I do hope our families can come to an arrangement! A strong, stable partnership at this time will surely benefit everyone, even those…less inclined towards civility.
+
+May our partnership be as steady as the tide,"
+fallClickableContent = Array[ExtResource("1_bd81q")]([SubResource("Resource_bd81q"), SubResource("Resource_0hjkm")])
+winterVersion = "How do you do? My name is Lady Nivi, Daughter of Lord Vinterlahn, and I am most honored to make your acquaintance. Father tells me that you will soon be the leader of a great nation of humans! Oh, this makes my heart swim, as this means you are in a most favorable position to bring much-needed comfort to my wearied brethren! 
+
+As you know, the Selkies are facing harsh discrimination and unjust treatment by our unhappy co-inhabitants of Pelagis. Truly, I don’t think the Merfolk will be content at all until the whole continent is polluted with their muddy accusations! Speaking of which—I hope you don’t believe all of the nasty things being said about my brethren; we are simply trying to cast our nets as wide as possible, just as any Merfolk merchant does. The Corals are a vast place. With all of our resources and manpower, you’d think we could all just get along. 
+
+However, if we are to be wed, you should know that I generally do not care for politics or economics or the tides of expansion—my father is the empire-builder, and I, like all his wares, am merely…a well-placed asset. Although, I must say that this “diplomacy” business sure is fun! The idea that words alone may hold the power to prevent any more unnecessary bloodshed—it’s comforting, don’t you think? I do hope our families can come to an arrangement! A strong, stable partnership at this time will surely benefit everyone, even those…less inclined towards civility."
+winterClickableContent = Array[ExtResource("1_bd81q")]([SubResource("Resource_bd81q"), SubResource("Resource_0hjkm")])
+springVersion = "I am grateful that you have taken time out of your undoubtedly frantic schedule to respond to my initial outreach! I was so deeply sorry to hear of your recent loss. With how close I am to my own father, I can only imagine what you must be going through. You’re quite the strong individual!
+
+I know that with you as an ally, we Selkies can finally take control of Pelagis and put an end to the resident Merfolk’s unfair treatment of our minority. Of course, such measures are necessary for their safety and prosperity as well as ours. After all, the Merfolk clearly don’t know how to make proper use of their bountiful resources! For centuries, they have failed to siphon their natural plenty into streams of monetary gain, and as a result they are poor, unambitious, and aimless. Oh, but listen to me—I’m starting to sound like my father! 
+
+Of course I only bring this up, Your Majesty, because these silly Merfolk are the ones dictating our direction as a kingdom. Your industrious father understood the injustice of this even as his people—your people—do not. It’s a good thing that you are above the indolence of the common rabble, or this marriage may not work. Wouldn’t that be awful? 
+
+May your decision come with the swiftness of storms."
+springClickableContent = Array[ExtResource("1_bd81q")]([])
+metadata/_custom_type_script = "uid://d2ngpxf76ukp7"

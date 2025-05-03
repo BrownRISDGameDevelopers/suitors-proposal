@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="LetterResource" load_steps=6 format=3 uid="uid://bt6q740v6u8q7"]
+
+[ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_cvuda"]
+[ext_resource type="Resource" uid="uid://cqga80ifaxij1" path="res://resources/kingdoms/CloudKingdom.tres" id="2_0cwso"]
+[ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="2_geavf"]
+
+[sub_resource type="Resource" id="Resource_cvuda"]
+script = ExtResource("1_cvuda")
+text = "After all, despite our limited population and meager resources,"
+revealedStat = Array[String](["population", "resource"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[sub_resource type="Resource" id="Resource_geavf"]
+script = ExtResource("1_cvuda")
+text = "We are a good people; a happy people."
+revealedStat = Array[String](["morale"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[resource]
+script = ExtResource("2_geavf")
+kingdom = ExtResource("2_0cwso")
+greeting = "Salutations Your Highness,"
+signoff = "With authority granted by the Majani Assembly, 
+Sefu Mwerevu of the Concord of Suns"
+summerVersion = "As a leader of the Southern Assembly, it is of utmost importance that I am able to put my personal desires and prejudices aside to determine what is best for the people of my land—although this is our first correspondance, I am told that this same glint of wisdom and discernment exists within you. I believe we are more alike than you might think, which is why I write to you today. 
+
+I have long desired to establish trade between our two kingdoms. It is deeply unfortunate that I failed to achieve this with your father. I dearly hope this is not out of line, but might I dare to feel hope for the change a new throne might bring? 
+
+I am aware of the…misconceptions that many have of my people. Know this: we Savanna Avians have just as much to offer as the frilly scholars of the Northern Oases; but where they lose themselves in poetry and pollen, we pride ourserselves on our practicality and robust trade. After all, despite our limited population and meager resources, the textiles and food we have been able to sell are highly sought-after delicacies in your land—even more so now with your current…economic troubles. As we both understand their value, I am sure you, too, wonder why tariffs should remain high and your borders sealed?
+
+You may presume me to be an isolated barbarian, more bird than man, but even I have enough knowledge of foreign relations to know that you are not so harsh with your other neighbors. We are a good people; a happy people. If you accept my proposal, I know we could be great friends and even better allies. Until then, fair winds, Your Highness."
+summerClickableContent = Array[ExtResource("1_cvuda")]([SubResource("Resource_cvuda"), SubResource("Resource_geavf")])
+fallVersion = "As a leader of the Southern Assembly, it is of utmost importance that I am able to put my personal desires and prejudices aside to determine what is best for the people of my land—although this is our first correspondance, I am told that this same glint of wisdom and discernment exists within you. I believe we are more alike than you might think, which is why I write to you today. 
+
+I have long desired to establish trade between our two kingdoms. It is deeply unfortunate that I failed to achieve this with your father. I dearly hope this is not out of line, but might I dare to feel hope for the change a new throne might bring? 
+
+I am aware of the…misconceptions that many have of my people. Know this: we Savanna Avians have just as much to offer as the frilly scholars of the Northern Oases; but where they lose themselves in poetry and pollen, we pride ourserselves on our practicality and robust trade. After all, despite our limited population and meager resources, the textiles and food we have been able to sell are highly sought-after delicacies in your land—even more so now with your current…economic troubles. As we both understand their value, I am sure you, too, wonder why tariffs should remain high and your borders sealed?
+
+You may presume me to be an isolated barbarian, more bird than man, but even I have enough knowledge of foreign relations to know that you are not so harsh with your other neighbors. We are a good people; a happy people. If you accept my proposal, I know we could be great friends and even better allies. Until then, fair winds, Your Highness."
+fallClickableContent = Array[ExtResource("1_cvuda")]([SubResource("Resource_cvuda"), SubResource("Resource_geavf")])
+winterVersion = "As a leader of the Southern Assembly, it is of utmost importance that I am able to put my personal desires and prejudices aside to determine what is best for the people of my land—although this is our first correspondance, I am told that this same glint of wisdom and discernment exists within you. I believe we are more alike than you might think, which is why I write to you today. 
+
+I have long desired to establish trade between our two kingdoms. It is deeply unfortunate that I failed to achieve this with your dear father. I hope this is not out of line, but might I dare to feel hope for the change a new throne might bring? 
+
+I am aware of the…misconceptions that many have of my people. Know this: we Savanna Avians have just as much to offer as the frilly scholars of the Northern Oases; but where they lose themselves in poetry and pollen, we pride ourserselves on our practicality and robust trade. After all, despite our limited population and meager resources, the textiles and food we have been able to sell are highly sought-after delicacies in your land—even more so now with your current…economic troubles. As we both understand their value, I am sure you, too, wonder why tariffs should remain high and your borders sealed?
+
+You may presume me to be an isolated barbarian, more bird than man, but even I have enough knowledge of foreign relations to know that you are not so harsh with your other neighbors. We are a good people; a happy people. If you accept my proposal, I know we could be great friends and even better allies. Until then, fair winds, Your Highness."
+winterClickableContent = Array[ExtResource("1_cvuda")]([SubResource("Resource_cvuda"), SubResource("Resource_geavf")])
+springVersion = "Your response to my initial outreach is most gratefully acknowledged. With your father having passed, perhaps this tragedy could catalyze a new era of trade between our kingdoms—the kind of trade he inexplicably refused to facilitate. Well, that’s not entirely accurate. There is an explanation—one that involves a king’s ransom of petty policies born from envy, and…well. Out of respect for your mourning period, I will not indulge further in past grievances. 
+
+The only way forward now is forward. In such a dire time is rebirth most important—perhaps even the only option. We Southern Nimbozians have a saying: “the baobab need not bend, for the clouds move to meet it.” It means that those of integrity need not compromise with those of fickle heart. In our way, we trust in justice and respect to guide our hands in times of trouble. I hope this comforts you as you navigate the coming months. They are sure to be troubling, indeed.
+
+No matter what, I know that we will both do what is best for our kingdoms’ respective positions. I know I will, and I look forward to seeing the role you play in righting the wrongs of the past."
+springClickableContent = Array[ExtResource("1_cvuda")]([])
+metadata/_custom_type_script = "uid://d2ngpxf76ukp7"

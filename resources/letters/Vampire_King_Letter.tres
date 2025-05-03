@@ -21,10 +21,10 @@ metadata/_custom_type_script = "uid://b466tuukr26ps"
 script = ExtResource("4_aui8t")
 kingdom = ExtResource("2_3mtvp")
 portrait = ExtResource("3_xyxd3")
-greeting = "To the Most Serene Highness of Fallowbrook, "
+greeting = "To the Most Serene Highness of Fallowbrook,"
 signoff = "With utmost respect and most ardent fervor,
  
-His Majesty the Eternal King,
+His Majesty the Eternal King of Gravenmere,
 Count Aldéric Sangvin 
 "
 summerVersion = "It is with the utmost humility and sincerity of forethought that I have undertaken to pen this letter to you today. As you are no doubt aware, I am entrusted with the exalted duty of presiding over a vast land—-though alas, one regrettably lacking in liveliness. My blessings are bountiful; I am endowed with infinite life, enormous wealth, unquestioned power, and luxuriously soft hair. And yet, I am not content. 
@@ -34,10 +34,22 @@ As the season grows warmer and the sun shines ever brighter, I am made increasin
 Recent immigrants to my realm bring news of your present troubles, and though death is a guest oft entertained in my court, I recognize that for humans, he is not so warmly welcomed. I believe if we were to ally ourselves, my innumerable citizens would not hesitate to aid in your kingdom’s reconstruction. It is for this reason that I wish to extend my deepest condolences and, if Your Highness deems it agreeable, my hand in marriage. As we are the only two monarchies on the continent, I feel it is foolish to remain isolated when we might accomplish much more in union.
 "
 summerClickableContent = Array[ExtResource("1_oia4g")]([SubResource("Resource_33gop"), SubResource("Resource_xrwwa")])
-fallVersion = ""
-fallClickableContent = Array[ExtResource("1_oia4g")]([])
-winterVersion = ""
-winterClickableContent = Array[ExtResource("1_oia4g")]([])
-springVersion = ""
+fallVersion = "It is with the utmost humility and sincerity of forethought that I have undertaken to pen this letter to you today. As you are no doubt aware, I am entrusted with the exalted duty of presiding over a vast land—-though alas, one regrettably lacking in liveliness. My blessings are bountiful; I am endowed with infinite life, enormous wealth, unquestioned power, and luxuriously soft hair. And yet, I am not content. 
+
+As the leaves turn bronze and the nights grow ever longer, I am made increasingly aware of an affliction which so keenly haunts my absent soul. I am, in a word, lonely. This may come as a shock, as my kingdom doth not suffer from a lack of inhabitants. I myself am constantly hounded by supplicants dying to prostrate themselves at my bejeweled feet. Rather, I long for the company of a less…breathless variety. 
+
+Recent immigrants to my realm bring news of your increasing troubles, and though death is a guest oft entertained in my court, I recognize that for humans, he is not so warmly welcomed. I believe if we were to ally ourselves, my innumerable citizens would not hesitate to aid in your kingdom’s reconstruction. It is for this reason that I wish to extend my deepest condolences and, if Your Highness deems it agreeable, my hand in marriage. As we are the only two monarchies on the continent, I feel it is foolish to remain isolated when we might accomplish much more in union."
+fallClickableContent = Array[ExtResource("1_oia4g")]([SubResource("Resource_33gop"), SubResource("Resource_xrwwa")])
+winterVersion = "It is with the utmost humility and sincerity of forethought that I have undertaken to pen this letter to you today. As you are no doubt aware, I am entrusted with the exalted duty of presiding over a vast land—-though alas, one regrettably lacking in liveliness. My blessings are bountiful; I am endowed with infinite life, enormous wealth, unquestioned power, and luxuriously soft hair. And yet, I am not content. 
+
+As our lands begin to freeze and night envelops, I am made increasingly aware of an affliction which so keenly haunts my absent soul. I am, in a word, lonely. This may come as a shock, as my kingdom doth not suffer from a lack of inhabitants. I myself am constantly hounded by supplicants dying to prostrate themselves at my bejeweled feet. Rather, I long for the company of a less…breathless variety. 
+
+Recent immigrants to my realm bring news of the…severity of your troubles, and though death is a guest oft entertained in my court, I recognize that for humans, he is not so warmly welcomed. I believe if we were to ally ourselves, my innumerable citizens would not hesitate to aid in your kingdom’s reconstruction. It is for this reason that I wish to extend my deepest condolences and, if Your Highness deems it agreeable, my hand in marriage. As we are the only two monarchies on the continent, I feel it is foolish to remain isolated when we might accomplish much more in union."
+winterClickableContent = Array[ExtResource("1_oia4g")]([SubResource("Resource_33gop"), SubResource("Resource_xrwwa")])
+springVersion = "I extend my eternal gratitude to you for electing to humor my attempts at courtship. I wish only that my correspondence could come at a less mournful period! Your Majesty, I was deeply saddened to hear of the loss of your dear father. Please take solace in the knowledge that I will treat his soul with utmost tenderness as he passes through my lands. 
+
+I wish I could do more to uplift your kingdom from this disturbing period of civil unrest. As tensions peak approaching the date of your coronation, allow me to soothe your fears in one matter, at least. Know this, Your Majesty: no shadows move in my court that I do not command. If you seek daggers in the dark, look elsewhere. I have no reason to deceive you, for I have never hidden my claws. 
+
+Alas, the only poison in my halls is that which courses through my lonesome veins! In this respect, I must reassert my desire to join you in alliance and matrimony. Perhaps together we can vanquish this evil from your soil and reforge our fractured lands—and hearts."
 springClickableContent = Array[ExtResource("1_oia4g")]([])
 metadata/_custom_type_script = "uid://d2ngpxf76ukp7"
