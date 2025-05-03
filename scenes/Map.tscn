@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b8iollf58huxn"]
+[gd_scene load_steps=35 format=3 uid="uid://b8iollf58huxn"]
 
 [ext_resource type="Texture2D" uid="uid://l3uxn3gvdvnn" path="res://assets/map/map.png" id="1_yyirk"]
 [ext_resource type="Texture2D" uid="uid://ckfavv68i1ugj" path="res://assets/map/Mountain.png" id="2_41ykk"]
@@ -12,15 +12,24 @@
 [ext_resource type="Resource" uid="uid://cqga80ifaxij1" path="res://resources/kingdoms/CloudKingdom.tres" id="6_46d0c"]
 [ext_resource type="Texture2D" uid="uid://wcojt0quoyg5" path="res://assets/map/Trees.png" id="6_d46yu"]
 [ext_resource type="Texture2D" uid="uid://dgimv1u2ltfki" path="res://assets/map/undead.png" id="7_hit12"]
+[ext_resource type="Texture2D" uid="uid://scowlgyuybnh" path="res://assets/map/suitor_portraits/IMG_2277.PNG" id="7_mfcyi"]
 [ext_resource type="Resource" uid="uid://c2yol8dyhwt2t" path="res://resources/kingdoms/ForestKingdom.tres" id="8_djx7b"]
 [ext_resource type="Texture2D" uid="uid://bh144dh05cf6y" path="res://assets/map/Ocean.png" id="8_sdw7q"]
 [ext_resource type="Texture2D" uid="uid://birqqrnm1dfor" path="res://assets/map/Home.png" id="9_pgwcf"]
 [ext_resource type="Resource" uid="uid://bahrmb7eqtk0t" path="res://resources/kingdoms/UndeadKingdom.tres" id="10_sxh8t"]
+[ext_resource type="Texture2D" uid="uid://bw36w86riky44" path="res://assets/map/suitor_portraits/IMG_2270.PNG" id="11_fkh5j"]
+[ext_resource type="Texture2D" uid="uid://ddhh0vjcp8hc7" path="res://assets/map/suitor_portraits/IMG_2276.PNG" id="12_7lugc"]
 [ext_resource type="Resource" uid="uid://b6h0r0aa3q2d3" path="res://resources/kingdoms/UnderwaterKingdom.tres" id="12_djx7b"]
+[ext_resource type="Texture2D" uid="uid://fswhe6llabq7" path="res://assets/map/suitor_portraits/IMG_2272.PNG" id="15_wvgon"]
+[ext_resource type="Texture2D" uid="uid://cd1fowgmwyik7" path="res://assets/map/suitor_portraits/IMG_2273.PNG" id="16_mn0e6"]
 [ext_resource type="Resource" uid="uid://1p3op32gjikr" path="res://resources/kingdoms/OurKingdom.tres" id="16_u4fdk"]
 [ext_resource type="Texture2D" uid="uid://dpju0htundkqx" path="res://assets/desk/tiny map tab.png" id="19_1vt7q"]
+[ext_resource type="Texture2D" uid="uid://ce4dq3m7t5n7v" path="res://assets/map/suitor_portraits/IMG_2274.PNG" id="19_gw1t8"]
 [ext_resource type="Script" uid="uid://de7ibosh20v4w" path="res://scripts/close_map.gd" id="20_djua3"]
+[ext_resource type="Texture2D" uid="uid://dvj46hk2j7dx" path="res://assets/map/suitor_portraits/IMG_2278.PNG" id="20_h2rd3"]
 [ext_resource type="Texture2D" uid="uid://cc3h1jg02fq0l" path="res://assets/ui/X Button.png" id="21_djua3"]
+[ext_resource type="Texture2D" uid="uid://6h52rcg1p8o3" path="res://assets/map/suitor_portraits/IMG_2271.PNG" id="23_5568u"]
+[ext_resource type="Texture2D" uid="uid://d4f4h27g82nwg" path="res://assets/map/suitor_portraits/IMG_2275.PNG" id="24_kbcc3"]
 
 [sub_resource type="Shader" id="Shader_u4fdk"]
 code = "shader_type canvas_item;
@@ -233,26 +242,23 @@ script = ExtResource("3_xkm8s")
 kingdom = ExtResource("4_pgwcf")
 metadata/_edit_lock_ = true
 
-[node name="TextureRect" type="TextureRect" parent="Mountain"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.196354
-anchor_top = 0.101852
-anchor_right = 0.283333
-anchor_bottom = 0.256481
-texture = ExtResource("6_08blb")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect2" type="TextureRect" parent="Mountain"]
+[node name="TextureButton" type="TextureButton" parent="Mountain"]
+z_index = 1
 layout_mode = 0
-anchor_left = 0.103646
-anchor_top = 0.101852
-anchor_right = 0.190625
-anchor_bottom = 0.256481
-texture = ExtResource("6_08blb")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
+offset_left = 203.0
+offset_top = 116.0
+offset_right = 912.0
+offset_bottom = 829.0
+scale = Vector2(0.24969, 0.24969)
+texture_normal = ExtResource("6_08blb")
+
+[node name="TextureButton2" type="TextureButton" parent="Mountain"]
+offset_left = 421.0
+offset_top = 118.0
+offset_right = 1130.0
+offset_bottom = 831.0
+scale = Vector2(0.24969, 0.24969)
+texture_normal = ExtResource("7_mfcyi")
 
 [node name="Cloud" type="TextureButton" parent="."]
 z_index = 1
@@ -271,6 +277,23 @@ script = ExtResource("3_xkm8s")
 kingdom = ExtResource("6_46d0c")
 metadata/_edit_lock_ = true
 
+[node name="TextureButton" type="TextureButton" parent="Cloud"]
+z_index = 1
+offset_left = 1437.0
+offset_top = 130.0
+offset_right = 2146.0
+offset_bottom = 843.0
+scale = Vector2(0.24969, 0.24969)
+texture_normal = ExtResource("11_fkh5j")
+
+[node name="TextureButton2" type="TextureButton" parent="Cloud"]
+offset_left = 1655.0
+offset_top = 132.0
+offset_right = 2364.0
+offset_bottom = 845.0
+scale = Vector2(0.24969, 0.24969)
+texture_normal = ExtResource("12_7lugc")
+
 [node name="Forest" type="TextureButton" parent="."]
 z_index = 1
 layout_mode = 1
@@ -285,6 +308,23 @@ stretch_mode = 0
 script = ExtResource("3_xkm8s")
 kingdom = ExtResource("8_djx7b")
 metadata/_edit_lock_ = true
+
+[node name="TextureButton" type="TextureButton" parent="Forest"]
+z_index = 1
+offset_left = 751.0
+offset_top = 243.0
+offset_right = 1460.0
+offset_bottom = 956.0
+scale = Vector2(0.24969, 0.24969)
+texture_normal = ExtResource("15_wvgon")
+
+[node name="TextureButton2" type="TextureButton" parent="Forest"]
+offset_left = 969.0
+offset_top = 245.0
+offset_right = 1678.0
+offset_bottom = 958.0
+scale = Vector2(0.24969, 0.24969)
+texture_normal = ExtResource("16_mn0e6")
 
 [node name="Undead" type="TextureButton" parent="."]
 z_index = 1
@@ -301,6 +341,23 @@ script = ExtResource("3_xkm8s")
 kingdom = ExtResource("10_sxh8t")
 metadata/_edit_lock_ = true
 
+[node name="TextureButton" type="TextureButton" parent="Undead"]
+z_index = 1
+offset_left = 1198.0
+offset_top = 725.0
+offset_right = 1907.0
+offset_bottom = 1438.0
+scale = Vector2(0.24969, 0.24969)
+texture_normal = ExtResource("19_gw1t8")
+
+[node name="TextureButton2" type="TextureButton" parent="Undead"]
+offset_left = 1416.0
+offset_top = 727.0
+offset_right = 2125.0
+offset_bottom = 1440.0
+scale = Vector2(0.24969, 0.24969)
+texture_normal = ExtResource("20_h2rd3")
+
 [node name="Underwater" type="TextureButton" parent="."]
 z_index = 1
 layout_mode = 1
@@ -315,6 +372,23 @@ stretch_mode = 0
 script = ExtResource("3_xkm8s")
 kingdom = ExtResource("12_djx7b")
 metadata/_edit_lock_ = true
+
+[node name="TextureButton" type="TextureButton" parent="Underwater"]
+z_index = 1
+offset_left = 159.0
+offset_top = 700.0
+offset_right = 868.0
+offset_bottom = 1413.0
+scale = Vector2(0.24969, 0.24969)
+texture_normal = ExtResource("23_5568u")
+
+[node name="TextureButton2" type="TextureButton" parent="Underwater"]
+offset_left = 377.0
+offset_top = 702.0
+offset_right = 1086.0
+offset_bottom = 1415.0
+scale = Vector2(0.24969, 0.24969)
+texture_normal = ExtResource("24_kbcc3")
 
 [node name="Home" type="TextureButton" parent="."]
 z_index = 1
