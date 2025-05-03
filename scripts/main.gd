@@ -42,7 +42,13 @@ var misc_lits = {Seasons.SUMMER: [], Seasons.FALL: [], Seasons.WINTER: [], Seaso
 #								  ====================================	
 
 func _generate_player_stats() -> void:
-	var starting_points = randi_range(16, 18)
+	var starting_points = randi_range(11, 13)
+
+	OUR_KINGDOM.mana = 1
+	OUR_KINGDOM.military = 1
+	OUR_KINGDOM.population = 1
+	OUR_KINGDOM.morale = 1
+	OUR_KINGDOM.resource = 1
 
 	for i in range(starting_points):
 		var stat = randi_range(0, 4) # Changed to 0-4 since there are 5 stats
@@ -71,6 +77,8 @@ func _generate_player_stats() -> void:
 						OUR_KINGDOM.resource += 1
 						break
 			stat = (stat + 1) % 5
+	
+	print("final stats: ", OUR_KINGDOM.mana, OUR_KINGDOM.military, OUR_KINGDOM.population, OUR_KINGDOM.morale, OUR_KINGDOM.resource)
 	
 #								  =================================================
 #								  ====== GENERATE LETTERS / LETTER FUNCTIONS ======

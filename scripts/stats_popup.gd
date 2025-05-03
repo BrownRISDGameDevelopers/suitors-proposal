@@ -1,6 +1,23 @@
-extends VBoxContainer
+extends TextureRect
 
 class_name CountryPopup
+
+@onready var header: Label = $Header
+@onready var manaBar: TextureRect = $ManaBar
+@onready var moraleBar: TextureRect = $MoraleBar
+@onready var militaryBar: TextureRect = $MilitaryBar
+@onready var resourceBar: TextureRect = $ResourceBar
+@onready var populationBar: TextureRect = $PopulationBar
+
+var stat_to_img = {
+	1: preload("res://assets/map/stats_popup/1bar.png"),
+	2: preload("res://assets/map/stats_popup/2bar.png"),
+	3: preload("res://assets/map/stats_popup/3bar.png"),
+	4: preload("res://assets/map/stats_popup/4bar.png"),
+	5: preload("res://assets/map/stats_popup/5bar.png"),
+	6: preload("res://assets/map/stats_popup/6bar.png")
+}
+var hidden_bar = preload("res://assets/map/stats_popup/hiddenbar.png")
 
 @export var kingdom: Kingdom:
 	set(value):
@@ -15,18 +32,23 @@ func update_stats(new_kingdom: Kingdom):
 	%Header.text = new_kingdom.name
 	
 	var bars = {
-		"mana": {"node": %ManaBar, "value": new_kingdom.mana, "known": new_kingdom.manaKnown},
-		"morale": {"node": %MoraleBar, "value": new_kingdom.morale, "known": new_kingdom.moraleKnown},
-		"military": {"node": %MilitaryBar, "value": new_kingdom.military, "known": new_kingdom.militaryKnown},
-		"resource": {"node": %ResourceBar, "value": new_kingdom.resource, "known": new_kingdom.resourceKnown},
-		"population": {"node": %PopulationBar, "value": new_kingdom.population, "known": new_kingdom.populationKnown}
+		"mana": {"node": manaBar, "value": new_kingdom.mana, "known": new_kingdom.manaKnown},
+		"morale": {"node": moraleBar, "value": new_kingdom.morale, "known": new_kingdom.moraleKnown},
+		"military": {"node": militaryBar, "value": new_kingdom.military, "known": new_kingdom.militaryKnown},
+		"resource": {"node": resourceBar, "value": new_kingdom.resource, "known": new_kingdom.resourceKnown},
+		"population": {"node": populationBar, "value": new_kingdom.population, "known": new_kingdom.populationKnown}
 	}
+
+	print(kingdom)
 	
 	for key in bars.keys():
 		var data = bars[key]
-		data["node"].visible = not data["known"]
-		if data["known"]:
-			data["node"].value = data["value"]
+
+		if data["node"]:
+			if data["known"]:
+				data["node"].texture = stat_to_img[data["value"]]
+			else:
+				data["node"].texture = hidden_bar
 
 func _ready() -> void:
 	pass
