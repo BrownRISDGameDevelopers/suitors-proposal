@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MiscLitResource" load_steps=5 format=3 uid="uid://b4ev7fq1vm102"]
+
+[ext_resource type="Script" uid="uid://c7c51n3k4bkav" path="res://scripts/classes/misc_lit_resource.gd" id="1_74ry1"]
+[ext_resource type="Texture2D" uid="uid://ct0gbeqwc1yue" path="res://assets/misc_lit/(SUMMER, 1) Newspaper.png" id="1_bl8s7"]
+[ext_resource type="Texture2D" uid="uid://3jw4e3nkr205" path="res://assets/misc_lit/(SUMMER, 2) Military Dispatch.png" id="2_l54at"]
+[ext_resource type="Texture2D" uid="uid://b24nqwa6r2k4j" path="res://assets/misc_lit/(SUMMER, 3) Trade Ledger.png" id="3_l54at"]
+
+[resource]
+script = ExtResource("1_74ry1")
+season = "summer"
+literatures = Array[Texture]([ExtResource("1_bl8s7"), ExtResource("2_l54at"), ExtResource("3_l54at")])
