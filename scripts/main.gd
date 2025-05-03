@@ -362,14 +362,14 @@ func _on_season_change_button_pressed() -> void:
 		_start_new_season()
 
 func _process(delta: float) -> void:
-	season_change_button.show()
-	season_change_button.disabled = false
-	#if not current_letter_stack:
-		#season_change_button.show()
-		#season_change_button.disabled = false
-	#else:
-		#season_change_button.hide()
-		#season_change_button.disabled = true
+	#season_change_button.show()
+	#season_change_button.disabled = false
+	if not current_letter_stack:
+		season_change_button.show()
+		season_change_button.disabled = false
+	else:
+		season_change_button.hide()
+		season_change_button.disabled = true
 
 
 func _on_map_suitor_chosen(suitor: Variant) -> void:
