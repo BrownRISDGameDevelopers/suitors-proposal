@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b8iollf58huxn"]
+[gd_scene load_steps=26 format=3 uid="uid://b8iollf58huxn"]
 
 [ext_resource type="Texture2D" uid="uid://l3uxn3gvdvnn" path="res://assets/map/map.png" id="1_yyirk"]
 [ext_resource type="Texture2D" uid="uid://ckfavv68i1ugj" path="res://assets/map/Mountain.png" id="2_41ykk"]
@@ -18,6 +18,9 @@
 [ext_resource type="Resource" uid="uid://bahrmb7eqtk0t" path="res://resources/kingdoms/UndeadKingdom.tres" id="10_sxh8t"]
 [ext_resource type="Resource" uid="uid://b6h0r0aa3q2d3" path="res://resources/kingdoms/UnderwaterKingdom.tres" id="12_djx7b"]
 [ext_resource type="Resource" uid="uid://1p3op32gjikr" path="res://resources/kingdoms/OurKingdom.tres" id="16_u4fdk"]
+[ext_resource type="Texture2D" uid="uid://dpju0htundkqx" path="res://assets/desk/tiny map tab.png" id="19_1vt7q"]
+[ext_resource type="Script" uid="uid://de7ibosh20v4w" path="res://scripts/close_map.gd" id="20_djua3"]
+[ext_resource type="Texture2D" uid="uid://cc3h1jg02fq0l" path="res://assets/ui/X Button.png" id="21_djua3"]
 
 [sub_resource type="Shader" id="Shader_u4fdk"]
 code = "shader_type canvas_item;
@@ -179,6 +182,14 @@ shader_parameter/color = ExtResource("5_sxh8t")
 shader_parameter/gradientResolution = 10
 shader_parameter/tolerance = 0.999
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_djua3"]
+atlas = ExtResource("19_1vt7q")
+region = Rect2(0, 68, 118, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tvfu"]
+atlas = ExtResource("21_djua3")
+region = Rect2(86, 70, 96, 104)
+
 [node name="Map" type="TextureRect"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -189,6 +200,17 @@ offset_left = -960.0
 offset_top = -540.0
 offset_right = 960.0
 offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yyirk")
+expand_mode = 1
+
+[node name="Base" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_yyirk")
@@ -212,22 +234,25 @@ kingdom = ExtResource("4_pgwcf")
 metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Mountain"]
-layout_mode = 0
-offset_left = 377.0
-offset_top = 110.0
-offset_right = 544.0
-offset_bottom = 277.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.196354
+anchor_top = 0.101852
+anchor_right = 0.283333
+anchor_bottom = 0.256481
 texture = ExtResource("6_08blb")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect2" type="TextureRect" parent="Mountain"]
 layout_mode = 0
-offset_left = 199.0
-offset_top = 110.0
-offset_right = 366.0
-offset_bottom = 277.0
+anchor_left = 0.103646
+anchor_top = 0.101852
+anchor_right = 0.190625
+anchor_bottom = 0.256481
 texture = ExtResource("6_08blb")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Cloud" type="TextureButton" parent="."]
 z_index = 1
@@ -307,7 +332,7 @@ kingdom = ExtResource("16_u4fdk")
 metadata/_edit_lock_ = true
 
 [node name="Popup" parent="." instance=ExtResource("5_yyirk")]
-z_index = 3
+z_index = 10
 layout_mode = 1
 anchors_preset = 0
 anchor_left = 0.0
@@ -321,6 +346,36 @@ offset_bottom = 158.0
 grow_horizontal = 1
 grow_vertical = 1
 kingdom = ExtResource("6_46d0c")
+
+[node name="CloseButton" type="TextureButton" parent="."]
+material = ExtResource("2_u4fdk")
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -40.0
+offset_right = 118.0
+offset_bottom = 41.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_djua3")
+script = ExtResource("20_djua3")
+metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
+
+[node name="TextureRect" type="TextureRect" parent="CloseButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.271186
+anchor_top = 0.179012
+anchor_right = 0.627119
+anchor_bottom = 0.722222
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_5tvfu")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [connection signal="mouse_entered" from="Mountain" to="Mountain" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Mountain" to="Mountain" method="_on_mouse_exited"]
@@ -336,3 +391,6 @@ kingdom = ExtResource("6_46d0c")
 [connection signal="mouse_exited" from="Home" to="Home" method="_on_mouse_exited"]
 [connection signal="hidden" from="Popup" to="Popup" method="_on_hidden"]
 [connection signal="visibility_changed" from="Popup" to="Popup" method="_on_visibility_changed"]
+[connection signal="mouse_entered" from="CloseButton" to="CloseButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CloseButton" to="CloseButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="CloseButton" to="CloseButton" method="_on_pressed"]

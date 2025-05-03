@@ -31,7 +31,7 @@ func _on_mouse_entered() -> void:
 	popup.show()
 	popup.kingdom = kingdom
 
-	z_index = 2
+	z_index = 5
 	
 	current_tween = create_tween()
 	current_tween.tween_property(self, "position", base_position - BORDER_OFFSET, 0.1)

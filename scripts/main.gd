@@ -33,30 +33,8 @@ var archived_letters = []
 var suitors = []
 var advertisements = []
 
-@onready var ui: Control = self
+@onready var ui: Control = $UI
 
-# Called wwhen the node enters the scene tree for the first time.
-func _ready() -> void:
-	# generate shader for pause button
-	pause_button.material = OUTLINE.duplicate()
-
-	# create dir of suitors
-	var dir = DirAccess.open("res://resources/letters")
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if file_name.ends_with(".tres"):
-				var letter = load("res://resources/letters/" + file_name)
-				suitors.append(letter)
-				# advertisements.append(letter) <-- filler msgs are now pngs
-			file_name = dir.get_next()
-		dir.list_dir_end()
-
-	_generate_player_stats()
-	_generate_letter_lists()
-	_start_new_season()
-	_update_letter_portrait()
 #                                  ====================================
 #                                  ====== PLAYER STAT GENERATION ======
 #                                  ====================================	
@@ -97,14 +75,14 @@ func _generate_letter_lists() -> void:
 ##                     current_letter_resource - Saved for _close_current_letter, so it can be saved
 ##                                               in the archive.
 
-var current_letter_file
+var current_letter_file: Letter
 var current_letter_resource
 
 func _instantiate_letter(letter: LetterResource) -> void:
 	if current_letter_file:
 		current_letter_file.queue_free()
 	
-	var letter_instance = LETTER_SCENE.instantiate()
+	var letter_instance = LETTER_SCENE.instantiate() as Letter
 	letter_instance.letter_closed.connect(_close_current_letter)
 	ui.add_child(letter_instance)
 	letter_instance.generate_content(current_season, letter)
@@ -149,20 +127,35 @@ func _update_letter_portrait() -> void:
 ## _START_SEASON() --> Begins a season cycle based on seasons_order list.
 ## Global Variables: current_letter_stack - Array holding all the letters relevant to the current_season
 ##                   current_season - String representing current season.
+@onready var curr_season_banner: TextureRect = $CurrentSeason
 
 var current_letter_stack = []
 var current_season
 
+var seasonal_banners = {
+	Seasons.SUMMER: preload("res://assets/ui/seasons_indicators/summer.png"),
+	Seasons.FALL: preload("res://assets/ui/seasons_indicators/autumn.png"),
+	Seasons.WINTER: preload("res://assets/ui/seasons_indicators/winter.png"),
+	Seasons.SPRING: preload("res://assets/ui/seasons_indicators/spring.png")
+}
+
 func _start_new_season() -> void:
+	disable_table()
+
 	current_season = seasons_order.pop_front()
 	
 	var season_instance = SEASON.instantiate()
 	ui.add_child(season_instance)
+
+	curr_season_banner.texture = seasonal_banners[current_season]
+	
 	season_instance.play_transition_season(current_season)
 	
 	current_letter_stack.clear()
 	
 	current_letter_stack = letter_list[current_season]
+
+	enable_table()
 
 
 ## _END_SEASON() --> Ends a season cycle. In this context, will be called when 
@@ -177,13 +170,83 @@ func _end_season() -> void:
 #                                     ================================================
 #                                     ====== BUTTON FUNCTIONS / SCENE SWITCHING ======
 #                                     ================================================
+@onready var map_button: BitmaskedTextureButton = $Map
+@onready var archive_button: BitmaskedTextureButton = $Archive
+@onready var news_button: BitmaskedTextureButton = $News
+
+@onready var tab: TextureRect = $Banner
+var map_tab = preload("res://assets/desk/Map tab.png")
+var archive_tab = preload("res://assets/desk/Archive tab.png")
+var inbox_tab = preload("res://assets/desk/Inbox tab.png")
+
+func disable_table() -> void:
+	$Map.disabled = true
+	$LettersStack.disabled = true
+	$Archive.disabled = true
+	$News.disabled = true
+
+func enable_table() -> void:
+	$Map.disabled = false
+	$LettersStack.disabled = false
+	$Archive.disabled = false
+	$News.disabled = false
+
+func show_banner(new_tab) -> Tween:
+	tab.show()
+	tab.position = Vector2(-600, 132)
+	tab.texture = new_tab
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(tab, "position", Vector2(0, 132), .5)
+	return tween
+
+func hide_banner() -> Tween:
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(tab, "position", Vector2(-600, 132), .5)
+	tween.tween_callback(tab.hide)
+	return tween
+
+@onready var map_instance = $UI/Map
+@onready var map_close_button: BitmaskedTextureButton = $UI/Map/CloseButton
+
+func hide_map() -> void:
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(map_instance, "position", Vector2(216.0, 1091.5), 0.5)
+	tween.tween_callback(map_instance.hide)
+	
+	# await tween.finished
+
+	await hide_banner().finished
+	
+	enable_table()
 
 func _on_map_pressed() -> void:
-	var map_instance = MAP.instantiate()
-	ui.add_child(map_instance)
+	disable_table()
+
+	map_instance.position = Vector2(216.0, 1091.0)
+
+	show_banner(map_tab)
+
+	map_instance.show()
+
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(map_instance, "position", Vector2(216.0, 121.5), 0.5)
 
 ## Checks if the letter button has been pressed, and loads the letter screen if true.
+func hide_letter() -> void:
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(current_letter_file, "position", Vector2(0, 540), 0.5)
+	tween.tween_callback(current_letter_file.queue_free)
+	await hide_banner().finished
+	enable_table()
+
+
 func _on_letters_stack_pressed() -> void:
+	disable_table()
 	# Button Clicked Animation
 	# var tween = create_tween()
 	# tween.tween_property(letters_stack, "scale", Vector2(1, 1.01), 0.1)
@@ -196,6 +259,13 @@ func _on_letters_stack_pressed() -> void:
 		var letter_shown = current_letter_stack.pop_back()
 		_update_letter_portrait()
 		_instantiate_letter(letter_shown)
+
+		current_letter_file.position = Vector2(0, 540)
+		var tween = create_tween()
+		tween.set_trans(Tween.TRANS_EXPO)
+		tween.tween_property(current_letter_file, "position", Vector2(0, 0), 0.5)
+		show_banner(inbox_tab)
+		current_letter_file.letter_closed.connect(hide_letter)
 		
 
 #                                  				   ========================
@@ -236,3 +306,37 @@ func _on_pause_button_mouse_entered() -> void:
 func _on_pause_button_mouse_exited() -> void:
 	print("inactive")
 	pause_button.material.set_shader_parameter("enabled", false)
+
+# EVENT HANDLING
+
+# Called wwhen the node enters the scene tree for the first time.
+func _ready() -> void:
+	# generate shader for pause button
+	pause_button.material = OUTLINE.duplicate()
+
+	map_close_button.connect("pressed", hide_map)
+
+	# create dir of suitors
+	var dir = DirAccess.open("res://resources/letters")
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if file_name.ends_with(".tres"):
+				var letter = load("res://resources/letters/" + file_name)
+				suitors.append(letter)
+				# advertisements.append(letter) <-- filler msgs are now pngs
+			file_name = dir.get_next()
+		dir.list_dir_end()
+
+	tab.hide()
+
+	_generate_player_stats()
+	_generate_letter_lists()
+	_start_new_season()
+	_update_letter_portrait()
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_pressed("MP"):
+		print("main: " + str(get_viewport().get_mouse_position()))
+		return

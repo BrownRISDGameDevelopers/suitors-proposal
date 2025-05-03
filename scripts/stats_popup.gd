@@ -34,7 +34,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var mouse_pos = get_viewport().get_mouse_position()
+	var mouse_pos = get_parent().get_local_mouse_position()
 	# offset
 	var new_pos = mouse_pos - Vector2(0, size.y)
 	
@@ -42,17 +42,21 @@ func _process(delta: float) -> void:
 		offset_x = true
 		new_pos += Vector2(0, size.y)
 		
-	if ((size.x + mouse_pos.x) >= get_viewport_rect().size.x) or (offset_y):
+	if ((size.x + mouse_pos.x) >= get_parent().size.x) or (offset_y):
 		offset_y = true
 		new_pos -= Vector2(size.x, 0)
 		
 	position = new_pos
 
+func _input(event: InputEvent) -> void:
+	if Input.is_action_pressed("MP"):
+		print("popup: " + str(get_viewport().get_mouse_position()))
+		return
 
 func _on_visibility_changed() -> void:
 	if visible:
 		set_process(true)
-	else	:
+	else:
 		set_process(false)
 		offset_x = false
 		offset_y = false

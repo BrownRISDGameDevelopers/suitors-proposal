@@ -3,11 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://c5bcxqb5mmg8g" path="res://assets/letters/bg.png" id="1_2t2cd"]
 [ext_resource type="Theme" uid="uid://bss4mnhq0fcwf" path="res://resources/themes/Letter.tres" id="2_65x1g"]
 [ext_resource type="Script" uid="uid://dgrewkgo17hkt" path="res://scripts/letter.gd" id="3_65x1g"]
-[ext_resource type="Texture2D" uid="uid://ygu14oau0hy3" path="res://assets/desk/Inbox tab.png" id="4_411j1"]
 [ext_resource type="Script" uid="uid://bq0lrcqnbba1l" path="res://scripts/letter_headers.gd" id="4_bwjek"]
 [ext_resource type="Texture2D" uid="uid://c4t2e0ksphwm5" path="res://assets/letters/letter_portraits/King FINAL!.png" id="5_bwjek"]
 [ext_resource type="Texture2D" uid="uid://cc3h1jg02fq0l" path="res://assets/ui/X Button.png" id="5_t02en"]
 [ext_resource type="Material" uid="uid://dfxfj7q58h2f4" path="res://assets/shaders/close_outline.tres" id="6_nllnb"]
+[ext_resource type="Texture2D" uid="uid://ir5oprt8suna" path="res://assets/desk/Border.PNG" id="8_i382k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_flwo1"]
 atlas = ExtResource("5_t02en")
@@ -24,17 +24,17 @@ script = ExtResource("3_65x1g")
 
 [node name="Letter" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -486.5
-offset_top = 533.0
-offset_right = 486.5
-offset_bottom = 1917.0
+anchors_preset = -1
+anchor_left = 0.246615
+anchor_top = 0.47963
+anchor_right = 0.753385
+anchor_bottom = 1.76111
 grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2_65x1g")
 texture = ExtResource("1_2t2cd")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Letter"]
 layout_mode = 1
@@ -83,31 +83,17 @@ metadata/_custom_type_script = "uid://bq0lrcqnbba1l"
 [node name="CloseButton" type="TextureButton" parent="Letter"]
 material = ExtResource("6_nllnb")
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -85.5
-offset_top = 38.0
-offset_right = -39.5
-offset_bottom = 88.0
-grow_horizontal = 0
-texture_normal = SubResource("AtlasTexture_flwo1")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="InboxBanner" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 132.0
-offset_bottom = 132.0
+anchors_preset = -1
+anchor_left = 0.909045
+anchor_top = 0.0274564
+anchor_right = 0.956321
+anchor_bottom = 0.0635836
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("4_411j1")
-expand_mode = 1
-metadata/_edit_lock_ = true
+texture_normal = SubResource("AtlasTexture_flwo1")
+ignore_texture_size = true
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="SuitorPortrait" type="TextureRect" parent="."]
 layout_mode = 1
@@ -115,12 +101,31 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 192.0
-offset_top = 792.0
+offset_top = 716.0
 offset_right = -1498.0
+offset_bottom = -76.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_bwjek")
 expand_mode = 1
+
+[node name="REFERENCE_BORDER" type="TextureRect" parent="."]
+z_index = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_i382k")
+metadata/_edit_lock_ = true
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="meta_clicked" from="Letter/MarginContainer/VBoxContainer/Content" to="." method="_on_content_meta_clicked"]
