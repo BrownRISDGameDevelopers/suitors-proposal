@@ -28,7 +28,7 @@ var letters_per_season = {
 }
 
 # --- ARCHIVED LETTERS
-var archived_letters = []
+var archived_letters = ["res://resources/letters/Dwarf_Councilwoman_Letter.tres", "res://resources/letters/Dwarf_Techbro_Warlord_Letter.tres"]
 
 # --- SUITOR LETTERS & FILLER LETTERS
 var suitors = []
