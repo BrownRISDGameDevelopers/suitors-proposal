@@ -48,10 +48,6 @@ func _process(delta: float) -> void:
 		
 	position = new_pos
 
-func _input(event: InputEvent) -> void:
-	if Input.is_action_pressed("MP"):
-		print("popup: " + str(get_viewport().get_mouse_position()))
-		return
 
 func _on_visibility_changed() -> void:
 	if visible:

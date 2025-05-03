@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dosmcrt0dxc4c"]
+[gd_scene load_steps=8 format=3 uid="uid://dosmcrt0dxc4c"]
 
 [ext_resource type="Texture2D" uid="uid://ir5oprt8suna" path="res://assets/desk/Border.PNG" id="1_1u0as"]
 [ext_resource type="Script" uid="uid://cs65yr1l01a6p" path="res://scripts/misc_lit.gd" id="1_myaix"]
-[ext_resource type="Texture2D" uid="uid://culoidv4xrf4d" path="res://assets/misc_lit/(AUTUMN, 1) Culture Pamphlet.png" id="2_5lm0p"]
+[ext_resource type="Texture2D" uid="uid://ct0gbeqwc1yue" path="res://assets/misc_lit/(SUMMER, 1) Newspaper.png" id="2_5lm0p"]
+[ext_resource type="Texture2D" uid="uid://cymg1eq0fl82u" path="res://assets/desk/Desk base png.PNG" id="2_nlw8d"]
+[ext_resource type="Material" uid="uid://ef7dgc3nfapr" path="res://assets/shaders/kingdom_outline.tres" id="4_nlw8d"]
+[ext_resource type="Texture2D" uid="uid://cc3h1jg02fq0l" path="res://assets/ui/X Button.png" id="5_ksfnl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_music"]
+atlas = ExtResource("5_ksfnl")
+region = Rect2(86, 70, 96, 104)
 
 [node name="MiscLit" type="Control"]
 layout_mode = 3
@@ -13,6 +20,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_myaix")
 
+[node name="Base" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0.507314, 0.507314, 0.507314, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nlw8d")
+
 [node name="Literature" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -20,15 +38,33 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -623.0
-offset_top = -415.0
-offset_right = 623.0
-offset_bottom = 415.0
+offset_left = -591.5
+offset_top = -394.0
+offset_right = 591.5
+offset_bottom = 394.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_5lm0p")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="CloseButton" type="TextureButton" parent="."]
+material = ExtResource("4_nlw8d")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.888542
+anchor_top = 0.196296
+anchor_right = 0.888542
+anchor_bottom = 0.196296
+offset_left = -48.0
+offset_top = -52.0
+offset_right = 48.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_music")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="REFERENCE_BORDER" type="TextureRect" parent="."]
 visible = false
@@ -48,3 +84,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("1_1u0as")
 metadata/_edit_lock_ = true
+
+[connection signal="mouse_entered" from="CloseButton" to="." method="_on_close_button_mouse_entered"]
+[connection signal="mouse_exited" from="CloseButton" to="." method="_on_close_button_mouse_exited"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

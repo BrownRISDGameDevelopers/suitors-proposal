@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="LetterResource" load_steps=3 format=3 uid="uid://dm3luievra282"]
+[gd_resource type="Resource" script_class="LetterResource" load_steps=4 format=3 uid="uid://dm3luievra282"]
 
 [ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_58hxi"]
 [ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="1_jv4he"]
+[ext_resource type="Resource" uid="uid://c2yol8dyhwt2t" path="res://resources/kingdoms/ForestKingdom.tres" id="2_6jjkh"]
 
 [resource]
 script = ExtResource("1_jv4he")
-is_proposal = true
+kingdom = ExtResource("2_6jjkh")
 greeting = "Highness,"
-regularContent = ""
 signoff = "General Marrow of Frostgrave
 Commander of the Gravenmere Militia
 "
