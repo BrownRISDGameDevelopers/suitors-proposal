@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://chybqn6kunvsm"]
+[gd_scene load_steps=7 format=3 uid="uid://chybqn6kunvsm"]
 
 [ext_resource type="Script" uid="uid://3gxbee6qatoc" path="res://scripts/credits.gd" id="1_hi4w3"]
 [ext_resource type="Texture2D" uid="uid://cptnu2jx252m" path="res://assets/main_menu/credits/EndCreditsAlt.png" id="1_y8nor"]
@@ -9,9 +9,6 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_al82v"]
 atlas = ExtResource("5_tlwrt")
 region = Rect2(86, 70, 96, 104)
-
-[sub_resource type="SystemFont" id="SystemFont_tlwrt"]
-font_names = PackedStringArray("Times New Roman")
 
 [node name="CreditsScroll" type="NinePatchRect"]
 clip_children = 2
@@ -127,60 +124,6 @@ offset_top = 544.0
 offset_right = 631.0
 offset_bottom = 806.0
 theme_override_constants/separation = 8
-
-[node name="Name" type="Label" parent="ClippingContainer/ProducersList"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.537255, 0.156863, 0.054902, 1)
-theme_override_fonts/font = SubResource("SystemFont_tlwrt")
-theme_override_font_sizes/font_size = 40
-text = "Allie Abraham"
-horizontal_alignment = 1
-
-[node name="Name2" type="Label" parent="ClippingContainer/ProducersList"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.537255, 0.156863, 0.054902, 1)
-theme_override_fonts/font = SubResource("SystemFont_tlwrt")
-theme_override_font_sizes/font_size = 40
-text = "Kahlan"
-horizontal_alignment = 1
-
-[node name="ProgrammersList" type="VBoxContainer" parent="ClippingContainer"]
-layout_mode = 0
-offset_left = 706.0
-offset_top = 275.0
-offset_right = 1153.0
-offset_bottom = 537.0
-theme_override_constants/separation = 8
-
-[node name="Name" type="Label" parent="ClippingContainer/ProgrammersList"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.537255, 0.156863, 0.054902, 1)
-theme_override_fonts/font = SubResource("SystemFont_tlwrt")
-theme_override_font_sizes/font_size = 40
-text = "Adanna Obuba"
-horizontal_alignment = 1
-
-[node name="Name2" type="Label" parent="ClippingContainer/ProgrammersList"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.537255, 0.156863, 0.054902, 1)
-theme_override_fonts/font = SubResource("SystemFont_tlwrt")
-theme_override_font_sizes/font_size = 40
-text = "Eric Wu"
-horizontal_alignment = 1
-
-[node name="Name3" type="Label" parent="ClippingContainer/ProgrammersList"]
-visible = false
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.537255, 0.156863, 0.054902, 1)
-theme_override_fonts/font = SubResource("SystemFont_tlwrt")
-theme_override_font_sizes/font_size = 40
-text = "Henry Earnest"
-horizontal_alignment = 1
 
 [connection signal="mouse_entered" from="ClippingContainer/CloseButton" to="." method="_on_close_button_mouse_entered"]
 [connection signal="mouse_exited" from="ClippingContainer/CloseButton" to="." method="_on_close_button_mouse_exited"]

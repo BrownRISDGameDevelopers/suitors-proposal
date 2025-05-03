@@ -22,11 +22,11 @@ font_names = PackedStringArray("Times New Roman")
 
 [resource]
 Label/colors/font_color = Color(0, 0, 0, 1)
-Label/font_sizes/font_size = 32
+Label/font_sizes/font_size = 23
 Label/fonts/font = ExtResource("1_et0r0")
 PopupPanel/colors/title_color = Color(1, 1, 1, 1)
 PopupPanel/fonts/title_font = SubResource("SystemFont_et0r0")
 PopupPanel/styles/panel = SubResource("StyleBoxFlat_et0r0")
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
-RichTextLabel/font_sizes/normal_font_size = 28
+RichTextLabel/font_sizes/normal_font_size = 21
 RichTextLabel/fonts/normal_font = SubResource("SystemFont_i0rfn")

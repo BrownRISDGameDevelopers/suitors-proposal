@@ -5,11 +5,11 @@
 [resource]
 script = ExtResource("1_55krk")
 name = "Undead Kingdom"
-population = 0
-military = 0
-morale = 0
+population = 6
+military = 5
+morale = 2
 resource = 0
-mana = 0
+mana = 2
 populationKnown = false
 manaKnown = false
 militaryKnown = false

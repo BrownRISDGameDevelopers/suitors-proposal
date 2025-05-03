@@ -3,6 +3,7 @@ extends Resource
 class_name Kingdom
 
 @export var name: String
+@export var letter_border: Texture
 
 @export_group("Stats")
 @export_range(1, 6, 1) var population: int;
@@ -12,8 +13,8 @@ class_name Kingdom
 @export_range(1, 6, 1) var mana: int;
 
 @export_group("Known")
-@export var populationKnown: bool
-@export var manaKnown: bool
-@export var militaryKnown: bool
-@export var resourceKnown: bool
-@export var moraleKnown: bool
+@export var populationKnown: bool = false
+@export var manaKnown: bool = false
+@export var militaryKnown: bool = false
+@export var resourceKnown: bool = false
+@export var moraleKnown: bool = false

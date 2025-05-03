@@ -5,6 +5,7 @@ class_name Letter
 signal letter_closed
 
 @onready var letter: TextureRect = $Letter
+@onready var letter_border: TextureRect = $Letter/Border
 @onready var greeting: Label = $Letter/MarginContainer/VBoxContainer/Greeting
 @onready var content: RichTextLabel = $Letter/MarginContainer/VBoxContainer/Content
 @onready var signoff: Label = $Letter/MarginContainer/VBoxContainer/Signoff
@@ -16,8 +17,8 @@ const CLOSE_OUTLINE = preload("res://assets/shaders/close_outline.tres")
 var resource: LetterResource
 var scroll_speed
 
-var MIN_POS = -413.0
-var MAX_POS = 518.0
+var MIN_POS = -267.0
+var MAX_POS = 335.0
 
 var SCROLL_SENSITIVITY := 200.0
 var SCROLL_FRICTION := 5.0
@@ -27,19 +28,12 @@ func generate_content(season: String, letter_resource: LetterResource) -> void:
 	resource = letter_resource
 	greeting.text = resource.greeting
 	signoff.text = resource.signoff
-
-	_setup_proposal_layout()
+	letter_border.texture = resource.kingdom.letter_border
+	
 	_setup_seasonal_content(season)
 
 	content.bbcode_enabled = true
 
-func _setup_proposal_layout() -> void:
-	var letter_position = letter.position
-	var portrait_position = suitor_portrait.position
-
-	# suitor_portrait.texture = resource.portrait
-	# letter.position = letter_position + Vector2(-225, 0)
-	# suitor_portrait.position = portrait_position + Vector2(600, -150)
 
 ## _SETUP_SEASONAL_CONTENT() --> Based on season, generates content of letter.
 
@@ -48,18 +42,21 @@ func _setup_seasonal_content(season: String) -> void:
 	var clickable_content
 	
 	match season:
-		"summer": version_text = resource.summerVersion
-		"fall": version_text = resource.fallVersion
-		"winter": version_text = resource.winterVersion
-		"spring": version_text = resource.springVersion
-		_: version_text = ""
-
-	match season:
-		"summer": clickable_content = resource.summerClickableContent
-		"fall": clickable_content = resource.fallClickableContent
-		"winter": clickable_content = resource.winterClickableContent
-		"spring": clickable_content = resource.springClickableContent
-		_: clickable_content = []
+		"summer":
+			version_text = resource.summerVersion
+			clickable_content = resource.summerClickableContent
+		"fall":
+			version_text = resource.fallVersion
+			clickable_content = resource.fallClickableContent
+		"winter":
+			version_text = resource.winterVersion
+			clickable_content = resource.winterClickableContent
+		"spring":
+			version_text = resource.springVersion
+			clickable_content = resource.springClickableContent
+		_:
+			version_text = ""
+			clickable_content = []
 
 	for text_entry in clickable_content:
 		var base_text = text_entry.text

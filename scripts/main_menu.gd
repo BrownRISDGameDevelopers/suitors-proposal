@@ -7,7 +7,6 @@ func _ready():
 	pass
 
 func _on_start_button_pressed():
-	
 	# var main = MAIN.new()
 	# add_child(main)
 	pass
@@ -24,4 +23,3 @@ func _on_credits_pressed() -> void:
 func _on_play_pressed() -> void:
 	print("launching game")
 	get_tree().change_scene_to_packed(MAIN)
-	

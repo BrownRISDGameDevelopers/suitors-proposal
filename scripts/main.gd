@@ -19,10 +19,10 @@ var Seasons = {
 # --- SEASONAL LETTER TRACKERS & SEASONS
 var seasons_order = [Seasons.SUMMER, Seasons.FALL, Seasons.WINTER, Seasons.SPRING] # List of all seasons_order, used to cycle through them.
 var letters_per_season = {
-	Seasons.SUMMER: 3,
+	Seasons.SUMMER: 4,
 	Seasons.FALL: 3,
-	Seasons.WINTER: 2,
-	Seasons.SPRING: 2
+	Seasons.WINTER: 3,
+	Seasons.SPRING: 0
 }
 var letter_list = {Seasons.SUMMER: [], Seasons.FALL: [], Seasons.WINTER: [], Seasons.SPRING: []} # Values for all of these will be generated in _generate_letter_lists!
 
@@ -239,7 +239,7 @@ func _on_map_pressed() -> void:
 func hide_letter() -> void:
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_EXPO)
-	tween.tween_property(current_letter_file, "position", Vector2(0, 540), 0.5)
+	tween.tween_property(current_letter_file, "position", Vector2(0, 1080), 0.5)
 	tween.tween_callback(current_letter_file.queue_free)
 	await hide_banner().finished
 	enable_table()
@@ -260,7 +260,7 @@ func _on_letters_stack_pressed() -> void:
 		_update_letter_portrait()
 		_instantiate_letter(letter_shown)
 
-		current_letter_file.position = Vector2(0, 540)
+		current_letter_file.position = Vector2(0, 1080)
 		var tween = create_tween()
 		tween.set_trans(Tween.TRANS_EXPO)
 		tween.tween_property(current_letter_file, "position", Vector2(0, 0), 0.5)

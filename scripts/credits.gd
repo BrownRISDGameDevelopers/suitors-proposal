@@ -2,7 +2,7 @@ extends NinePatchRect
 
 class_name Credits
 
-@onready var close_button: BitmaskedTextureButton = $ClippingContainer/CloseButton
+@onready var close_button: TextureButton = $ClippingContainer/CloseButton
 
 var CLOSED_POS = Vector2(28, 1100.0)
 var OPENED_POS

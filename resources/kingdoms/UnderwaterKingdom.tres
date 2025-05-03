@@ -1,15 +1,17 @@
-[gd_resource type="Resource" script_class="Kingdom" load_steps=2 format=3 uid="uid://b6h0r0aa3q2d3"]
+[gd_resource type="Resource" script_class="Kingdom" load_steps=3 format=3 uid="uid://b6h0r0aa3q2d3"]
 
+[ext_resource type="Texture2D" uid="uid://482vx74ch5rm" path="res://assets/letters/borders/Border_mermaid.png" id="1_8l4av"]
 [ext_resource type="Script" uid="uid://b46xhsels5oxh" path="res://scripts/classes/kingdom.gd" id="1_vrklj"]
 
 [resource]
 script = ExtResource("1_vrklj")
 name = "Underwater Kingdom"
-population = 1
+letter_border = ExtResource("1_8l4av")
+population = 4
 military = 0
-morale = 0
-resource = 0
-mana = 0
+morale = 2
+resource = 6
+mana = 3
 populationKnown = false
 manaKnown = false
 militaryKnown = false
