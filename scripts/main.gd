@@ -252,8 +252,7 @@ func _on_letters_stack_pressed() -> void:
 	# tween.tween_property(letters_stack, "scale", Vector2(1, 1.01), 0.1)
 	# tween.tween_property(letters_stack, "scale", Vector2(1, 1), 0.1)
 	if not current_letter_stack:
-		_end_season()
-		_start_new_season()
+		pass
 	
 	else:
 		var letter_shown = current_letter_stack.pop_back()
@@ -298,6 +297,7 @@ func _on_letters_stack_pressed() -> void:
 	#_hover_off(letters_button, letters_button.position)
 
 @onready var pause_button: BitmaskedTextureButton = $PauseButton
+@onready var season_change_button: TextureButton = $SeasonChangeButton
 
 func _on_pause_button_mouse_entered() -> void:
 	print("active")
@@ -340,3 +340,15 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("MP"):
 		print("main: " + str(get_viewport().get_mouse_position()))
 		return
+
+func _on_season_change_button_pressed() -> void:
+	_end_season()
+	_start_new_season()
+
+func _process(delta: float) -> void:
+	if not current_letter_stack:
+		season_change_button.show()
+		season_change_button.disabled = false
+	else:
+		season_change_button.hide()
+		season_change_button.disabled = true
