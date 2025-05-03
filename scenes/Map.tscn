@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://l3uxn3gvdvnn" path="res://assets/map/map.png" id="1_yyirk"]
 [ext_resource type="Texture2D" uid="uid://ckfavv68i1ugj" path="res://assets/map/Mountain.png" id="2_41ykk"]
-[ext_resource type="Script" uid="uid://bgs472hg55fif" path="res://scripts/map.gd" id="2_fkh5j"]
+[ext_resource type="Script" path="res://scripts/map.gd" id="2_fkh5j"]
 [ext_resource type="Material" uid="uid://ef7dgc3nfapr" path="res://assets/shaders/kingdom_outline.tres" id="2_u4fdk"]
 [ext_resource type="Script" uid="uid://pes8w55p45wn" path="res://scripts/kingdom_map.gd" id="3_xkm8s"]
 [ext_resource type="Resource" uid="uid://bc5qvfo24wa4t" path="res://resources/kingdoms/MountainKingdom.tres" id="4_pgwcf"]
@@ -255,6 +255,7 @@ scale = Vector2(0.24969, 0.24969)
 texture_normal = ExtResource("6_08blb")
 
 [node name="CouncilwomanDwarf" type="TextureButton" parent="Mountain"]
+layout_mode = 0
 offset_left = 421.0
 offset_top = 118.0
 offset_right = 1130.0
@@ -281,6 +282,7 @@ metadata/_edit_lock_ = true
 
 [node name="BirdGuy" type="TextureButton" parent="Cloud"]
 z_index = 1
+layout_mode = 0
 offset_left = 1437.0
 offset_top = 130.0
 offset_right = 2146.0
@@ -289,6 +291,7 @@ scale = Vector2(0.24969, 0.24969)
 texture_normal = ExtResource("11_fkh5j")
 
 [node name="Peacock" type="TextureButton" parent="Cloud"]
+layout_mode = 0
 offset_left = 1655.0
 offset_top = 132.0
 offset_right = 2364.0
@@ -313,6 +316,7 @@ metadata/_edit_lock_ = true
 
 [node name="Mushroom" type="TextureButton" parent="Forest"]
 z_index = 1
+layout_mode = 0
 offset_left = 751.0
 offset_top = 243.0
 offset_right = 1460.0
@@ -321,6 +325,7 @@ scale = Vector2(0.24969, 0.24969)
 texture_normal = ExtResource("15_wvgon")
 
 [node name="ForestLady" type="TextureButton" parent="Forest"]
+layout_mode = 0
 offset_left = 969.0
 offset_top = 245.0
 offset_right = 1678.0
@@ -345,6 +350,7 @@ metadata/_edit_lock_ = true
 
 [node name="Vampire" type="TextureButton" parent="Undead"]
 z_index = 1
+layout_mode = 0
 offset_left = 1198.0
 offset_top = 725.0
 offset_right = 1907.0
@@ -353,6 +359,7 @@ scale = Vector2(0.24969, 0.24969)
 texture_normal = ExtResource("19_gw1t8")
 
 [node name="Skeleton" type="TextureButton" parent="Undead"]
+layout_mode = 0
 offset_left = 1416.0
 offset_top = 727.0
 offset_right = 2125.0
@@ -377,6 +384,7 @@ metadata/_edit_lock_ = true
 
 [node name="WaterGuy" type="TextureButton" parent="Underwater"]
 z_index = 1
+layout_mode = 0
 offset_left = 159.0
 offset_top = 700.0
 offset_right = 868.0
@@ -385,6 +393,7 @@ scale = Vector2(0.24969, 0.24969)
 texture_normal = ExtResource("23_5568u")
 
 [node name="WaterGirl" type="TextureButton" parent="Underwater"]
+layout_mode = 0
 offset_left = 377.0
 offset_top = 702.0
 offset_right = 1086.0

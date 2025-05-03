@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://byy6ufy2a5hsj"]
+[gd_scene load_steps=21 format=3 uid="uid://byy6ufy2a5hsj"]
 
 [ext_resource type="Script" uid="uid://b2acxx3ucocca" path="res://scripts/main.gd" id="1_rvslj"]
 [ext_resource type="Texture2D" uid="uid://w1a6fhrhcot" path="res://assets/desk/Newspaper static.png" id="3_bjd11"]
@@ -13,11 +13,16 @@
 [ext_resource type="Texture2D" uid="uid://dlcktckmg1ddv" path="res://assets/desk/Letter archive hover.PNG" id="9_cvmbd"]
 [ext_resource type="Texture2D" uid="uid://ir5oprt8suna" path="res://assets/desk/Border.PNG" id="12_bjd11"]
 [ext_resource type="PackedScene" uid="uid://b8iollf58huxn" path="res://scenes/Map.tscn" id="12_ft6cd"]
+[ext_resource type="Shader" uid="uid://i0gw66opu5ta" path="res://assets/shaders/blur.gdshader" id="12_nfivy"]
 [ext_resource type="Texture2D" uid="uid://0plcya5e8jk1" path="res://assets/ui/seasons_indicators/summer.png" id="13_3p2gp"]
 [ext_resource type="PackedScene" uid="uid://dosmcrt0dxc4c" path="res://scenes/MiscLit.tscn" id="13_bb450"]
 [ext_resource type="Material" uid="uid://ef7dgc3nfapr" path="res://assets/shaders/kingdom_outline.tres" id="13_mwfav"]
 [ext_resource type="Texture2D" uid="uid://c3qo2kc0i1s5i" path="res://assets/ui/Pause Button.png" id="13_qmy6f"]
 [ext_resource type="Texture2D" uid="uid://dh4lgexl05uk6" path="res://assets/desk/Map tab.png" id="14_bb450"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nfivy"]
+shader = ExtResource("12_nfivy")
+shader_parameter/lod = 0.0
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -113,6 +118,17 @@ texture_hover = ExtResource("4_q8u5g")
 script = ExtResource("5_lhr70")
 metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
 
+[node name="Blur" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_nfivy")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.823529)
+
 [node name="UI" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -129,6 +145,7 @@ offset_left = -744.0
 offset_top = -418.5
 offset_right = 744.0
 offset_bottom = 418.5
+script = null
 
 [node name="MiscLit" parent="UI" instance=ExtResource("13_bb450")]
 visible = false
@@ -213,7 +230,6 @@ texture_normal = ExtResource("13_qmy6f")
 [connection signal="pressed" from="Map" to="." method="_on_map_pressed"]
 [connection signal="pressed" from="Archive" to="." method="_on_archive_pressed"]
 [connection signal="pressed" from="LettersStack" to="." method="_on_letters_stack_pressed"]
-[connection signal="suitor_chosen" from="UI/Map" to="." method="_on_map_suitor_chosen"]
 [connection signal="mouse_entered" from="PauseButton" to="." method="_on_pause_button_mouse_entered"]
 [connection signal="mouse_exited" from="PauseButton" to="." method="_on_pause_button_mouse_exited"]
 [connection signal="pressed" from="SeasonChangeButton" to="." method="_on_season_change_button_pressed"]

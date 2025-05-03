@@ -3,7 +3,10 @@ extends Resource
 class_name Kingdom
 
 @export var name: String
+
+@export_group("Letter")
 @export var letter_border: Texture
+@export var theme: Theme
 
 @export_group("Stats")
 @export_range(1, 6, 1) var population: int;

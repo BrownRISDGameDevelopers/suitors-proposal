@@ -17,7 +17,7 @@ const CLOSE_OUTLINE = preload("res://assets/shaders/close_outline.tres")
 var resource: LetterResource
 var scroll_speed
 
-var MIN_POS = -267.0
+var MIN_POS = -560.0
 var MAX_POS = 335.0
 
 var SCROLL_SENSITIVITY := 200.0
