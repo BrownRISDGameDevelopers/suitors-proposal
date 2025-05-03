@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MiscLitResource" load_steps=5 format=3 uid="uid://dfcoy4givvtu3"]
+
+[ext_resource type="Texture2D" uid="uid://qiosv0tdd1iq" path="res://assets/misc_lit/(START OF SPRING) Prompt.png" id="1_5fbdr"]
+[ext_resource type="Script" uid="uid://c7c51n3k4bkav" path="res://scripts/classes/misc_lit_resource.gd" id="1_74ry1"]
+[ext_resource type="Texture2D" uid="uid://fm0i2pyly4gf" path="res://assets/misc_lit/(SPRING, 2) Coronation Invitation.png" id="2_bl8s7"]
+[ext_resource type="Texture2D" uid="uid://gqdmrsuube82" path="res://assets/misc_lit/(SPRING, 3) Advisor Meeting Transcript.png" id="3_l54at"]
+
+[resource]
+script = ExtResource("1_74ry1")
+season = "spring"
+literatures = Array[Texture]([ExtResource("1_5fbdr"), ExtResource("2_bl8s7"), ExtResource("3_l54at")])

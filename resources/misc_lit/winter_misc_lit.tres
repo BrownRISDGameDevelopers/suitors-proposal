@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MiscLitResource" load_steps=5 format=3 uid="uid://dj0a8th87ha5g"]
+
+[ext_resource type="Texture2D" uid="uid://c8u3cadh7srth" path="res://assets/misc_lit/(WINTER, 1) Political Pamphlet.png" id="1_a2au6"]
+[ext_resource type="Texture2D" uid="uid://cvbl1f3k470c5" path="res://assets/misc_lit/(WINTER, 2) Spy Missive.png" id="2_yul65"]
+[ext_resource type="Texture2D" uid="uid://dxdchdc1v3jka" path="res://assets/misc_lit/(END OF WINTER) Declaration of the King_s Death.png" id="3_pnqk1"]
+[ext_resource type="Script" uid="uid://c7c51n3k4bkav" path="res://scripts/classes/misc_lit_resource.gd" id="3_yul65"]
+
+[resource]
+script = ExtResource("3_yul65")
+season = "winter"
+literatures = Array[Texture]([ExtResource("1_a2au6"), ExtResource("2_yul65"), ExtResource("3_pnqk1")])
