@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="LetterResource" load_steps=8 format=3 uid="uid://cdjrp4ye3wsye"]
+[gd_resource type="Resource" script_class="LetterResource" load_steps=9 format=3 uid="uid://cdjrp4ye3wsye"]
 
 [ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_faxim"]
 [ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="2_e5dnj"]
 [ext_resource type="Resource" uid="uid://b6h0r0aa3q2d3" path="res://resources/kingdoms/UnderwaterKingdom.tres" id="2_mjk0y"]
+[ext_resource type="Texture2D" uid="uid://4to6wgutactp" path="res://assets/letters/letter_portraits/Portrait_ (2).png" id="3_mjk0y"]
 
 [sub_resource type="Resource" id="Resource_faxim"]
 script = ExtResource("1_faxim")
@@ -31,6 +32,7 @@ metadata/_custom_type_script = "uid://b466tuukr26ps"
 [resource]
 script = ExtResource("2_e5dnj")
 kingdom = ExtResource("2_mjk0y")
+portrait = ExtResource("3_mjk0y")
 greeting = "To Your Highness of Fallowbrook,"
 signoff = "Sincerely, in sift and salt,
 

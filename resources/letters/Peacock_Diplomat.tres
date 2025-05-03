@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="LetterResource" load_steps=7 format=3 uid="uid://kminoys61mrn"]
+[gd_resource type="Resource" script_class="LetterResource" load_steps=8 format=3 uid="uid://kminoys61mrn"]
 
 [ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_ktm28"]
 [ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="2_1oh6l"]
 [ext_resource type="Resource" uid="uid://cqga80ifaxij1" path="res://resources/kingdoms/CloudKingdom.tres" id="2_nxyue"]
+[ext_resource type="Texture2D" uid="uid://da0xqj6thay1y" path="res://assets/letters/letter_portraits/Portrait_ (6).png" id="3_nxyue"]
 
 [sub_resource type="Resource" id="Resource_ktm28"]
 script = ExtResource("1_ktm28")
@@ -25,6 +26,7 @@ metadata/_custom_type_script = "uid://b466tuukr26ps"
 [resource]
 script = ExtResource("2_1oh6l")
 kingdom = ExtResource("2_nxyue")
+portrait = ExtResource("3_nxyue")
 greeting = "Greetings to Your Magnificent Highness,"
 signoff = "Yours evermore,
 

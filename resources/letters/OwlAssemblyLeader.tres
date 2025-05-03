@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="LetterResource" load_steps=6 format=3 uid="uid://bt6q740v6u8q7"]
+[gd_resource type="Resource" script_class="LetterResource" load_steps=7 format=3 uid="uid://bt6q740v6u8q7"]
 
 [ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_cvuda"]
 [ext_resource type="Resource" uid="uid://cqga80ifaxij1" path="res://resources/kingdoms/CloudKingdom.tres" id="2_0cwso"]
 [ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="2_geavf"]
+[ext_resource type="Texture2D" uid="uid://gqek331ll70y" path="res://assets/letters/letter_portraits/Portrait_ (1).png" id="3_0cwso"]
 
 [sub_resource type="Resource" id="Resource_cvuda"]
 script = ExtResource("1_cvuda")
@@ -19,6 +20,7 @@ metadata/_custom_type_script = "uid://b466tuukr26ps"
 [resource]
 script = ExtResource("2_geavf")
 kingdom = ExtResource("2_0cwso")
+portrait = ExtResource("3_0cwso")
 greeting = "Salutations Your Highness,"
 signoff = "With authority granted by the Majani Assembly, 
 Sefu Mwerevu of the Concord of Suns"

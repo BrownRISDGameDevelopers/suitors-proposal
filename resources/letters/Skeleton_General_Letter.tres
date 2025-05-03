@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="LetterResource" load_steps=7 format=3 uid="uid://dvo4gb1x1e7ck"]
+[gd_resource type="Resource" script_class="LetterResource" load_steps=8 format=3 uid="uid://dvo4gb1x1e7ck"]
 
 [ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_58hxi"]
 [ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="1_jv4he"]
 [ext_resource type="Resource" uid="uid://bahrmb7eqtk0t" path="res://resources/kingdoms/UndeadKingdom.tres" id="2_6jjkh"]
+[ext_resource type="Texture2D" uid="uid://cio6t4lcv4sxl" path="res://assets/letters/letter_portraits/Portrait_ (8).png" id="3_t81pp"]
 
 [sub_resource type="Resource" id="Resource_58hxi"]
 script = ExtResource("1_58hxi")
@@ -25,6 +26,7 @@ metadata/_custom_type_script = "uid://b466tuukr26ps"
 [resource]
 script = ExtResource("1_jv4he")
 kingdom = ExtResource("2_6jjkh")
+portrait = ExtResource("3_t81pp")
 greeting = "Highness,"
 signoff = "General Marrow of Frostgrave
 Commander of the Gravenmere Militia

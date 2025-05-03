@@ -33,6 +33,8 @@ func generate_content(season: String, letter_resource: LetterResource) -> void:
 	_setup_seasonal_content(season)
 
 	content.bbcode_enabled = true
+	
+	suitor_portrait.texture = letter_resource.portrait
 
 
 ## _SETUP_SEASONAL_CONTENT() --> Based on season, generates content of letter.

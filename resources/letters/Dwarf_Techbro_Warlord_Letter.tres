@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="LetterResource" load_steps=6 format=3 uid="uid://cbevug2gr34f6"]
+[gd_resource type="Resource" script_class="LetterResource" load_steps=7 format=3 uid="uid://cbevug2gr34f6"]
 
 [ext_resource type="Resource" uid="uid://bc5qvfo24wa4t" path="res://resources/kingdoms/MountainKingdom.tres" id="1_4iloy"]
 [ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="1_sv53s"]
 [ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_xtsgp"]
+[ext_resource type="Texture2D" uid="uid://ct55nkiplcpva" path="res://assets/letters/letter_portraits/Portrait_.png" id="3_5m61a"]
 
 [sub_resource type="Resource" id="Resource_xtsgp"]
 script = ExtResource("1_xtsgp")
@@ -19,6 +20,7 @@ metadata/_custom_type_script = "uid://b466tuukr26ps"
 [resource]
 script = ExtResource("1_sv53s")
 kingdom = ExtResource("1_4iloy")
+portrait = ExtResource("3_5m61a")
 greeting = "To Your Highness of the Land of Wheat,"
 signoff = "Ingree Thaldrin, Head Steamwright of the Copper Forge"
 summerVersion = "Bright tidings! I am Ingree Thaldrin. You may recognize my name as the youngest Head Steamwright to earn the title and the first dwarf to utilize mana-powered forges. It may shock you to hear this, but before my success, my peers dismissed me as a “magic-sick radical”! Even now, as my forges run hotter than dragonfire and produce weaponry three times the strength of natural ore, my progress is constantly under siege from the metal purists of the Durvashian Council. 
