@@ -455,8 +455,16 @@ func _process(delta: float) -> void:
 		season_change_button.disabled = true
 
 
-func _on_map_suitor_chosen(suitor: Variant) -> void:
+func _on_map_suitor_chosen(suitor: int, otherKingdom: Kingdom) -> void:
 	if game_should_end:
-		pass
+		# picked an assassin
+		if (otherKingdom.name == "ForestKingdom" && suitor == 1) or (otherKingdom.name == "CloudKingdom" && suitor == 1) or (otherKingdom.name == "UnderwaterKingdom" && suitor == 2):
+			pass
+		# didn't pick someone who complements your kingdom
+		elif (OUR_KINGDOM.mana + otherKingdom.mana < 5) or (OUR_KINGDOM.military + otherKingdom.military < 5) or (OUR_KINGDOM.morale + otherKingdom.morale < 5) or (OUR_KINGDOM.population + otherKingdom.population < 5) or (OUR_KINGDOM.resource + otherKingdom.resource < 5):
+			pass
+		# picked a good suitor!
+		else:
+			pass
 	else:
 		pass
