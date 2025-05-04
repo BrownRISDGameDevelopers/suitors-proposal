@@ -22,6 +22,7 @@ script = ExtResource("2_0hjkm")
 name = "Lady Nivi Vinterlahn, Daughter of Lord Theobald Vinterlahn"
 kingdom = ExtResource("2_xv775")
 portrait = ExtResource("3_xv775")
+assassin = true
 greeting = "To Your Most Esteemed Highness,"
 signoff = "Lady Nivi Vinterlahn, 
 Daughter of Lord Theobald Vinterlahn"
@@ -55,4 +56,5 @@ Of course I only bring this up, Your Majesty, because these silly Merfolk are th
 
 May your decision come with the swiftness of storms."
 springClickableContent = Array[ExtResource("1_bd81q")]([])
+season_generated = ""
 metadata/_custom_type_script = "uid://d2ngpxf76ukp7"

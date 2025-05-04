@@ -7,6 +7,7 @@ const MAP = preload("res://scenes/Map.tscn")
 const SEASON = preload("res://scenes/Season.tscn")
 const MISC_LIT = preload("res://scenes/MiscLit.tscn")
 const ARCHIVE = preload("res://scenes/Archive.tscn")
+const ENDING = preload("res://scenes/Ending.tscn")
 
 var OUR_KINGDOM = preload("res://resources/kingdoms/OurKingdom.tres")
 const OUTLINE = preload("res://assets/shaders/kingdom_outline.tres")
@@ -22,8 +23,8 @@ var Seasons = {
 	"SPRING": "spring"
 }
 # --- SEASONAL LETTER TRACKERS & SEASONS
-# var seasons_order = [Seasons.SPRING]
-var seasons_order = [Seasons.SUMMER, Seasons.FALL, Seasons.WINTER, Seasons.SPRING] # List of all seasons_order, used to cycle through them.
+var seasons_order = [Seasons.SPRING]
+# var seasons_order = [Seasons.SUMMER, Seasons.FALL, Seasons.WINTER, Seasons.SPRING] # List of all seasons_order, used to cycle through them.
 var letters_per_season = {
 	Seasons.SUMMER: 4,
 	Seasons.FALL: 3,
@@ -229,12 +230,14 @@ func _start_new_season() -> void:
 
 	if current_season == Seasons.SPRING:
 		spring_selection()
+		# enable_table()
 		return
 
 	enable_table()
 
 
 func spring_selection() -> void:
+	disable_table()
 	var next_lit = misc_lits[current_season].pop_front()
 
 	## SHOW SELECTION PAMPHLET
@@ -327,7 +330,7 @@ func spring_selection() -> void:
 	tween.tween_callback(current_letter_file.queue_free)
 
 	current_letter_file.letter_closed.connect(hide_letter)
-	current_letter_file.letter_closed.connect(enable_table)
+	enable_table()
 
 
 ## _END_SEASON() --> Ends a season cycle. In this context, will be called when 
@@ -356,6 +359,7 @@ func disable_table() -> void:
 	$LettersStack.disabled = true
 	$Archive.disabled = true
 	$News.disabled = true
+	$SeasonChangeButton.disabled = true
 	
 	show_blur()
 
@@ -364,6 +368,7 @@ func enable_table() -> void:
 	$LettersStack.disabled = false
 	$Archive.disabled = false
 	$News.disabled = false
+	$SeasonChangeButton.disabled = false
 	
 	hide_blur()
 
@@ -383,9 +388,6 @@ func hide_banner() -> Tween:
 	tween.tween_callback(tab.hide)
 	return tween
 
-<<<<<<< HEAD
-@onready var map_instance: Map = $UI/Map
-=======
 func show_blur():
 	var mat = blur.material as ShaderMaterial
 	mat.set_shader_parameter("lod", 0.8)
@@ -395,7 +397,6 @@ func hide_blur():
 	mat.set_shader_parameter("lod", 0.0)
 
 @onready var map_instance = $UI/Map
->>>>>>> bed3de9 (added archive and blur when in UI menu)
 @onready var map_close_button: BitmaskedTextureButton = $UI/Map/CloseButton
 
 func hide_map() -> void:
@@ -435,16 +436,6 @@ func hide_letter() -> void:
 
 
 func _on_letters_stack_pressed() -> void:
-<<<<<<< HEAD
-	# Button Clicked Animation
-	# var tween = create_tween()
-	# tween.tween_property(letters_stack, "scale", Vector2(1, 1.01), 0.1)
-	# tween.tween_property(letters_stack, "scale", Vector2(1, 1), 0.1)
-=======
-	
-	disable_table()
-	
->>>>>>> bed3de9 (added archive and blur when in UI menu)
 	if not current_letter_stack:
 		pass
 	
@@ -468,16 +459,14 @@ func _hide_archive() -> void:
 	current_archive_file.queue_free()
 
 func _on_archive_pressed() -> void:
-	
-	
 	if not archived_letters:
 		pass
 		
 	else:
-		
 		disable_table()
 		
 		var archive_instance = ARCHIVE.instantiate()
+		print(archived_letters)
 		archive_instance.load_letter_list(archived_letters)
 		current_archive_file = archive_instance
 		ui.add_child(archive_instance)
@@ -485,6 +474,7 @@ func _on_archive_pressed() -> void:
 		current_archive_file.archive_closed.connect(_hide_archive)
 
 var misc_lit_inst
+var current_misc_lit
 
 func hide_news() -> void:
 	var tween = create_tween()
@@ -492,7 +482,7 @@ func hide_news() -> void:
 	tween.tween_callback(misc_lit_inst.queue_free)
 	await hide_banner().finished
 	
-	archived_letters.push_front(misc_lit_inst)
+	archived_letters.push_front(current_misc_lit)
 	enable_table()
 
 func _on_news_pressed() -> void:
@@ -500,6 +490,7 @@ func _on_news_pressed() -> void:
 	print("PRESSED")
 
 	var next_lit = misc_lits[current_season].pop_front()
+	current_misc_lit = next_lit
 	print("next lit:", next_lit)
 	if not next_lit:
 		enable_table()
@@ -570,6 +561,7 @@ func _on_pause_button_pressed() -> void:
 func _ready() -> void:
 	# generate shader for pause button
 	pause_button.material = OUTLINE.duplicate()
+	season_change_button.material = OUTLINE.duplicate()
 
 	map_close_button.connect("pressed", hide_map)
 
@@ -593,16 +585,27 @@ func _on_season_change_button_pressed() -> void:
 
 		map_instance.position = Vector2(216.0, 1091.0)
 
-		show_banner(map_tab)
+		# show_banner(map_tab)
 
 		map_instance.show()
+		map_close_button.hide()
 
 		var tween = create_tween()
 		tween.set_trans(Tween.TRANS_EXPO)
 		tween.tween_property(map_instance, "position", Vector2(216.0, 121.5), 0.5)
+
+		var selected_suitor: LetterResource = await map_instance.suitor_chosen
+		print("selected", selected_suitor, "name", selected_suitor.name)
+		_on_map_suitor_chosen(selected_suitor, selected_suitor.kingdom)
 	else:
 		_end_season()
 		_start_new_season()
+
+func _on_season_change_button_mouse_entered() -> void:
+	season_change_button.material.set_shader_parameter("enabled", true)
+
+func _on_season_change_button_mouse_exited() -> void:
+	season_change_button.material.set_shader_parameter("enabled", false)
 
 func _process(delta: float) -> void:
 	#season_change_button.show()
@@ -615,16 +618,29 @@ func _process(delta: float) -> void:
 		season_change_button.disabled = true
 
 
-func _on_map_suitor_chosen(suitor: int, otherKingdom: Kingdom) -> void:
+func _on_map_suitor_chosen(suitor: LetterResource, otherKingdom: Kingdom) -> void:
+	disable_table()
+
+	map_instance.hide()
+
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color(0, 0, 0), 0.5)
+
+	await tween.finished
+	
 	if game_should_end:
 		# picked an assassin
-		if (otherKingdom.name == "ForestKingdom" && suitor == 1) or (otherKingdom.name == "CloudKingdom" && suitor == 1) or (otherKingdom.name == "UnderwaterKingdom" && suitor == 2):
-			pass
+		if (suitor.assassin):
+			Global.ending_val = 3
 		# didn't pick someone who complements your kingdom
 		elif (OUR_KINGDOM.mana + otherKingdom.mana < 5) or (OUR_KINGDOM.military + otherKingdom.military < 5) or (OUR_KINGDOM.morale + otherKingdom.morale < 5) or (OUR_KINGDOM.population + otherKingdom.population < 5) or (OUR_KINGDOM.resource + otherKingdom.resource < 5):
-			pass
+			Global.ending_val = 2
 		# picked a good suitor!
 		else:
-			pass
+			Global.ending_val = 1
+		
+		await get_tree().create_timer(1.5).timeout
+
+		get_tree().change_scene_to_packed(ENDING)
 	else:
 		pass

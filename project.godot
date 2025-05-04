@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://c6ifrxp5spsfx"
 boot_splash/name="suitors-proposal"
 
+[autoload]
+
+Global="*res://scripts/global_data.gd"
+
 [display]
 
 window/size/viewport_width=1920

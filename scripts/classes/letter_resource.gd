@@ -6,6 +6,7 @@ class_name LetterResource
 @export var name: String
 @export var kingdom: Kingdom
 @export var portrait: Texture
+@export var assassin: bool
 
 @export_group("Letter")
 @export_multiline var greeting: String

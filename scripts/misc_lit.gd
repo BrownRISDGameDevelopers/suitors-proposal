@@ -4,7 +4,7 @@ class_name MiscLit
 
 signal misc_lit_closed
 
-@onready var literature_text = $Literature
+@onready var literature_text = %Literature
 @onready var close_button: TextureButton = $CloseButton
 
 const OUTLINE = preload("res://assets/shaders/kingdom_outline.tres")

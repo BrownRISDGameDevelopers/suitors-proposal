@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckn48betjhwdo"]
+
+[ext_resource type="Texture2D" uid="uid://d3ohfk8hr8xa7" path="res://assets/main_menu/transparent_tutorial.png" id="1_ebau5"]
+[ext_resource type="Script" uid="uid://3gxbee6qatoc" path="res://scripts/credits.gd" id="2_288ch"]
+[ext_resource type="Material" uid="uid://dfxfj7q58h2f4" path="res://assets/shaders/close_outline.tres" id="3_twv1b"]
+[ext_resource type="Texture2D" uid="uid://cc3h1jg02fq0l" path="res://assets/ui/X Button.png" id="4_y0w3d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_al82v"]
+atlas = ExtResource("4_y0w3d")
+region = Rect2(86, 70, 96, 104)
+
+[node name="TutorialScroll" type="NinePatchRect"]
+clip_children = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -888.0
+offset_top = -477.0
+offset_right = 888.0
+offset_bottom = 477.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_ebau5")
+region_rect = Rect2(0, 0, 1776, 953)
+patch_margin_left = 90
+patch_margin_right = 91
+axis_stretch_horizontal = 1
+script = ExtResource("2_288ch")
+
+[node name="ClippingContainer" type="Control" parent="."]
+clip_children = 2
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CloseButton" type="TextureButton" parent="ClippingContainer"]
+material = ExtResource("3_twv1b")
+layout_mode = 0
+offset_left = 891.0
+offset_top = 733.0
+offset_right = 973.0
+offset_bottom = 822.0
+texture_normal = SubResource("AtlasTexture_al82v")
+ignore_texture_size = true
+stretch_mode = 4
+
+[connection signal="mouse_entered" from="ClippingContainer/CloseButton" to="." method="_on_close_button_mouse_entered"]
+[connection signal="mouse_exited" from="ClippingContainer/CloseButton" to="." method="_on_close_button_mouse_exited"]
+[connection signal="pressed" from="ClippingContainer/CloseButton" to="." method="_on_close_button_pressed"]

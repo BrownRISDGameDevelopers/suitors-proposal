@@ -22,6 +22,7 @@ script = ExtResource("2_geavf")
 name = "Sefu Mwerevu of the Concord of Suns"
 kingdom = ExtResource("2_0cwso")
 portrait = ExtResource("3_0cwso")
+assassin = true
 greeting = "Salutations Your Highness,"
 signoff = "With authority granted by the Majani Assembly, 
 Sefu Mwerevu of the Concord of Suns"
@@ -55,4 +56,5 @@ The only way forward now is forward. In such a dire time is rebirth most importa
 
 No matter what, I know that we will both do what is best for our kingdoms’ respective positions. I know I will, and I look forward to seeing the role you play in righting the wrongs of the past."
 springClickableContent = Array[ExtResource("1_cvuda")]([])
+season_generated = ""
 metadata/_custom_type_script = "uid://d2ngpxf76ukp7"

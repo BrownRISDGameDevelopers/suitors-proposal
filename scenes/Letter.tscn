@@ -13,6 +13,7 @@
 
 [sub_resource type="SystemFont" id="SystemFont_nllnb"]
 font_names = PackedStringArray("Times New Roman")
+subpixel_positioning = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nllnb"]
 bg_color = Color(0.478431, 0.27451, 0.141176, 0.537255)

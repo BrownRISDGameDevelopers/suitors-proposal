@@ -82,4 +82,5 @@ script = ExtResource("5_8a8k8")
 metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
 
 [connection signal="pressed" from="Background/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Background/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Background/Credits" to="." method="_on_credits_pressed"]

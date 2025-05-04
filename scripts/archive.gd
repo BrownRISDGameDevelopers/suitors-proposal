@@ -25,34 +25,31 @@ func _ready() -> void:
 	print(archived_letters.size())
 	print(current_index)
 
-func load_letter_list(letter_resources) -> void:
-	archived_letters = letter_resources
+func load_letter_list(letter_resources: Array) -> void:
+	archived_letters = letter_resources.duplicate(true)
 
 func update_letter(slide_direction := 0) -> void:
-	
 	var prev_target
 	var curr_target
 	
 	if slide_direction > 0:
-		prev_target = -ui.size.x
+		prev_target = - ui.size.x
 		curr_target = ui.size.x
 	else:
 		prev_target = ui.size.x
-		curr_target = -ui.size.x
+		curr_target = - ui.size.x
 	
 	if current_letter_instance:
-		
-		var tween_out = create_tween()	
+		var tween_out = create_tween()
 		tween_out.tween_property(current_letter_instance, "position:x", prev_target, 0.7)
 		tween_out.tween_interval(0.7)
 		tween_out.tween_callback(current_letter_instance.queue_free)
-		
-		current_letter_instance.queue_free()
-	
+			
 	if not archived_letters:
 		return
 	
-	var letter = archived_letters[current_index] 
+	var letter = archived_letters[current_index]
+	print("current letter", letter)
 	#var letter = load(letter_path) as LetterResource
 	var close_button
 	
@@ -64,8 +61,9 @@ func update_letter(slide_direction := 0) -> void:
 		
 	else:
 		current_letter_instance = MISC_LIT.instantiate()
-		close_button = current_letter_instance.get_node("CloseButton")
 		ui.add_child(current_letter_instance)
+		current_letter_instance.setup(letter)
+		close_button = current_letter_instance.get_node("CloseButton")
 		
 	if close_button:
 		close_button.queue_free()

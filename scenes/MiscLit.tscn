@@ -32,6 +32,7 @@ grow_vertical = 2
 texture = ExtResource("2_nlw8d")
 
 [node name="Literature" type="TextureRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

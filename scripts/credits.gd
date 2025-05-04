@@ -4,7 +4,7 @@ class_name Credits
 
 @onready var close_button: TextureButton = $ClippingContainer/CloseButton
 
-var CLOSED_POS = Vector2(28, 1100.0)
+var CLOSED_POS = Vector2(72, 1100.0)
 var OPENED_POS
 
 var CLOSED_SIZE

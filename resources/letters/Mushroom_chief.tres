@@ -22,6 +22,7 @@ script = ExtResource("2_t4ifu")
 name = "Briallon, Chieftess of the Mosswyn Fungal Clan"
 kingdom = ExtResource("2_dg84x")
 portrait = ExtResource("3_dg84x")
+assassin = true
 greeting = "To My Kin in Moss,"
 signoff = "By Her Grace,
 
@@ -53,4 +54,5 @@ I only ask because I know her well. Very well. It’s embarrassing, but we were 
 
 Not that I can completely blame her; it takes a special capacity to grasp the enormity of Moss’s love, and the great measures that She demands from us in turn. And yet, I am determined to spread Her teachings throughout our kingdoms, so that all may know Her glory and judgment! Really—is that so much to ask?"
 springClickableContent = Array[ExtResource("1_s4kqs")]([])
+season_generated = ""
 metadata/_custom_type_script = "uid://d2ngpxf76ukp7"

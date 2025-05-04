@@ -15,7 +15,7 @@ signal suitor_chosen(suitor)
 @onready var BirdGuy = $Cloud/BirdGuy
 @onready var Peacock = $Cloud/Peacock
 @onready var Mushroom = $Forest/Mushroom
-@onready var FairyLady = $Forest/FairyLady
+@onready var ForestLady = $Forest/ForestLady
 @onready var Vampire = $Undead/Vampire
 @onready var Skeleton = $Undead/Skeleton
 @onready var WaterGuy = $Underwater/WaterGuy
@@ -37,7 +37,7 @@ func _on_mushroom_pressed() -> void:
 	suitor_chosen.emit(Mushroom.letter_resource)
 
 func _on_forest_lady_pressed() -> void:
-	suitor_chosen.emit(FairyLady.letter_resource)
+	suitor_chosen.emit(ForestLady.letter_resource)
 
 func _on_vampire_pressed() -> void:
 	suitor_chosen.emit(Vampire.letter_resource)
