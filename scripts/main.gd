@@ -6,9 +6,12 @@ const LETTER_SCENE = preload("res://scenes/Letter.tscn")
 const MAP = preload("res://scenes/Map.tscn")
 const SEASON = preload("res://scenes/Season.tscn")
 const MISC_LIT = preload("res://scenes/MiscLit.tscn")
+const ARCHIVE = preload("res://scenes/Archive.tscn")
 
 var OUR_KINGDOM = preload("res://resources/kingdoms/OurKingdom.tres")
 const OUTLINE = preload("res://assets/shaders/kingdom_outline.tres")
+
+@onready var blur: ColorRect = $Blur
 
 var game_should_end = false
 # --- SEASONS
@@ -28,7 +31,7 @@ var letters_per_season = {
 }
 
 # --- ARCHIVED LETTERS
-var archived_letters = ["res://resources/letters/Dwarf_Councilwoman_Letter.tres", "res://resources/letters/Dwarf_Techbro_Warlord_Letter.tres"]
+var archived_letters = []
 
 # --- SUITOR LETTERS & FILLER LETTERS
 var suitors = []
@@ -156,6 +159,7 @@ func _instantiate_letter(letter: LetterResource) -> void:
 	
 	current_letter_file = letter_instance
 	current_letter_resource = letter
+	current_letter_resource.season_generated = current_season
 
 func _close_current_letter() -> void:
 	archived_letters.push_front(current_letter_resource)
@@ -251,12 +255,16 @@ func disable_table() -> void:
 	$LettersStack.disabled = true
 	$Archive.disabled = true
 	$News.disabled = true
+	
+	show_blur()
 
 func enable_table() -> void:
 	$Map.disabled = false
 	$LettersStack.disabled = false
 	$Archive.disabled = false
 	$News.disabled = false
+	
+	hide_blur()
 
 func show_banner(new_tab) -> Tween:
 	tab.show()
@@ -273,6 +281,14 @@ func hide_banner() -> Tween:
 	tween.tween_property(tab, "position", Vector2(-600, 132), .5)
 	tween.tween_callback(tab.hide)
 	return tween
+
+func show_blur():
+	var mat = blur.material as ShaderMaterial
+	mat.set_shader_parameter("lod", 0.8)
+
+func hide_blur():
+	var mat = blur.material as ShaderMaterial
+	mat.set_shader_parameter("lod", 0.0)
 
 @onready var map_instance = $UI/Map
 @onready var map_close_button: BitmaskedTextureButton = $UI/Map/CloseButton
@@ -314,10 +330,12 @@ func hide_letter() -> void:
 
 
 func _on_letters_stack_pressed() -> void:
+
 	# Button Clicked Animation
 	# var tween = create_tween()
 	# tween.tween_property(letters_stack, "scale", Vector2(1, 1.01), 0.1)
 	# tween.tween_property(letters_stack, "scale", Vector2(1, 1), 0.1)
+	
 	if not current_letter_stack:
 		pass
 	
@@ -334,13 +352,28 @@ func _on_letters_stack_pressed() -> void:
 		show_banner(inbox_tab)
 		current_letter_file.letter_closed.connect(hide_letter)
 		
+var current_archive_file
 
-func hide_archive() -> void:
+func _hide_archive() -> void:
 	enable_table()
-	pass
+	current_archive_file.queue_free()
 
 func _on_archive_pressed() -> void:
-	pass
+	
+	
+	if not archived_letters:
+		pass
+		
+	else:
+		
+		disable_table()
+		
+		var archive_instance = ARCHIVE.instantiate()
+		archive_instance.load_letter_list(archived_letters)
+		current_archive_file = archive_instance
+		ui.add_child(archive_instance)
+		
+		current_archive_file.archive_closed.connect(_hide_archive)
 
 var misc_lit_inst
 
@@ -349,6 +382,8 @@ func hide_news() -> void:
 	tween.tween_property(misc_lit_inst, "position", Vector2(0, 1080), 0.5)
 	tween.tween_callback(misc_lit_inst.queue_free)
 	await hide_banner().finished
+	
+	archived_letters.push_front(misc_lit_inst)
 	enable_table()
 
 func _on_news_pressed() -> void:

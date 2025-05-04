@@ -19,3 +19,6 @@ class_name LetterResource
 @export var winterClickableContent: Array[InteractableText]
 @export_multiline var springVersion: String
 @export var springClickableContent: Array[InteractableText]
+
+@export_group("Content Generated")
+@export_enum("summer", "fall", "winter", "spring") var season_generated: String

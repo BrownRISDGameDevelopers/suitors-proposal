@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cis44sms6kjqn"]
+[gd_scene load_steps=8 format=3 uid="uid://cis44sms6kjqn"]
 
 [ext_resource type="Script" uid="uid://oumxqndeikbn" path="res://scripts/archive.gd" id="1_ryqi5"]
 [ext_resource type="PackedScene" uid="uid://dsu6n43cfq06f" path="res://scenes/Letter.tscn" id="3_qlndc"]
+[ext_resource type="Texture2D" uid="uid://yqdti4jaqsse" path="res://assets/ui/Previous Button.png" id="4_6mnm1"]
+[ext_resource type="Texture2D" uid="uid://bpigx8r8bw8w0" path="res://assets/ui/Next Button.png" id="5_p4taa"]
+[ext_resource type="Material" uid="uid://dfxfj7q58h2f4" path="res://assets/shaders/close_outline.tres" id="6_idytv"]
+[ext_resource type="Texture2D" uid="uid://cc3h1jg02fq0l" path="res://assets/ui/X Button.png" id="7_iryck"]
 [ext_resource type="Texture2D" uid="uid://ir5oprt8suna" path="res://assets/desk/Border.PNG" id="9_hj5un"]
 
 [node name="Archive" type="Control"]
@@ -32,6 +36,43 @@ texture = ExtResource("9_hj5un")
 metadata/_edit_lock_ = true
 
 [node name="Letter" parent="." instance=ExtResource("3_qlndc")]
+visible = false
 layout_mode = 1
 
+[node name="UI" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1079.0
+
+[node name="PreviousButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 403.0
+offset_right = 521.0
+offset_bottom = 732.0
+texture_normal = ExtResource("4_6mnm1")
+
+[node name="NextButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1581.0
+offset_top = 400.0
+offset_right = 2051.0
+offset_bottom = 729.0
+texture_normal = ExtResource("5_p4taa")
+
+[node name="CloseButton" type="TextureButton" parent="."]
+material = ExtResource("6_idytv")
+layout_mode = 0
+offset_left = 1459.0
+offset_top = 109.0
+offset_right = 1651.0
+offset_bottom = 289.0
+texture_normal = ExtResource("7_iryck")
+ignore_texture_size = true
+
 [connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pressed" from="PreviousButton" to="." method="_on_previous_button_pressed"]
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="mouse_entered" from="CloseButton" to="." method="_on_close_button_mouse_entered"]
+[connection signal="mouse_exited" from="CloseButton" to="." method="_on_close_button_mouse_exited"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

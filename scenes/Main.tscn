@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dlcktckmg1ddv" path="res://assets/desk/Letter archive hover.PNG" id="9_cvmbd"]
 [ext_resource type="Texture2D" uid="uid://ir5oprt8suna" path="res://assets/desk/Border.PNG" id="12_bjd11"]
 [ext_resource type="PackedScene" uid="uid://b8iollf58huxn" path="res://scenes/Map.tscn" id="12_ft6cd"]
-[ext_resource type="Shader" uid="uid://i0gw66opu5ta" path="res://assets/shaders/blur.gdshader" id="12_nfivy"]
+[ext_resource type="Shader" path="res://assets/shaders/blur.gdshader" id="12_nfivy"]
 [ext_resource type="Texture2D" uid="uid://0plcya5e8jk1" path="res://assets/ui/seasons_indicators/summer.png" id="13_3p2gp"]
 [ext_resource type="PackedScene" uid="uid://dosmcrt0dxc4c" path="res://scenes/MiscLit.tscn" id="13_bb450"]
 [ext_resource type="Material" uid="uid://ef7dgc3nfapr" path="res://assets/shaders/kingdom_outline.tres" id="13_mwfav"]
@@ -191,13 +191,13 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -960.0
 offset_top = -408.0
-offset_right = 960.0
-offset_bottom = 672.0
+offset_right = 372.0
+offset_bottom = 341.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("14_bb450")
-metadata/_edit_lock_ = true
+expand_mode = 1
 
 [node name="PauseButton" type="TextureButton" parent="."]
 z_index = 20
