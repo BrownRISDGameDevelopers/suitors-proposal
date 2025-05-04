@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dsu6n43cfq06f"]
+[gd_scene load_steps=15 format=3 uid="uid://dsu6n43cfq06f"]
 
 [ext_resource type="Texture2D" uid="uid://c5bcxqb5mmg8g" path="res://assets/letters/bg.png" id="1_2t2cd"]
 [ext_resource type="Theme" uid="uid://bss4mnhq0fcwf" path="res://resources/themes/Letter.tres" id="2_65x1g"]
@@ -10,6 +10,25 @@
 [ext_resource type="Material" uid="uid://dfxfj7q58h2f4" path="res://assets/shaders/close_outline.tres" id="6_nllnb"]
 [ext_resource type="Texture2D" uid="uid://ct55nkiplcpva" path="res://assets/letters/letter_portraits/Portrait_.png" id="7_i382k"]
 [ext_resource type="Texture2D" uid="uid://ir5oprt8suna" path="res://assets/desk/Border.PNG" id="8_i382k"]
+
+[sub_resource type="SystemFont" id="SystemFont_nllnb"]
+font_names = PackedStringArray("Times New Roman")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nllnb"]
+bg_color = Color(0.478431, 0.27451, 0.141176, 0.537255)
+corner_radius_top_left = 1000
+corner_radius_top_right = 1000
+corner_radius_bottom_right = 1000
+corner_radius_bottom_left = 1000
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="Theme" id="Theme_nllnb"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/fonts/font = SubResource("SystemFont_nllnb")
+Panel/styles/panel = SubResource("StyleBoxFlat_nllnb")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_flwo1"]
 atlas = ExtResource("5_t02en")
@@ -74,6 +93,8 @@ metadata/_custom_type_script = "uid://bq0lrcqnbba1l"
 
 [node name="Content" type="RichTextLabel" parent="Letter/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_nllnb")
+bbcode_enabled = true
 text = "I am the leader of _____
 I have long desired to establish trade between our two kingdoms. It is deeply unfortunate that I failed to achieve this with your late father, and dearly hope this is not out of line in lieu of your grieving period, but might I dare to feel a semblance of hope for the era a new throne might bring? With your bright mind and clear gaze, I am certain that you will be able to see my proposition with fresh eyes and have the clairvoyance to see its true potential.
 
@@ -84,7 +105,6 @@ Imagine the strength and benevolence that could extend beyond the land. The Sava
 You may presume me to be an isolated barbarian, more bird than man, but even I have enough knowledge of foreign relations to know that you are not so harsh with your other neighbors. We are a good people. A happy people. If you accept my proposal, I know we could be great friends, and even better allies, mending the rift between our two great kingdoms. 
 "
 fit_content = true
-scroll_active = false
 
 [node name="Signoff" type="Label" parent="Letter/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -142,6 +162,7 @@ texture = ExtResource("8_i382k")
 metadata/_edit_lock_ = true
 
 [connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="child_entered_tree" from="Letter/MarginContainer/VBoxContainer/Content" to="." method="_on_content_child_entered_tree"]
 [connection signal="meta_clicked" from="Letter/MarginContainer/VBoxContainer/Content" to="." method="_on_content_meta_clicked"]
 [connection signal="meta_hover_ended" from="Letter/MarginContainer/VBoxContainer/Content" to="." method="_on_content_meta_hover_ended"]
 [connection signal="meta_hover_started" from="Letter/MarginContainer/VBoxContainer/Content" to="." method="_on_content_meta_hover_started"]

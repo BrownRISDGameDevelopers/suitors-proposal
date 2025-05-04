@@ -17,6 +17,8 @@ const CLOSE_OUTLINE = preload("res://assets/shaders/close_outline.tres")
 
 var resource: LetterResource
 var scroll_speed
+var current_clickable_content
+var current_season
 
 var MIN_POS = -560.0
 var MAX_POS = 335.0
@@ -62,20 +64,26 @@ func _setup_seasonal_content(season: String) -> void:
 			version_text = ""
 			clickable_content = []
 
-	for text_entry in clickable_content:
+	for idx in clickable_content.size():
+		var text_entry = clickable_content[idx]
 		var base_text = text_entry.text
 		var stats = ",".join(text_entry.revealedStat)
-		var url_code = "[url=" + stats + "]" + base_text + "[/url]"
+		var metadata = str(idx) + ";" + stats
+		var url_code = "[url=" + metadata + "]" + base_text + "[/url]"
 		url_code = "[color=#9C331F]" + url_code + "[/color]"
-		# url_code = "[hint=Reveals " + stats.to_upper() + " for " + resource.kingdom.name.to_upper() + "]" + url_code + "[/hint]"
+		url_code = "[hint=Reveals " + stats.to_upper() + " for " + resource.kingdom.name.to_upper() + "]" + url_code + "[/hint]"
 		version_text = version_text.replace(base_text, url_code)
 
 	content.text = version_text
+	current_clickable_content = clickable_content
+	current_season = season
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
-		var sample_letter: LetterResource = load("res://resources/letters/Letter1.tres")
-		generate_content("summer", sample_letter)
+		print('editor mode')
+
+	var sample_letter = load("res://resources/letters/Mushroom_chief.tres") as LetterResource
+	generate_content("summer", sample_letter)
 
 	ref_border.queue_free()
 	close_button.material = CLOSE_OUTLINE.duplicate()
@@ -87,12 +95,17 @@ func _on_close_button_pressed() -> void:
 
 func _on_content_meta_clicked(meta: Variant) -> void:
 	print(meta)
-	var parsed = meta.split(",")
+	var idx = int(meta.split(";")[0])
+	var parsed = meta.split(";")[1].split(",")
+
+
 	for stat in parsed:
 		resource.kingdom[stat + "Known"] = true
 		print(stat + " is known")
 
 	print(resource.kingdom.manaKnown, resource.kingdom.militaryKnown, resource.kingdom.populationKnown, resource.kingdom.resourceKnown, resource.kingdom.moraleKnown)
+	current_clickable_content.remove_at(idx)
+	_setup_seasonal_content(current_season)
 
 # BUTTON ANIMATIONS
 
@@ -118,6 +131,7 @@ func _input(event: InputEvent) -> void:
 		SCROLL_VELOCITY += SCROLL_SENSITIVITY
 	elif event is InputEventPanGesture:
 		SCROLL_VELOCITY += event.delta.y * SCROLL_SENSITIVITY * -1
+
 
 func _process(delta: float) -> void:
 	if abs(SCROLL_VELOCITY) > 0.1:
