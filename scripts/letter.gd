@@ -6,6 +6,7 @@ signal letter_closed
 
 @onready var letter: TextureRect = $Letter
 @onready var letter_border: TextureRect = $Letter/Border
+@onready var margin_container: MarginContainer = $Letter/MarginContainer
 @onready var greeting: Label = $Letter/MarginContainer/VBoxContainer/Greeting
 @onready var content: RichTextLabel = $Letter/MarginContainer/VBoxContainer/Content
 @onready var signoff: Label = $Letter/MarginContainer/VBoxContainer/Signoff
@@ -29,6 +30,7 @@ func generate_content(season: String, letter_resource: LetterResource) -> void:
 	greeting.text = resource.greeting
 	signoff.text = resource.signoff
 	letter_border.texture = resource.kingdom.letter_border
+	margin_container.theme = resource.kingdom.theme
 	
 	_setup_seasonal_content(season)
 
