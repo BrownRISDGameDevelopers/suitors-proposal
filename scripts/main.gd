@@ -23,8 +23,8 @@ var Seasons = {
 	"SPRING": "spring"
 }
 # --- SEASONAL LETTER TRACKERS & SEASONS
-var seasons_order = [Seasons.SPRING]
-# var seasons_order = [Seasons.SUMMER, Seasons.FALL, Seasons.WINTER, Seasons.SPRING] # List of all seasons_order, used to cycle through them.
+# var seasons_order = [Seasons.SPRING]
+var seasons_order = [Seasons.SUMMER, Seasons.FALL, Seasons.WINTER, Seasons.SPRING] # List of all seasons_order, used to cycle through them.
 var letters_per_season = {
 	Seasons.SUMMER: 4,
 	Seasons.FALL: 3,
