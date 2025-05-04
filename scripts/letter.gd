@@ -62,6 +62,7 @@ func _setup_seasonal_content(season: String) -> void:
 		var base_text = text_entry.text
 		var stats = ",".join(text_entry.revealedStat)
 		var url_code = "[url=" + stats + "]" + base_text + "[/url]"
+		url_code = "[color=#9C331F]" + url_code + "[/color]"
 		# url_code = "[hint=Reveals " + stats.to_upper() + " for " + resource.kingdom.name.to_upper() + "]" + url_code + "[/hint]"
 		version_text = version_text.replace(base_text, url_code)
 
