@@ -384,8 +384,11 @@ func hide_banner() -> Tween:
 	return tween
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 @onready var map_instance: Map = $UI/Map
 =======
+=======
+>>>>>>> bed3de9 (added archive and blur when in UI menu)
 func show_blur():
 	var mat = blur.material as ShaderMaterial
 	mat.set_shader_parameter("lod", 0.8)
@@ -436,10 +439,16 @@ func hide_letter() -> void:
 
 func _on_letters_stack_pressed() -> void:
 <<<<<<< HEAD
+<<<<<<< HEAD
 	# Button Clicked Animation
 	# var tween = create_tween()
 	# tween.tween_property(letters_stack, "scale", Vector2(1, 1.01), 0.1)
 	# tween.tween_property(letters_stack, "scale", Vector2(1, 1), 0.1)
+=======
+	
+	disable_table()
+	
+>>>>>>> bed3de9 (added archive and blur when in UI menu)
 =======
 	
 	disable_table()
