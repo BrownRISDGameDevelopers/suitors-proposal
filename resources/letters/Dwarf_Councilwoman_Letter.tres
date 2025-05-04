@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="LetterResource" load_steps=7 format=3 uid="uid://cs35l4i2555ce"]
+[gd_resource type="Resource" script_class="LetterResource" load_steps=8 format=3 uid="uid://cs35l4i2555ce"]
 
 [ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="1_1xag8"]
 [ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_i2d1l"]
 [ext_resource type="Resource" uid="uid://bc5qvfo24wa4t" path="res://resources/kingdoms/MountainKingdom.tres" id="2_ad23y"]
+[ext_resource type="Texture2D" uid="uid://c3bdodj4i51m" path="res://assets/letters/letter_portraits/Portrait_ (7).png" id="3_oxh1b"]
 
 [sub_resource type="Resource" id="Resource_ad23y"]
 script = ExtResource("1_i2d1l")
@@ -25,6 +26,7 @@ metadata/_custom_type_script = "uid://b466tuukr26ps"
 [resource]
 script = ExtResource("1_1xag8")
 kingdom = ExtResource("2_ad23y")
+portrait = ExtResource("3_oxh1b")
 greeting = "To the future crown of the Land of Wheat,
 "
 signoff = "Councilwoman Dronma Grithelm of the Durvashian Guard"

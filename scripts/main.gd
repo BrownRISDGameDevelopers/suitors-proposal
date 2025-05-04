@@ -314,7 +314,6 @@ func hide_letter() -> void:
 
 
 func _on_letters_stack_pressed() -> void:
-	disable_table()
 	# Button Clicked Animation
 	# var tween = create_tween()
 	# tween.tween_property(letters_stack, "scale", Vector2(1, 1.01), 0.1)
@@ -323,6 +322,7 @@ func _on_letters_stack_pressed() -> void:
 		pass
 	
 	else:
+		disable_table()
 		var letter_shown = current_letter_stack.pop_back()
 		_update_letter_portrait()
 		_instantiate_letter(letter_shown)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_oia4g"]
 [ext_resource type="Resource" uid="uid://bahrmb7eqtk0t" path="res://resources/kingdoms/UndeadKingdom.tres" id="2_3mtvp"]
-[ext_resource type="Texture2D" uid="uid://c4t2e0ksphwm5" path="res://assets/letters/letter_portraits/King FINAL!.png" id="3_xyxd3"]
+[ext_resource type="Texture2D" uid="uid://dmki300iu7jwu" path="res://assets/letters/letter_portraits/Portrait_ (9).png" id="3_fpdp0"]
 [ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="4_aui8t"]
 
 [sub_resource type="Resource" id="Resource_33gop"]
@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://b466tuukr26ps"
 [resource]
 script = ExtResource("4_aui8t")
 kingdom = ExtResource("2_3mtvp")
-portrait = ExtResource("3_xyxd3")
+portrait = ExtResource("3_fpdp0")
 greeting = "To the Most Serene Highness of Fallowbrook,"
 signoff = "With utmost respect and most ardent fervor,
  
