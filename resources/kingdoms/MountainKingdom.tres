@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_45ksu")
-name = "Mountain Kingdom"
+name = "Durvash, the Mountain Kingdom"
 letter_border = ExtResource("1_08wjn")
 theme = ExtResource("3_5uxkb")
 population = 2

@@ -1,6 +1,6 @@
 extends TextureButton
 
-@export var kingdom: Kingdom = null
+@export var kingdom: Kingdom
 @onready var popup: CountryPopup = $"../Popup"
 
 const OUTLINE = preload("res://assets/shaders/kingdom_outline.tres")
@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 
 func _on_mouse_entered() -> void:
 	popup.show()
+	print("setting kingdom to", kingdom.name)
 	popup.kingdom = kingdom
 
 	z_index = 5

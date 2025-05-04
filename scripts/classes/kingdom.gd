@@ -9,11 +9,11 @@ class_name Kingdom
 @export var theme: Theme
 
 @export_group("Stats")
-@export_range(1, 6, 1) var population: int;
-@export_range(1, 6, 1) var military: int;
-@export_range(1, 6, 1) var morale: int;
-@export_range(1, 6, 1) var resource: int;
-@export_range(1, 6, 1) var mana: int;
+@export_range(0, 6) var population: int = 0;
+@export_range(0, 6) var military: int = 0;
+@export_range(0, 6) var morale: int = 0;
+@export_range(0, 6) var resource: int = 0;
+@export_range(0, 6) var mana: int = 0;
 
 @export_group("Known")
 @export var populationKnown: bool = false

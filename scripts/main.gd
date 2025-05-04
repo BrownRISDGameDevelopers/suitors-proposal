@@ -19,6 +19,7 @@ var Seasons = {
 	"SPRING": "spring"
 }
 # --- SEASONAL LETTER TRACKERS & SEASONS
+# var seasons_order = [Seasons.SPRING]
 var seasons_order = [Seasons.SUMMER, Seasons.FALL, Seasons.WINTER, Seasons.SPRING] # List of all seasons_order, used to cycle through them.
 var letters_per_season = {
 	Seasons.SUMMER: 4,
@@ -222,7 +223,106 @@ func _start_new_season() -> void:
 	
 	current_letter_stack = letter_list[current_season]
 
+	if current_season == Seasons.SPRING:
+		spring_selection()
+		pass
+
 	enable_table()
+
+
+func spring_selection() -> void:
+	var next_lit = misc_lits[current_season].pop_front()
+
+	## SHOW SELECTION PAMPHLET
+	misc_lit_inst = MISC_LIT.instantiate()
+	ui.add_child(misc_lit_inst)
+	misc_lit_inst.setup(next_lit)
+	misc_lit_inst.position = Vector2(0, 1080)
+	
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(misc_lit_inst, "position", Vector2(0, 0), 0.5)
+	
+	await misc_lit_inst.misc_lit_closed
+
+	## HIDE SELECTION PAMPHLET
+	tween = create_tween()
+	tween.set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(misc_lit_inst, "position", Vector2(0, 1080), 0.5)
+	tween.tween_callback(misc_lit_inst.queue_free)
+
+	await tween.finished
+
+	## SHOW MAP
+	map_instance.position = Vector2(216.0, 1091.0)
+	map_instance.show()
+	map_close_button.hide()
+	tween = create_tween()
+	tween.set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(map_instance, "position", Vector2(216.0, 121.5), 0.5)
+	
+	var first_suitor = await map_instance.suitor_chosen
+
+	## HIDE MAP
+	tween = create_tween()
+	tween.set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(map_instance, "position", Vector2(216.0, 1091.5), 0.5)
+	tween.tween_callback(map_instance.hide)
+	tween.tween_callback(map_close_button.show)
+
+	## DISPLAY FIRST SUITOR
+	_update_letter_portrait()
+	_instantiate_letter(first_suitor)
+
+	current_letter_file.position = Vector2(0, 1080)
+	tween = create_tween()
+	tween.set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(current_letter_file, "position", Vector2(0, 0), 0.5)
+
+	await current_letter_file.letter_closed
+
+	tween = create_tween()
+	tween.set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(current_letter_file, "position", Vector2(0, 1080), 0.5)
+	tween.tween_callback(current_letter_file.queue_free)
+
+	## SHOW MAP FOR SECOND SUITOR
+	map_instance.position = Vector2(216.0, 1091.0)
+	map_instance.show()
+	map_close_button.hide()
+	tween = create_tween()
+	tween.set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(map_instance, "position", Vector2(216.0, 121.5), 0.5)
+	
+	var second_suitor = await map_instance.suitor_chosen
+
+	while second_suitor == first_suitor:
+		second_suitor = await map_instance.suitor_chosen
+
+	## HIDE MAP
+	tween = create_tween()
+	tween.set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(map_instance, "position", Vector2(216.0, 1091.5), 0.5)
+	tween.tween_callback(map_instance.hide)
+	tween.tween_callback(map_close_button.show)
+
+	## DISPLAY SECOND SUITOR
+	_update_letter_portrait()
+	_instantiate_letter(second_suitor)
+
+	current_letter_file.position = Vector2(0, 1080)
+	tween = create_tween()
+	tween.set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(current_letter_file, "position", Vector2(0, 0), 0.5)
+
+	await current_letter_file.letter_closed
+
+	tween = create_tween()
+	tween.set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(current_letter_file, "position", Vector2(0, 1080), 0.5)
+	tween.tween_callback(current_letter_file.queue_free)
+
+	current_letter_file.letter_closed.connect(hide_letter)
 
 
 ## _END_SEASON() --> Ends a season cycle. In this context, will be called when 
@@ -274,7 +374,7 @@ func hide_banner() -> Tween:
 	tween.tween_callback(tab.hide)
 	return tween
 
-@onready var map_instance = $UI/Map
+@onready var map_instance: Map = $UI/Map
 @onready var map_close_button: BitmaskedTextureButton = $UI/Map/CloseButton
 
 func hide_map() -> void:

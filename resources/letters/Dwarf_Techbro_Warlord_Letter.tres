@@ -19,6 +19,7 @@ metadata/_custom_type_script = "uid://b466tuukr26ps"
 
 [resource]
 script = ExtResource("1_sv53s")
+name = "Ingree Thaldrin, Head Steamwright of the Copper Forge"
 kingdom = ExtResource("1_4iloy")
 portrait = ExtResource("3_5m61a")
 greeting = "To Your Highness of the Land of Wheat,"

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LetterResource" load_steps=7 format=3 uid="uid://bdad5brjxtfe7"]
+[gd_resource type="Resource" script_class="LetterResource" load_steps=7 format=3 uid="uid://chrhetd3k0hsc"]
 
 [ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_bd81q"]
 [ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="2_0hjkm"]
@@ -19,6 +19,7 @@ metadata/_custom_type_script = "uid://b466tuukr26ps"
 
 [resource]
 script = ExtResource("2_0hjkm")
+name = "Lady Nivi Vinterlahn, Daughter of Lord Theobald Vinterlahn"
 kingdom = ExtResource("2_xv775")
 portrait = ExtResource("3_xv775")
 greeting = "To Your Most Esteemed Highness,"

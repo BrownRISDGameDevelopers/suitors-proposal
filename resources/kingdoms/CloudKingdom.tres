@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_fxjr0")
-name = "Cloud Kingdom"
+name = "Nimbozu, the Cloud Kingdom"
 letter_border = ExtResource("1_0hdpf")
 theme = ExtResource("3_kwlpj")
 population = 2

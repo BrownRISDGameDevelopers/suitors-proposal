@@ -19,6 +19,7 @@ metadata/_custom_type_script = "uid://b466tuukr26ps"
 
 [resource]
 script = ExtResource("4_aui8t")
+name = "King of Gravenmere, Count Aldéric Sangvin"
 kingdom = ExtResource("2_3mtvp")
 portrait = ExtResource("3_fpdp0")
 greeting = "To the Most Serene Highness of Fallowbrook,"

@@ -3,6 +3,7 @@ extends Resource
 class_name LetterResource
 
 @export_category("Suitor")
+@export var name: String
 @export var kingdom: Kingdom
 @export var portrait: Texture
 

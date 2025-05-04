@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LetterResource" load_steps=9 format=3 uid="uid://dgsow47om4qm0"]
+[gd_resource type="Resource" script_class="LetterResource" load_steps=9 format=3 uid="uid://bhy1jc41adfgf"]
 
 [ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_hffc4"]
 [ext_resource type="Resource" uid="uid://c2yol8dyhwt2t" path="res://resources/kingdoms/ForestKingdom.tres" id="2_5gevl"]
@@ -31,6 +31,7 @@ metadata/_custom_type_script = "uid://b466tuukr26ps"
 
 [resource]
 script = ExtResource("2_boy0s")
+name = "Priestess Qa’tir Hindhart"
 kingdom = ExtResource("2_5gevl")
 portrait = ExtResource("3_5gevl")
 greeting = "To My Kin In Moss,"

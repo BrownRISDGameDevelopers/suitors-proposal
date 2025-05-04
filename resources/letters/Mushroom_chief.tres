@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LetterResource" load_steps=7 format=3 uid="uid://c0oe1qlol6jal"]
+[gd_resource type="Resource" script_class="LetterResource" load_steps=7 format=3 uid="uid://3ma8autyppno"]
 
 [ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_s4kqs"]
 [ext_resource type="Resource" uid="uid://c2yol8dyhwt2t" path="res://resources/kingdoms/ForestKingdom.tres" id="2_dg84x"]
@@ -19,6 +19,7 @@ metadata/_custom_type_script = "uid://b466tuukr26ps"
 
 [resource]
 script = ExtResource("2_t4ifu")
+name = "Briallon, Chieftess of the Mosswyn Fungal Clan"
 kingdom = ExtResource("2_dg84x")
 portrait = ExtResource("3_dg84x")
 greeting = "To My Kin in Moss,"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b8iollf58huxn"]
+[gd_scene load_steps=47 format=3 uid="uid://b8iollf58huxn"]
 
 [ext_resource type="Texture2D" uid="uid://l3uxn3gvdvnn" path="res://assets/map/map.png" id="1_yyirk"]
 [ext_resource type="Texture2D" uid="uid://ckfavv68i1ugj" path="res://assets/map/Mountain.png" id="2_41ykk"]
@@ -14,23 +14,34 @@
 [ext_resource type="Texture2D" uid="uid://wcojt0quoyg5" path="res://assets/map/Trees.png" id="6_d46yu"]
 [ext_resource type="Texture2D" uid="uid://dgimv1u2ltfki" path="res://assets/map/undead.png" id="7_hit12"]
 [ext_resource type="Texture2D" uid="uid://scowlgyuybnh" path="res://assets/map/suitor_portraits/IMG_2277.PNG" id="7_mfcyi"]
+[ext_resource type="Script" uid="uid://cq1yoka2qfq46" path="res://scripts/classes/map_portraits.gd" id="8_7lugc"]
 [ext_resource type="Resource" uid="uid://c2yol8dyhwt2t" path="res://resources/kingdoms/ForestKingdom.tres" id="8_djx7b"]
 [ext_resource type="Texture2D" uid="uid://bh144dh05cf6y" path="res://assets/map/Ocean.png" id="8_sdw7q"]
+[ext_resource type="Resource" uid="uid://cbevug2gr34f6" path="res://resources/letters/Dwarf_Techbro_Warlord_Letter.tres" id="9_mn0e6"]
 [ext_resource type="Texture2D" uid="uid://birqqrnm1dfor" path="res://assets/map/Home.png" id="9_pgwcf"]
 [ext_resource type="Resource" uid="uid://bahrmb7eqtk0t" path="res://resources/kingdoms/UndeadKingdom.tres" id="10_sxh8t"]
 [ext_resource type="Texture2D" uid="uid://bw36w86riky44" path="res://assets/map/suitor_portraits/IMG_2270.PNG" id="11_fkh5j"]
+[ext_resource type="Resource" uid="uid://06tfuayqd5h2" path="res://resources/letters/Dwarf_Councilwoman_Letter.tres" id="11_gw1t8"]
 [ext_resource type="Texture2D" uid="uid://ddhh0vjcp8hc7" path="res://assets/map/suitor_portraits/IMG_2276.PNG" id="12_7lugc"]
 [ext_resource type="Resource" uid="uid://b6h0r0aa3q2d3" path="res://resources/kingdoms/UnderwaterKingdom.tres" id="12_djx7b"]
 [ext_resource type="Texture2D" uid="uid://fswhe6llabq7" path="res://assets/map/suitor_portraits/IMG_2272.PNG" id="15_wvgon"]
+[ext_resource type="Resource" uid="uid://d3g7bhlg5qqjs" path="res://resources/letters/OwlAssemblyLeader.tres" id="16_kbcc3"]
 [ext_resource type="Texture2D" uid="uid://cd1fowgmwyik7" path="res://assets/map/suitor_portraits/IMG_2273.PNG" id="16_mn0e6"]
 [ext_resource type="Resource" uid="uid://1p3op32gjikr" path="res://resources/kingdoms/OurKingdom.tres" id="16_u4fdk"]
+[ext_resource type="Resource" uid="uid://sqvrh15ql0y3" path="res://resources/letters/Peacock_Diplomat.tres" id="17_gw1t8"]
 [ext_resource type="Texture2D" uid="uid://dpju0htundkqx" path="res://assets/desk/tiny map tab.png" id="19_1vt7q"]
 [ext_resource type="Texture2D" uid="uid://ce4dq3m7t5n7v" path="res://assets/map/suitor_portraits/IMG_2274.PNG" id="19_gw1t8"]
 [ext_resource type="Script" uid="uid://de7ibosh20v4w" path="res://scripts/close_map.gd" id="20_djua3"]
 [ext_resource type="Texture2D" uid="uid://dvj46hk2j7dx" path="res://assets/map/suitor_portraits/IMG_2278.PNG" id="20_h2rd3"]
 [ext_resource type="Texture2D" uid="uid://cc3h1jg02fq0l" path="res://assets/ui/X Button.png" id="21_djua3"]
+[ext_resource type="Resource" uid="uid://3ma8autyppno" path="res://resources/letters/Mushroom_chief.tres" id="22_t5w1d"]
 [ext_resource type="Texture2D" uid="uid://6h52rcg1p8o3" path="res://assets/map/suitor_portraits/IMG_2271.PNG" id="23_5568u"]
+[ext_resource type="Resource" uid="uid://chrhetd3k0hsc" path="res://resources/letters/SelkieMerchant.tres" id="24_ggwev"]
 [ext_resource type="Texture2D" uid="uid://d4f4h27g82nwg" path="res://assets/map/suitor_portraits/IMG_2275.PNG" id="24_kbcc3"]
+[ext_resource type="Resource" uid="uid://bhy1jc41adfgf" path="res://resources/letters/DeerHighPriestess.tres" id="24_t5w1d"]
+[ext_resource type="Resource" uid="uid://cfik8jlelmgb3" path="res://resources/letters/Vampire_King_Letter.tres" id="28_ggwev"]
+[ext_resource type="Resource" uid="uid://dm3luievra282" path="res://resources/letters/Skeleton_General_Letter.tres" id="30_80dix"]
+[ext_resource type="Resource" uid="uid://df4kdkgq4suo" path="res://resources/letters/MermanPresident.tres" id="34_lusii"]
 
 [sub_resource type="Shader" id="Shader_u4fdk"]
 code = "shader_type canvas_item;
@@ -215,6 +226,7 @@ grow_vertical = 2
 texture = ExtResource("1_yyirk")
 expand_mode = 1
 script = ExtResource("2_fkh5j")
+metadata/_custom_type_script = "uid://bgs472hg55fif"
 
 [node name="Base" type="TextureRect" parent="."]
 z_index = 1
@@ -246,32 +258,36 @@ metadata/_edit_lock_ = true
 
 [node name="KnightDwarf" type="TextureButton" parent="Mountain"]
 z_index = 1
-layout_mode = 0
-anchor_left = 0.105729
-anchor_top = 0.107407
-anchor_right = 0.197932
-anchor_bottom = 0.272249
-offset_right = 531.97
-offset_bottom = 534.971
-scale = Vector2(0.24969, 0.24969)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0848958
+anchor_top = 0.0861111
+anchor_right = 0.182292
+anchor_bottom = 0.260185
 mouse_filter = 1
 texture_normal = ExtResource("6_08blb")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
+script = ExtResource("8_7lugc")
+letter_resource = ExtResource("9_mn0e6")
+metadata/_custom_type_script = "uid://cq1yoka2qfq46"
+metadata/_edit_use_anchors_ = true
 
 [node name="CouncilwomanDwarf" type="TextureButton" parent="Mountain"]
-layout_mode = 0
-anchor_left = 0.219271
-anchor_top = 0.109259
-anchor_right = 0.311474
-anchor_bottom = 0.274101
-offset_right = 531.97
-offset_bottom = 534.971
-scale = Vector2(0.24969, 0.24969)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.189063
+anchor_top = 0.0861115
+anchor_right = 0.286459
+anchor_bottom = 0.260186
 mouse_filter = 1
 texture_normal = ExtResource("7_mfcyi")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
+script = ExtResource("8_7lugc")
+letter_resource = ExtResource("11_gw1t8")
+metadata/_custom_type_script = "uid://cq1yoka2qfq46"
+metadata/_edit_use_anchors_ = true
 
 [node name="Cloud" type="TextureButton" parent="."]
 z_index = 1
@@ -296,29 +312,31 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.748438
 anchor_top = 0.12037
-anchor_right = 0.840641
-anchor_bottom = 0.285212
-offset_right = 531.97
-offset_bottom = 534.971
-scale = Vector2(0.24969, 0.24969)
+anchor_right = 0.845834
+anchor_bottom = 0.294444
 mouse_filter = 1
 texture_normal = ExtResource("11_fkh5j")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
+script = ExtResource("8_7lugc")
+letter_resource = ExtResource("16_kbcc3")
+metadata/_custom_type_script = "uid://cq1yoka2qfq46"
+metadata/_edit_use_anchors_ = true
 
 [node name="Peacock" type="TextureButton" parent="Cloud"]
-layout_mode = 0
-anchor_left = 0.861979
-anchor_top = 0.122222
-anchor_right = 0.954182
-anchor_bottom = 0.287064
-offset_right = 531.97
-offset_bottom = 534.971
-scale = Vector2(0.24969, 0.24969)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.852605
+anchor_top = 0.12037
+anchor_right = 0.950001
+anchor_bottom = 0.294444
 mouse_filter = 1
 texture_normal = ExtResource("12_7lugc")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
+script = ExtResource("8_7lugc")
+letter_resource = ExtResource("17_gw1t8")
+metadata/_custom_type_script = "uid://cq1yoka2qfq46"
 metadata/_edit_use_anchors_ = true
 
 [node name="Forest" type="TextureButton" parent="."]
@@ -338,33 +356,37 @@ metadata/_edit_lock_ = true
 
 [node name="Mushroom" type="TextureButton" parent="Forest"]
 z_index = 1
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.391146
-anchor_top = 0.225
-anchor_right = 0.483349
-anchor_bottom = 0.389842
-offset_right = 531.97
-offset_bottom = 534.971
-scale = Vector2(0.24969, 0.24969)
+anchor_top = 0.226852
+anchor_right = 0.488542
+anchor_bottom = 0.400926
 mouse_filter = 1
 texture_normal = ExtResource("15_wvgon")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
+script = ExtResource("8_7lugc")
+letter_resource = ExtResource("22_t5w1d")
+metadata/_custom_type_script = "uid://cq1yoka2qfq46"
 metadata/_edit_use_anchors_ = true
 
 [node name="ForestLady" type="TextureButton" parent="Forest"]
-layout_mode = 0
-anchor_left = 0.504687
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.495313
 anchor_top = 0.226852
-anchor_right = 0.596891
-anchor_bottom = 0.391693
-offset_right = 531.97
-offset_bottom = 534.971
-scale = Vector2(0.24969, 0.24969)
+anchor_right = 0.592708
+anchor_bottom = 0.400926
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 1
 texture_normal = ExtResource("16_mn0e6")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
+script = ExtResource("8_7lugc")
+letter_resource = ExtResource("24_t5w1d")
+metadata/_custom_type_script = "uid://cq1yoka2qfq46"
 metadata/_edit_use_anchors_ = true
 
 [node name="Undead" type="TextureButton" parent="."]
@@ -387,30 +409,30 @@ z_index = 1
 layout_mode = 0
 anchor_left = 0.623958
 anchor_top = 0.671296
-anchor_right = 0.716162
-anchor_bottom = 0.836138
-offset_right = 531.97
-offset_bottom = 534.971
-scale = Vector2(0.24969, 0.24969)
+anchor_right = 0.721354
+anchor_bottom = 0.84537
 mouse_filter = 1
 texture_normal = ExtResource("19_gw1t8")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
+script = ExtResource("8_7lugc")
+letter_resource = ExtResource("28_ggwev")
+metadata/_custom_type_script = "uid://cq1yoka2qfq46"
 metadata/_edit_use_anchors_ = true
 
 [node name="Skeleton" type="TextureButton" parent="Undead"]
 layout_mode = 0
-anchor_left = 0.7375
-anchor_top = 0.673148
-anchor_right = 0.829703
-anchor_bottom = 0.83799
-offset_right = 531.97
-offset_bottom = 534.971
-scale = Vector2(0.24969, 0.24969)
+anchor_left = 0.728124
+anchor_top = 0.671296
+anchor_right = 0.82552
+anchor_bottom = 0.84537
 mouse_filter = 1
 texture_normal = ExtResource("20_h2rd3")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
+script = ExtResource("8_7lugc")
+letter_resource = ExtResource("30_80dix")
+metadata/_custom_type_script = "uid://cq1yoka2qfq46"
 metadata/_edit_use_anchors_ = true
 
 [node name="Underwater" type="TextureButton" parent="."]
@@ -430,34 +452,35 @@ metadata/_edit_lock_ = true
 
 [node name="WaterGuy" type="TextureButton" parent="Underwater"]
 z_index = 1
-layout_mode = 0
-anchor_left = 0.0828125
-anchor_top = 0.648148
-anchor_right = 0.175016
-anchor_bottom = 0.81299
-offset_top = 6.10352e-05
-offset_right = 531.97
-offset_bottom = 534.971
-scale = Vector2(0.24969, 0.24969)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.128125
+anchor_top = 0.65
+anchor_right = 0.225521
+anchor_bottom = 0.824074
 mouse_filter = 1
 texture_normal = ExtResource("23_5568u")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
+script = ExtResource("8_7lugc")
+letter_resource = ExtResource("34_lusii")
+metadata/_custom_type_script = "uid://cq1yoka2qfq46"
 metadata/_edit_use_anchors_ = true
 
 [node name="WaterGirl" type="TextureButton" parent="Underwater"]
-layout_mode = 0
-anchor_left = 0.196354
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.232292
 anchor_top = 0.65
-anchor_right = 0.288557
-anchor_bottom = 0.814842
-offset_right = 531.97
-offset_bottom = 534.971
-scale = Vector2(0.24969, 0.24969)
+anchor_right = 0.329687
+anchor_bottom = 0.824074
 mouse_filter = 1
 texture_normal = ExtResource("24_kbcc3")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
+script = ExtResource("8_7lugc")
+letter_resource = ExtResource("24_ggwev")
+metadata/_custom_type_script = "uid://cq1yoka2qfq46"
 metadata/_edit_use_anchors_ = true
 
 [node name="Home" type="TextureButton" parent="."]
@@ -478,16 +501,6 @@ metadata/_edit_lock_ = true
 [node name="Popup" parent="." instance=ExtResource("5_yyirk")]
 z_index = 10
 layout_mode = 1
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 292.0
-offset_bottom = 158.0
-grow_horizontal = 1
-grow_vertical = 1
-kingdom = ExtResource("6_46d0c")
 
 [node name="CloseButton" type="TextureButton" parent="."]
 material = ExtResource("2_u4fdk")

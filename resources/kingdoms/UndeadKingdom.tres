@@ -6,13 +6,13 @@
 
 [resource]
 script = ExtResource("1_55krk")
-name = "Undead Kingdom"
+name = "Gravenmere, the Undead Kingdom"
 letter_border = ExtResource("1_n8h28")
 theme = ExtResource("3_sk2a3")
 population = 6
 military = 5
 morale = 2
-resource = 0
+resource = 1
 mana = 2
 populationKnown = false
 manaKnown = false

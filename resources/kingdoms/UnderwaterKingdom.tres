@@ -6,11 +6,11 @@
 
 [resource]
 script = ExtResource("1_vrklj")
-name = "Underwater Kingdom"
+name = "Pelagis, the Underwater Kingdom"
 letter_border = ExtResource("1_8l4av")
 theme = ExtResource("3_moxpn")
 population = 4
-military = 0
+military = 1
 morale = 2
 resource = 6
 mana = 3

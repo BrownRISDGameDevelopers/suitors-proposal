@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LetterResource" load_steps=7 format=3 uid="uid://bt6q740v6u8q7"]
+[gd_resource type="Resource" script_class="LetterResource" load_steps=7 format=3 uid="uid://d3g7bhlg5qqjs"]
 
 [ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_cvuda"]
 [ext_resource type="Resource" uid="uid://cqga80ifaxij1" path="res://resources/kingdoms/CloudKingdom.tres" id="2_0cwso"]
@@ -19,6 +19,7 @@ metadata/_custom_type_script = "uid://b466tuukr26ps"
 
 [resource]
 script = ExtResource("2_geavf")
+name = "Sefu Mwerevu of the Concord of Suns"
 kingdom = ExtResource("2_0cwso")
 portrait = ExtResource("3_0cwso")
 greeting = "Salutations Your Highness,"

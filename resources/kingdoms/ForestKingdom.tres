@@ -6,14 +6,14 @@
 
 [resource]
 script = ExtResource("1_1p57c")
-name = "Forest Kingdom"
+name = "Mosswyn, the Forest Kingdom"
 letter_border = ExtResource("1_xy6qc")
 theme = ExtResource("3_yceh4")
-population = 4
-military = 0
-morale = 2
-resource = 6
-mana = 3
+population = 1
+military = 2
+morale = 3
+resource = 4
+mana = 6
 populationKnown = false
 manaKnown = false
 militaryKnown = false
