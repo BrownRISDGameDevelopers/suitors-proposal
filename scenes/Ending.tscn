@@ -69,4 +69,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[connection signal="mouse_entered" from="PlayAgain" to="." method="_on_play_again_mouse_entered"]
+[connection signal="mouse_exited" from="PlayAgain" to="." method="_on_play_again_mouse_exited"]
 [connection signal="pressed" from="PlayAgain" to="." method="_on_play_again_pressed"]
