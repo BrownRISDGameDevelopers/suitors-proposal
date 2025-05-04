@@ -1,64 +1,57 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctniw1q75hrf1"]
+[gd_scene load_steps=6 format=3 uid="uid://chybqn6kunvsm"]
 
 [ext_resource type="Script" uid="uid://3gxbee6qatoc" path="res://scripts/credits.gd" id="1_hi4w3"]
+[ext_resource type="Texture2D" uid="uid://dfjieb8a5bywr" path="res://assets/main_menu/credits/transparent_Credits_Suitors_Proposal.png" id="1_y8nor"]
+[ext_resource type="Material" uid="uid://dfxfj7q58h2f4" path="res://assets/shaders/close_outline.tres" id="4_tlwrt"]
+[ext_resource type="Texture2D" uid="uid://cc3h1jg02fq0l" path="res://assets/ui/X Button.png" id="5_tlwrt"]
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_al82v"]
+atlas = ExtResource("5_tlwrt")
+region = Rect2(86, 70, 96, 104)
+
+[node name="CreditsScroll" type="NinePatchRect"]
+clip_children = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -888.0
+offset_top = -477.0
+offset_right = 888.0
+offset_bottom = 477.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_y8nor")
+region_rect = Rect2(0, 23, 1776, 954)
+patch_margin_left = 90
+patch_margin_right = 91
+axis_stretch_horizontal = 1
 script = ExtResource("1_hi4w3")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ClippingContainer" type="Control" parent="."]
+clip_children = 2
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -88.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.557272, 0.291298, 0.541183, 1)
 
-[node name="ProducersLabel" type="Label" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -735.0
-offset_top = 98.0
-offset_right = 735.0
-offset_bottom = 165.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 48
-text = "Credits"
-horizontal_alignment = 1
-
-[node name="ProgrammersLabel" type="Label" parent="ColorRect"]
+[node name="CloseButton" type="TextureButton" parent="ClippingContainer"]
+material = ExtResource("4_tlwrt")
 layout_mode = 0
-offset_left = 375.0
-offset_top = 340.0
-offset_right = 747.0
-offset_bottom = 407.0
-theme_override_font_sizes/font_size = 48
-text = "Programmers"
+offset_left = 891.0
+offset_top = 733.0
+offset_right = 973.0
+offset_bottom = 822.0
+texture_normal = SubResource("AtlasTexture_al82v")
+ignore_texture_size = true
+stretch_mode = 4
 
-[node name="ArtistsLabel" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 1039.0
-offset_top = 348.0
-offset_right = 1411.0
-offset_bottom = 415.0
-theme_override_font_sizes/font_size = 48
-text = "Artists"
-
-[node name="BackButton" type="Button" parent="ColorRect"]
-layout_mode = 0
-offset_left = 59.0
-offset_top = 959.0
-offset_right = 278.0
-offset_bottom = 1032.0
-theme_override_font_sizes/font_size = 48
-text = "Back"
-
-[connection signal="pressed" from="ColorRect/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="mouse_entered" from="ClippingContainer/CloseButton" to="." method="_on_close_button_mouse_entered"]
+[connection signal="mouse_exited" from="ClippingContainer/CloseButton" to="." method="_on_close_button_mouse_exited"]
+[connection signal="pressed" from="ClippingContainer/CloseButton" to="." method="_on_close_button_pressed"]

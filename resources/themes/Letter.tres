@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bss4mnhq0fcwf"]
+
+[ext_resource type="FontFile" uid="uid://dxtdgrovxy3yh" path="res://assets/fonts/blackchancery/BLKCHCRY.TTF" id="1_et0r0"]
+
+[sub_resource type="SystemFont" id="SystemFont_et0r0"]
+font_names = PackedStringArray("Serif")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_et0r0"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.167944, 0.0710097, 0.00144229, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="SystemFont" id="SystemFont_i0rfn"]
+font_names = PackedStringArray("Times New Roman")
+
+[resource]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 23
+Label/fonts/font = ExtResource("1_et0r0")
+PopupPanel/colors/title_color = Color(1, 1, 1, 1)
+PopupPanel/fonts/title_font = SubResource("SystemFont_et0r0")
+PopupPanel/styles/panel = SubResource("StyleBoxFlat_et0r0")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/font_sizes/normal_font_size = 23
+RichTextLabel/fonts/normal_font = SubResource("SystemFont_i0rfn")

@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="LetterResource" load_steps=9 format=3 uid="uid://df4kdkgq4suo"]
+
+[ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_faxim"]
+[ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="2_e5dnj"]
+[ext_resource type="Resource" uid="uid://b6h0r0aa3q2d3" path="res://resources/kingdoms/UnderwaterKingdom.tres" id="2_mjk0y"]
+[ext_resource type="Texture2D" uid="uid://4to6wgutactp" path="res://assets/letters/letter_portraits/Portrait_ (2).png" id="3_mjk0y"]
+
+[sub_resource type="Resource" id="Resource_faxim"]
+script = ExtResource("1_faxim")
+text = "I trust you have been receiving our gifts of mana-grown algae"
+revealedStat = Array[String](["mana"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[sub_resource type="Resource" id="Resource_e5dnj"]
+script = ExtResource("1_faxim")
+text = "To top it all off, the state of our military is woeful."
+revealedStat = Array[String](["military"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[sub_resource type="Resource" id="Resource_mjk0y"]
+script = ExtResource("1_faxim")
+text = "Despite our abundant ranks,"
+revealedStat = Array[String](["population"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[sub_resource type="Resource" id="Resource_0sor5"]
+script = ExtResource("1_faxim")
+text = "Aid me in restoring balance to our waters, and the sea’s vast bounty shall be yours, as my partner."
+revealedStat = Array[String](["resource"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[resource]
+script = ExtResource("2_e5dnj")
+name = "President Adrian Kyanos of Pelagis"
+kingdom = ExtResource("2_mjk0y")
+portrait = ExtResource("3_mjk0y")
+greeting = "To Your Highness of Fallowbrook,"
+signoff = "Sincerely, in sift and salt,
+
+President Adrian Kyanos of Pelagis"
+summerVersion = "Please take my forthrightness as a gesture of respect for your time. 
+
+Highness, I do not have to explain to you what it means to guide others through tides of change. Preparing to inherit a throne is intimidating enough without the added worry of a spreading, magical illness (by the way, I trust you have been receiving our gifts of mana-grown algae? We usually use it here for riptide sickness, but it should still work to reduce disorientation for Drylanders. Let me know if it’s been helpful).
+
+The reality is, that despite the warmth of our waters, the arriving Selkies have become increasingly comfortable here—too comfortable. The political machinations of wealthy lords prevents me from outlawing unethical land and wealth hoarding. Native Merfolk are being crowded out of markets and seaspace. To top it all off, the state of our military is woeful. 
+
+I blame myself for our unpreparedness; I never expected an internal threat to so insidiously creep into our oceanic haven, leeching the very coral of color for profit. Despite our abundant ranks, we Merfolk have been completely outmaneuvered by this wave of cold-water interlopers. As a servant of the sea, I wish for the prosperity of all of its inhabitants, of course, but in cases such as these, I must put my people first. 
+
+What I mean to say is: to lead is to be continuously out of one’s depth, and sometimes we all need a helping fin. Aid me in restoring balance to our waters, and the sea’s vast bounty shall be yours, as my partner."
+summerClickableContent = Array[ExtResource("1_faxim")]([SubResource("Resource_faxim"), SubResource("Resource_e5dnj"), SubResource("Resource_mjk0y"), SubResource("Resource_0sor5")])
+fallVersion = "Please take my forthrightness as a gesture of respect for your time. 
+
+Highness, I do not have to explain to you what it means to guide others through tides of change. Preparing to inherit a throne is intimidating enough without the added worry of a spreading, magical illness (by the way, I trust you have been receiving our gifts of mana-grown algae? We usually use it here for riptide sickness, but it should still work to reduce disorientation for Drylanders. Let me know if it’s been helpful).
+
+The reality is, that despite the warmth of our waters, the arriving Selkies have become increasingly comfortable here—too comfortable. The political machinations of wealthy lords prevents me from outlawing unethical land and wealth hoarding. Native Merfolk are being crowded out of markets and seaspace. To top it all off, the state of our military is woeful. 
+
+I blame myself for our unpreparedness; I never expected an internal threat to so insidiously creep into our oceanic haven, leeching the very coral of color for profit. Despite our abundant ranks, we Merfolk have been completely outmaneuvered by this wave of cold-water interlopers. As a servant of the sea, I wish for the prosperity of all of its inhabitants, of course, but in cases such as these, I must put my people first. 
+
+What I mean to say is: to lead is to be continuously out of one’s depth, and sometimes we all need a helping fin. Aid me in restoring balance to our waters, and the sea’s vast bounty shall be yours, as my partner."
+fallClickableContent = Array[ExtResource("1_faxim")]([SubResource("Resource_faxim"), SubResource("Resource_e5dnj"), SubResource("Resource_mjk0y"), SubResource("Resource_0sor5")])
+winterVersion = "Please take my forthrightness as a gesture of respect for your time. 
+
+Highness, I do not have to explain to you what it means to guide others through tides of change. Preparing to inherit a throne is intimidating enough without the added worry of your father’s health (by the way, I trust you have been receiving our gifts of mana-grown algae? We usually use it here for riptide sickness, but it should still work to reduce disorientation for Drylanders. Let me know if it’s been helpful).
+
+The reality is, that despite the warmth of our waters, the arriving Selkies have become increasingly comfortable here—too comfortable. The political machinations of wealthy lords prevents me from outlawing unethical land and wealth hoarding. Native Merfolk are being crowded out of markets and seaspace. To top it all off, the state of our military is woeful. 
+
+I blame myself for our unpreparedness; I never expected an internal threat to so insidiously creep into our oceanic haven, leeching the very coral of color for profit. Despite our abundant ranks, we Merfolk have been completely outmaneuvered by this wave of cold-water interlopers. As a servant of the sea, I wish for the prosperity of all of its inhabitants, of course, but in cases such as these, I must put my people first. 
+
+What I mean to say is: to lead is to be continuously out of one’s depth, and sometimes we all need a helping fin. Aid me in restoring balance to our waters, and the sea’s vast bounty shall be yours, as my partner."
+winterClickableContent = Array[ExtResource("1_faxim")]([SubResource("Resource_faxim"), SubResource("Resource_e5dnj"), SubResource("Resource_mjk0y"), SubResource("Resource_0sor5")])
+springVersion = "Now is the critical hour of decision, when the fates of both our kingdoms hang in the balance. You are clever—cleverer than your father. That is why I know you will not fall at the fins of Selkie capital. You will not be bribed out of your honor and compassion. I would not be so brazen if I suspected otherwise.
+
+As the situation is severe, I must be brazen. The Selkie domination of our economy—obtained through the flagrant disregard of environmental protection policy—has begun to encroach into our political system. I have recently received confirmation that Lord Theobald and his co-conspirators attempted to steal my democratically-elected seat of power.
+
+ Cleary, tensions between Selkie and Merfolk will boil over in Pelagis any day now. In yours, the populace is undeniably agitated after a year of unprecedented hardship. I believe we each have the keys to solving each others’ problems; all we must do now is take each others’ hands with confidence and the resolve to do what is right."
+springClickableContent = Array[ExtResource("1_faxim")]([])
+season_generated = ""
+metadata/_custom_type_script = "uid://d2ngpxf76ukp7"

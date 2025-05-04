@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bklqu500qoshd"]
+[gd_scene load_steps=10 format=3 uid="uid://bklqu500qoshd"]
 
 [ext_resource type="Script" uid="uid://daf751n63cwx3" path="res://scripts/main_menu.gd" id="1_0ykhv"]
-[ext_resource type="Texture2D" uid="uid://bdna0r2esnehs" path="res://assets/placeholder_background.png" id="2_2wh52"]
-[ext_resource type="Texture2D" uid="uid://c638kdkfrsghx" path="res://assets/placeholder_settingsIcon.png" id="3_ow34m"]
+[ext_resource type="Texture2D" uid="uid://dhpq6h41xleuh" path="res://assets/main_menu/background.png" id="2_0ykhv"]
+[ext_resource type="Texture2D" uid="uid://d3gnnf5606krf" path="res://assets/main_menu/start normal.PNG" id="3_mipys"]
+[ext_resource type="Texture2D" uid="uid://cvioj6yvglrbr" path="res://assets/main_menu/start hover.PNG" id="4_8a8k8"]
+[ext_resource type="Texture2D" uid="uid://c57vlhit2ognp" path="res://assets/main_menu/tutorial normal.PNG" id="5_7la6k"]
+[ext_resource type="Script" uid="uid://ci0ql7v1ltnwn" path="res://scripts/classes/bitmasked_texture_button.gd" id="5_8a8k8"]
+[ext_resource type="Texture2D" uid="uid://buh3y78oehlgp" path="res://assets/main_menu/tutoral hover.PNG" id="6_2nypq"]
+[ext_resource type="Texture2D" uid="uid://bddlbvw05d358" path="res://assets/main_menu/credit normal.PNG" id="7_bky6r"]
+[ext_resource type="Texture2D" uid="uid://dv7o0olhjq02m" path="res://assets/main_menu/credit hover.PNG" id="8_l4mxc"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -15,89 +21,66 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_0ykhv")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_0ykhv")
 
-[node name="PlaceholderBackground" type="Sprite2D" parent="Panel"]
-visible = false
-scale = Vector2(1.08747, 0.78955)
-texture = ExtResource("2_2wh52")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="Play" type="TextureButton" parent="Background"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -323.0
-offset_top = -145.0
-offset_right = 9.0
-offset_bottom = 162.0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
-theme_override_constants/separation = 10
+texture_normal = ExtResource("3_mipys")
+texture_hover = ExtResource("4_8a8k8")
+script = ExtResource("5_8a8k8")
+metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
 
-[node name="StartButton" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Start"
-
-[node name="HowToPlayButton" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "How to Play"
-
-[node name="CreditsButton" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Credits"
-
-[node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Quit"
-
-[node name="Button" type="Button" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -164.0
-offset_top = 18.0
-offset_right = -18.0
-offset_bottom = 156.0
-grow_horizontal = 0
-size_flags_horizontal = 8
-
-[node name="PlaceholderSettingsIcon" type="Sprite2D" parent="Button"]
-position = Vector2(74.1211, 69)
-scale = Vector2(0.269531, 0.269531)
-texture = ExtResource("3_ow34m")
-
-[node name="Title" type="Label" parent="."]
+[node name="Tutorial" type="TextureButton" parent="Background"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -307.0
-offset_top = -360.0
-offset_right = -180.0
-offset_bottom = -337.0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(5, 5)
-text = "Suitors Proposal"
+texture_normal = ExtResource("5_7la6k")
+texture_hover = ExtResource("6_2nypq")
+script = ExtResource("5_8a8k8")
+metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
 
-[connection signal="pressed" from="Panel/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="Credits" type="TextureButton" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("7_bky6r")
+texture_hover = ExtResource("8_l4mxc")
+script = ExtResource("5_8a8k8")
+metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
+
+[connection signal="pressed" from="Background/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Background/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="Background/Credits" to="." method="_on_credits_pressed"]

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Kingdom" load_steps=2 format=3 uid="uid://1p3op32gjikr"]
+
+[ext_resource type="Script" uid="uid://b46xhsels5oxh" path="res://scripts/classes/kingdom.gd" id="1_7fo5j"]
+
+[resource]
+script = ExtResource("1_7fo5j")
+name = "Our Kingdom"
+population = 1
+military = 1
+morale = 1
+resource = 1
+mana = 1
+populationKnown = true
+manaKnown = true
+militaryKnown = true
+resourceKnown = true
+moraleKnown = true
+metadata/_custom_type_script = "uid://b46xhsels5oxh"

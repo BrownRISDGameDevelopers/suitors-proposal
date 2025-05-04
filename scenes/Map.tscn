@@ -1,0 +1,561 @@
+[gd_scene load_steps=47 format=3 uid="uid://b8iollf58huxn"]
+
+[ext_resource type="Texture2D" uid="uid://l3uxn3gvdvnn" path="res://assets/map/map.png" id="1_yyirk"]
+[ext_resource type="Texture2D" uid="uid://ckfavv68i1ugj" path="res://assets/map/Mountain.png" id="2_41ykk"]
+[ext_resource type="Script" uid="uid://bgs472hg55fif" path="res://scripts/map.gd" id="2_fkh5j"]
+[ext_resource type="Material" uid="uid://ef7dgc3nfapr" path="res://assets/shaders/kingdom_outline.tres" id="2_u4fdk"]
+[ext_resource type="Script" uid="uid://pes8w55p45wn" path="res://scripts/kingdom_map.gd" id="3_xkm8s"]
+[ext_resource type="Resource" uid="uid://bc5qvfo24wa4t" path="res://resources/kingdoms/MountainKingdom.tres" id="4_pgwcf"]
+[ext_resource type="Texture2D" uid="uid://brpoc0bhwiqas" path="res://assets/map/Cloud.png" id="5_46d0c"]
+[ext_resource type="Texture2D" uid="uid://cwo1xp5n5h2ow" path="res://assets/map/trimmed/trimmed_Cloud.png" id="5_sxh8t"]
+[ext_resource type="PackedScene" uid="uid://bkrvpxjak31id" path="res://scenes/Popup.tscn" id="5_yyirk"]
+[ext_resource type="Texture2D" uid="uid://cqqfitsc2yujb" path="res://assets/map/suitor_portraits/IMG_2269.PNG" id="6_08blb"]
+[ext_resource type="Resource" uid="uid://cqga80ifaxij1" path="res://resources/kingdoms/CloudKingdom.tres" id="6_46d0c"]
+[ext_resource type="Texture2D" uid="uid://wcojt0quoyg5" path="res://assets/map/Trees.png" id="6_d46yu"]
+[ext_resource type="Texture2D" uid="uid://dgimv1u2ltfki" path="res://assets/map/undead.png" id="7_hit12"]
+[ext_resource type="Texture2D" uid="uid://scowlgyuybnh" path="res://assets/map/suitor_portraits/IMG_2277.PNG" id="7_mfcyi"]
+[ext_resource type="Script" uid="uid://cq1yoka2qfq46" path="res://scripts/classes/map_portraits.gd" id="8_7lugc"]
+[ext_resource type="Resource" uid="uid://c2yol8dyhwt2t" path="res://resources/kingdoms/ForestKingdom.tres" id="8_djx7b"]
+[ext_resource type="Texture2D" uid="uid://bh144dh05cf6y" path="res://assets/map/Ocean.png" id="8_sdw7q"]
+[ext_resource type="Resource" uid="uid://cbevug2gr34f6" path="res://resources/letters/Dwarf_Techbro_Warlord_Letter.tres" id="9_mn0e6"]
+[ext_resource type="Texture2D" uid="uid://birqqrnm1dfor" path="res://assets/map/Home.png" id="9_pgwcf"]
+[ext_resource type="Resource" uid="uid://bahrmb7eqtk0t" path="res://resources/kingdoms/UndeadKingdom.tres" id="10_sxh8t"]
+[ext_resource type="Texture2D" uid="uid://bw36w86riky44" path="res://assets/map/suitor_portraits/IMG_2270.PNG" id="11_fkh5j"]
+[ext_resource type="Resource" uid="uid://06tfuayqd5h2" path="res://resources/letters/Dwarf_Councilwoman_Letter.tres" id="11_gw1t8"]
+[ext_resource type="Texture2D" uid="uid://ddhh0vjcp8hc7" path="res://assets/map/suitor_portraits/IMG_2276.PNG" id="12_7lugc"]
+[ext_resource type="Resource" uid="uid://b6h0r0aa3q2d3" path="res://resources/kingdoms/UnderwaterKingdom.tres" id="12_djx7b"]
+[ext_resource type="Texture2D" uid="uid://fswhe6llabq7" path="res://assets/map/suitor_portraits/IMG_2272.PNG" id="15_wvgon"]
+[ext_resource type="Resource" uid="uid://d3g7bhlg5qqjs" path="res://resources/letters/OwlAssemblyLeader.tres" id="16_kbcc3"]
+[ext_resource type="Texture2D" uid="uid://cd1fowgmwyik7" path="res://assets/map/suitor_portraits/IMG_2273.PNG" id="16_mn0e6"]
+[ext_resource type="Resource" uid="uid://1p3op32gjikr" path="res://resources/kingdoms/OurKingdom.tres" id="16_u4fdk"]
+[ext_resource type="Resource" uid="uid://sqvrh15ql0y3" path="res://resources/letters/Peacock_Diplomat.tres" id="17_gw1t8"]
+[ext_resource type="Texture2D" uid="uid://dpju0htundkqx" path="res://assets/desk/tiny map tab.png" id="19_1vt7q"]
+[ext_resource type="Texture2D" uid="uid://ce4dq3m7t5n7v" path="res://assets/map/suitor_portraits/IMG_2274.PNG" id="19_gw1t8"]
+[ext_resource type="Script" uid="uid://de7ibosh20v4w" path="res://scripts/close_map.gd" id="20_djua3"]
+[ext_resource type="Texture2D" uid="uid://dvj46hk2j7dx" path="res://assets/map/suitor_portraits/IMG_2278.PNG" id="20_h2rd3"]
+[ext_resource type="Texture2D" uid="uid://cc3h1jg02fq0l" path="res://assets/ui/X Button.png" id="21_djua3"]
+[ext_resource type="Resource" uid="uid://3ma8autyppno" path="res://resources/letters/Mushroom_chief.tres" id="22_t5w1d"]
+[ext_resource type="Texture2D" uid="uid://6h52rcg1p8o3" path="res://assets/map/suitor_portraits/IMG_2271.PNG" id="23_5568u"]
+[ext_resource type="Resource" uid="uid://chrhetd3k0hsc" path="res://resources/letters/SelkieMerchant.tres" id="24_ggwev"]
+[ext_resource type="Texture2D" uid="uid://d4f4h27g82nwg" path="res://assets/map/suitor_portraits/IMG_2275.PNG" id="24_kbcc3"]
+[ext_resource type="Resource" uid="uid://bhy1jc41adfgf" path="res://resources/letters/DeerHighPriestess.tres" id="24_t5w1d"]
+[ext_resource type="Resource" uid="uid://cfik8jlelmgb3" path="res://resources/letters/Vampire_King_Letter.tres" id="28_ggwev"]
+[ext_resource type="Resource" uid="uid://dm3luievra282" path="res://resources/letters/Skeleton_General_Letter.tres" id="30_80dix"]
+[ext_resource type="Resource" uid="uid://df4kdkgq4suo" path="res://resources/letters/MermanPresident.tres" id="34_lusii"]
+
+[sub_resource type="Shader" id="Shader_u4fdk"]
+code = "shader_type canvas_item;
+
+uniform bool enabled = false;
+// The texture to scroll with.
+uniform sampler2D scrollingTexture: hint_default_white;
+// The scroll texture scale.
+uniform vec2 textureScale = vec2(1.0);
+// Angle to scroll towards. In degrees. Starts at the right.
+uniform float angle: hint_range(0.0, 360.0) = 45.0;
+// Speed to scroll at.
+uniform float textureSpeed: hint_range(-10.0, 10.0) = 0.1;
+// Strength of the texture over the color.
+uniform float textureStrength: hint_range(0.0, 1.0) = 0.5;
+// Max distance from texture.
+uniform float maxLineWidth: hint_range(0.0, 100.0) = 10.0;
+// Min distance from texture.
+uniform float minLineWidth: hint_range(0.0, 100.0) = 5.0;
+// How often to recompute the outline.
+uniform float speed: hint_range(0.0, 10.0) = 1.0;
+// How big the outline blotches are.
+uniform float blockSize: hint_range(0.001, 100.0) = 20.0;
+// The outline color. GradientTexture1D is recommended.
+uniform sampler2D color: source_color;
+// The resolution for the gradient. Higher numbers will result in smoother but more expensive passes.
+uniform int gradientResolution: hint_range(1, 30) = 10;
+// Used to compensate for alpha values.
+uniform float tolerance: hint_range(0.0, 0.999) = 0.0;
+
+
+// Compensate UV for outline.
+void vertex() {
+	VERTEX = vec2(VERTEX.x * (1.0 + TEXTURE_PIXEL_SIZE.x * max(maxLineWidth, minLineWidth) * 2.0), VERTEX.y * (1.0 + TEXTURE_PIXEL_SIZE.y * max(maxLineWidth, minLineWidth) * 2.0));
+}
+
+// Checks a fragment for the edge of an uv.
+bool border(vec2 uv) {
+	vec2 uvBorder = abs(uv - vec2(0.5));
+	return max(step(0.5, uvBorder.x), step(0.5, uvBorder.y)) > 0.0;
+}
+
+// Gets alpha of given fragment if not near the edge.
+float get_alpha(sampler2D tex, vec2 uv){
+	float res = 0.0;
+	if (!border(uv)) {
+		res = texture(tex, uv).a;
+	}
+	return res;
+}
+
+// Pseudorandom number
+float hash(vec2 p, float s) {
+	return fract(35.1 * sin(dot(vec3(112.3, 459.2, 753.2), vec3(p, s))));
+}
+
+// Noise function.
+float noise(vec2 p, float s) {
+	vec2 d = vec2(0, 1);
+	vec2 b = floor(p);
+	vec2 f = fract(p);
+	return mix(
+		mix(hash(b + d.xx, s), hash(b + d.yx, s), f.x),
+		mix(hash(b + d.xy, s), hash(b + d.yy, s), f.x), f.y);
+}
+
+// Randomize line width at fragment.
+float get_line_width(vec2 p, float s) {
+	p /= blockSize;
+	float w = 0.0;
+	float intensity = 1.0;
+	for (int i = 0; i < 3; i++) {
+		w = mix(w, noise(p, s), intensity);
+		p /= 2.0;
+		intensity /= 2.0;
+	}
+
+	return mix(maxLineWidth, minLineWidth, w);
+}
+
+// Checks for neighboring pixels.
+float compute_outline(vec2 size, sampler2D tex, vec2 uv) {
+	float res = 0.0;
+	for (float i = -1.0; i < 2.0; i += 2.0) {
+		res += get_alpha(tex, uv + vec2(i * size.x, 0.0));
+		res += get_alpha(tex, uv + vec2(0.0, i * size.y));
+		for (float j = -1.0; j < 2.0; j += 2.0) {
+			res += get_alpha(tex, uv + vec2(i * size.x, j * size.y));
+			res += get_alpha(tex, uv + vec2(i * size.x, j * size.y * 0.5));
+		}
+	}
+	return res;
+}
+
+// Checks for neighboring pixels.
+bool in_range(vec2 size, sampler2D tex, vec2 uv) {
+	for (float i = -1.0; i < 2.0; i += 2.0) {
+		if (get_alpha(tex, uv + vec2(i * size.x, 0.0)) > 0.0) {return true;};
+		if (get_alpha(tex, uv + vec2(0.0, i * size.y)) > 0.0) {return true;};
+		for (float j = -1.0; j < 2.0; j += 2.0) {
+			if (get_alpha(tex, uv + vec2(i * size.x, j * size.y)) > 0.0) {return true;};
+			if (get_alpha(tex, uv + vec2(i * size.x, j * size.y * 0.5)) > 0.0) {return true;};
+		}
+	}
+	return false;
+}
+
+// Get's closes pixel.
+float get_distance(vec2 maxDistance, sampler2D tex, vec2 uv) {
+	for (int i = 1; i < gradientResolution; i++) {
+		vec2 actualDistance = float(i) / float (gradientResolution) * maxDistance;
+		if (in_range(actualDistance, tex, uv)) {
+			return float(i) / float (gradientResolution);
+		}
+	}
+}
+
+void fragment() {
+	if (max(maxLineWidth, minLineWidth) > 0.0 && enabled) {
+		// Correct image size to for outline in frame.
+		vec2 uv = UV;
+		uv -= vec2(0.5);
+		vec2 edge = TEXTURE_PIXEL_SIZE * max(maxLineWidth, minLineWidth) * 2.0;
+		uv = uv + uv * edge;
+		uv += vec2(0.5);
+
+		// Apply outline.
+		vec4 newColor = texture(TEXTURE, uv);
+		if (newColor.a <= tolerance || border(uv)) {
+			// Correct angle to start at right and convert to radians.
+			float radiansAngle = radians(angle + 180.0);
+			// Make a vector out of the angle.
+			vec2 vector = vec2(cos(radiansAngle), sin(radiansAngle));
+			float timeStep = floor(TIME * speed);
+			vec2 size = TEXTURE_PIXEL_SIZE;
+			size *= get_line_width(uv / TEXTURE_PIXEL_SIZE, timeStep);
+			vec4 textureColor = texture(scrollingTexture, fract(UV / textureScale + vector * textureSpeed * TIME));
+			vec4 actualColor = texture(color, vec2(get_distance(edge / 2.0 + 0.01, TEXTURE, uv)));
+			vec4 finalColor = step(1.0 - tolerance, in_range(size, TEXTURE, uv) ? 1.0: 0.0) * mix(actualColor, textureColor, textureStrength);
+			newColor = finalColor;
+		}
+		COLOR = newColor;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_08blb"]
+shader = SubResource("Shader_u4fdk")
+shader_parameter/enabled = false
+shader_parameter/textureScale = Vector2(1, 1)
+shader_parameter/angle = 45.0
+shader_parameter/textureSpeed = 0.1
+shader_parameter/textureStrength = 0.5
+shader_parameter/maxLineWidth = 3.0
+shader_parameter/minLineWidth = 0.0
+shader_parameter/speed = 10.0
+shader_parameter/blockSize = 20.0
+shader_parameter/color = ExtResource("5_sxh8t")
+shader_parameter/gradientResolution = 10
+shader_parameter/tolerance = 0.999
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djua3"]
+atlas = ExtResource("19_1vt7q")
+region = Rect2(0, 68, 118, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tvfu"]
+atlas = ExtResource("21_djua3")
+region = Rect2(86, 70, 96, 104)
+
+[node name="Map" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yyirk")
+expand_mode = 1
+script = ExtResource("2_fkh5j")
+metadata/_custom_type_script = "uid://bgs472hg55fif"
+
+[node name="Base" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yyirk")
+expand_mode = 1
+
+[node name="Mountain" type="TextureButton" parent="."]
+z_index = 1
+material = ExtResource("2_u4fdk")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(390, 217)
+texture_normal = ExtResource("2_41ykk")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_xkm8s")
+kingdom = ExtResource("4_pgwcf")
+metadata/_edit_lock_ = true
+
+[node name="KnightDwarf" type="TextureButton" parent="Mountain"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0848958
+anchor_top = 0.0861111
+anchor_right = 0.182292
+anchor_bottom = 0.260185
+mouse_filter = 1
+texture_normal = ExtResource("6_08blb")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("8_7lugc")
+letter_resource = ExtResource("9_mn0e6")
+metadata/_custom_type_script = "uid://cq1yoka2qfq46"
+metadata/_edit_use_anchors_ = true
+
+[node name="CouncilwomanDwarf" type="TextureButton" parent="Mountain"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.189063
+anchor_top = 0.0861115
+anchor_right = 0.286459
+anchor_bottom = 0.260186
+mouse_filter = 1
+texture_normal = ExtResource("7_mfcyi")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("8_7lugc")
+letter_resource = ExtResource("11_gw1t8")
+metadata/_custom_type_script = "uid://cq1yoka2qfq46"
+metadata/_edit_use_anchors_ = true
+
+[node name="Cloud" type="TextureButton" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_08blb")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(368, 313)
+texture_normal = ExtResource("5_46d0c")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_xkm8s")
+kingdom = ExtResource("6_46d0c")
+metadata/_edit_lock_ = true
+
+[node name="BirdGuy" type="TextureButton" parent="Cloud"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.748438
+anchor_top = 0.12037
+anchor_right = 0.845834
+anchor_bottom = 0.294444
+mouse_filter = 1
+texture_normal = ExtResource("11_fkh5j")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("8_7lugc")
+letter_resource = ExtResource("16_kbcc3")
+metadata/_custom_type_script = "uid://cq1yoka2qfq46"
+metadata/_edit_use_anchors_ = true
+
+[node name="Peacock" type="TextureButton" parent="Cloud"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.852605
+anchor_top = 0.12037
+anchor_right = 0.950001
+anchor_bottom = 0.294444
+mouse_filter = 1
+texture_normal = ExtResource("12_7lugc")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("8_7lugc")
+letter_resource = ExtResource("17_gw1t8")
+metadata/_custom_type_script = "uid://cq1yoka2qfq46"
+metadata/_edit_use_anchors_ = true
+
+[node name="Forest" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6_d46yu")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_xkm8s")
+kingdom = ExtResource("8_djx7b")
+metadata/_edit_lock_ = true
+
+[node name="Mushroom" type="TextureButton" parent="Forest"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.391146
+anchor_top = 0.226852
+anchor_right = 0.488542
+anchor_bottom = 0.400926
+mouse_filter = 1
+texture_normal = ExtResource("15_wvgon")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("8_7lugc")
+letter_resource = ExtResource("22_t5w1d")
+metadata/_custom_type_script = "uid://cq1yoka2qfq46"
+metadata/_edit_use_anchors_ = true
+
+[node name="ForestLady" type="TextureButton" parent="Forest"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.495313
+anchor_top = 0.226852
+anchor_right = 0.592708
+anchor_bottom = 0.400926
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+texture_normal = ExtResource("16_mn0e6")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("8_7lugc")
+letter_resource = ExtResource("24_t5w1d")
+metadata/_custom_type_script = "uid://cq1yoka2qfq46"
+metadata/_edit_use_anchors_ = true
+
+[node name="Undead" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("7_hit12")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_xkm8s")
+kingdom = ExtResource("10_sxh8t")
+metadata/_edit_lock_ = true
+
+[node name="Vampire" type="TextureButton" parent="Undead"]
+z_index = 1
+layout_mode = 0
+anchor_left = 0.623958
+anchor_top = 0.671296
+anchor_right = 0.721354
+anchor_bottom = 0.84537
+mouse_filter = 1
+texture_normal = ExtResource("19_gw1t8")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("8_7lugc")
+letter_resource = ExtResource("28_ggwev")
+metadata/_custom_type_script = "uid://cq1yoka2qfq46"
+metadata/_edit_use_anchors_ = true
+
+[node name="Skeleton" type="TextureButton" parent="Undead"]
+layout_mode = 0
+anchor_left = 0.728124
+anchor_top = 0.671296
+anchor_right = 0.82552
+anchor_bottom = 0.84537
+mouse_filter = 1
+texture_normal = ExtResource("20_h2rd3")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("8_7lugc")
+letter_resource = ExtResource("30_80dix")
+metadata/_custom_type_script = "uid://cq1yoka2qfq46"
+metadata/_edit_use_anchors_ = true
+
+[node name="Underwater" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("8_sdw7q")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_xkm8s")
+kingdom = ExtResource("12_djx7b")
+metadata/_edit_lock_ = true
+
+[node name="WaterGuy" type="TextureButton" parent="Underwater"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.128125
+anchor_top = 0.65
+anchor_right = 0.225521
+anchor_bottom = 0.824074
+mouse_filter = 1
+texture_normal = ExtResource("23_5568u")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("8_7lugc")
+letter_resource = ExtResource("34_lusii")
+metadata/_custom_type_script = "uid://cq1yoka2qfq46"
+metadata/_edit_use_anchors_ = true
+
+[node name="WaterGirl" type="TextureButton" parent="Underwater"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.232292
+anchor_top = 0.65
+anchor_right = 0.329687
+anchor_bottom = 0.824074
+mouse_filter = 1
+texture_normal = ExtResource("24_kbcc3")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("8_7lugc")
+letter_resource = ExtResource("24_ggwev")
+metadata/_custom_type_script = "uid://cq1yoka2qfq46"
+metadata/_edit_use_anchors_ = true
+
+[node name="Home" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("9_pgwcf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_xkm8s")
+kingdom = ExtResource("16_u4fdk")
+metadata/_edit_lock_ = true
+
+[node name="Popup" parent="." instance=ExtResource("5_yyirk")]
+z_index = 10
+layout_mode = 1
+
+[node name="CloseButton" type="TextureButton" parent="."]
+material = ExtResource("2_u4fdk")
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -40.0
+offset_right = 118.0
+offset_bottom = 41.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_djua3")
+script = ExtResource("20_djua3")
+metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
+
+[node name="TextureRect" type="TextureRect" parent="CloseButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.271186
+anchor_top = 0.179012
+anchor_right = 0.627119
+anchor_bottom = 0.722222
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_5tvfu")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="Mountain" to="Mountain" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Mountain" to="Mountain" method="_on_mouse_exited"]
+[connection signal="pressed" from="Mountain/KnightDwarf" to="." method="_on_knight_dwarf_pressed"]
+[connection signal="pressed" from="Mountain/CouncilwomanDwarf" to="." method="_on_councilwoman_dwarf_pressed"]
+[connection signal="mouse_entered" from="Cloud" to="Cloud" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Cloud" to="Cloud" method="_on_mouse_exited"]
+[connection signal="pressed" from="Cloud/BirdGuy" to="." method="_on_bird_guy_pressed"]
+[connection signal="pressed" from="Cloud/Peacock" to="." method="_on_peacock_pressed"]
+[connection signal="mouse_entered" from="Forest" to="Forest" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Forest" to="Forest" method="_on_mouse_exited"]
+[connection signal="pressed" from="Forest/Mushroom" to="." method="_on_mushroom_pressed"]
+[connection signal="pressed" from="Forest/ForestLady" to="." method="_on_forest_lady_pressed"]
+[connection signal="mouse_entered" from="Undead" to="Undead" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Undead" to="Undead" method="_on_mouse_exited"]
+[connection signal="pressed" from="Undead/Vampire" to="." method="_on_vampire_pressed"]
+[connection signal="pressed" from="Undead/Skeleton" to="." method="_on_skeleton_pressed"]
+[connection signal="mouse_entered" from="Underwater" to="Underwater" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Underwater" to="Underwater" method="_on_mouse_exited"]
+[connection signal="pressed" from="Underwater/WaterGuy" to="." method="_on_water_guy_pressed"]
+[connection signal="pressed" from="Underwater/WaterGirl" to="." method="_on_water_girl_pressed"]
+[connection signal="mouse_entered" from="Home" to="Home" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Home" to="Home" method="_on_mouse_exited"]
+[connection signal="hidden" from="Popup" to="Popup" method="_on_hidden"]
+[connection signal="visibility_changed" from="Popup" to="Popup" method="_on_visibility_changed"]
+[connection signal="mouse_entered" from="CloseButton" to="CloseButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CloseButton" to="CloseButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="CloseButton" to="CloseButton" method="_on_pressed"]

@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="LetterResource" load_steps=7 format=3 uid="uid://cbevug2gr34f6"]
+
+[ext_resource type="Resource" uid="uid://bc5qvfo24wa4t" path="res://resources/kingdoms/MountainKingdom.tres" id="1_4iloy"]
+[ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="1_sv53s"]
+[ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_xtsgp"]
+[ext_resource type="Texture2D" uid="uid://ct55nkiplcpva" path="res://assets/letters/letter_portraits/Portrait_.png" id="3_5m61a"]
+
+[sub_resource type="Resource" id="Resource_xtsgp"]
+script = ExtResource("1_xtsgp")
+text = "a military might unparalleled on the rest of the continent."
+revealedStat = Array[String](["military"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[sub_resource type="Resource" id="Resource_5m61a"]
+script = ExtResource("1_xtsgp")
+text = "the mana in your land can best amplify our already crushing supply."
+revealedStat = Array[String](["mana"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[resource]
+script = ExtResource("1_sv53s")
+name = "Ingree Thaldrin, Head Steamwright of the Copper Forge"
+kingdom = ExtResource("1_4iloy")
+portrait = ExtResource("3_5m61a")
+greeting = "To Your Highness of the Land of Wheat,"
+signoff = "Ingree Thaldrin, Head Steamwright of the Copper Forge"
+summerVersion = "Bright tidings! I am Ingree Thaldrin. You may recognize my name as the youngest Head Steamwright to earn the title and the first dwarf to utilize mana-powered forges. It may shock you to hear this, but before my success, my peers dismissed me as a “magic-sick radical”! Even now, as my forges run hotter than dragonfire and produce weaponry three times the strength of natural ore, my progress is constantly under siege from the metal purists of the Durvashian Council. 
+
+I write to you today to request an alliance, as you know better than most that if a kingdom cannot evolve, it will calcify like stone and be ground to dust. Now, I know that I do not carry the prestige of the old ways; if you take my hand in marriage, I cannot offer medals or muscle. What I do have is blueprints and a smarter way ahead. 
+
+Durvash can extend to yours the protection of technological prowess manned by a military might unparalleled on the rest of the continent. Nobody can orienteer the intricacies of this better than myself, and as a result, I know that the mana in your land can best amplify our already crushing supply. Such a development would bring about a new era of prosperity—something we must both admit is desperately needed, as you face a looming plague and the Old Dwarven Guard threatens to drag my people back into the past. As you consider my proposal, please remember: “tradition” is merely the word we give to problems we’re too lazy to fix.
+
+P.S. apologies if this letter smells of ozone and lavender—I write this from my lab, and the mana coil is…humming. Rest assured that any kinks will be sorted out in time!"
+summerClickableContent = Array[ExtResource("1_xtsgp")]([SubResource("Resource_xtsgp"), SubResource("Resource_5m61a")])
+fallVersion = "Bright tidings! I am Ingree Thaldrin. You may recognize my name as the youngest Head Steamwright to earn the title and the first dwarf to utilize mana-powered forges. It may shock you to hear this, but before my success, my peers dismissed me as a “magic-sick radical”! Even now, as my forges run hotter than dragonfire and produce weaponry three times the strength of natural ore, my progress is constantly under siege from the metal purists of the Durvashian Council. 
+
+I write to you today to request an alliance, as you know better than most that if a kingdom cannot evolve, it will calcify like stone and be ground to dust. Now, I know that I do not carry the prestige of the old ways; if you take my hand in marriage, I cannot offer medals or muscle. What I do have is blueprints and a smarter way ahead. 
+
+Durvash can extend to yours the protection of technological prowess manned by a military might unparalleled on the rest of the continent. Nobody can orienteer the intricacies of this better than myself, and as a result, I know that the mana in your land can best amplify our already crushing supply. Such a development would bring about a new era of prosperity—something we must both admit is desperately needed, as your plague worsens and the Old Dwarven Guard threatens to drag my people back into the past. As you consider my proposal, please remember: “tradition” is merely the word we give to problems we’re too lazy to fix.
+
+P.S. apologies if this letter smells of ozone and lavender—I write this from my lab, and the mana coil is…humming. Rest assured that any kinks will be sorted out in time!"
+fallClickableContent = Array[ExtResource("1_xtsgp")]([SubResource("Resource_xtsgp"), SubResource("Resource_5m61a")])
+winterVersion = "Bright tidings! I am Ingree Thaldrin. You may recognize my name as the youngest Head Steamwright to earn the title and the first dwarf to utilize mana-powered forges. It may shock you to hear this, but before my success, my peers dismissed me as a “magic-sick radical”! Even now, as my forges run hotter than dragonfire and produce weaponry three times the strength of natural ore, my progress is constantly under siege from the metal purists of the Durvashian Council. 
+
+I write to you today to request an alliance, as you know better than most that if a kingdom cannot evolve, it will calcify like stone and be ground to dust. Now, I know that I do not carry the prestige of the old ways; if you take my hand in marriage, I cannot offer medals or muscle. What I do have is blueprints and a smarter way ahead. 
+
+Durvash can extend to yours the protection of technological prowess manned by a military might unparalleled on the rest of the continent. Nobody can orienteer the intricacies of this better than myself, and as a result, I know that the mana in your land can best amplify our already crushing supply. Such a development would bring about a new era of prosperity—something we must both admit is desperately needed, as your father weakens and the Old Dwarven Guard threatens to drag my people back into the past. As you consider my proposal, please remember: “tradition” is merely the word we give to problems we’re too lazy to fix.
+
+P.S. apologies if this letter smells of ozone and lavender—I write this from my lab, and the mana coil is…humming. Rest assured that any kinks will be sorted out in time!"
+winterClickableContent = Array[ExtResource("1_xtsgp")]([SubResource("Resource_xtsgp"), SubResource("Resource_5m61a")])
+springVersion = "I express my deepest gratitude that Your Majesty would choose but a diligent engineer like myself to continue correspondence with. I also express my deepest condolences for the recent loss of your poor father.
+
+On the topic of grief, I must confess I have not been fully honest with you. I do not share this history often, but I feel the secrets of my past may explain some of the…fervor I displayed in my last letter. In truth, I had another lover many years ago. We were expected to be engaged until a…devasting magical accident rendered my beloved immobile. Without losing myself in the sordid intricacies of the incident, her soul was essentially magically transposed into a chunk of metal. 
+
+Rather than deter me from magical experimentation, the incident pushed me to renew my research into mana-infused machinery. Magic is dangerous, which is precisely why I wish to understand it—to be emboldened by knowledge rather than cowering from what is new. Only then, can such misfortune and heartbreak become a relic of the past. With enterprise and technology, I know that you and I can pick up the pieces of our kingdoms, and forge a new golden age."
+springClickableContent = Array[ExtResource("1_xtsgp")]([])
+season_generated = ""
+metadata/_custom_type_script = "uid://d2ngpxf76ukp7"

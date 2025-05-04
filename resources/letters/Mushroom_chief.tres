@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="LetterResource" load_steps=7 format=3 uid="uid://3ma8autyppno"]
+
+[ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_s4kqs"]
+[ext_resource type="Resource" uid="uid://c2yol8dyhwt2t" path="res://resources/kingdoms/ForestKingdom.tres" id="2_dg84x"]
+[ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="2_t4ifu"]
+[ext_resource type="Texture2D" uid="uid://cpab8obvlt34e" path="res://assets/letters/letter_portraits/Portrait_ (3).png" id="3_dg84x"]
+
+[sub_resource type="Resource" id="Resource_s4kqs"]
+script = ExtResource("1_s4kqs")
+text = "I lead a humble people,"
+revealedStat = Array[String](["population"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[sub_resource type="Resource" id="Resource_t4ifu"]
+script = ExtResource("1_s4kqs")
+text = "forest scape, teeming with boundless fresh vegetation,"
+revealedStat = Array[String](["resource"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[resource]
+script = ExtResource("2_t4ifu")
+name = "Briallon, Chieftess of the Mosswyn Fungal Clan"
+kingdom = ExtResource("2_dg84x")
+portrait = ExtResource("3_dg84x")
+assassin = true
+greeting = "To My Kin in Moss,"
+signoff = "By Her Grace,
+
+Briallon
+(Chieftess of the Mosswyn Fungal Clan)"
+summerVersion = "Tender greetings, my friend! My name is Chieftess Briallon Sporebloom, although I go by many names—Herald Sporebloom, Rootspeaker, The Great Mycelian (which I personally feel is a touch zealous)—but you may simply call me Briallon. 
+
+Contrary to common gossip, I am a simple woman. I lead a humble people, I preach an honest doctrine, and I have but one desire: to advocate for the natural world, as only She can save us. Please do not think me harsh when I say this, for I love our neighbors as I love all brethren of Moss, but…what do the Dwarves know of nurturing the soil? What do the Bonefolk know of the sanctity of death, or the Skyfolk of the music of rot? Nothing! And that is where we must come in.
+
+This Dry season, Moss has brought upon us a glorious opportunity to encounter one another in the midst of diplomacy and in the heat of passion. Mosswyn’s glorious forest scape, teeming with boundless fresh vegetation, has much to offer you humans. As plague threatens your sacred land, Moss desires only to expand and help her sons and daughters guard the sanctity of nature. As lack of faith in Her grace and power wilts, I am deeply ashamed to admit that we are currently disappointing Her in this respect. She may demand drastic measures for us to regain the validity and purity we desperately need. In the meantime, all I ask is that you consider me with sincerity, and I hope to hear from you soon."
+summerClickableContent = Array[ExtResource("1_s4kqs")]([SubResource("Resource_s4kqs"), SubResource("Resource_t4ifu")])
+fallVersion = "Tender greetings, my friend! My name is Chieftess Briallon Sporebloom, although I go by many names—Herald Sporebloom, Rootspeaker, The Great Mycelian (which I personally feel is a touch zealous)—but you may simply call me Briallon. 
+
+Contrary to common gossip, I am a simple woman. I lead a humble people, I preach an honest doctrine, and I have but one desire: to advocate for the natural world, as only She can save us. Please do not think me harsh when I say this, for I love our neighbors as I love all brethren of Moss, but…what do the Dwarves know of nurturing the soil? What do the Bonefolk know of the sanctity of death, or the Skyfolk of the music of rot? Nothing! And that is where we must come in.
+
+This Harvest season, Moss has brought upon us a glorious opportunity to encounter one another in the depths of adversity and in the heat of passion. Mosswyn’s glorious forest scape, teeming with boundless fresh vegetation, has much to offer you humans. As plague threatens your sacred land, Moss desires only to expand and help her sons and daughters guard the sanctity of nature. As lack of faith in Her grace and power wilts, I am deeply ashamed to admit that we are currently disappointing Her in this respect. She may demand drastic measures for us to regain the validity and purity we desperately need. In the meantime, all I ask is that you consider me with sincerity, and I hope to hear from you soon."
+fallClickableContent = Array[ExtResource("1_s4kqs")]([SubResource("Resource_s4kqs"), SubResource("Resource_t4ifu")])
+winterVersion = "Tender greetings, my friend! My name is Chieftess Briallon Sporebloom, although I go by many names—Herald Sporebloom, Rootspeaker, The Great Mycelian (which I personally feel is a touch zealous)—but you may simply call me Briallon. 
+
+Contrary to common gossip, I am a simple woman. I lead a humble people, I preach an honest doctrine, and I have but one desire: to advocate for the natural world, as only She can save us. Please do not think me harsh when I say this, for I love our neighbors as I love all brethren of Moss, but…what do the Dwarves know of nurturing the soil? What do the Bonefolk know of the sanctity of death, or the Skyfolk of the music of rot? Nothing! And that is where we must come in.
+
+This Sullen season, Moss has brought upon us a glorious opportunity to encounter one another in the depths of adversity and the cold grip of desperation. Mosswyn’s glorious forest scape, teeming with boundless fresh vegetation, has much to offer you humans. As plague ruins your sacred land, Moss desires only to expand and help her sons and daughters guard the sanctity of nature. As lack of faith in Her grace and power wilts, I am deeply ashamed to admit that we are currently disappointing Her in this respect. She may demand drastic measures for us to regain the validity and purity we desperately need. In the meantime, all I ask is that you consider me with sincerity, and I hope to hear from you soon."
+winterClickableContent = Array[ExtResource("1_s4kqs")]([SubResource("Resource_s4kqs"), SubResource("Resource_t4ifu")])
+springVersion = "The time is upon us! You have sensibly elected to remain in contact. I thank Moss for granting you wisdom!
+
+Speaking of wisdom—one of my clergyfae have informed me of recent correspondence entering your kingdom from Mosswyn (my network of informants is invaluable in keeping me updated on all of the goings-on in the northern continent)! That being said, I’d like to confirm: is it true that Priestess Hindhart has reached out to you? 
+
+I only ask because I know her well. Very well. It’s embarrassing, but we were actually lovers, once. We didn’t end on the best terms, which is why I know that she may attempt to slander my name and good character. Do not believe her lies. She could never understand the depth of my faith—quite unfortunate for the daughter of a High Priestess. 
+
+Not that I can completely blame her; it takes a special capacity to grasp the enormity of Moss’s love, and the great measures that She demands from us in turn. And yet, I am determined to spread Her teachings throughout our kingdoms, so that all may know Her glory and judgment! Really—is that so much to ask?"
+springClickableContent = Array[ExtResource("1_s4kqs")]([])
+season_generated = ""
+metadata/_custom_type_script = "uid://d2ngpxf76ukp7"

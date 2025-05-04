@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MiscLitResource" load_steps=4 format=3 uid="uid://sri1an0jqo3v"]
+
+[ext_resource type="Texture2D" uid="uid://culoidv4xrf4d" path="res://assets/misc_lit/(AUTUMN, 1) Culture Pamphlet.png" id="1_bakux"]
+[ext_resource type="Texture2D" uid="uid://b2ayvqfs0mvaq" path="res://assets/misc_lit/(AUTUMN, 2) Prophecy.png" id="2_rlwfj"]
+[ext_resource type="Script" uid="uid://c7c51n3k4bkav" path="res://scripts/classes/misc_lit_resource.gd" id="3_uhqit"]
+
+[resource]
+script = ExtResource("3_uhqit")
+season = "fall"
+literatures = Array[Texture]([ExtResource("1_bakux"), ExtResource("2_rlwfj")])

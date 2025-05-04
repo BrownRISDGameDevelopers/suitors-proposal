@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="LetterResource" load_steps=8 format=3 uid="uid://sqvrh15ql0y3"]
+
+[ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_ktm28"]
+[ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="2_1oh6l"]
+[ext_resource type="Resource" uid="uid://cqga80ifaxij1" path="res://resources/kingdoms/CloudKingdom.tres" id="2_nxyue"]
+[ext_resource type="Texture2D" uid="uid://da0xqj6thay1y" path="res://assets/letters/letter_portraits/Portrait_ (6).png" id="3_nxyue"]
+
+[sub_resource type="Resource" id="Resource_ktm28"]
+script = ExtResource("1_ktm28")
+text = "From the Swaying Pools of Nyumbe, heated by natural wells of mana"
+revealedStat = Array[String](["mana"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[sub_resource type="Resource" id="Resource_1oh6l"]
+script = ExtResource("1_ktm28")
+text = "I will mention that our might is nothing to scoff at."
+revealedStat = Array[String](["military"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[sub_resource type="Resource" id="Resource_nxyue"]
+script = ExtResource("1_ktm28")
+text = "While we may be modest in number"
+revealedStat = Array[String](["population"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[resource]
+script = ExtResource("2_1oh6l")
+name = "Mayura Taran, Diplomat of the Verdant Boughs, Northern Nimbozu"
+kingdom = ExtResource("2_nxyue")
+portrait = ExtResource("3_nxyue")
+greeting = "Greetings to Your Magnificent Highness,"
+signoff = "Yours evermore,
+
+Mayura Taran
+Diplomat of the Verdant Boughs, Northern Nimbozu"
+summerVersion = "I sincerely hope that you have been finding moments of solace in each day despite these uncertain and frankly, disconcerting times; perhaps this letter may serve as one such respite from your woes. After all, I can be quite diverting. 
+
+As you are well aware, Fallowbrook and Nimbozu have the pleasure of meeting land to land at the Eastern River…it naturally follows that we should aspire to become much closer allies. As for the benefits of such a union, I won’t bore you with squabble over grain and coin—I prefer to trade in secrets, invitations, and applause. Besides, I’ve always been of the mind that a startling dress and a sharp mouth is the best persuasion tactic in any negotiation. Alas, this letter and portrait will have to do for now. 
+
+When you do visit, I am sure you will be enraptured by our cloud kingdom’s splendor. From the Swaying Pools of Nyumbe, heated by natural wells of mana, to the Hall of Gilded Wings, where our storytellers master the art of song, every morning you will wake to debate, dance, and a dawn chorus hundreds of leagues in the sky. 
+
+And, because I don’t want you to think me completely shallow, I will mention that our might is nothing to scoff at. While we may be modest in number, our sharp-taloned soldiers are born and bred in thin air—they know not of exhaustion nor defeat. Should we come together, your people would cease to know invasion—or boredom. And truly, what more is necessary for both our kingdoms to take flight into a future of prosperity?"
+summerClickableContent = Array[ExtResource("1_ktm28")]([SubResource("Resource_ktm28"), SubResource("Resource_1oh6l"), SubResource("Resource_nxyue")])
+fallVersion = "I sincerely hope that you have been finding moments of solace in each day despite these uncertain and—frankly—frightening times; perhaps this letter may serve as one such respite from your woes. After all, I can be quite diverting. 
+
+As you are well aware, Fallowbrook and Nimbozu have the pleasure of meeting land to land at the Eastern River…it naturally follows that we should aspire to become much closer allies. As for the benefits of such a union, I won’t bore you with squabble over grain and coin—I prefer to trade in secrets, invitations, and applause. Besides, I’ve always been of the mind that a startling dress and a sharp mouth is the best persuasion tactic in any negotiation. Alas, this letter and portrait will have to do for now. 
+
+When you do visit, I am sure you will be enraptured by our cloud kingdom’s splendor. From the Swaying Pools of Nyumbe, heated by natural wells of mana, to the Hall of Gilded Wings, where our storytellers master the art of song, every morning you will wake to debate, dance, and a dawn chorus hundreds of leagues in the sky. 
+
+And, because I don’t want you to think me completely shallow, I will mention that our might is nothing to scoff at. While we may be modest in number, our sharp-taloned soldiers are born and bred in thin air—they know not of exhaustion nor defeat. Should we come together, your people would cease to know invasion—or boredom. And truly, what more is necessary for both our kingdoms to take flight into a future of prosperity?"
+fallClickableContent = Array[ExtResource("1_ktm28")]([SubResource("Resource_ktm28"), SubResource("Resource_1oh6l"), SubResource("Resource_nxyue")])
+winterVersion = "I sincerely hope that you have been finding moments of solace in each day despite these frightening, somber times; perhaps this letter may serve as one such respite from your woes. After all, I can be quite diverting. 
+
+As you are well aware, Fallowbrook and Nimbozu have the pleasure of meeting land to land at the Eastern River…it naturally follows that we should aspire to become much closer allies. As for the benefits of such a union, I won’t bore you with squabble over grain and coin—I prefer to trade in secrets, invitations, and applause. Besides, I’ve always been of the mind that a startling dress and a sharp mouth is the best persuasion tactic in any negotiation. Alas, this letter and portrait will have to do for now. 
+
+When you do visit, I am sure you will be enraptured by our cloud kingdom’s splendor. From the Swaying Pools of Nyumbe, heated by natural wells of mana, to the Hall of Gilded Wings, where our storytellers master the art of song, every morning you will wake to debate, dance, and a dawn chorus hundreds of leagues in the sky. 
+
+And, because I don’t want you to think me completely shallow, I will mention that our might is nothing to scoff at. While we may be modest in number, our sharp-taloned soldiers are born and bred in thin air—they know not of exhaustion nor defeat. Should we come together, your people would cease to know invasion—or boredom. And truly, what more is necessary for both our kingdoms to take flight into a future of prosperity?"
+winterClickableContent = Array[ExtResource("1_ktm28")]([SubResource("Resource_ktm28"), SubResource("Resource_1oh6l"), SubResource("Resource_nxyue")])
+springVersion = "I am honored that you would lend me your genuine consideration, especially in such a turbulent time. If you accept my proposal, I can assure you that I will be well worth your while. Oh, but there will be more time for flirting later!—right now, there are matters of life and death to discuss.
+
+I have heard rumors of various plots growing in the South. On this, I can’t say much. As we are not formally allied (yet), my allegiance is foremost to my kingdom. Besides, some secrets are too dangerous to barter with in something as flimsy as paper and ink. I will only advise you to…reassess your late father’s policies, and make your stance clear to the Majani Assembly as soon as possible. 
+
+The Savanna Avians are not like us Northerners. I may deal in secrets, but they have always been wary of those with uncertain motives. There are debts to be paid, Your Majesty. If not in coin, then honor. Eventually, someone will be sent to collect. Be careful."
+springClickableContent = Array[ExtResource("1_ktm28")]([])
+season_generated = ""
+metadata/_custom_type_script = "uid://d2ngpxf76ukp7"

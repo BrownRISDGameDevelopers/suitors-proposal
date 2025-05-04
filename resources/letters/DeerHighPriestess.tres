@@ -1,0 +1,68 @@
+[gd_resource type="Resource" script_class="LetterResource" load_steps=9 format=3 uid="uid://bhy1jc41adfgf"]
+
+[ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_hffc4"]
+[ext_resource type="Resource" uid="uid://c2yol8dyhwt2t" path="res://resources/kingdoms/ForestKingdom.tres" id="2_5gevl"]
+[ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="2_boy0s"]
+[ext_resource type="Texture2D" uid="uid://bkjjl7npgbp3w" path="res://assets/letters/letter_portraits/Portrait_ (4).png" id="3_5gevl"]
+
+[sub_resource type="Resource" id="Resource_hffc4"]
+script = ExtResource("1_hffc4")
+text = "our numbers have been dwindling"
+revealedStat = Array[String](["population"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[sub_resource type="Resource" id="Resource_boy0s"]
+script = ExtResource("1_hffc4")
+text = "I fear our morale has weakened in solitude"
+revealedStat = Array[String](["morale"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[sub_resource type="Resource" id="Resource_5gevl"]
+script = ExtResource("1_hffc4")
+text = "For all of our mana,"
+revealedStat = Array[String](["mana"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[sub_resource type="Resource" id="Resource_hllbc"]
+script = ExtResource("1_hffc4")
+text = "lacking in defense and prosperity."
+revealedStat = Array[String](["military"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[resource]
+script = ExtResource("2_boy0s")
+name = "Priestess Qa’tir Hindhart"
+kingdom = ExtResource("2_5gevl")
+portrait = ExtResource("3_5gevl")
+greeting = "To My Kin In Moss,"
+signoff = "By Her Grace,
+
+Priestess Qa’tir Hindhart"
+summerVersion = "Blessed greetings. I am Qa’tir, daughter of High Priestess Hindhart. Before I begin, know that I hold profound respect and admiration for your human kingdom. The manner in which your people have maintained sense of self in spite of sickness is a great inspiration—wiliting plagues are no trivial matter. If nothing else, I apologize for not extending my friendship and aid sooner.
+
+Unfortunately, this letter is not merely an expression of well wishes, as it arrives at a period of troubling stagnation for my people. We Fae of Mosswyn have always been a scattered people, with many roaming the wood alone for decades at a time, but recently our numbers have been dwindling. I fear our morale has weakened in solitude, and so I set my sights on external biomes in search of cooperation and exchange. For all of our mana, we lack the livelihood to take advantage of our blessings, and are thus lacking in defense and prosperity. Rather than embodying the stable oak or the adaptable fox, my people have come to resemble that of the decomposers… festering, stagnant…decaying.
+
+It saddens me to inform you that a handful of our citizens have perverted our faith in Moss. Nothing is certain, but I worry that they seek to infect not only the rest of our forest but the entire realm with their twisted sense of devotion. I dread the day that our faith is used as anything but a means of upholding order, honor, and interpersonal harmony. I fear that we need allies now, more than ever. I believe that ally is you."
+summerClickableContent = Array[ExtResource("1_hffc4")]([SubResource("Resource_hffc4"), SubResource("Resource_boy0s"), SubResource("Resource_5gevl"), SubResource("Resource_hllbc")])
+fallVersion = "Blessed greetings. I am Qa’tir, daughter of High Priestess Hindhart. Before I begin, know that I hold profound respect and admiration for your human kingdom. The manner in which your people have maintained sense of self in spite of sickness is a great inspiration—wiliting plagues are no trivial matter. If nothing else, I apologize for not extending my friendship and aid sooner.
+
+Unfortunately, this letter is not merely an expression of well wishes, as it arrives at a period of troubling stagnation for my people. We Fae of Mosswyn have always been a scattered people, with many roaming the wood alone for decades at a time, but recently our numbers have been dwindling. I fear our morale has weakened in solitude, and so I set my sights on external biomes in search of cooperation and exchange. For all of our mana, we lack the livelihood to take advantage of our blessings, and are thus lacking in defense and prosperity. Rather than embodying the stable oak or the adaptable fox, my people have come to resemble that of the decomposers… festering, stagnant…decaying. But then, your people face the Withering. You do not need me to explain.
+
+It saddens me to inform you that a handful of our citizens have perverted our faith in Moss. Nothing is certain, but I worry that they seek to infect not only the rest of our forest but the entire realm with their twisted sense of devotion. I dread the day that our faith is used as anything but a means of upholding order, honor, and interpersonal harmony. I fear that we need allies now, more than ever. I believe that ally is you."
+fallClickableContent = Array[ExtResource("1_hffc4")]([SubResource("Resource_hffc4"), SubResource("Resource_boy0s"), SubResource("Resource_5gevl"), SubResource("Resource_hllbc")])
+winterVersion = "Blessed greetings. I am Qa’tir, daughter of High Priestess Hindhart. Before I begin, know that I hold profound respect and admiration for your human kingdom. The manner in which your people have maintained sense of self in spite of sickness is a great inspiration—wiliting plagues are no trivial matter. If nothing else, I apologize for not extending my friendship and aid sooner.
+
+Unfortunately, this letter is not merely an expression of well wishes, as it arrives at a period of troubling stagnation for my people. We Fae of Mosswyn have always been a scattered people, with many roaming the wood alone for decades at a time, but recently our numbers have been dwindling. I fear our morale has weakened in solitude, and so I set my sights on external biomes in search of cooperation and exchange. For all of our mana, we lack the livelihood to take advantage of our blessings, and are thus lacking in defense and prosperity. Rather than embodying the stable oak or the adaptable fox, my people have come to resemble that of the decomposers… festering, stagnant…decaying. But then, you have seen Withering. In this respect, I was deeply grieved to hear about your father—I will pray for his speedy recovery.
+
+It further saddens me to inform you that a handful of our citizens have perverted our faith in Moss. Nothing is certain, but I worry that they seek to infect not only the rest of our forest but the entire realm with their twisted sense of devotion. I dread the day that our faith is used as anything but a means of upholding order, honor, and interpersonal harmony. I fear that we need allies now, more than ever. I believe that ally is you."
+winterClickableContent = Array[ExtResource("1_hffc4")]([SubResource("Resource_hffc4"), SubResource("Resource_boy0s"), SubResource("Resource_5gevl"), SubResource("Resource_hllbc")])
+springVersion = "The moment is nigh when you must choose a partner. Please forgive my urgency, but there is no time to waste.
+
+In the spirit of companionship, I am sorry to admit that I have not revealed the extent of my knowledge. The fungi’s threat—that is, Briallon’s—is an intimate one; regrettably, the so called “Great Mycelian” is my ex-lover. I understand this puts you in an awkward situation, and trust that I wouldn’t share this information if it did not explain my unique insight into her plans. 
+
+The Fungal Clan is, as you may already suspect, a cult. They do not wish to spread love, but rot. In fact, I wouldn’t be surprised if Briallon had something to do with the passing of your late father. He perished of the Withering, if I am not mistaken? Well, those symptoms look an awful like fungal mold. 
+
+I am sorry if my words are upsetting, but they are imperative. While Mosswyn remains unaffected by the physical plagues of humans, we are not immune to spiritual and psychological rot. The cult has festered like a fungus in unsanitary areas, decomposing and destroying the minds of all whom take part. Only when united can our kingdoms put a stop to this. I look forward to hearing your decision regarding my proposal. "
+springClickableContent = Array[ExtResource("1_hffc4")]([])
+season_generated = ""
+metadata/_custom_type_script = "uid://d2ngpxf76ukp7"

@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="LetterResource" load_steps=8 format=3 uid="uid://06tfuayqd5h2"]
+
+[ext_resource type="Script" uid="uid://d2ngpxf76ukp7" path="res://scripts/classes/letter_resource.gd" id="1_1xag8"]
+[ext_resource type="Script" uid="uid://b466tuukr26ps" path="res://scripts/classes/interactable_text.gd" id="1_i2d1l"]
+[ext_resource type="Resource" uid="uid://bc5qvfo24wa4t" path="res://resources/kingdoms/MountainKingdom.tres" id="2_ad23y"]
+[ext_resource type="Texture2D" uid="uid://c3bdodj4i51m" path="res://assets/letters/letter_portraits/Portrait_ (7).png" id="3_oxh1b"]
+
+[sub_resource type="Resource" id="Resource_ad23y"]
+script = ExtResource("1_i2d1l")
+text = "Resources are limited,"
+revealedStat = Array[String](["resource"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[sub_resource type="Resource" id="Resource_i2d1l"]
+script = ExtResource("1_i2d1l")
+text = "what we lack in abundance we have learned to make up for with righteousness, discipline, and strength of arms"
+revealedStat = Array[String](["population"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[sub_resource type="Resource" id="Resource_oxh1b"]
+script = ExtResource("1_i2d1l")
+text = "so that our nations may together build up our morale and spirit, bit by bit, month by month."
+revealedStat = Array[String](["morale"])
+metadata/_custom_type_script = "uid://b466tuukr26ps"
+
+[resource]
+script = ExtResource("1_1xag8")
+name = "Councilwoman Dronma, Grithelm of the Durvashian Guard"
+kingdom = ExtResource("2_ad23y")
+portrait = ExtResource("3_oxh1b")
+greeting = "To the future crown of the Land of Wheat,
+"
+signoff = "Councilwoman Dronma Grithelm of the Durvashian Guard"
+summerVersion = "I write to you now without flourish, for I have no patience for insipid flattery or hollow words. The weight of the crown that will soon rest upon your head is heavy. I know this. I have worn armor, shed blood, and borne scars all for the sake of my people. And yet, I see in you a burning resolve to carry forward your father’s legacy when the time comes—and to shape your own, no doubt. 
+
+In the cold, unforgiving peaks I hail from, survival demands more than strength—it demands vision. Change must be had, for to rely on the fickle whims of mana, magic, and machine is to invite ruin. Resources are limited, but what we lack in abundance we have learned to make up for with righteousness, discipline, and strength of arms — measures that do not waver in the same way that magic does. When our backs bend under the weight of uncertainty, true dwarves know that the only thing we can trust is the loyalty of steel, pure and true. 
+
+I ask that you recognize my conviction and extend to me your own, so that our nations may together build up our morale and spirit, bit by bit, month by month. Unmitigated growth is the virtue of fools; negative side effects catch up at an even greater and more uncontrollable pace. Steady, “slow” growth is the only stable path. I trust you have the wisdom and composure to accept this, and request that you take my hand in beginning a new age of progress and prosperity between our lands.
+
+May your blades remain sharp."
+summerClickableContent = Array[ExtResource("1_i2d1l")]([SubResource("Resource_ad23y"), SubResource("Resource_i2d1l"), SubResource("Resource_oxh1b")])
+fallVersion = "I write to you now without flourish, for I have no patience for insipid flattery or hollow words. The weight of the crown that will soon rest upon your head is heavy. I know this. I have worn armor, shed blood, and borne scars all for the sake of my people. Your kingdom faces a potentially devastating threat. And yet, I see in you a burning resolve to carry forward your father’s legacy when the time comes—and to shape your own, no doubt. 
+
+In the cold, unforgiving peaks I hail from, survival demands more than strength—it demands vision. Change must be had, for to rely on the fickle whims of mana, magic, and machine is to invite ruin. Resources are limited, but what we lack in abundance we have learned to make up for with righteousness, discipline, and strength of arms — measures that do not waver in the same way that magic does. When our backs bend under the weight of uncertainty, true dwarves know that the only thing we can trust is the loyalty of steel, pure and true. 
+
+I ask that you recognize my conviction and extend to me your own, so that our nations may together build up our morale and spirit, bit by bit, month by month. Unmitigated growth is the virtue of fools; negative side effects catch up at an even greater and more uncontrollable pace. Steady, “slow” growth is the only stable path. I trust you have the wisdom and composure to accept this, and request that you take my hand in beginning a new age of progress and prosperity between our lands.
+
+May your blades remain sharp."
+fallClickableContent = Array[ExtResource("1_i2d1l")]([SubResource("Resource_ad23y"), SubResource("Resource_i2d1l"), SubResource("Resource_oxh1b")])
+winterVersion = "I write to you now without flourish, for I have no patience for insipid flattery or hollow words. The weight of the crown that will soon rest upon your head is heavy. I know this. I have worn armor, shed blood, and borne scars all for the sake of my people. Your kingdom faces devastation; in this, words cannot adequately express my condolences for the challenges you face. And yet, I see in you a burning resolve to carry forward your father’s legacy when the time soon comes—and to shape your own, no doubt. 
+
+In the cold, unforgiving peaks I hail from, survival demands more than strength—it demands vision. Change must be had, for to rely on the fickle whims of mana, magic, and machine is to invite ruin. Resources are limited, but what we lack in abundance we have learned to make up for with righteousness, discipline, and strength of arms — measures that do not waver in the same way that magic does. When our backs bend under the weight of uncertainty, true dwarves know that the only thing we can trust is the loyalty of steel, pure and true. 
+
+I ask that you recognize my conviction and extend to me your own, so that our nations may together build up our morale and spirit, bit by bit, month by month. Unmitigated growth is the virtue of fools; negative side effects catch up at an even greater and more uncontrollable pace. Steady, “slow” growth is the only stable path. I trust you have the wisdom and composure to accept this, and request that you take my hand in beginning a new age of progress and prosperity between our lands.
+
+May your blades remain sharp."
+winterClickableContent = Array[ExtResource("1_i2d1l")]([SubResource("Resource_ad23y"), SubResource("Resource_i2d1l"), SubResource("Resource_oxh1b")])
+springVersion = "I am sincerely flattered that, in the face of such incredibly trying times, you afford some of your spirit into acknowledging my initial outreach. As our situations grow ever more dire, the only logical choice is for us to join forces and pool our kingdoms’ resources. Our military can stifle any looming civilian uprising, while your support will be invaluable in quelling any internal dissent on the mountain. 
+
+You are aware, I am sure, of recent incidents involving unsanctioned magic usage among the clans. The Council grows less confident with each day that we will be able to stifle these mana-mad dissidents. They seek shortcuts, unaware there are none to be found in matters of war and steel. 
+
+That being said, I know you are concerned about assassins. Please rest assured that none will be found in Durvash. To kill another in deceit is the highest dishonor, and vanquishes one’s hopes of reaching the Silver Halls. There is not a dwarf alive who would risk it—this holds true even for the magic-sick “innovators”. They may be naive, but even they retain some respect for the laws of our gods. Therefore, let this letter be a warning and a reassurance. 
+
+May your blades remain sharp as you consider my words. The time is fast approaching when you will need them."
+springClickableContent = Array[ExtResource("1_i2d1l")]([])
+season_generated = ""
+metadata/_custom_type_script = "uid://d2ngpxf76ukp7"

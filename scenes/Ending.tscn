@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxa0kw57lp3py"]
+
+[ext_resource type="Script" uid="uid://dhm4ik5mipudp" path="res://scripts/ending.gd" id="1_ryuiv"]
+[ext_resource type="Texture2D" uid="uid://hybvwnkexydc" path="res://assets/endings/overthrown.PNG" id="1_tpy27"]
+[ext_resource type="Texture2D" uid="uid://bkypwiwbwjie0" path="res://assets/ui/Button_Template.png" id="2_fnpsr"]
+[ext_resource type="FontFile" uid="uid://dxtdgrovxy3yh" path="res://assets/fonts/blackchancery/BLKCHCRY.TTF" id="3_ryuiv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q2ai"]
+atlas = ExtResource("2_fnpsr")
+region = Rect2(44, 83, 531, 125)
+
+[node name="Ending" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ryuiv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_tpy27")
+
+[node name="PlayAgain" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 323.0
+offset_top = -243.0
+offset_right = 854.0
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = SubResource("AtlasTexture_5q2ai")
+
+[node name="NextSzn" type="Label" parent="PlayAgain"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.5
+offset_top = -49.5
+offset_right = 150.5
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.396078, 0.219608, 0.164706, 1)
+theme_override_colors/font_shadow_color = Color(0.890196, 0.760784, 0.435294, 1)
+theme_override_constants/line_spacing = -6
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("3_ryuiv")
+theme_override_font_sizes/font_size = 44
+text = "Play Again"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="PlayAgain" to="." method="_on_play_again_pressed"]

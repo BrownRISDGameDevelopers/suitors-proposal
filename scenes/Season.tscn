@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://xcjso2ahhvni"]
+
+[ext_resource type="Script" uid="uid://b6w52382hmlo5" path="res://scripts/season.gd" id="1_d1cl4"]
+[ext_resource type="Texture2D" uid="uid://bsi1qfodbrsf2" path="res://assets/seasons/scrolls/autumn.png" id="2_hj1kf"]
+[ext_resource type="Texture2D" uid="uid://bylnya0b8q3cp" path="res://assets/seasons/backgrounds/autumn.png" id="3_h18y1"]
+[ext_resource type="Texture2D" uid="uid://b7ql23kdby48j" path="res://assets/seasons/backgrounds/spring.png" id="4_taphx"]
+
+[node name="Control" type="Control"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_d1cl4")
+
+[node name="Scroll" type="TextureRect" parent="."]
+z_index = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -870.0
+offset_right = 960.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_hj1kf")
+
+[node name="PreviousSeason" type="TextureRect" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_h18y1")
+
+[node name="NextSeason" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_taphx")

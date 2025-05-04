@@ -1,0 +1,144 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkrvpxjak31id"]
+
+[ext_resource type="Script" uid="uid://cg4amap6lr7uy" path="res://scripts/stats_popup.gd" id="1_4c2u4"]
+[ext_resource type="Texture2D" uid="uid://m1yrrn8hpte0" path="res://assets/map/stats_popup/Stat Bar UI.png" id="1_hyq1i"]
+[ext_resource type="Texture2D" uid="uid://bkypwiwbwjie0" path="res://assets/ui/Button_Template.png" id="2_47gvx"]
+[ext_resource type="FontFile" uid="uid://dxtdgrovxy3yh" path="res://assets/fonts/blackchancery/BLKCHCRY.TTF" id="3_jy7q2"]
+[ext_resource type="Texture2D" uid="uid://6wdypl738jel" path="res://assets/map/stats_popup/1bar.png" id="4_47gvx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ef2n"]
+atlas = ExtResource("2_47gvx")
+region = Rect2(44, 83, 531, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyq1i"]
+atlas = ExtResource("1_hyq1i")
+region = Rect2(82, 16, 487, 255)
+
+[node name="Popup" type="VBoxContainer"]
+offset_right = 487.0
+offset_bottom = 255.0
+mouse_filter = 2
+alignment = 2
+script = ExtResource("1_4c2u4")
+
+[node name="Suitor" type="TextureRect" parent="."]
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_1ef2n")
+expand_mode = 5
+
+[node name="SuitorName" type="Label" parent="Suitor"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.5
+offset_top = -49.5
+offset_right = 150.5
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.396078, 0.219608, 0.164706, 1)
+theme_override_colors/font_shadow_color = Color(0.890196, 0.760784, 0.435294, 1)
+theme_override_constants/line_spacing = -6
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("3_jy7q2")
+theme_override_font_sizes/font_size = 23
+text = "General Marrow of Frostgrave, Commander of the Gravenmere Militia"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Stats" type="TextureRect" parent="."]
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_hyq1i")
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Header" type="Label" parent="Stats"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -182.0
+offset_top = 21.5
+offset_right = 182.0
+offset_bottom = 51.5
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jy7q2")
+theme_override_font_sizes/font_size = 23
+text = "Nimbozu, the Cloud Kingdom"
+horizontal_alignment = 1
+
+[node name="PopulationBar" type="TextureRect" parent="Stats"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3026
+anchor_top = 0.192157
+anchor_right = 0.93299
+anchor_bottom = 0.360784
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_47gvx")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MilitaryBar" type="TextureRect" parent="Stats"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3026
+anchor_top = 0.321569
+anchor_right = 0.93299
+anchor_bottom = 0.490196
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_47gvx")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MoraleBar" type="TextureRect" parent="Stats"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3026
+anchor_top = 0.447059
+anchor_right = 0.93299
+anchor_bottom = 0.615686
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_47gvx")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ResourceBar" type="TextureRect" parent="Stats"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3026
+anchor_top = 0.572549
+anchor_right = 0.93299
+anchor_bottom = 0.741176
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_47gvx")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ManaBar" type="TextureRect" parent="Stats"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3026
+anchor_top = 0.698039
+anchor_right = 0.93299
+anchor_bottom = 0.866667
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_47gvx")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true

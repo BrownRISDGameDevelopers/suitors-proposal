@@ -1,34 +1,283 @@
-[gd_scene load_steps=4 format=3 uid="uid://byy6ufy2a5hsj"]
+[gd_scene load_steps=25 format=3 uid="uid://byy6ufy2a5hsj"]
 
 [ext_resource type="Script" uid="uid://b2acxx3ucocca" path="res://scripts/main.gd" id="1_rvslj"]
-[ext_resource type="Texture2D" uid="uid://bdna0r2esnehs" path="res://assets/placeholder_background.png" id="2_rvslj"]
-[ext_resource type="Texture2D" uid="uid://c638kdkfrsghx" path="res://assets/placeholder_settingsIcon.png" id="4_rarhs"]
+[ext_resource type="Texture2D" uid="uid://w1a6fhrhcot" path="res://assets/desk/Newspaper static.png" id="3_bjd11"]
+[ext_resource type="Texture2D" uid="uid://b147324itffqj" path="res://assets/desk/Many letters static.PNG" id="3_jlsqs"]
+[ext_resource type="Texture2D" uid="uid://cb0i68purafic" path="res://assets/desk/Many letters hover.PNG" id="4_q8u5g"]
+[ext_resource type="Texture2D" uid="uid://0qtknnigfy6s" path="res://assets/desk/Newspaper hover.PNG" id="4_qmy6f"]
+[ext_resource type="Script" uid="uid://ci0ql7v1ltnwn" path="res://scripts/classes/bitmasked_texture_button.gd" id="5_lhr70"]
+[ext_resource type="Texture2D" uid="uid://cymg1eq0fl82u" path="res://assets/desk/Desk base png.PNG" id="5_vcsgt"]
+[ext_resource type="Texture2D" uid="uid://bac0msyo3xrl0" path="res://assets/desk/Map static.png" id="6_lhr70"]
+[ext_resource type="Texture2D" uid="uid://cxbwhc3oinhcu" path="res://assets/desk/Map hover.PNG" id="7_wp0k4"]
+[ext_resource type="Texture2D" uid="uid://c33w8sxl4ceu1" path="res://assets/desk/Archive static.png" id="8_3p2gp"]
+[ext_resource type="Texture2D" uid="uid://dlcktckmg1ddv" path="res://assets/desk/Letter archive hover.PNG" id="9_cvmbd"]
+[ext_resource type="Texture2D" uid="uid://ir5oprt8suna" path="res://assets/desk/Border.PNG" id="12_bjd11"]
+[ext_resource type="PackedScene" uid="uid://b8iollf58huxn" path="res://scenes/Map.tscn" id="12_ft6cd"]
+[ext_resource type="Shader" uid="uid://i0gw66opu5ta" path="res://assets/shaders/blur.gdshader" id="12_nfivy"]
+[ext_resource type="Texture2D" uid="uid://0plcya5e8jk1" path="res://assets/ui/seasons_indicators/summer.png" id="13_3p2gp"]
+[ext_resource type="PackedScene" uid="uid://dosmcrt0dxc4c" path="res://scenes/MiscLit.tscn" id="13_bb450"]
+[ext_resource type="Material" uid="uid://ef7dgc3nfapr" path="res://assets/shaders/kingdom_outline.tres" id="13_mwfav"]
+[ext_resource type="Texture2D" uid="uid://c3qo2kc0i1s5i" path="res://assets/ui/Pause Button.png" id="13_qmy6f"]
+[ext_resource type="Texture2D" uid="uid://dh4lgexl05uk6" path="res://assets/desk/Map tab.png" id="14_bb450"]
+[ext_resource type="PackedScene" uid="uid://cfxqmu24b4vgv" path="res://scenes/Settings.tscn" id="15_1nqs0"]
+[ext_resource type="Texture2D" uid="uid://bkypwiwbwjie0" path="res://assets/ui/Button_Template.png" id="21_yxlcp"]
+[ext_resource type="FontFile" uid="uid://dxtdgrovxy3yh" path="res://assets/fonts/blackchancery/BLKCHCRY.TTF" id="22_ebg2g"]
 
-[node name="Main" type="Node2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ofn6"]
+atlas = ExtResource("21_yxlcp")
+region = Rect2(44, 83, 531, 125)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nfivy"]
+shader = ExtResource("12_nfivy")
+shader_parameter/lod = 0.0
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_rvslj")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Base" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_vcsgt")
 
-[node name="PlaceholderBackground" type="Sprite2D" parent="."]
-position = Vector2(-1, 0)
-scale = Vector2(1.08465, 0.783745)
-texture = ExtResource("2_rvslj")
+[node name="News" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+texture_normal = ExtResource("3_bjd11")
+texture_hover = ExtResource("4_qmy6f")
+script = ExtResource("5_lhr70")
+metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
 
-[node name="Label" type="Label" parent="."]
-offset_left = -138.0
-offset_top = -57.0
-offset_right = -84.0
-offset_bottom = -34.0
-scale = Vector2(5, 5)
-size_flags_vertical = 1
-text = "desk :3"
+[node name="Map" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+texture_normal = ExtResource("6_lhr70")
+texture_hover = ExtResource("7_wp0k4")
+script = ExtResource("5_lhr70")
+metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
 
-[node name="SettingsButton" type="Button" parent="."]
-offset_left = 734.0
-offset_top = -499.0
-offset_right = 1254.0
-offset_bottom = 21.0
-scale = Vector2(0.319243, 0.319243)
-icon = ExtResource("4_rarhs")
+[node name="Archive" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+texture_normal = ExtResource("8_3p2gp")
+texture_hover = ExtResource("9_cvmbd")
+script = ExtResource("5_lhr70")
+metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
 
-[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[node name="LettersStack" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+texture_normal = ExtResource("3_jlsqs")
+texture_hover = ExtResource("4_q8u5g")
+script = ExtResource("5_lhr70")
+metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
+
+[node name="SeasonChangeButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -265.5
+offset_top = -243.0
+offset_right = 265.5
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = SubResource("AtlasTexture_2ofn6")
+
+[node name="NextSzn" type="Label" parent="SeasonChangeButton"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.5
+offset_top = -49.5
+offset_right = 150.5
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.396078, 0.219608, 0.164706, 1)
+theme_override_colors/font_shadow_color = Color(0.890196, 0.760784, 0.435294, 1)
+theme_override_constants/line_spacing = -6
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("22_ebg2g")
+theme_override_font_sizes/font_size = 44
+text = "End Season"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Blur" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_nfivy")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.823529)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Map" parent="UI" instance=ExtResource("12_ft6cd")]
+visible = false
+layout_mode = 1
+offset_left = -742.5
+offset_top = -418.0
+offset_right = 742.5
+offset_bottom = 418.0
+
+[node name="MiscLit" parent="UI" instance=ExtResource("13_bb450")]
+visible = false
+layout_mode = 1
+
+[node name="Settings" parent="UI" instance=ExtResource("15_1nqs0")]
+visible = false
+z_index = 100
+layout_mode = 1
+
+[node name="Border" type="TextureRect" parent="."]
+z_index = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("12_bjd11")
+metadata/_edit_lock_ = true
+
+[node name="CurrentSeason" type="TextureRect" parent="."]
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("13_3p2gp")
+metadata/_edit_lock_ = true
+
+[node name="Banner" type="TextureRect" parent="."]
+z_index = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -408.0
+offset_right = 372.0
+offset_bottom = 341.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("14_bb450")
+expand_mode = 1
+
+[node name="PauseButton" type="TextureButton" parent="."]
+process_mode = 3
+z_index = 101
+material = ExtResource("13_mwfav")
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -241.0
+offset_top = -74.0
+offset_right = 229.0
+offset_bottom = 255.0
+grow_horizontal = 0
+mouse_filter = 1
+texture_normal = ExtResource("13_qmy6f")
+script = ExtResource("5_lhr70")
+metadata/_custom_type_script = "uid://ci0ql7v1ltnwn"
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="News" to="." method="_on_news_pressed"]
+[connection signal="pressed" from="Map" to="." method="_on_map_pressed"]
+[connection signal="pressed" from="Archive" to="." method="_on_archive_pressed"]
+[connection signal="pressed" from="LettersStack" to="." method="_on_letters_stack_pressed"]
+[connection signal="mouse_entered" from="SeasonChangeButton" to="." method="_on_season_change_button_mouse_entered"]
+[connection signal="mouse_exited" from="SeasonChangeButton" to="." method="_on_season_change_button_mouse_exited"]
+[connection signal="pressed" from="SeasonChangeButton" to="." method="_on_season_change_button_pressed"]
+[connection signal="mouse_entered" from="PauseButton" to="." method="_on_pause_button_mouse_entered"]
+[connection signal="mouse_exited" from="PauseButton" to="." method="_on_pause_button_mouse_exited"]
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
