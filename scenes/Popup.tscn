@@ -22,7 +22,6 @@ alignment = 2
 script = ExtResource("1_4c2u4")
 
 [node name="Suitor" type="TextureRect" parent="."]
-visible = false
 layout_mode = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_1ef2n")

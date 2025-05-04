@@ -225,7 +225,7 @@ func _start_new_season() -> void:
 
 	if current_season == Seasons.SPRING:
 		spring_selection()
-		pass
+		return
 
 	enable_table()
 
@@ -323,6 +323,7 @@ func spring_selection() -> void:
 	tween.tween_callback(current_letter_file.queue_free)
 
 	current_letter_file.letter_closed.connect(hide_letter)
+	current_letter_file.letter_closed.connect(enable_table)
 
 
 ## _END_SEASON() --> Ends a season cycle. In this context, will be called when 
@@ -504,6 +505,7 @@ func _on_news_pressed() -> void:
 
 @onready var pause_button: BitmaskedTextureButton = $PauseButton
 @onready var season_change_button: TextureButton = $SeasonChangeButton
+@onready var settings = $UI/Settings
 
 func _on_pause_button_mouse_entered() -> void:
 	print("active")
@@ -513,6 +515,12 @@ func _on_pause_button_mouse_exited() -> void:
 	print("inactive")
 	pause_button.material.set_shader_parameter("enabled", false)
 
+func _on_pause_button_pressed() -> void:
+	get_tree().paused = not get_tree().paused
+	print("paused ", get_tree().paused)
+	settings.visible = get_tree().paused
+
+
 # EVENT HANDLING
 
 # Called wwhen the node enters the scene tree for the first time.
@@ -521,6 +529,7 @@ func _ready() -> void:
 	pause_button.material = OUTLINE.duplicate()
 
 	map_close_button.connect("pressed", hide_map)
+
 
 	# create dir of suitors
 	

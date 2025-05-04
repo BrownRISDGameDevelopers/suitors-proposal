@@ -15,6 +15,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_d1cl4")
 
 [node name="Scroll" type="TextureRect" parent="."]
@@ -31,6 +32,7 @@ offset_right = 960.0
 offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_hj1kf")
 
 [node name="PreviousSeason" type="TextureRect" parent="."]
@@ -47,6 +49,7 @@ offset_right = 960.0
 offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("3_h18y1")
 
 [node name="NextSeason" type="TextureRect" parent="."]
@@ -63,4 +66,5 @@ offset_right = 960.0
 offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("4_taphx")
