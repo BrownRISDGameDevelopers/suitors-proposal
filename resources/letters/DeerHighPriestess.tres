@@ -34,6 +34,7 @@ script = ExtResource("2_boy0s")
 name = "Priestess Qa’tir Hindhart"
 kingdom = ExtResource("2_5gevl")
 portrait = ExtResource("3_5gevl")
+assassin = false
 greeting = "To My Kin In Moss,"
 signoff = "By Her Grace,
 

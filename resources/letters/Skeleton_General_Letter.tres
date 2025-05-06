@@ -28,6 +28,7 @@ script = ExtResource("1_jv4he")
 name = "General Marrow of Frostgrave, Commander of the Gravenmere Militia"
 kingdom = ExtResource("2_6jjkh")
 portrait = ExtResource("3_t81pp")
+assassin = false
 greeting = "Highness,"
 signoff = "General Marrow of Frostgrave
 Commander of the Gravenmere Militia

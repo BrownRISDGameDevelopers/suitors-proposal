@@ -22,6 +22,7 @@ script = ExtResource("4_aui8t")
 name = "King of Gravenmere, Count Aldéric Sangvin"
 kingdom = ExtResource("2_3mtvp")
 portrait = ExtResource("3_fpdp0")
+assassin = false
 greeting = "To the Most Serene Highness of Fallowbrook,"
 signoff = "With utmost respect and most ardent fervor,
  

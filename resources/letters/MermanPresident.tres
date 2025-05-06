@@ -34,6 +34,7 @@ script = ExtResource("2_e5dnj")
 name = "President Adrian Kyanos of Pelagis"
 kingdom = ExtResource("2_mjk0y")
 portrait = ExtResource("3_mjk0y")
+assassin = false
 greeting = "To Your Highness of Fallowbrook,"
 signoff = "Sincerely, in sift and salt,
 

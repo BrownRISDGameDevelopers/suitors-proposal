@@ -28,6 +28,7 @@ script = ExtResource("1_1xag8")
 name = "Councilwoman Dronma, Grithelm of the Durvashian Guard"
 kingdom = ExtResource("2_ad23y")
 portrait = ExtResource("3_oxh1b")
+assassin = false
 greeting = "To the future crown of the Land of Wheat,
 "
 signoff = "Councilwoman Dronma Grithelm of the Durvashian Guard"

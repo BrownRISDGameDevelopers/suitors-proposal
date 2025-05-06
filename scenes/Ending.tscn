@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bxa0kw57lp3py"]
 
 [ext_resource type="Script" uid="uid://dhm4ik5mipudp" path="res://scripts/ending.gd" id="1_ryuiv"]
-[ext_resource type="Texture2D" uid="uid://hybvwnkexydc" path="res://assets/endings/overthrown.PNG" id="1_tpy27"]
+[ext_resource type="Texture2D" uid="uid://hybvwnkexydc" path="res://assets/endings/overthrown.png" id="1_tpy27"]
 [ext_resource type="Texture2D" uid="uid://bkypwiwbwjie0" path="res://assets/ui/Button_Template.png" id="2_fnpsr"]
 [ext_resource type="FontFile" uid="uid://dxtdgrovxy3yh" path="res://assets/fonts/blackchancery/BLKCHCRY.TTF" id="3_ryuiv"]
 

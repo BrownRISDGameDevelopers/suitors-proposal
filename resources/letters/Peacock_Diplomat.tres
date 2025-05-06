@@ -28,6 +28,7 @@ script = ExtResource("2_1oh6l")
 name = "Mayura Taran, Diplomat of the Verdant Boughs, Northern Nimbozu"
 kingdom = ExtResource("2_nxyue")
 portrait = ExtResource("3_nxyue")
+assassin = false
 greeting = "Greetings to Your Magnificent Highness,"
 signoff = "Yours evermore,
 
