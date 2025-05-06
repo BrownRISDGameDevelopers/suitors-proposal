@@ -10,8 +10,8 @@ signal suitor_chosen(suitor)
 @export var water: Kingdom
 @export var undead: Kingdom
 
-@onready var KnightDwarf = $Mountains/KnightDwarf
-@onready var CouncilwomanDwarf = $Mountains/CouncilwomanDwarf
+@onready var KnightDwarf = $Mountain/KnightDwarf
+@onready var CouncilwomanDwarf = $Mountain/CouncilwomanDwarf
 @onready var BirdGuy = $Cloud/BirdGuy
 @onready var Peacock = $Cloud/Peacock
 @onready var Mushroom = $Forest/Mushroom
