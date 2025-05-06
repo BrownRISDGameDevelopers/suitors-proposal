@@ -105,6 +105,8 @@ func load_resources() -> void:
 	letters_dir.list_dir_begin()
 	var letter_file = letters_dir.get_next()
 	while letter_file != "":
+		if letter_file.ends_with(".remap"):
+			letter_file = letter_file.replace(".remap", "")
 		if letter_file.ends_with(".tres"):
 			var letter = load("res://resources/letters/" + letter_file)
 			suitors.append(letter)
@@ -114,6 +116,8 @@ func load_resources() -> void:
 	misc_lit_dir.list_dir_begin()
 	var misc_lit_file = misc_lit_dir.get_next()
 	while misc_lit_file != "":
+		if misc_lit_file.ends_with(".remap"):
+			misc_lit_file = misc_lit_file.replace(".remap", "")
 		if misc_lit_file.ends_with(".tres"):
 			var misc_lit = load("res://resources/misc_lit/" + misc_lit_file) as MiscLitResource
 
