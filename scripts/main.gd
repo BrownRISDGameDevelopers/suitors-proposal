@@ -543,6 +543,7 @@ func _on_news_pressed() -> void:
 
 @onready var pause_button: BitmaskedTextureButton = $PauseButton
 @onready var season_change_button: TextureButton = $SeasonChangeButton
+@onready var season_change_button_text = %NextSzn
 @onready var settings = $UI/Settings
 
 func _on_pause_button_mouse_entered() -> void:
@@ -615,6 +616,9 @@ func _process(delta: float) -> void:
 	#season_change_button.show()
 	#season_change_button.disabled = false
 	if not current_letter_stack and not misc_lits[current_season]:
+		if current_season == Seasons.SPRING:
+			season_change_button_text.text = "Choose a Suitor"
+
 		season_change_button.show()
 		season_change_button.disabled = false
 	else:
